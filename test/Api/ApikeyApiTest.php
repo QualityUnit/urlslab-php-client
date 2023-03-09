@@ -101,12 +101,12 @@ class ApikeyApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test case for validation
+     * Test case for validate
      *
      * validate a given API Key.
      *
      */
-    public function testValidation()
+    public function testValidate()
     {
     }
 }

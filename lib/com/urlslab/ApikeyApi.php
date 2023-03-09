@@ -855,7 +855,7 @@ class ApikeyApi
     }
 
     /**
-     * Operation validation
+     * Operation validate
      *
      * validate a given API Key
      *
@@ -864,14 +864,14 @@ class ApikeyApi
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\com.urlslab.domain\DomainAcknowledged
      */
-    public function validation()
+    public function validate()
     {
-        list($response) = $this->validationWithHttpInfo();
+        list($response) = $this->validateWithHttpInfo();
         return $response;
     }
 
     /**
-     * Operation validationWithHttpInfo
+     * Operation validateWithHttpInfo
      *
      * validate a given API Key
      *
@@ -880,10 +880,10 @@ class ApikeyApi
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\com.urlslab.domain\DomainAcknowledged, HTTP status code, HTTP response headers (array of strings)
      */
-    public function validationWithHttpInfo()
+    public function validateWithHttpInfo()
     {
         $returnType = '\Swagger\Client\com.urlslab.domain\DomainAcknowledged';
-        $request = $this->validationRequest();
+        $request = $this->validateRequest();
 
         try {
             $options = $this->createHttpClientOption();
@@ -953,7 +953,7 @@ class ApikeyApi
     }
 
     /**
-     * Operation validationAsync
+     * Operation validateAsync
      *
      * validate a given API Key
      *
@@ -961,9 +961,9 @@ class ApikeyApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function validationAsync()
+    public function validateAsync()
     {
-        return $this->validationAsyncWithHttpInfo()
+        return $this->validateAsyncWithHttpInfo()
             ->then(
                 function ($response) {
                     return $response[0];
@@ -972,7 +972,7 @@ class ApikeyApi
     }
 
     /**
-     * Operation validationAsyncWithHttpInfo
+     * Operation validateAsyncWithHttpInfo
      *
      * validate a given API Key
      *
@@ -980,10 +980,10 @@ class ApikeyApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function validationAsyncWithHttpInfo()
+    public function validateAsyncWithHttpInfo()
     {
         $returnType = '\Swagger\Client\com.urlslab.domain\DomainAcknowledged';
-        $request = $this->validationRequest();
+        $request = $this->validateRequest();
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1023,13 +1023,13 @@ class ApikeyApi
     }
 
     /**
-     * Create request for operation 'validation'
+     * Create request for operation 'validate'
      *
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function validationRequest()
+    protected function validateRequest()
     {
 
         $resourcePath = '/v1/apikey/validate';

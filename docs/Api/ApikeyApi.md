@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**createAPIKey**](ApikeyApi.md#createapikey) | **PUT** /v1/apikey | Creates a new API Key for the user
 [**deleteAPIKey**](ApikeyApi.md#deleteapikey) | **DELETE** /v1/apikey | Deletes an API Key for the user
 [**listAPIKey**](ApikeyApi.md#listapikey) | **GET** /v1/apikey | Lists all API Keys for the user
-[**validation**](ApikeyApi.md#validation) | **GET** /v1/apikey/validate | validate a given API Key
+[**validate**](ApikeyApi.md#validate) | **GET** /v1/apikey/validate | validate a given API Key
 
 # **createAPIKey**
 > \Swagger\Client\com.urlslab.domain\DomainAcknowledged createAPIKey()
@@ -159,8 +159,8 @@ This endpoint does not need any parameter.
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
-# **validation**
-> \Swagger\Client\com.urlslab.domain\DomainAcknowledged validation()
+# **validate**
+> \Swagger\Client\com.urlslab.domain\DomainAcknowledged validate()
 
 validate a given API Key
 
@@ -178,10 +178,10 @@ $apiInstance = new Swagger\Client\com.urlslab\ApikeyApi(
 );
 
 try {
-    $result = $apiInstance->validation();
+    $result = $apiInstance->validate();
     print_r($result);
 } catch (Exception $e) {
-    echo 'Exception when calling ApikeyApi->validation: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ApikeyApi->validate: ', $e->getMessage(), PHP_EOL;
 }
 ?>
 ```
