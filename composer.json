@@ -1,6 +1,6 @@
 {
-    "name": "urlslab-php-client/urlslab",
-    "version": "0.0.9",
+    "name": "urlslab/urlslab-php-sdk",
+    "version": "0.0.10",
     "description": "",
     "keywords": [
         "swagger",
