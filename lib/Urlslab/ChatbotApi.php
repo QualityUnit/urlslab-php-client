@@ -1,6 +1,6 @@
 <?php
 /**
- * ScreenshotApi
+ * ChatbotApi
  * PHP version 5
  *
  * @category Class
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace Swagger\Client\com.urlslab;
+namespace Swagger\Client\Urlslab;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -39,14 +39,14 @@ use Swagger\Client\HeaderSelector;
 use Swagger\Client\ObjectSerializer;
 
 /**
- * ScreenshotApi Class Doc Comment
+ * ChatbotApi Class Doc Comment
  *
  * @category Class
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ScreenshotApi
+class ChatbotApi
 {
     /**
      * @var ClientInterface
@@ -87,37 +87,34 @@ class ScreenshotApi
     }
 
     /**
-     * Operation getScreenshots
+     * Operation getStatelessChatbotAnswer
      *
-     * Get screenshot of url
+     * Get a chatbot answer with stateless chatbot
      *
-     * @param  \Swagger\Client\com.urlslab.domain\DomainDataRetrievalUpdatableRetrieval[] $body body (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\com.urlslab.domain\DomainDataRetrievalScreenshotResponse[]
+     * @return void
      */
-    public function getScreenshots($body = null)
+    public function getStatelessChatbotAnswer()
     {
-        list($response) = $this->getScreenshotsWithHttpInfo($body);
-        return $response;
+        $this->getStatelessChatbotAnswerWithHttpInfo();
     }
 
     /**
-     * Operation getScreenshotsWithHttpInfo
+     * Operation getStatelessChatbotAnswerWithHttpInfo
      *
-     * Get screenshot of url
+     * Get a chatbot answer with stateless chatbot
      *
-     * @param  \Swagger\Client\com.urlslab.domain\DomainDataRetrievalUpdatableRetrieval[] $body (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\com.urlslab.domain\DomainDataRetrievalScreenshotResponse[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getScreenshotsWithHttpInfo($body = null)
+    public function getStatelessChatbotAnswerWithHttpInfo()
     {
-        $returnType = '\Swagger\Client\com.urlslab.domain\DomainDataRetrievalScreenshotResponse[]';
-        $request = $this->getScreenshotsRequest($body);
+        $returnType = '';
+        $request = $this->getStatelessChatbotAnswerRequest();
 
         try {
             $options = $this->createHttpClientOption();
@@ -147,50 +144,27 @@ class ScreenshotApi
                 );
             }
 
-            $responseBody = $response->getBody();
-            if ($returnType === '\SplFileObject') {
-                $content = $responseBody; //stream goes to serializer
-            } else {
-                $content = $responseBody->getContents();
-                if (!in_array($returnType, ['string','integer','bool'])) {
-                    $content = json_decode($content);
-                }
-            }
-
-            return [
-                ObjectSerializer::deserialize($content, $returnType, []),
-                $response->getStatusCode(),
-                $response->getHeaders()
-            ];
+            return [null, $statusCode, $response->getHeaders()];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
-                case 200:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Swagger\Client\com.urlslab.domain\DomainDataRetrievalScreenshotResponse[]',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
             }
             throw $e;
         }
     }
 
     /**
-     * Operation getScreenshotsAsync
+     * Operation getStatelessChatbotAnswerAsync
      *
-     * Get screenshot of url
+     * Get a chatbot answer with stateless chatbot
      *
-     * @param  \Swagger\Client\com.urlslab.domain\DomainDataRetrievalUpdatableRetrieval[] $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getScreenshotsAsync($body = null)
+    public function getStatelessChatbotAnswerAsync()
     {
-        return $this->getScreenshotsAsyncWithHttpInfo($body)
+        return $this->getStatelessChatbotAnswerAsyncWithHttpInfo()
             ->then(
                 function ($response) {
                     return $response[0];
@@ -199,39 +173,24 @@ class ScreenshotApi
     }
 
     /**
-     * Operation getScreenshotsAsyncWithHttpInfo
+     * Operation getStatelessChatbotAnswerAsyncWithHttpInfo
      *
-     * Get screenshot of url
+     * Get a chatbot answer with stateless chatbot
      *
-     * @param  \Swagger\Client\com.urlslab.domain\DomainDataRetrievalUpdatableRetrieval[] $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getScreenshotsAsyncWithHttpInfo($body = null)
+    public function getStatelessChatbotAnswerAsyncWithHttpInfo()
     {
-        $returnType = '\Swagger\Client\com.urlslab.domain\DomainDataRetrievalScreenshotResponse[]';
-        $request = $this->getScreenshotsRequest($body);
+        $returnType = '';
+        $request = $this->getStatelessChatbotAnswerRequest();
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    $responseBody = $response->getBody();
-                    if ($returnType === '\SplFileObject') {
-                        $content = $responseBody; //stream goes to serializer
-                    } else {
-                        $content = $responseBody->getContents();
-                        if ($returnType !== 'string') {
-                            $content = json_decode($content);
-                        }
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, $returnType, []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
+                    return [null, $response->getStatusCode(), $response->getHeaders()];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -251,17 +210,16 @@ class ScreenshotApi
     }
 
     /**
-     * Create request for operation 'getScreenshots'
+     * Create request for operation 'getStatelessChatbotAnswer'
      *
-     * @param  \Swagger\Client\com.urlslab.domain\DomainDataRetrievalUpdatableRetrieval[] $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getScreenshotsRequest($body = null)
+    protected function getStatelessChatbotAnswerRequest()
     {
 
-        $resourcePath = '/v1/screenshot';
+        $resourcePath = '/v1/chatbot';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -272,18 +230,15 @@ class ScreenshotApi
 
         // body params
         $_tempBody = null;
-        if (isset($body)) {
-            $_tempBody = $body;
-        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json']
+                []
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json'],
-                ['application/json']
+                [],
+                []
             );
         }
 

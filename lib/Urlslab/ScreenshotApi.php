@@ -1,6 +1,6 @@
 <?php
 /**
- * QaApi
+ * ScreenshotApi
  * PHP version 5
  *
  * @category Class
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace Swagger\Client\com.urlslab;
+namespace Swagger\Client\Urlslab;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -39,14 +39,14 @@ use Swagger\Client\HeaderSelector;
 use Swagger\Client\ObjectSerializer;
 
 /**
- * QaApi Class Doc Comment
+ * ScreenshotApi Class Doc Comment
  *
  * @category Class
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class QaApi
+class ScreenshotApi
 {
     /**
      * @var ClientInterface
@@ -87,34 +87,37 @@ class QaApi
     }
 
     /**
-     * Operation getAnswer
+     * Operation getScreenshots
      *
-     * Get answer for a question
+     * Get screenshot of url
      *
+     * @param  \Swagger\Client\Model\DomainDataRetrievalUpdatableRetrieval[] $body body (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return void
+     * @return \Swagger\Client\Model\DomainDataRetrievalScreenshotResponse[]
      */
-    public function getAnswer()
+    public function getScreenshots($body = null)
     {
-        $this->getAnswerWithHttpInfo();
+        list($response) = $this->getScreenshotsWithHttpInfo($body);
+        return $response;
     }
 
     /**
-     * Operation getAnswerWithHttpInfo
+     * Operation getScreenshotsWithHttpInfo
      *
-     * Get answer for a question
+     * Get screenshot of url
      *
+     * @param  \Swagger\Client\Model\DomainDataRetrievalUpdatableRetrieval[] $body (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\DomainDataRetrievalScreenshotResponse[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function getAnswerWithHttpInfo()
+    public function getScreenshotsWithHttpInfo($body = null)
     {
-        $returnType = '';
-        $request = $this->getAnswerRequest();
+        $returnType = '\Swagger\Client\Model\DomainDataRetrievalScreenshotResponse[]';
+        $request = $this->getScreenshotsRequest($body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -144,27 +147,50 @@ class QaApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if (!in_array($returnType, ['string','integer','bool'])) {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Swagger\Client\Model\DomainDataRetrievalScreenshotResponse[]',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
             }
             throw $e;
         }
     }
 
     /**
-     * Operation getAnswerAsync
+     * Operation getScreenshotsAsync
      *
-     * Get answer for a question
+     * Get screenshot of url
      *
+     * @param  \Swagger\Client\Model\DomainDataRetrievalUpdatableRetrieval[] $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAnswerAsync()
+    public function getScreenshotsAsync($body = null)
     {
-        return $this->getAnswerAsyncWithHttpInfo()
+        return $this->getScreenshotsAsyncWithHttpInfo($body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -173,24 +199,39 @@ class QaApi
     }
 
     /**
-     * Operation getAnswerAsyncWithHttpInfo
+     * Operation getScreenshotsAsyncWithHttpInfo
      *
-     * Get answer for a question
+     * Get screenshot of url
      *
+     * @param  \Swagger\Client\Model\DomainDataRetrievalUpdatableRetrieval[] $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getAnswerAsyncWithHttpInfo()
+    public function getScreenshotsAsyncWithHttpInfo($body = null)
     {
-        $returnType = '';
-        $request = $this->getAnswerRequest();
+        $returnType = '\Swagger\Client\Model\DomainDataRetrievalScreenshotResponse[]';
+        $request = $this->getScreenshotsRequest($body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
             ->then(
                 function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 },
                 function ($exception) {
                     $response = $exception->getResponse();
@@ -210,16 +251,17 @@ class QaApi
     }
 
     /**
-     * Create request for operation 'getAnswer'
+     * Create request for operation 'getScreenshots'
      *
+     * @param  \Swagger\Client\Model\DomainDataRetrievalUpdatableRetrieval[] $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getAnswerRequest()
+    protected function getScreenshotsRequest($body = null)
     {
 
-        $resourcePath = '/v1/qa';
+        $resourcePath = '/v1/screenshot';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -230,15 +272,18 @@ class QaApi
 
         // body params
         $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                []
+                ['application/json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                [],
-                []
+                ['application/json'],
+                ['application/json']
             );
         }
 

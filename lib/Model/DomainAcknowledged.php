@@ -1,6 +1,6 @@
 <?php
 /**
- * DomainDataRetrievalUpdatableRetrieval
+ * DomainAcknowledged
  *
  * PHP version 5
  *
@@ -26,20 +26,20 @@
  * Do not edit the class manually.
  */
 
-namespace Swagger\Client\com.urlslab.domain;
+namespace Swagger\Client\Model;
 
 use \ArrayAccess;
 use \Swagger\Client\ObjectSerializer;
 
 /**
- * DomainDataRetrievalUpdatableRetrieval Class Doc Comment
+ * DomainAcknowledged Class Doc Comment
  *
  * @category Class
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class DomainDataRetrievalUpdatableRetrieval implements ModelInterface, ArrayAccess
+class DomainAcknowledged implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class DomainDataRetrievalUpdatableRetrieval implements ModelInterface, ArrayAcce
       *
       * @var string
       */
-    protected static $swaggerModelName = 'domain.dataRetrieval.UpdatableRetrieval';
+    protected static $swaggerModelName = 'domain.Acknowledged';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,8 +56,7 @@ class DomainDataRetrievalUpdatableRetrieval implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'urls' => 'string[]',
-'updating_freq' => 'string'    ];
+        'acknowledged' => 'bool'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -65,8 +64,7 @@ class DomainDataRetrievalUpdatableRetrieval implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'urls' => null,
-'updating_freq' => null    ];
+        'acknowledged' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -95,8 +93,7 @@ class DomainDataRetrievalUpdatableRetrieval implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $attributeMap = [
-        'urls' => 'urls',
-'updating_freq' => 'updatingFreq'    ];
+        'acknowledged' => 'acknowledged'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -104,8 +101,7 @@ class DomainDataRetrievalUpdatableRetrieval implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $setters = [
-        'urls' => 'setUrls',
-'updating_freq' => 'setUpdatingFreq'    ];
+        'acknowledged' => 'setAcknowledged'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -113,8 +109,7 @@ class DomainDataRetrievalUpdatableRetrieval implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $getters = [
-        'urls' => 'getUrls',
-'updating_freq' => 'getUpdatingFreq'    ];
+        'acknowledged' => 'getAcknowledged'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -157,26 +152,7 @@ class DomainDataRetrievalUpdatableRetrieval implements ModelInterface, ArrayAcce
         return self::$swaggerModelName;
     }
 
-    const UPDATING_FREQ_YEARLY = 'YEARLY';
-const UPDATING_FREQ_DAILY = 'DAILY';
-const UPDATING_FREQ_WEEKLY = 'WEEKLY';
-const UPDATING_FREQ_HOURLY = 'HOURLY';
-const UPDATING_FREQ_MONTHLY = 'MONTHLY';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getUpdatingFreqAllowableValues()
-    {
-        return [
-            self::UPDATING_FREQ_YEARLY,
-self::UPDATING_FREQ_DAILY,
-self::UPDATING_FREQ_WEEKLY,
-self::UPDATING_FREQ_HOURLY,
-self::UPDATING_FREQ_MONTHLY,        ];
-    }
+    
 
     /**
      * Associative array for storing property values
@@ -193,8 +169,7 @@ self::UPDATING_FREQ_MONTHLY,        ];
      */
     public function __construct(array $data = null)
     {
-        $this->container['urls'] = isset($data['urls']) ? $data['urls'] : null;
-        $this->container['updating_freq'] = isset($data['updating_freq']) ? $data['updating_freq'] : null;
+        $this->container['acknowledged'] = isset($data['acknowledged']) ? $data['acknowledged'] : null;
     }
 
     /**
@@ -206,17 +181,9 @@ self::UPDATING_FREQ_MONTHLY,        ];
     {
         $invalidProperties = [];
 
-        if ($this->container['urls'] === null) {
-            $invalidProperties[] = "'urls' can't be null";
+        if ($this->container['acknowledged'] === null) {
+            $invalidProperties[] = "'acknowledged' can't be null";
         }
-        $allowedValues = $this->getUpdatingFreqAllowableValues();
-        if (!is_null($this->container['updating_freq']) && !in_array($this->container['updating_freq'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'updating_freq', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
         return $invalidProperties;
     }
 
@@ -233,58 +200,25 @@ self::UPDATING_FREQ_MONTHLY,        ];
 
 
     /**
-     * Gets urls
+     * Gets acknowledged
      *
-     * @return string[]
+     * @return bool
      */
-    public function getUrls()
+    public function getAcknowledged()
     {
-        return $this->container['urls'];
+        return $this->container['acknowledged'];
     }
 
     /**
-     * Sets urls
+     * Sets acknowledged
      *
-     * @param string[] $urls urls
+     * @param bool $acknowledged acknowledged
      *
      * @return $this
      */
-    public function setUrls($urls)
+    public function setAcknowledged($acknowledged)
     {
-        $this->container['urls'] = $urls;
-
-        return $this;
-    }
-
-    /**
-     * Gets updating_freq
-     *
-     * @return string
-     */
-    public function getUpdatingFreq()
-    {
-        return $this->container['updating_freq'];
-    }
-
-    /**
-     * Sets updating_freq
-     *
-     * @param string $updating_freq updating_freq
-     *
-     * @return $this
-     */
-    public function setUpdatingFreq($updating_freq)
-    {
-        $allowedValues = $this->getUpdatingFreqAllowableValues();
-        if (!is_null($updating_freq) && !in_array($updating_freq, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'updating_freq', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['updating_freq'] = $updating_freq;
+        $this->container['acknowledged'] = $acknowledged;
 
         return $this;
     }

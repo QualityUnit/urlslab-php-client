@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**getSummary**](SummaryApi.md#getsummary) | **POST** /v1/summary | Get summarization data for url
 
 # **getSummary**
-> \Swagger\Client\com.urlslab.domain\DomainDataRetrievalSummaryResponse[] getSummary($body)
+> \Swagger\Client\Model\DomainDataRetrievalSummaryResponse[] getSummary($body)
 
 Get summarization data for url
 
@@ -22,13 +22,13 @@ $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X_
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X_URLSLAB_API_KEY', 'Bearer');
 
-$apiInstance = new Swagger\Client\com.urlslab\SummaryApi(
+$apiInstance = new Swagger\Client\Urlslab\SummaryApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$body = array(new \Swagger\Client\com.urlslab.domain\DomainDataRetrievalUpdatableRetrieval()); // \Swagger\Client\com.urlslab.domain\DomainDataRetrievalUpdatableRetrieval[] | 
+$body = array(new \Swagger\Client\Model\DomainDataRetrievalUpdatableRetrieval()); // \Swagger\Client\Model\DomainDataRetrievalUpdatableRetrieval[] | 
 
 try {
     $result = $apiInstance->getSummary($body);
@@ -43,11 +43,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Swagger\Client\com.urlslab.domain\DomainDataRetrievalUpdatableRetrieval[]**](../Model/DomainDataRetrievalUpdatableRetrieval.md)|  | [optional]
+ **body** | [**\Swagger\Client\Model\DomainDataRetrievalUpdatableRetrieval[]**](../Model/DomainDataRetrievalUpdatableRetrieval.md)|  | [optional]
 
 ### Return type
 
-[**\Swagger\Client\com.urlslab.domain\DomainDataRetrievalSummaryResponse[]**](../Model/DomainDataRetrievalSummaryResponse.md)
+[**\Swagger\Client\Model\DomainDataRetrievalSummaryResponse[]**](../Model/DomainDataRetrievalSummaryResponse.md)
 
 ### Authorization
 

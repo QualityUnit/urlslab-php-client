@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace Swagger\Client\com.urlslab;
+namespace Swagger\Client\Urlslab;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;

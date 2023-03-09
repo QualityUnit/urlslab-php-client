@@ -1,6 +1,6 @@
 <?php
 /**
- * ApikeyApi
+ * ScheduleApi
  * PHP version 5
  *
  * @category Class
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace Swagger\Client\com.urlslab;
+namespace Swagger\Client\Urlslab;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -39,14 +39,14 @@ use Swagger\Client\HeaderSelector;
 use Swagger\Client\ObjectSerializer;
 
 /**
- * ApikeyApi Class Doc Comment
+ * ScheduleApi Class Doc Comment
  *
  * @category Class
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class ApikeyApi
+class ScheduleApi
 {
     /**
      * @var ClientInterface
@@ -87,35 +87,37 @@ class ApikeyApi
     }
 
     /**
-     * Operation createAPIKey
+     * Operation createSchedule
      *
-     * Creates a new API Key for the user
+     * create a new schedule
      *
+     * @param  \Swagger\Client\Model\DomainScheduleScheduleConf[] $body body (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\com.urlslab.domain\DomainAcknowledged
+     * @return \Swagger\Client\Model\DomainScheduleAPISchedule[]
      */
-    public function createAPIKey()
+    public function createSchedule($body = null)
     {
-        list($response) = $this->createAPIKeyWithHttpInfo();
+        list($response) = $this->createScheduleWithHttpInfo($body);
         return $response;
     }
 
     /**
-     * Operation createAPIKeyWithHttpInfo
+     * Operation createScheduleWithHttpInfo
      *
-     * Creates a new API Key for the user
+     * create a new schedule
      *
+     * @param  \Swagger\Client\Model\DomainScheduleScheduleConf[] $body (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\com.urlslab.domain\DomainAcknowledged, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\DomainScheduleAPISchedule[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function createAPIKeyWithHttpInfo()
+    public function createScheduleWithHttpInfo($body = null)
     {
-        $returnType = '\Swagger\Client\com.urlslab.domain\DomainAcknowledged';
-        $request = $this->createAPIKeyRequest();
+        $returnType = '\Swagger\Client\Model\DomainScheduleAPISchedule[]';
+        $request = $this->createScheduleRequest($body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -166,15 +168,7 @@ class ApikeyApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\com.urlslab.domain\DomainAcknowledged',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Swagger\Client\com.urlslab.domain\DomainAPIError',
+                        '\Swagger\Client\Model\DomainScheduleAPISchedule[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -185,17 +179,18 @@ class ApikeyApi
     }
 
     /**
-     * Operation createAPIKeyAsync
+     * Operation createScheduleAsync
      *
-     * Creates a new API Key for the user
+     * create a new schedule
      *
+     * @param  \Swagger\Client\Model\DomainScheduleScheduleConf[] $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createAPIKeyAsync()
+    public function createScheduleAsync($body = null)
     {
-        return $this->createAPIKeyAsyncWithHttpInfo()
+        return $this->createScheduleAsyncWithHttpInfo($body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -204,18 +199,19 @@ class ApikeyApi
     }
 
     /**
-     * Operation createAPIKeyAsyncWithHttpInfo
+     * Operation createScheduleAsyncWithHttpInfo
      *
-     * Creates a new API Key for the user
+     * create a new schedule
      *
+     * @param  \Swagger\Client\Model\DomainScheduleScheduleConf[] $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createAPIKeyAsyncWithHttpInfo()
+    public function createScheduleAsyncWithHttpInfo($body = null)
     {
-        $returnType = '\Swagger\Client\com.urlslab.domain\DomainAcknowledged';
-        $request = $this->createAPIKeyRequest();
+        $returnType = '\Swagger\Client\Model\DomainScheduleAPISchedule[]';
+        $request = $this->createScheduleRequest($body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -255,16 +251,17 @@ class ApikeyApi
     }
 
     /**
-     * Create request for operation 'createAPIKey'
+     * Create request for operation 'createSchedule'
      *
+     * @param  \Swagger\Client\Model\DomainScheduleScheduleConf[] $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createAPIKeyRequest()
+    protected function createScheduleRequest($body = null)
     {
 
-        $resourcePath = '/v1/apikey';
+        $resourcePath = '/v1/schedule';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -275,6 +272,9 @@ class ApikeyApi
 
         // body params
         $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -283,7 +283,7 @@ class ApikeyApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                []
+                ['application/json']
             );
         }
 
@@ -343,35 +343,37 @@ class ApikeyApi
     }
 
     /**
-     * Operation deleteAPIKey
+     * Operation deleteSchedule
      *
-     * Deletes an API Key for the user
+     * delete a schedule
      *
+     * @param  string $id id (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\com.urlslab.domain\DomainAcknowledged
+     * @return \Swagger\Client\Model\DomainAcknowledged
      */
-    public function deleteAPIKey()
+    public function deleteSchedule($id)
     {
-        list($response) = $this->deleteAPIKeyWithHttpInfo();
+        list($response) = $this->deleteScheduleWithHttpInfo($id);
         return $response;
     }
 
     /**
-     * Operation deleteAPIKeyWithHttpInfo
+     * Operation deleteScheduleWithHttpInfo
      *
-     * Deletes an API Key for the user
+     * delete a schedule
      *
+     * @param  string $id (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\com.urlslab.domain\DomainAcknowledged, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\DomainAcknowledged, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteAPIKeyWithHttpInfo()
+    public function deleteScheduleWithHttpInfo($id)
     {
-        $returnType = '\Swagger\Client\com.urlslab.domain\DomainAcknowledged';
-        $request = $this->deleteAPIKeyRequest();
+        $returnType = '\Swagger\Client\Model\DomainAcknowledged';
+        $request = $this->deleteScheduleRequest($id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -422,15 +424,7 @@ class ApikeyApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\com.urlslab.domain\DomainAcknowledged',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Swagger\Client\com.urlslab.domain\DomainAPIError',
+                        '\Swagger\Client\Model\DomainAcknowledged',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -441,17 +435,18 @@ class ApikeyApi
     }
 
     /**
-     * Operation deleteAPIKeyAsync
+     * Operation deleteScheduleAsync
      *
-     * Deletes an API Key for the user
+     * delete a schedule
      *
+     * @param  string $id (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteAPIKeyAsync()
+    public function deleteScheduleAsync($id)
     {
-        return $this->deleteAPIKeyAsyncWithHttpInfo()
+        return $this->deleteScheduleAsyncWithHttpInfo($id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -460,18 +455,19 @@ class ApikeyApi
     }
 
     /**
-     * Operation deleteAPIKeyAsyncWithHttpInfo
+     * Operation deleteScheduleAsyncWithHttpInfo
      *
-     * Deletes an API Key for the user
+     * delete a schedule
      *
+     * @param  string $id (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteAPIKeyAsyncWithHttpInfo()
+    public function deleteScheduleAsyncWithHttpInfo($id)
     {
-        $returnType = '\Swagger\Client\com.urlslab.domain\DomainAcknowledged';
-        $request = $this->deleteAPIKeyRequest();
+        $returnType = '\Swagger\Client\Model\DomainAcknowledged';
+        $request = $this->deleteScheduleRequest($id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -511,16 +507,23 @@ class ApikeyApi
     }
 
     /**
-     * Create request for operation 'deleteAPIKey'
+     * Create request for operation 'deleteSchedule'
      *
+     * @param  string $id (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteAPIKeyRequest()
+    protected function deleteScheduleRequest($id)
     {
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling deleteSchedule'
+            );
+        }
 
-        $resourcePath = '/v1/apikey';
+        $resourcePath = '/v1/schedule/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -528,6 +531,14 @@ class ApikeyApi
         $multipart = false;
 
 
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
 
         // body params
         $_tempBody = null;
@@ -599,35 +610,37 @@ class ApikeyApi
     }
 
     /**
-     * Operation listAPIKey
+     * Operation getSchedule
      *
-     * Lists all API Keys for the user
+     * get a specific schedule details
      *
+     * @param  string $id id (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\com.urlslab.domain\DomainAcknowledged
+     * @return \Swagger\Client\Model\DomainScheduleAPISchedule
      */
-    public function listAPIKey()
+    public function getSchedule($id)
     {
-        list($response) = $this->listAPIKeyWithHttpInfo();
+        list($response) = $this->getScheduleWithHttpInfo($id);
         return $response;
     }
 
     /**
-     * Operation listAPIKeyWithHttpInfo
+     * Operation getScheduleWithHttpInfo
      *
-     * Lists all API Keys for the user
+     * get a specific schedule details
      *
+     * @param  string $id (required)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\com.urlslab.domain\DomainAcknowledged, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\DomainScheduleAPISchedule, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listAPIKeyWithHttpInfo()
+    public function getScheduleWithHttpInfo($id)
     {
-        $returnType = '\Swagger\Client\com.urlslab.domain\DomainAcknowledged';
-        $request = $this->listAPIKeyRequest();
+        $returnType = '\Swagger\Client\Model\DomainScheduleAPISchedule';
+        $request = $this->getScheduleRequest($id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -678,15 +691,7 @@ class ApikeyApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\com.urlslab.domain\DomainAcknowledged',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 403:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Swagger\Client\com.urlslab.domain\DomainAPIError',
+                        '\Swagger\Client\Model\DomainScheduleAPISchedule',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -697,17 +702,18 @@ class ApikeyApi
     }
 
     /**
-     * Operation listAPIKeyAsync
+     * Operation getScheduleAsync
      *
-     * Lists all API Keys for the user
+     * get a specific schedule details
      *
+     * @param  string $id (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listAPIKeyAsync()
+    public function getScheduleAsync($id)
     {
-        return $this->listAPIKeyAsyncWithHttpInfo()
+        return $this->getScheduleAsyncWithHttpInfo($id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -716,18 +722,19 @@ class ApikeyApi
     }
 
     /**
-     * Operation listAPIKeyAsyncWithHttpInfo
+     * Operation getScheduleAsyncWithHttpInfo
      *
-     * Lists all API Keys for the user
+     * get a specific schedule details
      *
+     * @param  string $id (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listAPIKeyAsyncWithHttpInfo()
+    public function getScheduleAsyncWithHttpInfo($id)
     {
-        $returnType = '\Swagger\Client\com.urlslab.domain\DomainAcknowledged';
-        $request = $this->listAPIKeyRequest();
+        $returnType = '\Swagger\Client\Model\DomainScheduleAPISchedule';
+        $request = $this->getScheduleRequest($id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -767,16 +774,23 @@ class ApikeyApi
     }
 
     /**
-     * Create request for operation 'listAPIKey'
+     * Create request for operation 'getSchedule'
      *
+     * @param  string $id (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function listAPIKeyRequest()
+    protected function getScheduleRequest($id)
     {
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling getSchedule'
+            );
+        }
 
-        $resourcePath = '/v1/apikey';
+        $resourcePath = '/v1/schedule/{id}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -784,6 +798,14 @@ class ApikeyApi
         $multipart = false;
 
 
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
 
         // body params
         $_tempBody = null;
@@ -855,35 +877,35 @@ class ApikeyApi
     }
 
     /**
-     * Operation validate
+     * Operation listSchedules
      *
-     * validate a given API Key
+     * get list of all schedules for the user
      *
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Swagger\Client\com.urlslab.domain\DomainAcknowledged
+     * @return \Swagger\Client\Model\DomainScheduleAPISchedule[]
      */
-    public function validate()
+    public function listSchedules()
     {
-        list($response) = $this->validateWithHttpInfo();
+        list($response) = $this->listSchedulesWithHttpInfo();
         return $response;
     }
 
     /**
-     * Operation validateWithHttpInfo
+     * Operation listSchedulesWithHttpInfo
      *
-     * validate a given API Key
+     * get list of all schedules for the user
      *
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Swagger\Client\com.urlslab.domain\DomainAcknowledged, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Swagger\Client\Model\DomainScheduleAPISchedule[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function validateWithHttpInfo()
+    public function listSchedulesWithHttpInfo()
     {
-        $returnType = '\Swagger\Client\com.urlslab.domain\DomainAcknowledged';
-        $request = $this->validateRequest();
+        $returnType = '\Swagger\Client\Model\DomainScheduleAPISchedule[]';
+        $request = $this->listSchedulesRequest();
 
         try {
             $options = $this->createHttpClientOption();
@@ -934,15 +956,7 @@ class ApikeyApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Swagger\Client\com.urlslab.domain\DomainAcknowledged',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
-                case 401:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Swagger\Client\com.urlslab.domain\DomainAPIError',
+                        '\Swagger\Client\Model\DomainScheduleAPISchedule[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -953,17 +967,17 @@ class ApikeyApi
     }
 
     /**
-     * Operation validateAsync
+     * Operation listSchedulesAsync
      *
-     * validate a given API Key
+     * get list of all schedules for the user
      *
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function validateAsync()
+    public function listSchedulesAsync()
     {
-        return $this->validateAsyncWithHttpInfo()
+        return $this->listSchedulesAsyncWithHttpInfo()
             ->then(
                 function ($response) {
                     return $response[0];
@@ -972,18 +986,18 @@ class ApikeyApi
     }
 
     /**
-     * Operation validateAsyncWithHttpInfo
+     * Operation listSchedulesAsyncWithHttpInfo
      *
-     * validate a given API Key
+     * get list of all schedules for the user
      *
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function validateAsyncWithHttpInfo()
+    public function listSchedulesAsyncWithHttpInfo()
     {
-        $returnType = '\Swagger\Client\com.urlslab.domain\DomainAcknowledged';
-        $request = $this->validateRequest();
+        $returnType = '\Swagger\Client\Model\DomainScheduleAPISchedule[]';
+        $request = $this->listSchedulesRequest();
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1023,16 +1037,16 @@ class ApikeyApi
     }
 
     /**
-     * Create request for operation 'validate'
+     * Create request for operation 'listSchedules'
      *
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function validateRequest()
+    protected function listSchedulesRequest()
     {
 
-        $resourcePath = '/v1/apikey/validate';
+        $resourcePath = '/v1/schedule';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1084,6 +1098,11 @@ class ApikeyApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('X_URLSLAB_API_KEY');
+        if ($apiKey !== null) {
+            $headers['X_URLSLAB_API_KEY'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {

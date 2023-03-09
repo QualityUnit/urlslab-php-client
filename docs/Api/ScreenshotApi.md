@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**getScreenshots**](ScreenshotApi.md#getscreenshots) | **POST** /v1/screenshot | Get screenshot of url
 
 # **getScreenshots**
-> \Swagger\Client\com.urlslab.domain\DomainDataRetrievalScreenshotResponse[] getScreenshots($body)
+> \Swagger\Client\Model\DomainDataRetrievalScreenshotResponse[] getScreenshots($body)
 
 Get screenshot of url
 
@@ -22,13 +22,13 @@ $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X_
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X_URLSLAB_API_KEY', 'Bearer');
 
-$apiInstance = new Swagger\Client\com.urlslab\ScreenshotApi(
+$apiInstance = new Swagger\Client\Urlslab\ScreenshotApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$body = array(new \Swagger\Client\com.urlslab.domain\DomainDataRetrievalUpdatableRetrieval()); // \Swagger\Client\com.urlslab.domain\DomainDataRetrievalUpdatableRetrieval[] | 
+$body = array(new \Swagger\Client\Model\DomainDataRetrievalUpdatableRetrieval()); // \Swagger\Client\Model\DomainDataRetrievalUpdatableRetrieval[] | 
 
 try {
     $result = $apiInstance->getScreenshots($body);
@@ -43,11 +43,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Swagger\Client\com.urlslab.domain\DomainDataRetrievalUpdatableRetrieval[]**](../Model/DomainDataRetrievalUpdatableRetrieval.md)|  | [optional]
+ **body** | [**\Swagger\Client\Model\DomainDataRetrievalUpdatableRetrieval[]**](../Model/DomainDataRetrievalUpdatableRetrieval.md)|  | [optional]
 
 ### Return type
 
-[**\Swagger\Client\com.urlslab.domain\DomainDataRetrievalScreenshotResponse[]**](../Model/DomainDataRetrievalScreenshotResponse.md)
+[**\Swagger\Client\Model\DomainDataRetrievalScreenshotResponse[]**](../Model/DomainDataRetrievalScreenshotResponse.md)
 
 ### Authorization
 

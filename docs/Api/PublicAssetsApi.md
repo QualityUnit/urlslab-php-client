@@ -26,7 +26,7 @@ $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X_
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X_URLSLAB_API_KEY', 'Bearer');
 
-$apiInstance = new Swagger\Client\com.urlslab\PublicAssetsApi(
+$apiInstance = new Swagger\Client\Urlslab\PublicAssetsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -79,7 +79,7 @@ $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X_
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X_URLSLAB_API_KEY', 'Bearer');
 
-$apiInstance = new Swagger\Client\com.urlslab\PublicAssetsApi(
+$apiInstance = new Swagger\Client\Urlslab\PublicAssetsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -132,7 +132,7 @@ $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X_
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X_URLSLAB_API_KEY', 'Bearer');
 
-$apiInstance = new Swagger\Client\com.urlslab\PublicAssetsApi(
+$apiInstance = new Swagger\Client\Urlslab\PublicAssetsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -185,7 +185,7 @@ $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X_
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X_URLSLAB_API_KEY', 'Bearer');
 
-$apiInstance = new Swagger\Client\com.urlslab\PublicAssetsApi(
+$apiInstance = new Swagger\Client\Urlslab\PublicAssetsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -238,7 +238,7 @@ $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X_
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X_URLSLAB_API_KEY', 'Bearer');
 
-$apiInstance = new Swagger\Client\com.urlslab\PublicAssetsApi(
+$apiInstance = new Swagger\Client\Urlslab\PublicAssetsApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),

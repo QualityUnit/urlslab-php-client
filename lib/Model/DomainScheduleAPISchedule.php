@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace Swagger\Client\com.urlslab.domain;
+namespace Swagger\Client\Model;
 
 use \ArrayAccess;
 use \Swagger\Client\ObjectSerializer;
@@ -56,7 +56,7 @@ class DomainScheduleAPISchedule implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'schedule_conf' => '\Swagger\Client\com.urlslab.domain\DomainScheduleScheduleConf',
+        'schedule_conf' => '\Swagger\Client\Model\DomainScheduleScheduleConf',
 'process_id' => 'string'    ];
 
     /**
@@ -211,7 +211,7 @@ class DomainScheduleAPISchedule implements ModelInterface, ArrayAccess
     /**
      * Gets schedule_conf
      *
-     * @return \Swagger\Client\com.urlslab.domain\DomainScheduleScheduleConf
+     * @return \Swagger\Client\Model\DomainScheduleScheduleConf
      */
     public function getScheduleConf()
     {
@@ -221,7 +221,7 @@ class DomainScheduleAPISchedule implements ModelInterface, ArrayAccess
     /**
      * Sets schedule_conf
      *
-     * @param \Swagger\Client\com.urlslab.domain\DomainScheduleScheduleConf $schedule_conf schedule_conf
+     * @param \Swagger\Client\Model\DomainScheduleScheduleConf $schedule_conf schedule_conf
      *
      * @return $this
      */

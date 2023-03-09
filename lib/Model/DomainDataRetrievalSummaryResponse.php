@@ -1,6 +1,6 @@
 <?php
 /**
- * DomainAcknowledged
+ * DomainDataRetrievalSummaryResponse
  *
  * PHP version 5
  *
@@ -26,20 +26,20 @@
  * Do not edit the class manually.
  */
 
-namespace Swagger\Client\com.urlslab.domain;
+namespace Swagger\Client\Model;
 
 use \ArrayAccess;
 use \Swagger\Client\ObjectSerializer;
 
 /**
- * DomainAcknowledged Class Doc Comment
+ * DomainDataRetrievalSummaryResponse Class Doc Comment
  *
  * @category Class
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class DomainAcknowledged implements ModelInterface, ArrayAccess
+class DomainDataRetrievalSummaryResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class DomainAcknowledged implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'domain.Acknowledged';
+    protected static $swaggerModelName = 'domain.dataRetrieval.SummaryResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,7 +56,10 @@ class DomainAcknowledged implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'acknowledged' => 'bool'    ];
+        'domain_id' => 'string',
+'url_id' => 'string',
+'summary' => 'string',
+'summary_status' => 'string'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -64,7 +67,10 @@ class DomainAcknowledged implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'acknowledged' => null    ];
+        'domain_id' => null,
+'url_id' => null,
+'summary' => null,
+'summary_status' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -93,7 +99,10 @@ class DomainAcknowledged implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'acknowledged' => 'acknowledged'    ];
+        'domain_id' => 'domainId',
+'url_id' => 'urlId',
+'summary' => 'summary',
+'summary_status' => 'summaryStatus'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -101,7 +110,10 @@ class DomainAcknowledged implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'acknowledged' => 'setAcknowledged'    ];
+        'domain_id' => 'setDomainId',
+'url_id' => 'setUrlId',
+'summary' => 'setSummary',
+'summary_status' => 'setSummaryStatus'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -109,7 +121,10 @@ class DomainAcknowledged implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'acknowledged' => 'getAcknowledged'    ];
+        'domain_id' => 'getDomainId',
+'url_id' => 'getUrlId',
+'summary' => 'getSummary',
+'summary_status' => 'getSummaryStatus'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -169,7 +184,10 @@ class DomainAcknowledged implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['acknowledged'] = isset($data['acknowledged']) ? $data['acknowledged'] : null;
+        $this->container['domain_id'] = isset($data['domain_id']) ? $data['domain_id'] : null;
+        $this->container['url_id'] = isset($data['url_id']) ? $data['url_id'] : null;
+        $this->container['summary'] = isset($data['summary']) ? $data['summary'] : null;
+        $this->container['summary_status'] = isset($data['summary_status']) ? $data['summary_status'] : null;
     }
 
     /**
@@ -181,8 +199,14 @@ class DomainAcknowledged implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['acknowledged'] === null) {
-            $invalidProperties[] = "'acknowledged' can't be null";
+        if ($this->container['domain_id'] === null) {
+            $invalidProperties[] = "'domain_id' can't be null";
+        }
+        if ($this->container['url_id'] === null) {
+            $invalidProperties[] = "'url_id' can't be null";
+        }
+        if ($this->container['summary_status'] === null) {
+            $invalidProperties[] = "'summary_status' can't be null";
         }
         return $invalidProperties;
     }
@@ -200,25 +224,97 @@ class DomainAcknowledged implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets acknowledged
+     * Gets domain_id
      *
-     * @return bool
+     * @return string
      */
-    public function getAcknowledged()
+    public function getDomainId()
     {
-        return $this->container['acknowledged'];
+        return $this->container['domain_id'];
     }
 
     /**
-     * Sets acknowledged
+     * Sets domain_id
      *
-     * @param bool $acknowledged acknowledged
+     * @param string $domain_id domain_id
      *
      * @return $this
      */
-    public function setAcknowledged($acknowledged)
+    public function setDomainId($domain_id)
     {
-        $this->container['acknowledged'] = $acknowledged;
+        $this->container['domain_id'] = $domain_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets url_id
+     *
+     * @return string
+     */
+    public function getUrlId()
+    {
+        return $this->container['url_id'];
+    }
+
+    /**
+     * Sets url_id
+     *
+     * @param string $url_id url_id
+     *
+     * @return $this
+     */
+    public function setUrlId($url_id)
+    {
+        $this->container['url_id'] = $url_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets summary
+     *
+     * @return string
+     */
+    public function getSummary()
+    {
+        return $this->container['summary'];
+    }
+
+    /**
+     * Sets summary
+     *
+     * @param string $summary summary
+     *
+     * @return $this
+     */
+    public function setSummary($summary)
+    {
+        $this->container['summary'] = $summary;
+
+        return $this;
+    }
+
+    /**
+     * Gets summary_status
+     *
+     * @return string
+     */
+    public function getSummaryStatus()
+    {
+        return $this->container['summary_status'];
+    }
+
+    /**
+     * Sets summary_status
+     *
+     * @param string $summary_status summary_status
+     *
+     * @return $this
+     */
+    public function setSummaryStatus($summary_status)
+    {
+        $this->container['summary_status'] = $summary_status;
 
         return $this;
     }

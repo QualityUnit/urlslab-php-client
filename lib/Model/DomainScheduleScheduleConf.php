@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace Swagger\Client\com.urlslab.domain;
+namespace Swagger\Client\Model;
 
 use \ArrayAccess;
 use \Swagger\Client\ObjectSerializer;

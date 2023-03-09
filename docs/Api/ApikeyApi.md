@@ -10,7 +10,7 @@ Method | HTTP request | Description
 [**validate**](ApikeyApi.md#validate) | **GET** /v1/apikey/validate | validate a given API Key
 
 # **createAPIKey**
-> \Swagger\Client\com.urlslab.domain\DomainAcknowledged createAPIKey()
+> \Swagger\Client\Model\DomainAcknowledged createAPIKey()
 
 Creates a new API Key for the user
 
@@ -25,7 +25,7 @@ $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X_
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X_URLSLAB_API_KEY', 'Bearer');
 
-$apiInstance = new Swagger\Client\com.urlslab\ApikeyApi(
+$apiInstance = new Swagger\Client\Urlslab\ApikeyApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -46,7 +46,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\Swagger\Client\com.urlslab.domain\DomainAcknowledged**](../Model/DomainAcknowledged.md)
+[**\Swagger\Client\Model\DomainAcknowledged**](../Model/DomainAcknowledged.md)
 
 ### Authorization
 
@@ -60,7 +60,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteAPIKey**
-> \Swagger\Client\com.urlslab.domain\DomainAcknowledged deleteAPIKey()
+> \Swagger\Client\Model\DomainAcknowledged deleteAPIKey()
 
 Deletes an API Key for the user
 
@@ -75,7 +75,7 @@ $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X_
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X_URLSLAB_API_KEY', 'Bearer');
 
-$apiInstance = new Swagger\Client\com.urlslab\ApikeyApi(
+$apiInstance = new Swagger\Client\Urlslab\ApikeyApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -96,7 +96,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\Swagger\Client\com.urlslab.domain\DomainAcknowledged**](../Model/DomainAcknowledged.md)
+[**\Swagger\Client\Model\DomainAcknowledged**](../Model/DomainAcknowledged.md)
 
 ### Authorization
 
@@ -110,7 +110,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listAPIKey**
-> \Swagger\Client\com.urlslab.domain\DomainAcknowledged listAPIKey()
+> \Swagger\Client\Model\DomainAcknowledged listAPIKey()
 
 Lists all API Keys for the user
 
@@ -125,7 +125,7 @@ $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X_
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X_URLSLAB_API_KEY', 'Bearer');
 
-$apiInstance = new Swagger\Client\com.urlslab\ApikeyApi(
+$apiInstance = new Swagger\Client\Urlslab\ApikeyApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -146,7 +146,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\Swagger\Client\com.urlslab.domain\DomainAcknowledged**](../Model/DomainAcknowledged.md)
+[**\Swagger\Client\Model\DomainAcknowledged**](../Model/DomainAcknowledged.md)
 
 ### Authorization
 
@@ -160,7 +160,7 @@ This endpoint does not need any parameter.
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **validate**
-> \Swagger\Client\com.urlslab.domain\DomainAcknowledged validate()
+> \Swagger\Client\Model\DomainAcknowledged validate()
 
 validate a given API Key
 
@@ -171,7 +171,7 @@ Validates the API Key provided in the request header
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 
-$apiInstance = new Swagger\Client\com.urlslab\ApikeyApi(
+$apiInstance = new Swagger\Client\Urlslab\ApikeyApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client()
@@ -191,7 +191,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\Swagger\Client\com.urlslab.domain\DomainAcknowledged**](../Model/DomainAcknowledged.md)
+[**\Swagger\Client\Model\DomainAcknowledged**](../Model/DomainAcknowledged.md)
 
 ### Authorization
 

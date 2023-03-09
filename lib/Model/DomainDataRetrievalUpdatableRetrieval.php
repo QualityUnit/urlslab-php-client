@@ -1,6 +1,6 @@
 <?php
 /**
- * DomainDataRetrievalSummaryResponse
+ * DomainDataRetrievalUpdatableRetrieval
  *
  * PHP version 5
  *
@@ -26,20 +26,20 @@
  * Do not edit the class manually.
  */
 
-namespace Swagger\Client\com.urlslab.domain;
+namespace Swagger\Client\Model;
 
 use \ArrayAccess;
 use \Swagger\Client\ObjectSerializer;
 
 /**
- * DomainDataRetrievalSummaryResponse Class Doc Comment
+ * DomainDataRetrievalUpdatableRetrieval Class Doc Comment
  *
  * @category Class
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class DomainDataRetrievalSummaryResponse implements ModelInterface, ArrayAccess
+class DomainDataRetrievalUpdatableRetrieval implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -48,7 +48,7 @@ class DomainDataRetrievalSummaryResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $swaggerModelName = 'domain.dataRetrieval.SummaryResponse';
+    protected static $swaggerModelName = 'domain.dataRetrieval.UpdatableRetrieval';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -56,10 +56,8 @@ class DomainDataRetrievalSummaryResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'domain_id' => 'string',
-'url_id' => 'string',
-'summary' => 'string',
-'summary_status' => 'string'    ];
+        'urls' => 'string[]',
+'updating_freq' => 'string'    ];
 
     /**
       * Array of property to format mappings. Used for (de)serialization
@@ -67,10 +65,8 @@ class DomainDataRetrievalSummaryResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'domain_id' => null,
-'url_id' => null,
-'summary' => null,
-'summary_status' => null    ];
+        'urls' => null,
+'updating_freq' => null    ];
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -99,10 +95,8 @@ class DomainDataRetrievalSummaryResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'domain_id' => 'domainId',
-'url_id' => 'urlId',
-'summary' => 'summary',
-'summary_status' => 'summaryStatus'    ];
+        'urls' => 'urls',
+'updating_freq' => 'updatingFreq'    ];
 
     /**
      * Array of attributes to setter functions (for deserialization of responses)
@@ -110,10 +104,8 @@ class DomainDataRetrievalSummaryResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'domain_id' => 'setDomainId',
-'url_id' => 'setUrlId',
-'summary' => 'setSummary',
-'summary_status' => 'setSummaryStatus'    ];
+        'urls' => 'setUrls',
+'updating_freq' => 'setUpdatingFreq'    ];
 
     /**
      * Array of attributes to getter functions (for serialization of requests)
@@ -121,10 +113,8 @@ class DomainDataRetrievalSummaryResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'domain_id' => 'getDomainId',
-'url_id' => 'getUrlId',
-'summary' => 'getSummary',
-'summary_status' => 'getSummaryStatus'    ];
+        'urls' => 'getUrls',
+'updating_freq' => 'getUpdatingFreq'    ];
 
     /**
      * Array of attributes where the key is the local name,
@@ -167,7 +157,26 @@ class DomainDataRetrievalSummaryResponse implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    
+    const UPDATING_FREQ_YEARLY = 'YEARLY';
+const UPDATING_FREQ_DAILY = 'DAILY';
+const UPDATING_FREQ_WEEKLY = 'WEEKLY';
+const UPDATING_FREQ_HOURLY = 'HOURLY';
+const UPDATING_FREQ_MONTHLY = 'MONTHLY';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getUpdatingFreqAllowableValues()
+    {
+        return [
+            self::UPDATING_FREQ_YEARLY,
+self::UPDATING_FREQ_DAILY,
+self::UPDATING_FREQ_WEEKLY,
+self::UPDATING_FREQ_HOURLY,
+self::UPDATING_FREQ_MONTHLY,        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -184,10 +193,8 @@ class DomainDataRetrievalSummaryResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['domain_id'] = isset($data['domain_id']) ? $data['domain_id'] : null;
-        $this->container['url_id'] = isset($data['url_id']) ? $data['url_id'] : null;
-        $this->container['summary'] = isset($data['summary']) ? $data['summary'] : null;
-        $this->container['summary_status'] = isset($data['summary_status']) ? $data['summary_status'] : null;
+        $this->container['urls'] = isset($data['urls']) ? $data['urls'] : null;
+        $this->container['updating_freq'] = isset($data['updating_freq']) ? $data['updating_freq'] : null;
     }
 
     /**
@@ -199,15 +206,17 @@ class DomainDataRetrievalSummaryResponse implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['domain_id'] === null) {
-            $invalidProperties[] = "'domain_id' can't be null";
+        if ($this->container['urls'] === null) {
+            $invalidProperties[] = "'urls' can't be null";
         }
-        if ($this->container['url_id'] === null) {
-            $invalidProperties[] = "'url_id' can't be null";
+        $allowedValues = $this->getUpdatingFreqAllowableValues();
+        if (!is_null($this->container['updating_freq']) && !in_array($this->container['updating_freq'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'updating_freq', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
         }
-        if ($this->container['summary_status'] === null) {
-            $invalidProperties[] = "'summary_status' can't be null";
-        }
+
         return $invalidProperties;
     }
 
@@ -224,97 +233,58 @@ class DomainDataRetrievalSummaryResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets domain_id
+     * Gets urls
      *
-     * @return string
+     * @return string[]
      */
-    public function getDomainId()
+    public function getUrls()
     {
-        return $this->container['domain_id'];
+        return $this->container['urls'];
     }
 
     /**
-     * Sets domain_id
+     * Sets urls
      *
-     * @param string $domain_id domain_id
+     * @param string[] $urls urls
      *
      * @return $this
      */
-    public function setDomainId($domain_id)
+    public function setUrls($urls)
     {
-        $this->container['domain_id'] = $domain_id;
+        $this->container['urls'] = $urls;
 
         return $this;
     }
 
     /**
-     * Gets url_id
+     * Gets updating_freq
      *
      * @return string
      */
-    public function getUrlId()
+    public function getUpdatingFreq()
     {
-        return $this->container['url_id'];
+        return $this->container['updating_freq'];
     }
 
     /**
-     * Sets url_id
+     * Sets updating_freq
      *
-     * @param string $url_id url_id
+     * @param string $updating_freq updating_freq
      *
      * @return $this
      */
-    public function setUrlId($url_id)
+    public function setUpdatingFreq($updating_freq)
     {
-        $this->container['url_id'] = $url_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets summary
-     *
-     * @return string
-     */
-    public function getSummary()
-    {
-        return $this->container['summary'];
-    }
-
-    /**
-     * Sets summary
-     *
-     * @param string $summary summary
-     *
-     * @return $this
-     */
-    public function setSummary($summary)
-    {
-        $this->container['summary'] = $summary;
-
-        return $this;
-    }
-
-    /**
-     * Gets summary_status
-     *
-     * @return string
-     */
-    public function getSummaryStatus()
-    {
-        return $this->container['summary_status'];
-    }
-
-    /**
-     * Sets summary_status
-     *
-     * @param string $summary_status summary_status
-     *
-     * @return $this
-     */
-    public function setSummaryStatus($summary_status)
-    {
-        $this->container['summary_status'] = $summary_status;
+        $allowedValues = $this->getUpdatingFreqAllowableValues();
+        if (!is_null($updating_freq) && !in_array($updating_freq, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'updating_freq', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['updating_freq'] = $updating_freq;
 
         return $this;
     }

@@ -10,7 +10,7 @@ Method | HTTP request | Description
 [**listSchedules**](ScheduleApi.md#listschedules) | **GET** /v1/schedule | get list of all schedules for the user
 
 # **createSchedule**
-> \Swagger\Client\com.urlslab.domain\DomainScheduleAPISchedule[] createSchedule($body)
+> \Swagger\Client\Model\DomainScheduleAPISchedule[] createSchedule($body)
 
 create a new schedule
 
@@ -25,13 +25,13 @@ $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X_
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X_URLSLAB_API_KEY', 'Bearer');
 
-$apiInstance = new Swagger\Client\com.urlslab\ScheduleApi(
+$apiInstance = new Swagger\Client\Urlslab\ScheduleApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$body = array(new \Swagger\Client\com.urlslab.domain\DomainScheduleScheduleConf()); // \Swagger\Client\com.urlslab.domain\DomainScheduleScheduleConf[] | 
+$body = array(new \Swagger\Client\Model\DomainScheduleScheduleConf()); // \Swagger\Client\Model\DomainScheduleScheduleConf[] | 
 
 try {
     $result = $apiInstance->createSchedule($body);
@@ -46,11 +46,11 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Swagger\Client\com.urlslab.domain\DomainScheduleScheduleConf[]**](../Model/DomainScheduleScheduleConf.md)|  | [optional]
+ **body** | [**\Swagger\Client\Model\DomainScheduleScheduleConf[]**](../Model/DomainScheduleScheduleConf.md)|  | [optional]
 
 ### Return type
 
-[**\Swagger\Client\com.urlslab.domain\DomainScheduleAPISchedule[]**](../Model/DomainScheduleAPISchedule.md)
+[**\Swagger\Client\Model\DomainScheduleAPISchedule[]**](../Model/DomainScheduleAPISchedule.md)
 
 ### Authorization
 
@@ -64,7 +64,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteSchedule**
-> \Swagger\Client\com.urlslab.domain\DomainAcknowledged deleteSchedule($id)
+> \Swagger\Client\Model\DomainAcknowledged deleteSchedule($id)
 
 delete a schedule
 
@@ -79,7 +79,7 @@ $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X_
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X_URLSLAB_API_KEY', 'Bearer');
 
-$apiInstance = new Swagger\Client\com.urlslab\ScheduleApi(
+$apiInstance = new Swagger\Client\Urlslab\ScheduleApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -104,7 +104,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\com.urlslab.domain\DomainAcknowledged**](../Model/DomainAcknowledged.md)
+[**\Swagger\Client\Model\DomainAcknowledged**](../Model/DomainAcknowledged.md)
 
 ### Authorization
 
@@ -118,7 +118,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getSchedule**
-> \Swagger\Client\com.urlslab.domain\DomainScheduleAPISchedule getSchedule($id)
+> \Swagger\Client\Model\DomainScheduleAPISchedule getSchedule($id)
 
 get a specific schedule details
 
@@ -133,7 +133,7 @@ $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X_
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X_URLSLAB_API_KEY', 'Bearer');
 
-$apiInstance = new Swagger\Client\com.urlslab\ScheduleApi(
+$apiInstance = new Swagger\Client\Urlslab\ScheduleApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -158,7 +158,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**\Swagger\Client\com.urlslab.domain\DomainScheduleAPISchedule**](../Model/DomainScheduleAPISchedule.md)
+[**\Swagger\Client\Model\DomainScheduleAPISchedule**](../Model/DomainScheduleAPISchedule.md)
 
 ### Authorization
 
@@ -172,7 +172,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listSchedules**
-> \Swagger\Client\com.urlslab.domain\DomainScheduleAPISchedule[] listSchedules()
+> \Swagger\Client\Model\DomainScheduleAPISchedule[] listSchedules()
 
 get list of all schedules for the user
 
@@ -187,7 +187,7 @@ $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X_
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 // $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X_URLSLAB_API_KEY', 'Bearer');
 
-$apiInstance = new Swagger\Client\com.urlslab\ScheduleApi(
+$apiInstance = new Swagger\Client\Urlslab\ScheduleApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
@@ -208,7 +208,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**\Swagger\Client\com.urlslab.domain\DomainScheduleAPISchedule[]**](../Model/DomainScheduleAPISchedule.md)
+[**\Swagger\Client\Model\DomainScheduleAPISchedule[]**](../Model/DomainScheduleAPISchedule.md)
 
 ### Authorization
 

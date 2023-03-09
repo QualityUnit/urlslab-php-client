@@ -1,6 +1,6 @@
 <?php
 /**
- * AuthApi
+ * QaApi
  * PHP version 5
  *
  * @category Class
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace Swagger\Client\com.urlslab;
+namespace Swagger\Client\Urlslab;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -39,14 +39,14 @@ use Swagger\Client\HeaderSelector;
 use Swagger\Client\ObjectSerializer;
 
 /**
- * AuthApi Class Doc Comment
+ * QaApi Class Doc Comment
  *
  * @category Class
  * @package  Swagger\Client
  * @author   Swagger Codegen team
  * @link     https://github.com/swagger-api/swagger-codegen
  */
-class AuthApi
+class QaApi
 {
     /**
      * @var ClientInterface
@@ -87,34 +87,34 @@ class AuthApi
     }
 
     /**
-     * Operation logout
+     * Operation getAnswer
      *
-     * logout for users
+     * Get answer for a question
      *
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function logout()
+    public function getAnswer()
     {
-        $this->logoutWithHttpInfo();
+        $this->getAnswerWithHttpInfo();
     }
 
     /**
-     * Operation logoutWithHttpInfo
+     * Operation getAnswerWithHttpInfo
      *
-     * logout for users
+     * Get answer for a question
      *
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function logoutWithHttpInfo()
+    public function getAnswerWithHttpInfo()
     {
         $returnType = '';
-        $request = $this->logoutRequest();
+        $request = $this->getAnswerRequest();
 
         try {
             $options = $this->createHttpClientOption();
@@ -154,17 +154,17 @@ class AuthApi
     }
 
     /**
-     * Operation logoutAsync
+     * Operation getAnswerAsync
      *
-     * logout for users
+     * Get answer for a question
      *
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function logoutAsync()
+    public function getAnswerAsync()
     {
-        return $this->logoutAsyncWithHttpInfo()
+        return $this->getAnswerAsyncWithHttpInfo()
             ->then(
                 function ($response) {
                     return $response[0];
@@ -173,18 +173,18 @@ class AuthApi
     }
 
     /**
-     * Operation logoutAsyncWithHttpInfo
+     * Operation getAnswerAsyncWithHttpInfo
      *
-     * logout for users
+     * Get answer for a question
      *
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function logoutAsyncWithHttpInfo()
+    public function getAnswerAsyncWithHttpInfo()
     {
         $returnType = '';
-        $request = $this->logoutRequest();
+        $request = $this->getAnswerRequest();
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -210,16 +210,16 @@ class AuthApi
     }
 
     /**
-     * Create request for operation 'logout'
+     * Create request for operation 'getAnswer'
      *
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function logoutRequest()
+    protected function getAnswerRequest()
     {
 
-        $resourcePath = '/v1/auth/signout';
+        $resourcePath = '/v1/qa';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -291,236 +291,6 @@ class AuthApi
         $query = \GuzzleHttp\Psr7\build_query($queryParams);
         return new Request(
             'POST',
-            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
-            $headers,
-            $httpBody
-        );
-    }
-
-    /**
-     * Operation signin
-     *
-     * login for users
-     *
-     * @param  string $provider provider (required)
-     *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return void
-     */
-    public function signin($provider)
-    {
-        $this->signinWithHttpInfo($provider);
-    }
-
-    /**
-     * Operation signinWithHttpInfo
-     *
-     * login for users
-     *
-     * @param  string $provider (required)
-     *
-     * @throws \Swagger\Client\ApiException on non-2xx response
-     * @throws \InvalidArgumentException
-     * @return array of null, HTTP status code, HTTP response headers (array of strings)
-     */
-    public function signinWithHttpInfo($provider)
-    {
-        $returnType = '';
-        $request = $this->signinRequest($provider);
-
-        try {
-            $options = $this->createHttpClientOption();
-            try {
-                $response = $this->client->send($request, $options);
-            } catch (RequestException $e) {
-                throw new ApiException(
-                    "[{$e->getCode()}] {$e->getMessage()}",
-                    $e->getCode(),
-                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
-                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
-                );
-            }
-
-            $statusCode = $response->getStatusCode();
-
-            if ($statusCode < 200 || $statusCode > 299) {
-                throw new ApiException(
-                    sprintf(
-                        '[%d] Error connecting to the API (%s)',
-                        $statusCode,
-                        $request->getUri()
-                    ),
-                    $statusCode,
-                    $response->getHeaders(),
-                    $response->getBody()
-                );
-            }
-
-            return [null, $statusCode, $response->getHeaders()];
-
-        } catch (ApiException $e) {
-            switch ($e->getCode()) {
-            }
-            throw $e;
-        }
-    }
-
-    /**
-     * Operation signinAsync
-     *
-     * login for users
-     *
-     * @param  string $provider (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function signinAsync($provider)
-    {
-        return $this->signinAsyncWithHttpInfo($provider)
-            ->then(
-                function ($response) {
-                    return $response[0];
-                }
-            );
-    }
-
-    /**
-     * Operation signinAsyncWithHttpInfo
-     *
-     * login for users
-     *
-     * @param  string $provider (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Promise\PromiseInterface
-     */
-    public function signinAsyncWithHttpInfo($provider)
-    {
-        $returnType = '';
-        $request = $this->signinRequest($provider);
-
-        return $this->client
-            ->sendAsync($request, $this->createHttpClientOption())
-            ->then(
-                function ($response) use ($returnType) {
-                    return [null, $response->getStatusCode(), $response->getHeaders()];
-                },
-                function ($exception) {
-                    $response = $exception->getResponse();
-                    $statusCode = $response->getStatusCode();
-                    throw new ApiException(
-                        sprintf(
-                            '[%d] Error connecting to the API (%s)',
-                            $statusCode,
-                            $exception->getRequest()->getUri()
-                        ),
-                        $statusCode,
-                        $response->getHeaders(),
-                        $response->getBody()
-                    );
-                }
-            );
-    }
-
-    /**
-     * Create request for operation 'signin'
-     *
-     * @param  string $provider (required)
-     *
-     * @throws \InvalidArgumentException
-     * @return \GuzzleHttp\Psr7\Request
-     */
-    protected function signinRequest($provider)
-    {
-        // verify the required parameter 'provider' is set
-        if ($provider === null || (is_array($provider) && count($provider) === 0)) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $provider when calling signin'
-            );
-        }
-
-        $resourcePath = '/v1/auth/signin/{provider}';
-        $formParams = [];
-        $queryParams = [];
-        $headerParams = [];
-        $httpBody = '';
-        $multipart = false;
-
-
-        // path params
-        if ($provider !== null) {
-            $resourcePath = str_replace(
-                '{' . 'provider' . '}',
-                ObjectSerializer::toPathValue($provider),
-                $resourcePath
-            );
-        }
-
-        // body params
-        $_tempBody = null;
-
-        if ($multipart) {
-            $headers = $this->headerSelector->selectHeadersForMultipart(
-                []
-            );
-        } else {
-            $headers = $this->headerSelector->selectHeaders(
-                [],
-                []
-            );
-        }
-
-        // for model (json/xml)
-        if (isset($_tempBody)) {
-            // $_tempBody is the method argument, if present
-            $httpBody = $_tempBody;
-            // \stdClass has no __toString(), so we should encode it manually
-            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($httpBody);
-            }
-        } elseif (count($formParams) > 0) {
-            if ($multipart) {
-                $multipartContents = [];
-                foreach ($formParams as $formParamName => $formParamValue) {
-                    $multipartContents[] = [
-                        'name' => $formParamName,
-                        'contents' => $formParamValue
-                    ];
-                }
-                // for HTTP post (form)
-                $httpBody = new MultipartStream($multipartContents);
-
-            } elseif ($headers['Content-Type'] === 'application/json') {
-                $httpBody = \GuzzleHttp\json_encode($formParams);
-
-            } else {
-                // for HTTP post (form)
-                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
-            }
-        }
-
-        // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('X_URLSLAB_API_KEY');
-        if ($apiKey !== null) {
-            $headers['X_URLSLAB_API_KEY'] = $apiKey;
-        }
-
-        $defaultHeaders = [];
-        if ($this->config->getUserAgent()) {
-            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
-        }
-
-        $headers = array_merge(
-            $defaultHeaders,
-            $headerParams,
-            $headers
-        );
-
-        $query = \GuzzleHttp\Psr7\build_query($queryParams);
-        return new Request(
-            'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
             $httpBody
