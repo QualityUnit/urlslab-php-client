@@ -9,7 +9,7 @@ release_note=$3
 git_repo_base_url=$4
 
 if [ "$git_user_id" = "" ]; then
-    git_user_id="GIT_USER_ID"
+    git_user_id="urlslab-php-client"
     echo "[INFO] No command line input provided. Set \$git_user_id to $git_user_id"
 fi
 

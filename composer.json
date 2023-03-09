@@ -1,6 +1,6 @@
 {
-    "name": "GIT_USER_ID/urlslab",
-    "version": "0.0.8",
+    "name": "urlslab-php-client/urlslab",
+    "version": "0.0.9",
     "description": "",
     "keywords": [
         "swagger",
