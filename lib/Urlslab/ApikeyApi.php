@@ -859,14 +859,15 @@ class ApikeyApi
      *
      * validate a given API Key
      *
+     * @param  string $body API Key to be validated (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\DomainAcknowledged
      */
-    public function validate()
+    public function validate($body = null)
     {
-        list($response) = $this->validateWithHttpInfo();
+        list($response) = $this->validateWithHttpInfo($body);
         return $response;
     }
 
@@ -875,15 +876,16 @@ class ApikeyApi
      *
      * validate a given API Key
      *
+     * @param  string $body API Key to be validated (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\DomainAcknowledged, HTTP status code, HTTP response headers (array of strings)
      */
-    public function validateWithHttpInfo()
+    public function validateWithHttpInfo($body = null)
     {
         $returnType = '\Swagger\Client\Model\DomainAcknowledged';
-        $request = $this->validateRequest();
+        $request = $this->validateRequest($body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -957,13 +959,14 @@ class ApikeyApi
      *
      * validate a given API Key
      *
+     * @param  string $body API Key to be validated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function validateAsync()
+    public function validateAsync($body = null)
     {
-        return $this->validateAsyncWithHttpInfo()
+        return $this->validateAsyncWithHttpInfo($body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -976,14 +979,15 @@ class ApikeyApi
      *
      * validate a given API Key
      *
+     * @param  string $body API Key to be validated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function validateAsyncWithHttpInfo()
+    public function validateAsyncWithHttpInfo($body = null)
     {
         $returnType = '\Swagger\Client\Model\DomainAcknowledged';
-        $request = $this->validateRequest();
+        $request = $this->validateRequest($body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1025,11 +1029,12 @@ class ApikeyApi
     /**
      * Create request for operation 'validate'
      *
+     * @param  string $body API Key to be validated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function validateRequest()
+    protected function validateRequest($body = null)
     {
 
         $resourcePath = '/v1/apikey/validate';
@@ -1043,6 +1048,9 @@ class ApikeyApi
 
         // body params
         $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -1051,7 +1059,7 @@ class ApikeyApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                []
+                ['text/plain']
             );
         }
 
