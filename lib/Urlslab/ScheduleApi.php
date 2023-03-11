@@ -348,14 +348,15 @@ class ScheduleApi
      * delete a schedule
      *
      * @param  string $id id (required)
+     * @param  string $body API Key to be validated (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\DomainAcknowledged
      */
-    public function deleteSchedule($id)
+    public function deleteSchedule($id, $body = null)
     {
-        list($response) = $this->deleteScheduleWithHttpInfo($id);
+        list($response) = $this->deleteScheduleWithHttpInfo($id, $body);
         return $response;
     }
 
@@ -365,15 +366,16 @@ class ScheduleApi
      * delete a schedule
      *
      * @param  string $id (required)
+     * @param  string $body API Key to be validated (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\DomainAcknowledged, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteScheduleWithHttpInfo($id)
+    public function deleteScheduleWithHttpInfo($id, $body = null)
     {
         $returnType = '\Swagger\Client\Model\DomainAcknowledged';
-        $request = $this->deleteScheduleRequest($id);
+        $request = $this->deleteScheduleRequest($id, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -440,13 +442,14 @@ class ScheduleApi
      * delete a schedule
      *
      * @param  string $id (required)
+     * @param  string $body API Key to be validated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteScheduleAsync($id)
+    public function deleteScheduleAsync($id, $body = null)
     {
-        return $this->deleteScheduleAsyncWithHttpInfo($id)
+        return $this->deleteScheduleAsyncWithHttpInfo($id, $body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -460,14 +463,15 @@ class ScheduleApi
      * delete a schedule
      *
      * @param  string $id (required)
+     * @param  string $body API Key to be validated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteScheduleAsyncWithHttpInfo($id)
+    public function deleteScheduleAsyncWithHttpInfo($id, $body = null)
     {
         $returnType = '\Swagger\Client\Model\DomainAcknowledged';
-        $request = $this->deleteScheduleRequest($id);
+        $request = $this->deleteScheduleRequest($id, $body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -510,11 +514,12 @@ class ScheduleApi
      * Create request for operation 'deleteSchedule'
      *
      * @param  string $id (required)
+     * @param  string $body API Key to be validated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteScheduleRequest($id)
+    protected function deleteScheduleRequest($id, $body = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -542,6 +547,9 @@ class ScheduleApi
 
         // body params
         $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -550,7 +558,7 @@ class ScheduleApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                []
+                ['text/plain']
             );
         }
 
@@ -615,14 +623,15 @@ class ScheduleApi
      * get a specific schedule details
      *
      * @param  string $id id (required)
+     * @param  string $body API Key to be validated (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\DomainScheduleAPISchedule
      */
-    public function getSchedule($id)
+    public function getSchedule($id, $body = null)
     {
-        list($response) = $this->getScheduleWithHttpInfo($id);
+        list($response) = $this->getScheduleWithHttpInfo($id, $body);
         return $response;
     }
 
@@ -632,15 +641,16 @@ class ScheduleApi
      * get a specific schedule details
      *
      * @param  string $id (required)
+     * @param  string $body API Key to be validated (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\DomainScheduleAPISchedule, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getScheduleWithHttpInfo($id)
+    public function getScheduleWithHttpInfo($id, $body = null)
     {
         $returnType = '\Swagger\Client\Model\DomainScheduleAPISchedule';
-        $request = $this->getScheduleRequest($id);
+        $request = $this->getScheduleRequest($id, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -707,13 +717,14 @@ class ScheduleApi
      * get a specific schedule details
      *
      * @param  string $id (required)
+     * @param  string $body API Key to be validated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getScheduleAsync($id)
+    public function getScheduleAsync($id, $body = null)
     {
-        return $this->getScheduleAsyncWithHttpInfo($id)
+        return $this->getScheduleAsyncWithHttpInfo($id, $body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -727,14 +738,15 @@ class ScheduleApi
      * get a specific schedule details
      *
      * @param  string $id (required)
+     * @param  string $body API Key to be validated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getScheduleAsyncWithHttpInfo($id)
+    public function getScheduleAsyncWithHttpInfo($id, $body = null)
     {
         $returnType = '\Swagger\Client\Model\DomainScheduleAPISchedule';
-        $request = $this->getScheduleRequest($id);
+        $request = $this->getScheduleRequest($id, $body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -777,11 +789,12 @@ class ScheduleApi
      * Create request for operation 'getSchedule'
      *
      * @param  string $id (required)
+     * @param  string $body API Key to be validated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getScheduleRequest($id)
+    protected function getScheduleRequest($id, $body = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -809,6 +822,9 @@ class ScheduleApi
 
         // body params
         $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -817,7 +833,7 @@ class ScheduleApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                []
+                ['text/plain']
             );
         }
 
@@ -881,14 +897,15 @@ class ScheduleApi
      *
      * get list of all schedules for the user
      *
+     * @param  string $body API Key to be validated (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\DomainScheduleAPISchedule[]
      */
-    public function listSchedules()
+    public function listSchedules($body = null)
     {
-        list($response) = $this->listSchedulesWithHttpInfo();
+        list($response) = $this->listSchedulesWithHttpInfo($body);
         return $response;
     }
 
@@ -897,15 +914,16 @@ class ScheduleApi
      *
      * get list of all schedules for the user
      *
+     * @param  string $body API Key to be validated (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\DomainScheduleAPISchedule[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function listSchedulesWithHttpInfo()
+    public function listSchedulesWithHttpInfo($body = null)
     {
         $returnType = '\Swagger\Client\Model\DomainScheduleAPISchedule[]';
-        $request = $this->listSchedulesRequest();
+        $request = $this->listSchedulesRequest($body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -971,13 +989,14 @@ class ScheduleApi
      *
      * get list of all schedules for the user
      *
+     * @param  string $body API Key to be validated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listSchedulesAsync()
+    public function listSchedulesAsync($body = null)
     {
-        return $this->listSchedulesAsyncWithHttpInfo()
+        return $this->listSchedulesAsyncWithHttpInfo($body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -990,14 +1009,15 @@ class ScheduleApi
      *
      * get list of all schedules for the user
      *
+     * @param  string $body API Key to be validated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listSchedulesAsyncWithHttpInfo()
+    public function listSchedulesAsyncWithHttpInfo($body = null)
     {
         $returnType = '\Swagger\Client\Model\DomainScheduleAPISchedule[]';
-        $request = $this->listSchedulesRequest();
+        $request = $this->listSchedulesRequest($body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1039,11 +1059,12 @@ class ScheduleApi
     /**
      * Create request for operation 'listSchedules'
      *
+     * @param  string $body API Key to be validated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function listSchedulesRequest()
+    protected function listSchedulesRequest($body = null)
     {
 
         $resourcePath = '/v1/schedule';
@@ -1057,6 +1078,9 @@ class ScheduleApi
 
         // body params
         $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -1065,7 +1089,7 @@ class ScheduleApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                []
+                ['text/plain']
             );
         }
 

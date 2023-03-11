@@ -91,14 +91,15 @@ class ApikeyApi
      *
      * Creates a new API Key for the user
      *
+     * @param  string $body API Key to be validated (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\DomainAcknowledged
      */
-    public function createAPIKey()
+    public function createAPIKey($body = null)
     {
-        list($response) = $this->createAPIKeyWithHttpInfo();
+        list($response) = $this->createAPIKeyWithHttpInfo($body);
         return $response;
     }
 
@@ -107,15 +108,16 @@ class ApikeyApi
      *
      * Creates a new API Key for the user
      *
+     * @param  string $body API Key to be validated (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\DomainAcknowledged, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createAPIKeyWithHttpInfo()
+    public function createAPIKeyWithHttpInfo($body = null)
     {
         $returnType = '\Swagger\Client\Model\DomainAcknowledged';
-        $request = $this->createAPIKeyRequest();
+        $request = $this->createAPIKeyRequest($body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -189,13 +191,14 @@ class ApikeyApi
      *
      * Creates a new API Key for the user
      *
+     * @param  string $body API Key to be validated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createAPIKeyAsync()
+    public function createAPIKeyAsync($body = null)
     {
-        return $this->createAPIKeyAsyncWithHttpInfo()
+        return $this->createAPIKeyAsyncWithHttpInfo($body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -208,14 +211,15 @@ class ApikeyApi
      *
      * Creates a new API Key for the user
      *
+     * @param  string $body API Key to be validated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createAPIKeyAsyncWithHttpInfo()
+    public function createAPIKeyAsyncWithHttpInfo($body = null)
     {
         $returnType = '\Swagger\Client\Model\DomainAcknowledged';
-        $request = $this->createAPIKeyRequest();
+        $request = $this->createAPIKeyRequest($body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -257,11 +261,12 @@ class ApikeyApi
     /**
      * Create request for operation 'createAPIKey'
      *
+     * @param  string $body API Key to be validated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createAPIKeyRequest()
+    protected function createAPIKeyRequest($body = null)
     {
 
         $resourcePath = '/v1/apikey';
@@ -275,6 +280,9 @@ class ApikeyApi
 
         // body params
         $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -283,7 +291,7 @@ class ApikeyApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                []
+                ['text/plain']
             );
         }
 
@@ -347,14 +355,15 @@ class ApikeyApi
      *
      * Deletes an API Key for the user
      *
+     * @param  string $body API Key to be validated (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\DomainAcknowledged
      */
-    public function deleteAPIKey()
+    public function deleteAPIKey($body = null)
     {
-        list($response) = $this->deleteAPIKeyWithHttpInfo();
+        list($response) = $this->deleteAPIKeyWithHttpInfo($body);
         return $response;
     }
 
@@ -363,15 +372,16 @@ class ApikeyApi
      *
      * Deletes an API Key for the user
      *
+     * @param  string $body API Key to be validated (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\DomainAcknowledged, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteAPIKeyWithHttpInfo()
+    public function deleteAPIKeyWithHttpInfo($body = null)
     {
         $returnType = '\Swagger\Client\Model\DomainAcknowledged';
-        $request = $this->deleteAPIKeyRequest();
+        $request = $this->deleteAPIKeyRequest($body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -445,13 +455,14 @@ class ApikeyApi
      *
      * Deletes an API Key for the user
      *
+     * @param  string $body API Key to be validated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteAPIKeyAsync()
+    public function deleteAPIKeyAsync($body = null)
     {
-        return $this->deleteAPIKeyAsyncWithHttpInfo()
+        return $this->deleteAPIKeyAsyncWithHttpInfo($body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -464,14 +475,15 @@ class ApikeyApi
      *
      * Deletes an API Key for the user
      *
+     * @param  string $body API Key to be validated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteAPIKeyAsyncWithHttpInfo()
+    public function deleteAPIKeyAsyncWithHttpInfo($body = null)
     {
         $returnType = '\Swagger\Client\Model\DomainAcknowledged';
-        $request = $this->deleteAPIKeyRequest();
+        $request = $this->deleteAPIKeyRequest($body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -513,11 +525,12 @@ class ApikeyApi
     /**
      * Create request for operation 'deleteAPIKey'
      *
+     * @param  string $body API Key to be validated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteAPIKeyRequest()
+    protected function deleteAPIKeyRequest($body = null)
     {
 
         $resourcePath = '/v1/apikey';
@@ -531,6 +544,9 @@ class ApikeyApi
 
         // body params
         $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -539,7 +555,7 @@ class ApikeyApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                []
+                ['text/plain']
             );
         }
 
@@ -603,14 +619,15 @@ class ApikeyApi
      *
      * Lists all API Keys for the user
      *
+     * @param  string $body API Key to be validated (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Swagger\Client\Model\DomainAcknowledged
      */
-    public function listAPIKey()
+    public function listAPIKey($body = null)
     {
-        list($response) = $this->listAPIKeyWithHttpInfo();
+        list($response) = $this->listAPIKeyWithHttpInfo($body);
         return $response;
     }
 
@@ -619,15 +636,16 @@ class ApikeyApi
      *
      * Lists all API Keys for the user
      *
+     * @param  string $body API Key to be validated (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Swagger\Client\Model\DomainAcknowledged, HTTP status code, HTTP response headers (array of strings)
      */
-    public function listAPIKeyWithHttpInfo()
+    public function listAPIKeyWithHttpInfo($body = null)
     {
         $returnType = '\Swagger\Client\Model\DomainAcknowledged';
-        $request = $this->listAPIKeyRequest();
+        $request = $this->listAPIKeyRequest($body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -701,13 +719,14 @@ class ApikeyApi
      *
      * Lists all API Keys for the user
      *
+     * @param  string $body API Key to be validated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listAPIKeyAsync()
+    public function listAPIKeyAsync($body = null)
     {
-        return $this->listAPIKeyAsyncWithHttpInfo()
+        return $this->listAPIKeyAsyncWithHttpInfo($body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -720,14 +739,15 @@ class ApikeyApi
      *
      * Lists all API Keys for the user
      *
+     * @param  string $body API Key to be validated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listAPIKeyAsyncWithHttpInfo()
+    public function listAPIKeyAsyncWithHttpInfo($body = null)
     {
         $returnType = '\Swagger\Client\Model\DomainAcknowledged';
-        $request = $this->listAPIKeyRequest();
+        $request = $this->listAPIKeyRequest($body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -769,11 +789,12 @@ class ApikeyApi
     /**
      * Create request for operation 'listAPIKey'
      *
+     * @param  string $body API Key to be validated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function listAPIKeyRequest()
+    protected function listAPIKeyRequest($body = null)
     {
 
         $resourcePath = '/v1/apikey';
@@ -787,6 +808,9 @@ class ApikeyApi
 
         // body params
         $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -795,7 +819,7 @@ class ApikeyApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 ['application/json'],
-                []
+                ['text/plain']
             );
         }
 

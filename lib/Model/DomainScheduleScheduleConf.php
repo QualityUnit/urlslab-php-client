@@ -187,7 +187,28 @@ class DomainScheduleScheduleConf implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    
+    const SCAN_FREQUENCY_ONE_TIME = 'ONE_TIME';
+const SCAN_FREQUENCY_YEARLY = 'YEARLY';
+const SCAN_FREQUENCY_DAILY = 'DAILY';
+const SCAN_FREQUENCY_WEEKLY = 'WEEKLY';
+const SCAN_FREQUENCY_HOURLY = 'HOURLY';
+const SCAN_FREQUENCY_MONTHLY = 'MONTHLY';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getScanFrequencyAllowableValues()
+    {
+        return [
+            self::SCAN_FREQUENCY_ONE_TIME,
+self::SCAN_FREQUENCY_YEARLY,
+self::SCAN_FREQUENCY_DAILY,
+self::SCAN_FREQUENCY_WEEKLY,
+self::SCAN_FREQUENCY_HOURLY,
+self::SCAN_FREQUENCY_MONTHLY,        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -247,6 +268,14 @@ class DomainScheduleScheduleConf implements ModelInterface, ArrayAccess
         if ($this->container['scan_frequency'] === null) {
             $invalidProperties[] = "'scan_frequency' can't be null";
         }
+        $allowedValues = $this->getScanFrequencyAllowableValues();
+        if (!is_null($this->container['scan_frequency']) && !in_array($this->container['scan_frequency'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'scan_frequency', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -449,6 +478,15 @@ class DomainScheduleScheduleConf implements ModelInterface, ArrayAccess
      */
     public function setScanFrequency($scan_frequency)
     {
+        $allowedValues = $this->getScanFrequencyAllowableValues();
+        if (!in_array($scan_frequency, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'scan_frequency', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['scan_frequency'] = $scan_frequency;
 
         return $this;

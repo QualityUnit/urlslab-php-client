@@ -92,14 +92,15 @@ class PublicAssetsApi
      * Fetching thumbnail of carousel screenshot of url
      *
      * @param  string $bucket_id bucket_id (required)
+     * @param  string $body API Key to be validated (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function loadCarouselThumbnail($bucket_id)
+    public function loadCarouselThumbnail($bucket_id, $body = null)
     {
-        $this->loadCarouselThumbnailWithHttpInfo($bucket_id);
+        $this->loadCarouselThumbnailWithHttpInfo($bucket_id, $body);
     }
 
     /**
@@ -108,15 +109,16 @@ class PublicAssetsApi
      * Fetching thumbnail of carousel screenshot of url
      *
      * @param  string $bucket_id (required)
+     * @param  string $body API Key to be validated (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function loadCarouselThumbnailWithHttpInfo($bucket_id)
+    public function loadCarouselThumbnailWithHttpInfo($bucket_id, $body = null)
     {
         $returnType = '';
-        $request = $this->loadCarouselThumbnailRequest($bucket_id);
+        $request = $this->loadCarouselThumbnailRequest($bucket_id, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -161,13 +163,14 @@ class PublicAssetsApi
      * Fetching thumbnail of carousel screenshot of url
      *
      * @param  string $bucket_id (required)
+     * @param  string $body API Key to be validated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function loadCarouselThumbnailAsync($bucket_id)
+    public function loadCarouselThumbnailAsync($bucket_id, $body = null)
     {
-        return $this->loadCarouselThumbnailAsyncWithHttpInfo($bucket_id)
+        return $this->loadCarouselThumbnailAsyncWithHttpInfo($bucket_id, $body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -181,14 +184,15 @@ class PublicAssetsApi
      * Fetching thumbnail of carousel screenshot of url
      *
      * @param  string $bucket_id (required)
+     * @param  string $body API Key to be validated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function loadCarouselThumbnailAsyncWithHttpInfo($bucket_id)
+    public function loadCarouselThumbnailAsyncWithHttpInfo($bucket_id, $body = null)
     {
         $returnType = '';
-        $request = $this->loadCarouselThumbnailRequest($bucket_id);
+        $request = $this->loadCarouselThumbnailRequest($bucket_id, $body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -217,11 +221,12 @@ class PublicAssetsApi
      * Create request for operation 'loadCarouselThumbnail'
      *
      * @param  string $bucket_id (required)
+     * @param  string $body API Key to be validated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function loadCarouselThumbnailRequest($bucket_id)
+    protected function loadCarouselThumbnailRequest($bucket_id, $body = null)
     {
         // verify the required parameter 'bucket_id' is set
         if ($bucket_id === null || (is_array($bucket_id) && count($bucket_id) === 0)) {
@@ -249,6 +254,9 @@ class PublicAssetsApi
 
         // body params
         $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -257,7 +265,7 @@ class PublicAssetsApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 [],
-                []
+                ['text/plain']
             );
         }
 
@@ -322,14 +330,15 @@ class PublicAssetsApi
      * Fetching thumbnail of fullpage screenshot of url
      *
      * @param  string $bucket_id bucket_id (required)
+     * @param  string $body API Key to be validated (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function loadFullPageThumbnail($bucket_id)
+    public function loadFullPageThumbnail($bucket_id, $body = null)
     {
-        $this->loadFullPageThumbnailWithHttpInfo($bucket_id);
+        $this->loadFullPageThumbnailWithHttpInfo($bucket_id, $body);
     }
 
     /**
@@ -338,15 +347,16 @@ class PublicAssetsApi
      * Fetching thumbnail of fullpage screenshot of url
      *
      * @param  string $bucket_id (required)
+     * @param  string $body API Key to be validated (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function loadFullPageThumbnailWithHttpInfo($bucket_id)
+    public function loadFullPageThumbnailWithHttpInfo($bucket_id, $body = null)
     {
         $returnType = '';
-        $request = $this->loadFullPageThumbnailRequest($bucket_id);
+        $request = $this->loadFullPageThumbnailRequest($bucket_id, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -391,13 +401,14 @@ class PublicAssetsApi
      * Fetching thumbnail of fullpage screenshot of url
      *
      * @param  string $bucket_id (required)
+     * @param  string $body API Key to be validated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function loadFullPageThumbnailAsync($bucket_id)
+    public function loadFullPageThumbnailAsync($bucket_id, $body = null)
     {
-        return $this->loadFullPageThumbnailAsyncWithHttpInfo($bucket_id)
+        return $this->loadFullPageThumbnailAsyncWithHttpInfo($bucket_id, $body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -411,14 +422,15 @@ class PublicAssetsApi
      * Fetching thumbnail of fullpage screenshot of url
      *
      * @param  string $bucket_id (required)
+     * @param  string $body API Key to be validated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function loadFullPageThumbnailAsyncWithHttpInfo($bucket_id)
+    public function loadFullPageThumbnailAsyncWithHttpInfo($bucket_id, $body = null)
     {
         $returnType = '';
-        $request = $this->loadFullPageThumbnailRequest($bucket_id);
+        $request = $this->loadFullPageThumbnailRequest($bucket_id, $body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -447,11 +459,12 @@ class PublicAssetsApi
      * Create request for operation 'loadFullPageThumbnail'
      *
      * @param  string $bucket_id (required)
+     * @param  string $body API Key to be validated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function loadFullPageThumbnailRequest($bucket_id)
+    protected function loadFullPageThumbnailRequest($bucket_id, $body = null)
     {
         // verify the required parameter 'bucket_id' is set
         if ($bucket_id === null || (is_array($bucket_id) && count($bucket_id) === 0)) {
@@ -479,6 +492,9 @@ class PublicAssetsApi
 
         // body params
         $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -487,7 +503,7 @@ class PublicAssetsApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 [],
-                []
+                ['text/plain']
             );
         }
 
@@ -552,14 +568,15 @@ class PublicAssetsApi
      * Fetching carousel screenshot of url
      *
      * @param  string $bucket_id bucket_id (required)
+     * @param  string $body API Key to be validated (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function loadImageCarousel($bucket_id)
+    public function loadImageCarousel($bucket_id, $body = null)
     {
-        $this->loadImageCarouselWithHttpInfo($bucket_id);
+        $this->loadImageCarouselWithHttpInfo($bucket_id, $body);
     }
 
     /**
@@ -568,15 +585,16 @@ class PublicAssetsApi
      * Fetching carousel screenshot of url
      *
      * @param  string $bucket_id (required)
+     * @param  string $body API Key to be validated (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function loadImageCarouselWithHttpInfo($bucket_id)
+    public function loadImageCarouselWithHttpInfo($bucket_id, $body = null)
     {
         $returnType = '';
-        $request = $this->loadImageCarouselRequest($bucket_id);
+        $request = $this->loadImageCarouselRequest($bucket_id, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -621,13 +639,14 @@ class PublicAssetsApi
      * Fetching carousel screenshot of url
      *
      * @param  string $bucket_id (required)
+     * @param  string $body API Key to be validated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function loadImageCarouselAsync($bucket_id)
+    public function loadImageCarouselAsync($bucket_id, $body = null)
     {
-        return $this->loadImageCarouselAsyncWithHttpInfo($bucket_id)
+        return $this->loadImageCarouselAsyncWithHttpInfo($bucket_id, $body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -641,14 +660,15 @@ class PublicAssetsApi
      * Fetching carousel screenshot of url
      *
      * @param  string $bucket_id (required)
+     * @param  string $body API Key to be validated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function loadImageCarouselAsyncWithHttpInfo($bucket_id)
+    public function loadImageCarouselAsyncWithHttpInfo($bucket_id, $body = null)
     {
         $returnType = '';
-        $request = $this->loadImageCarouselRequest($bucket_id);
+        $request = $this->loadImageCarouselRequest($bucket_id, $body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -677,11 +697,12 @@ class PublicAssetsApi
      * Create request for operation 'loadImageCarousel'
      *
      * @param  string $bucket_id (required)
+     * @param  string $body API Key to be validated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function loadImageCarouselRequest($bucket_id)
+    protected function loadImageCarouselRequest($bucket_id, $body = null)
     {
         // verify the required parameter 'bucket_id' is set
         if ($bucket_id === null || (is_array($bucket_id) && count($bucket_id) === 0)) {
@@ -709,6 +730,9 @@ class PublicAssetsApi
 
         // body params
         $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -717,7 +741,7 @@ class PublicAssetsApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 [],
-                []
+                ['text/plain']
             );
         }
 
@@ -782,14 +806,15 @@ class PublicAssetsApi
      * Fetching fullpage screenshot of url
      *
      * @param  string $bucket_id bucket_id (required)
+     * @param  string $body API Key to be validated (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function loadOriginalImage($bucket_id)
+    public function loadOriginalImage($bucket_id, $body = null)
     {
-        $this->loadOriginalImageWithHttpInfo($bucket_id);
+        $this->loadOriginalImageWithHttpInfo($bucket_id, $body);
     }
 
     /**
@@ -798,15 +823,16 @@ class PublicAssetsApi
      * Fetching fullpage screenshot of url
      *
      * @param  string $bucket_id (required)
+     * @param  string $body API Key to be validated (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function loadOriginalImageWithHttpInfo($bucket_id)
+    public function loadOriginalImageWithHttpInfo($bucket_id, $body = null)
     {
         $returnType = '';
-        $request = $this->loadOriginalImageRequest($bucket_id);
+        $request = $this->loadOriginalImageRequest($bucket_id, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -851,13 +877,14 @@ class PublicAssetsApi
      * Fetching fullpage screenshot of url
      *
      * @param  string $bucket_id (required)
+     * @param  string $body API Key to be validated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function loadOriginalImageAsync($bucket_id)
+    public function loadOriginalImageAsync($bucket_id, $body = null)
     {
-        return $this->loadOriginalImageAsyncWithHttpInfo($bucket_id)
+        return $this->loadOriginalImageAsyncWithHttpInfo($bucket_id, $body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -871,14 +898,15 @@ class PublicAssetsApi
      * Fetching fullpage screenshot of url
      *
      * @param  string $bucket_id (required)
+     * @param  string $body API Key to be validated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function loadOriginalImageAsyncWithHttpInfo($bucket_id)
+    public function loadOriginalImageAsyncWithHttpInfo($bucket_id, $body = null)
     {
         $returnType = '';
-        $request = $this->loadOriginalImageRequest($bucket_id);
+        $request = $this->loadOriginalImageRequest($bucket_id, $body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -907,11 +935,12 @@ class PublicAssetsApi
      * Create request for operation 'loadOriginalImage'
      *
      * @param  string $bucket_id (required)
+     * @param  string $body API Key to be validated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function loadOriginalImageRequest($bucket_id)
+    protected function loadOriginalImageRequest($bucket_id, $body = null)
     {
         // verify the required parameter 'bucket_id' is set
         if ($bucket_id === null || (is_array($bucket_id) && count($bucket_id) === 0)) {
@@ -939,6 +968,9 @@ class PublicAssetsApi
 
         // body params
         $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -947,7 +979,7 @@ class PublicAssetsApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 [],
-                []
+                ['text/plain']
             );
         }
 
@@ -1012,14 +1044,15 @@ class PublicAssetsApi
      * Fetching icon logo of technology
      *
      * @param  string $icon_name icon_name (required)
+     * @param  string $body API Key to be validated (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function loadTechnologyLogo($icon_name)
+    public function loadTechnologyLogo($icon_name, $body = null)
     {
-        $this->loadTechnologyLogoWithHttpInfo($icon_name);
+        $this->loadTechnologyLogoWithHttpInfo($icon_name, $body);
     }
 
     /**
@@ -1028,15 +1061,16 @@ class PublicAssetsApi
      * Fetching icon logo of technology
      *
      * @param  string $icon_name (required)
+     * @param  string $body API Key to be validated (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function loadTechnologyLogoWithHttpInfo($icon_name)
+    public function loadTechnologyLogoWithHttpInfo($icon_name, $body = null)
     {
         $returnType = '';
-        $request = $this->loadTechnologyLogoRequest($icon_name);
+        $request = $this->loadTechnologyLogoRequest($icon_name, $body);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1081,13 +1115,14 @@ class PublicAssetsApi
      * Fetching icon logo of technology
      *
      * @param  string $icon_name (required)
+     * @param  string $body API Key to be validated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function loadTechnologyLogoAsync($icon_name)
+    public function loadTechnologyLogoAsync($icon_name, $body = null)
     {
-        return $this->loadTechnologyLogoAsyncWithHttpInfo($icon_name)
+        return $this->loadTechnologyLogoAsyncWithHttpInfo($icon_name, $body)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1101,14 +1136,15 @@ class PublicAssetsApi
      * Fetching icon logo of technology
      *
      * @param  string $icon_name (required)
+     * @param  string $body API Key to be validated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function loadTechnologyLogoAsyncWithHttpInfo($icon_name)
+    public function loadTechnologyLogoAsyncWithHttpInfo($icon_name, $body = null)
     {
         $returnType = '';
-        $request = $this->loadTechnologyLogoRequest($icon_name);
+        $request = $this->loadTechnologyLogoRequest($icon_name, $body);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1137,11 +1173,12 @@ class PublicAssetsApi
      * Create request for operation 'loadTechnologyLogo'
      *
      * @param  string $icon_name (required)
+     * @param  string $body API Key to be validated (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function loadTechnologyLogoRequest($icon_name)
+    protected function loadTechnologyLogoRequest($icon_name, $body = null)
     {
         // verify the required parameter 'icon_name' is set
         if ($icon_name === null || (is_array($icon_name) && count($icon_name) === 0)) {
@@ -1169,6 +1206,9 @@ class PublicAssetsApi
 
         // body params
         $_tempBody = null;
+        if (isset($body)) {
+            $_tempBody = $body;
+        }
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
@@ -1177,7 +1217,7 @@ class PublicAssetsApi
         } else {
             $headers = $this->headerSelector->selectHeaders(
                 [],
-                []
+                ['text/plain']
             );
         }
 

@@ -64,7 +64,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **deleteSchedule**
-> \Swagger\Client\Model\DomainAcknowledged deleteSchedule($id)
+> \Swagger\Client\Model\DomainAcknowledged deleteSchedule($id, $body)
 
 delete a schedule
 
@@ -86,9 +86,10 @@ $apiInstance = new Swagger\Client\Urlslab\ScheduleApi(
     $config
 );
 $id = "id_example"; // string | 
+$body = "body_example"; // string | API Key to be validated
 
 try {
-    $result = $apiInstance->deleteSchedule($id);
+    $result = $apiInstance->deleteSchedule($id, $body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ScheduleApi->deleteSchedule: ', $e->getMessage(), PHP_EOL;
@@ -101,6 +102,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**|  |
+ **body** | [**string**](../Model/string.md)| API Key to be validated | [optional]
 
 ### Return type
 
@@ -112,13 +114,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: text/plain
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **getSchedule**
-> \Swagger\Client\Model\DomainScheduleAPISchedule getSchedule($id)
+> \Swagger\Client\Model\DomainScheduleAPISchedule getSchedule($id, $body)
 
 get a specific schedule details
 
@@ -140,9 +142,10 @@ $apiInstance = new Swagger\Client\Urlslab\ScheduleApi(
     $config
 );
 $id = "id_example"; // string | 
+$body = "body_example"; // string | API Key to be validated
 
 try {
-    $result = $apiInstance->getSchedule($id);
+    $result = $apiInstance->getSchedule($id, $body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ScheduleApi->getSchedule: ', $e->getMessage(), PHP_EOL;
@@ -155,6 +158,7 @@ try {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **string**|  |
+ **body** | [**string**](../Model/string.md)| API Key to be validated | [optional]
 
 ### Return type
 
@@ -166,13 +170,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: text/plain
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
 # **listSchedules**
-> \Swagger\Client\Model\DomainScheduleAPISchedule[] listSchedules()
+> \Swagger\Client\Model\DomainScheduleAPISchedule[] listSchedules($body)
 
 get list of all schedules for the user
 
@@ -193,9 +197,10 @@ $apiInstance = new Swagger\Client\Urlslab\ScheduleApi(
     new GuzzleHttp\Client(),
     $config
 );
+$body = "body_example"; // string | API Key to be validated
 
 try {
-    $result = $apiInstance->listSchedules();
+    $result = $apiInstance->listSchedules($body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ScheduleApi->listSchedules: ', $e->getMessage(), PHP_EOL;
@@ -204,7 +209,10 @@ try {
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **body** | [**string**](../Model/string.md)| API Key to be validated | [optional]
 
 ### Return type
 
@@ -216,7 +224,7 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: text/plain
  - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)

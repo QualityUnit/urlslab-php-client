@@ -157,7 +157,8 @@ class DomainDataRetrievalUpdatableRetrieval implements ModelInterface, ArrayAcce
         return self::$swaggerModelName;
     }
 
-    const UPDATING_FREQ_YEARLY = 'YEARLY';
+    const UPDATING_FREQ_ONE_TIME = 'ONE_TIME';
+const UPDATING_FREQ_YEARLY = 'YEARLY';
 const UPDATING_FREQ_DAILY = 'DAILY';
 const UPDATING_FREQ_WEEKLY = 'WEEKLY';
 const UPDATING_FREQ_HOURLY = 'HOURLY';
@@ -171,7 +172,8 @@ const UPDATING_FREQ_MONTHLY = 'MONTHLY';
     public function getUpdatingFreqAllowableValues()
     {
         return [
-            self::UPDATING_FREQ_YEARLY,
+            self::UPDATING_FREQ_ONE_TIME,
+self::UPDATING_FREQ_YEARLY,
 self::UPDATING_FREQ_DAILY,
 self::UPDATING_FREQ_WEEKLY,
 self::UPDATING_FREQ_HOURLY,
