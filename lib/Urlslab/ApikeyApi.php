@@ -1084,6 +1084,11 @@ class ApikeyApi
             }
         }
 
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('X-URLSLAB-KEY');
+        if ($apiKey !== null) {
+            $headers['X-URLSLAB-KEY'] = $apiKey;
+        }
 
         $defaultHeaders = [];
         if ($this->config->getUserAgent()) {

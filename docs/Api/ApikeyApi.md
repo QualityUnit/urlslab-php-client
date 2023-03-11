@@ -170,11 +170,16 @@ Validates the API Key provided in the request header
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
+// Configure API key authorization: UrlslabApiKeyAuth
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X-URLSLAB-KEY', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-URLSLAB-KEY', 'Bearer');
 
 $apiInstance = new Swagger\Client\Urlslab\ApikeyApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
 
 try {
@@ -195,7 +200,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[UrlslabApiKeyAuth](../../README.md#UrlslabApiKeyAuth)
 
 ### HTTP request headers
 
