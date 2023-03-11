@@ -21,9 +21,9 @@ Creates a new schedule for the user associated to the API Key. Update not possib
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 // Configure API key authorization: UrlslabApiKeyAuth
-$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X_URLSLAB_API_KEY', 'YOUR_API_KEY');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X-URLSLAB-KEY', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X_URLSLAB_API_KEY', 'Bearer');
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-URLSLAB-KEY', 'Bearer');
 
 $apiInstance = new Swagger\Client\Urlslab\ScheduleApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -75,9 +75,9 @@ Deletes a schedule for the user associated to the API Key
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 // Configure API key authorization: UrlslabApiKeyAuth
-$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X_URLSLAB_API_KEY', 'YOUR_API_KEY');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X-URLSLAB-KEY', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X_URLSLAB_API_KEY', 'Bearer');
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-URLSLAB-KEY', 'Bearer');
 
 $apiInstance = new Swagger\Client\Urlslab\ScheduleApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -129,9 +129,9 @@ Returns the details of a specific schedule
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 // Configure API key authorization: UrlslabApiKeyAuth
-$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X_URLSLAB_API_KEY', 'YOUR_API_KEY');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X-URLSLAB-KEY', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X_URLSLAB_API_KEY', 'Bearer');
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-URLSLAB-KEY', 'Bearer');
 
 $apiInstance = new Swagger\Client\Urlslab\ScheduleApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
@@ -183,9 +183,9 @@ Returns a list of all schedules for the user associated to the API Key
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
 // Configure API key authorization: UrlslabApiKeyAuth
-$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X_URLSLAB_API_KEY', 'YOUR_API_KEY');
+$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X-URLSLAB-KEY', 'YOUR_API_KEY');
 // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X_URLSLAB_API_KEY', 'Bearer');
+// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-URLSLAB-KEY', 'Bearer');
 
 $apiInstance = new Swagger\Client\Urlslab\ScheduleApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.

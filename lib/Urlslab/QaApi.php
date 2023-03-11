@@ -272,9 +272,9 @@ class QaApi
         }
 
         // this endpoint requires API key authentication
-        $apiKey = $this->config->getApiKeyWithPrefix('X_URLSLAB_API_KEY');
+        $apiKey = $this->config->getApiKeyWithPrefix('X-URLSLAB-KEY');
         if ($apiKey !== null) {
-            $headers['X_URLSLAB_API_KEY'] = $apiKey;
+            $headers['X-URLSLAB-KEY'] = $apiKey;
         }
 
         $defaultHeaders = [];
