@@ -56,7 +56,7 @@ class DomainScheduleScheduleConf implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerTypes = [
-        'url' => 'string',
+        'urls' => 'string[]',
 'link_following_strategy' => 'int',
 'sitemaps' => 'string[]',
 'all_sitemaps' => 'bool',
@@ -71,7 +71,7 @@ class DomainScheduleScheduleConf implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $swaggerFormats = [
-        'url' => null,
+        'urls' => null,
 'link_following_strategy' => 'int32',
 'sitemaps' => null,
 'all_sitemaps' => null,
@@ -107,7 +107,7 @@ class DomainScheduleScheduleConf implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'url' => 'url',
+        'urls' => 'urls',
 'link_following_strategy' => 'linkFollowingStrategy',
 'sitemaps' => 'sitemaps',
 'all_sitemaps' => 'allSitemaps',
@@ -122,7 +122,7 @@ class DomainScheduleScheduleConf implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'url' => 'setUrl',
+        'urls' => 'setUrls',
 'link_following_strategy' => 'setLinkFollowingStrategy',
 'sitemaps' => 'setSitemaps',
 'all_sitemaps' => 'setAllSitemaps',
@@ -137,7 +137,7 @@ class DomainScheduleScheduleConf implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'url' => 'getUrl',
+        'urls' => 'getUrls',
 'link_following_strategy' => 'getLinkFollowingStrategy',
 'sitemaps' => 'getSitemaps',
 'all_sitemaps' => 'getAllSitemaps',
@@ -225,7 +225,7 @@ self::SCAN_FREQUENCY_MONTHLY,        ];
      */
     public function __construct(array $data = null)
     {
-        $this->container['url'] = isset($data['url']) ? $data['url'] : null;
+        $this->container['urls'] = isset($data['urls']) ? $data['urls'] : null;
         $this->container['link_following_strategy'] = isset($data['link_following_strategy']) ? $data['link_following_strategy'] : null;
         $this->container['sitemaps'] = isset($data['sitemaps']) ? $data['sitemaps'] : null;
         $this->container['all_sitemaps'] = isset($data['all_sitemaps']) ? $data['all_sitemaps'] : null;
@@ -244,8 +244,8 @@ self::SCAN_FREQUENCY_MONTHLY,        ];
     {
         $invalidProperties = [];
 
-        if ($this->container['url'] === null) {
-            $invalidProperties[] = "'url' can't be null";
+        if ($this->container['urls'] === null) {
+            $invalidProperties[] = "'urls' can't be null";
         }
         if ($this->container['link_following_strategy'] === null) {
             $invalidProperties[] = "'link_following_strategy' can't be null";
@@ -292,25 +292,25 @@ self::SCAN_FREQUENCY_MONTHLY,        ];
 
 
     /**
-     * Gets url
+     * Gets urls
      *
-     * @return string
+     * @return string[]
      */
-    public function getUrl()
+    public function getUrls()
     {
-        return $this->container['url'];
+        return $this->container['urls'];
     }
 
     /**
-     * Sets url
+     * Sets urls
      *
-     * @param string $url url
+     * @param string[] $urls urls
      *
      * @return $this
      */
-    public function setUrl($url)
+    public function setUrls($urls)
     {
-        $this->container['url'] = $url;
+        $this->container['urls'] = $urls;
 
         return $this;
     }

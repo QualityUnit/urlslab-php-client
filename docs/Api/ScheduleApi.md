@@ -31,7 +31,7 @@ $apiInstance = new Swagger\Client\Urlslab\ScheduleApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = array(new \Swagger\Client\Model\DomainScheduleScheduleConf()); // \Swagger\Client\Model\DomainScheduleScheduleConf[] | 
+$body = new \Swagger\Client\Model\DomainScheduleScheduleConf(); // \Swagger\Client\Model\DomainScheduleScheduleConf | 
 
 try {
     $result = $apiInstance->createSchedule($body);
@@ -46,7 +46,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Swagger\Client\Model\DomainScheduleScheduleConf[]**](../Model/DomainScheduleScheduleConf.md)|  | [optional]
+ **body** | [**\Swagger\Client\Model\DomainScheduleScheduleConf**](../Model/DomainScheduleScheduleConf.md)|  | [optional]
 
 ### Return type
 

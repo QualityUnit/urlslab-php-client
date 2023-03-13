@@ -91,7 +91,7 @@ class ScreenshotApi
      *
      * Get screenshot of url
      *
-     * @param  \Swagger\Client\Model\DomainDataRetrievalUpdatableRetrieval[] $body body (optional)
+     * @param  \Swagger\Client\Model\DomainDataRetrievalUpdatableRetrieval $body body (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -108,7 +108,7 @@ class ScreenshotApi
      *
      * Get screenshot of url
      *
-     * @param  \Swagger\Client\Model\DomainDataRetrievalUpdatableRetrieval[] $body (optional)
+     * @param  \Swagger\Client\Model\DomainDataRetrievalUpdatableRetrieval $body (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -183,7 +183,7 @@ class ScreenshotApi
      *
      * Get screenshot of url
      *
-     * @param  \Swagger\Client\Model\DomainDataRetrievalUpdatableRetrieval[] $body (optional)
+     * @param  \Swagger\Client\Model\DomainDataRetrievalUpdatableRetrieval $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -203,7 +203,7 @@ class ScreenshotApi
      *
      * Get screenshot of url
      *
-     * @param  \Swagger\Client\Model\DomainDataRetrievalUpdatableRetrieval[] $body (optional)
+     * @param  \Swagger\Client\Model\DomainDataRetrievalUpdatableRetrieval $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -253,7 +253,7 @@ class ScreenshotApi
     /**
      * Create request for operation 'getScreenshots'
      *
-     * @param  \Swagger\Client\Model\DomainDataRetrievalUpdatableRetrieval[] $body (optional)
+     * @param  \Swagger\Client\Model\DomainDataRetrievalUpdatableRetrieval $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

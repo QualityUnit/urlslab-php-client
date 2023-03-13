@@ -91,7 +91,7 @@ class ScheduleApi
      *
      * create a new schedule
      *
-     * @param  \Swagger\Client\Model\DomainScheduleScheduleConf[] $body body (optional)
+     * @param  \Swagger\Client\Model\DomainScheduleScheduleConf $body body (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -108,7 +108,7 @@ class ScheduleApi
      *
      * create a new schedule
      *
-     * @param  \Swagger\Client\Model\DomainScheduleScheduleConf[] $body (optional)
+     * @param  \Swagger\Client\Model\DomainScheduleScheduleConf $body (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -183,7 +183,7 @@ class ScheduleApi
      *
      * create a new schedule
      *
-     * @param  \Swagger\Client\Model\DomainScheduleScheduleConf[] $body (optional)
+     * @param  \Swagger\Client\Model\DomainScheduleScheduleConf $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -203,7 +203,7 @@ class ScheduleApi
      *
      * create a new schedule
      *
-     * @param  \Swagger\Client\Model\DomainScheduleScheduleConf[] $body (optional)
+     * @param  \Swagger\Client\Model\DomainScheduleScheduleConf $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -253,7 +253,7 @@ class ScheduleApi
     /**
      * Create request for operation 'createSchedule'
      *
-     * @param  \Swagger\Client\Model\DomainScheduleScheduleConf[] $body (optional)
+     * @param  \Swagger\Client\Model\DomainScheduleScheduleConf $body (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

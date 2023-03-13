@@ -28,7 +28,7 @@ $apiInstance = new Swagger\Client\Urlslab\ScreenshotApi(
     new GuzzleHttp\Client(),
     $config
 );
-$body = array(new \Swagger\Client\Model\DomainDataRetrievalUpdatableRetrieval()); // \Swagger\Client\Model\DomainDataRetrievalUpdatableRetrieval[] | 
+$body = new \Swagger\Client\Model\DomainDataRetrievalUpdatableRetrieval(); // \Swagger\Client\Model\DomainDataRetrievalUpdatableRetrieval | 
 
 try {
     $result = $apiInstance->getScreenshots($body);
@@ -43,7 +43,7 @@ try {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **body** | [**\Swagger\Client\Model\DomainDataRetrievalUpdatableRetrieval[]**](../Model/DomainDataRetrievalUpdatableRetrieval.md)|  | [optional]
+ **body** | [**\Swagger\Client\Model\DomainDataRetrievalUpdatableRetrieval**](../Model/DomainDataRetrievalUpdatableRetrieval.md)|  | [optional]
 
 ### Return type
 

@@ -76,9 +76,9 @@ class DomainScheduleScheduleConfTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Test attribute "url"
+     * Test attribute "urls"
      */
-    public function testPropertyUrl()
+    public function testPropertyUrls()
     {
     }
 
