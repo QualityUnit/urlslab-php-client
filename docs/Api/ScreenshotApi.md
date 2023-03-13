@@ -1,53 +1,60 @@
-# Swagger\Client\ScreenshotApi
+# OpenAPI\Client\ScreenshotApi
 
-All URIs are relative to *https://api.urlslab.com*
+All URIs are relative to https://api.urlslab.com, except if the operation defines another base path.
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**getScreenshots**](ScreenshotApi.md#getscreenshots) | **POST** /v1/screenshot | Get screenshot of url
+| Method | HTTP request | Description |
+| ------------- | ------------- | ------------- |
+| [**getScreenshots()**](ScreenshotApi.md#getScreenshots) | **POST** /v1/screenshot | Get screenshot of url |
 
-# **getScreenshots**
-> \Swagger\Client\Model\DomainDataRetrievalScreenshotResponse[] getScreenshots($body)
+
+## `getScreenshots()`
+
+```php
+getScreenshots($domain_data_retrieval_updatable_retrieval): \OpenAPI\Client\Model\DomainDataRetrievalScreenshotResponse[]
+```
 
 Get screenshot of url
 
 Get screenshot of any given url
 
 ### Example
+
 ```php
 <?php
 require_once(__DIR__ . '/vendor/autoload.php');
-// Configure API key authorization: UrlslabApiKeyAuth
-$config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKey('X-URLSLAB-KEY', 'YOUR_API_KEY');
-// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-// $config = Swagger\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-URLSLAB-KEY', 'Bearer');
 
-$apiInstance = new Swagger\Client\Urlslab\ScreenshotApi(
+
+// Configure API key authorization: UrlslabApiKeyAuth
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-URLSLAB-KEY', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-URLSLAB-KEY', 'Bearer');
+
+
+$apiInstance = new OpenAPI\Client\Api\ScreenshotApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
     new GuzzleHttp\Client(),
     $config
 );
-$body = new \Swagger\Client\Model\DomainDataRetrievalUpdatableRetrieval(); // \Swagger\Client\Model\DomainDataRetrievalUpdatableRetrieval | 
+$domain_data_retrieval_updatable_retrieval = new \OpenAPI\Client\Model\DomainDataRetrievalUpdatableRetrieval(); // \OpenAPI\Client\Model\DomainDataRetrievalUpdatableRetrieval
 
 try {
-    $result = $apiInstance->getScreenshots($body);
+    $result = $apiInstance->getScreenshots($domain_data_retrieval_updatable_retrieval);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ScreenshotApi->getScreenshots: ', $e->getMessage(), PHP_EOL;
 }
-?>
 ```
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **body** | [**\Swagger\Client\Model\DomainDataRetrievalUpdatableRetrieval**](../Model/DomainDataRetrievalUpdatableRetrieval.md)|  | [optional]
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **domain_data_retrieval_updatable_retrieval** | [**\OpenAPI\Client\Model\DomainDataRetrievalUpdatableRetrieval**](../Model/DomainDataRetrievalUpdatableRetrieval.md)|  | [optional] |
 
 ### Return type
 
-[**\Swagger\Client\Model\DomainDataRetrievalScreenshotResponse[]**](../Model/DomainDataRetrievalScreenshotResponse.md)
+[**\OpenAPI\Client\Model\DomainDataRetrievalScreenshotResponse[]**](../Model/DomainDataRetrievalScreenshotResponse.md)
 
 ### Authorization
 
@@ -55,8 +62,9 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/json
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
 
-[[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
-
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
