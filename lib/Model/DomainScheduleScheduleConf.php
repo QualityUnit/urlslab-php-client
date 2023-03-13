@@ -57,7 +57,7 @@ class DomainScheduleScheduleConf implements ModelInterface, ArrayAccess
       */
     protected static $swaggerTypes = [
         'urls' => 'string[]',
-'link_following_strategy' => 'int',
+'link_following_strategy' => 'string',
 'sitemaps' => 'string[]',
 'all_sitemaps' => 'bool',
 'take_screenshot' => 'bool',
@@ -72,7 +72,7 @@ class DomainScheduleScheduleConf implements ModelInterface, ArrayAccess
       */
     protected static $swaggerFormats = [
         'urls' => null,
-'link_following_strategy' => 'int32',
+'link_following_strategy' => null,
 'sitemaps' => null,
 'all_sitemaps' => null,
 'take_screenshot' => null,
@@ -187,13 +187,26 @@ class DomainScheduleScheduleConf implements ModelInterface, ArrayAccess
         return self::$swaggerModelName;
     }
 
-    const SCAN_FREQUENCY_ONE_TIME = 'ONE_TIME';
+    const LINK_FOLLOWING_STRATEGY_ALL_LINKS = 'FOLLOW_ALL_LINKS';
+const LINK_FOLLOWING_STRATEGY_NO_LINK = 'FOLLOW_NO_LINK';
+const SCAN_FREQUENCY_ONE_TIME = 'ONE_TIME';
 const SCAN_FREQUENCY_YEARLY = 'YEARLY';
 const SCAN_FREQUENCY_DAILY = 'DAILY';
 const SCAN_FREQUENCY_WEEKLY = 'WEEKLY';
 const SCAN_FREQUENCY_HOURLY = 'HOURLY';
 const SCAN_FREQUENCY_MONTHLY = 'MONTHLY';
 
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getLinkFollowingStrategyAllowableValues()
+    {
+        return [
+            self::LINK_FOLLOWING_STRATEGY_ALL_LINKS,
+self::LINK_FOLLOWING_STRATEGY_NO_LINK,        ];
+    }
     /**
      * Gets allowable values of the enum
      *
@@ -250,6 +263,14 @@ self::SCAN_FREQUENCY_MONTHLY,        ];
         if ($this->container['link_following_strategy'] === null) {
             $invalidProperties[] = "'link_following_strategy' can't be null";
         }
+        $allowedValues = $this->getLinkFollowingStrategyAllowableValues();
+        if (!is_null($this->container['link_following_strategy']) && !in_array($this->container['link_following_strategy'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'link_following_strategy', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         if ($this->container['sitemaps'] === null) {
             $invalidProperties[] = "'sitemaps' can't be null";
         }
@@ -318,7 +339,7 @@ self::SCAN_FREQUENCY_MONTHLY,        ];
     /**
      * Gets link_following_strategy
      *
-     * @return int
+     * @return string
      */
     public function getLinkFollowingStrategy()
     {
@@ -328,12 +349,21 @@ self::SCAN_FREQUENCY_MONTHLY,        ];
     /**
      * Sets link_following_strategy
      *
-     * @param int $link_following_strategy link_following_strategy
+     * @param string $link_following_strategy link_following_strategy
      *
      * @return $this
      */
     public function setLinkFollowingStrategy($link_following_strategy)
     {
+        $allowedValues = $this->getLinkFollowingStrategyAllowableValues();
+        if (!in_array($link_following_strategy, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'link_following_strategy', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
         $this->container['link_following_strategy'] = $link_following_strategy;
 
         return $this;

@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **urls** | **string[]** |  | 
-**link_following_strategy** | **int** |  | 
+**link_following_strategy** | **string** |  | 
 **sitemaps** | **string[]** |  | 
 **all_sitemaps** | **bool** |  | 
 **take_screenshot** | **bool** |  | 
