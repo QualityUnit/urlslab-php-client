@@ -1,6 +1,6 @@
 <?php
 /**
- * DomainDataRetrievalUpdatableRetrievalTest
+ * DomainDataRetrievalContentQueryTest
  *
  * PHP version 7.4
  *
@@ -31,15 +31,15 @@ namespace OpenAPI\Client\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * DomainDataRetrievalUpdatableRetrievalTest Class Doc Comment
+ * DomainDataRetrievalContentQueryTest Class Doc Comment
  *
  * @category    Class
- * @description DomainDataRetrievalUpdatableRetrieval
+ * @description DomainDataRetrievalContentQuery
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class DomainDataRetrievalUpdatableRetrievalTest extends TestCase
+class DomainDataRetrievalContentQueryTest extends TestCase
 {
 
     /**
@@ -71,27 +71,36 @@ class DomainDataRetrievalUpdatableRetrievalTest extends TestCase
     }
 
     /**
-     * Test "DomainDataRetrievalUpdatableRetrieval"
+     * Test "DomainDataRetrievalContentQuery"
      */
-    public function testDomainDataRetrievalUpdatableRetrieval()
+    public function testDomainDataRetrievalContentQuery()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "urls"
+     * Test attribute "query"
      */
-    public function testPropertyUrls()
+    public function testPropertyQuery()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "updating_freq"
+     * Test attribute "sort"
      */
-    public function testPropertyUpdatingFreq()
+    public function testPropertySort()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "limit"
+     */
+    public function testPropertyLimit()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

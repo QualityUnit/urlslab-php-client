@@ -1,6 +1,6 @@
 <?php
 /**
- * DomainDataRetrievalUpdatableRetrieval
+ * DomainDataRetrievalAugmentRequest
  *
  * PHP version 7.4
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * DomainDataRetrievalUpdatableRetrieval Class Doc Comment
+ * DomainDataRetrievalAugmentRequest Class Doc Comment
  *
  * @category Class
  * @package  OpenAPI\Client
@@ -40,7 +40,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class DomainDataRetrievalUpdatableRetrieval implements ModelInterface, ArrayAccess, \JsonSerializable
+class DomainDataRetrievalAugmentRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class DomainDataRetrievalUpdatableRetrieval implements ModelInterface, ArrayAcce
       *
       * @var string
       */
-    protected static $openAPIModelName = 'domain.dataRetrieval.UpdatableRetrieval';
+    protected static $openAPIModelName = 'domain.dataRetrieval.AugmentRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,8 +57,9 @@ class DomainDataRetrievalUpdatableRetrieval implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $openAPITypes = [
-        'urls' => 'string[]',
-        'updating_freq' => 'string'
+        'augment_command' => 'string',
+        'filter' => '\OpenAPI\Client\Model\DomainDataRetrievalContentQuery',
+        'prompt' => 'ComUrlslabDomainSemanticwrapModelsAugmentingprompt'
     ];
 
     /**
@@ -69,8 +70,9 @@ class DomainDataRetrievalUpdatableRetrieval implements ModelInterface, ArrayAcce
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'urls' => null,
-        'updating_freq' => null
+        'augment_command' => null,
+        'filter' => null,
+        'prompt' => null
     ];
 
     /**
@@ -79,8 +81,9 @@ class DomainDataRetrievalUpdatableRetrieval implements ModelInterface, ArrayAcce
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'urls' => false,
-		'updating_freq' => true
+        'augment_command' => false,
+		'filter' => false,
+		'prompt' => true
     ];
 
     /**
@@ -169,8 +172,9 @@ class DomainDataRetrievalUpdatableRetrieval implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $attributeMap = [
-        'urls' => 'urls',
-        'updating_freq' => 'updatingFreq'
+        'augment_command' => 'augmentCommand',
+        'filter' => 'filter',
+        'prompt' => 'prompt'
     ];
 
     /**
@@ -179,8 +183,9 @@ class DomainDataRetrievalUpdatableRetrieval implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $setters = [
-        'urls' => 'setUrls',
-        'updating_freq' => 'setUpdatingFreq'
+        'augment_command' => 'setAugmentCommand',
+        'filter' => 'setFilter',
+        'prompt' => 'setPrompt'
     ];
 
     /**
@@ -189,8 +194,9 @@ class DomainDataRetrievalUpdatableRetrieval implements ModelInterface, ArrayAcce
      * @var string[]
      */
     protected static $getters = [
-        'urls' => 'getUrls',
-        'updating_freq' => 'getUpdatingFreq'
+        'augment_command' => 'getAugmentCommand',
+        'filter' => 'getFilter',
+        'prompt' => 'getPrompt'
     ];
 
     /**
@@ -234,29 +240,6 @@ class DomainDataRetrievalUpdatableRetrieval implements ModelInterface, ArrayAcce
         return self::$openAPIModelName;
     }
 
-    public const UPDATING_FREQ_ONE_TIME = 'ONE_TIME';
-    public const UPDATING_FREQ_YEARLY = 'YEARLY';
-    public const UPDATING_FREQ_DAILY = 'DAILY';
-    public const UPDATING_FREQ_WEEKLY = 'WEEKLY';
-    public const UPDATING_FREQ_HOURLY = 'HOURLY';
-    public const UPDATING_FREQ_MONTHLY = 'MONTHLY';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getUpdatingFreqAllowableValues()
-    {
-        return [
-            self::UPDATING_FREQ_ONE_TIME,
-            self::UPDATING_FREQ_YEARLY,
-            self::UPDATING_FREQ_DAILY,
-            self::UPDATING_FREQ_WEEKLY,
-            self::UPDATING_FREQ_HOURLY,
-            self::UPDATING_FREQ_MONTHLY,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -273,8 +256,9 @@ class DomainDataRetrievalUpdatableRetrieval implements ModelInterface, ArrayAcce
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('urls', $data ?? [], null);
-        $this->setIfExists('updating_freq', $data ?? [], null);
+        $this->setIfExists('augment_command', $data ?? [], null);
+        $this->setIfExists('filter', $data ?? [], null);
+        $this->setIfExists('prompt', $data ?? [], null);
     }
 
     /**
@@ -304,18 +288,9 @@ class DomainDataRetrievalUpdatableRetrieval implements ModelInterface, ArrayAcce
     {
         $invalidProperties = [];
 
-        if ($this->container['urls'] === null) {
-            $invalidProperties[] = "'urls' can't be null";
+        if ($this->container['augment_command'] === null) {
+            $invalidProperties[] = "'augment_command' can't be null";
         }
-        $allowedValues = $this->getUpdatingFreqAllowableValues();
-        if (!is_null($this->container['updating_freq']) && !in_array($this->container['updating_freq'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'updating_freq', must be one of '%s'",
-                $this->container['updating_freq'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         return $invalidProperties;
     }
 
@@ -332,72 +307,89 @@ class DomainDataRetrievalUpdatableRetrieval implements ModelInterface, ArrayAcce
 
 
     /**
-     * Gets urls
+     * Gets augment_command
      *
-     * @return string[]
+     * @return string
      */
-    public function getUrls()
+    public function getAugmentCommand()
     {
-        return $this->container['urls'];
+        return $this->container['augment_command'];
     }
 
     /**
-     * Sets urls
+     * Sets augment_command
      *
-     * @param string[] $urls urls
+     * @param string $augment_command augment_command
      *
      * @return self
      */
-    public function setUrls($urls)
+    public function setAugmentCommand($augment_command)
     {
-        if (is_null($urls)) {
-            throw new \InvalidArgumentException('non-nullable urls cannot be null');
+        if (is_null($augment_command)) {
+            throw new \InvalidArgumentException('non-nullable augment_command cannot be null');
         }
-        $this->container['urls'] = $urls;
+        $this->container['augment_command'] = $augment_command;
 
         return $this;
     }
 
     /**
-     * Gets updating_freq
+     * Gets filter
      *
-     * @return string|null
+     * @return \OpenAPI\Client\Model\DomainDataRetrievalContentQuery|null
      */
-    public function getUpdatingFreq()
+    public function getFilter()
     {
-        return $this->container['updating_freq'];
+        return $this->container['filter'];
     }
 
     /**
-     * Sets updating_freq
+     * Sets filter
      *
-     * @param string|null $updating_freq updating_freq
+     * @param \OpenAPI\Client\Model\DomainDataRetrievalContentQuery|null $filter filter
      *
      * @return self
      */
-    public function setUpdatingFreq($updating_freq)
+    public function setFilter($filter)
     {
-        if (is_null($updating_freq)) {
-            array_push($this->openAPINullablesSetToNull, 'updating_freq');
+        if (is_null($filter)) {
+            throw new \InvalidArgumentException('non-nullable filter cannot be null');
+        }
+        $this->container['filter'] = $filter;
+
+        return $this;
+    }
+
+    /**
+     * Gets prompt
+     *
+     * @return ComUrlslabDomainSemanticwrapModelsAugmentingprompt|null
+     */
+    public function getPrompt()
+    {
+        return $this->container['prompt'];
+    }
+
+    /**
+     * Sets prompt
+     *
+     * @param ComUrlslabDomainSemanticwrapModelsAugmentingprompt|null $prompt prompt
+     *
+     * @return self
+     */
+    public function setPrompt($prompt)
+    {
+        if (is_null($prompt)) {
+            array_push($this->openAPINullablesSetToNull, 'prompt');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('updating_freq', $nullablesSetToNull);
+            $index = array_search('prompt', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $allowedValues = $this->getUpdatingFreqAllowableValues();
-        if (!is_null($updating_freq) && !in_array($updating_freq, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'updating_freq', must be one of '%s'",
-                    $updating_freq,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['updating_freq'] = $updating_freq;
+        $this->container['prompt'] = $prompt;
 
         return $this;
     }
