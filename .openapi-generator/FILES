@@ -13,6 +13,7 @@ docs/Api/ScreenshotApi.md
 docs/Api/SummaryApi.md
 docs/Model/DomainAPIError.md
 docs/Model/DomainAcknowledged.md
+docs/Model/DomainDataRetrievalAugmentPrompt.md
 docs/Model/DomainDataRetrievalAugmentRequest.md
 docs/Model/DomainDataRetrievalAugmentResponse.md
 docs/Model/DomainDataRetrievalContentQuery.md
@@ -30,6 +31,7 @@ lib/Configuration.php
 lib/HeaderSelector.php
 lib/Model/DomainAPIError.php
 lib/Model/DomainAcknowledged.php
+lib/Model/DomainDataRetrievalAugmentPrompt.php
 lib/Model/DomainDataRetrievalAugmentRequest.php
 lib/Model/DomainDataRetrievalAugmentResponse.php
 lib/Model/DomainDataRetrievalContentQuery.php
@@ -60,6 +62,7 @@ test/Api/ScreenshotApiTest.php
 test/Api/SummaryApiTest.php
 test/Model/DomainAPIErrorTest.php
 test/Model/DomainAcknowledgedTest.php
+test/Model/DomainDataRetrievalAugmentPromptTest.php
 test/Model/DomainDataRetrievalAugmentRequestTest.php
 test/Model/DomainDataRetrievalAugmentResponseTest.php
 test/Model/DomainDataRetrievalContentQueryTest.php

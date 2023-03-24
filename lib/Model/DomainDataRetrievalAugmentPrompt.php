@@ -1,6 +1,6 @@
 <?php
 /**
- * DomainDataRetrievalAugmentRequest
+ * DomainDataRetrievalAugmentPrompt
  *
  * PHP version 7.4
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * DomainDataRetrievalAugmentRequest Class Doc Comment
+ * DomainDataRetrievalAugmentPrompt Class Doc Comment
  *
  * @category Class
  * @package  OpenAPI\Client
@@ -40,7 +40,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class DomainDataRetrievalAugmentRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class DomainDataRetrievalAugmentPrompt implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class DomainDataRetrievalAugmentRequest implements ModelInterface, ArrayAccess, 
       *
       * @var string
       */
-    protected static $openAPIModelName = 'domain.dataRetrieval.AugmentRequest';
+    protected static $openAPIModelName = 'domain.dataRetrieval.AugmentPrompt';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,9 +57,9 @@ class DomainDataRetrievalAugmentRequest implements ModelInterface, ArrayAccess, 
       * @var string[]
       */
     protected static $openAPITypes = [
-        'augment_command' => 'string',
-        'filter' => '\OpenAPI\Client\Model\DomainDataRetrievalContentQuery',
-        'prompt' => '\OpenAPI\Client\Model\DomainDataRetrievalAugmentPrompt'
+        'prompt_template' => 'string',
+        'document_template' => 'string',
+        'metadata_vars' => 'string[]'
     ];
 
     /**
@@ -70,9 +70,9 @@ class DomainDataRetrievalAugmentRequest implements ModelInterface, ArrayAccess, 
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'augment_command' => null,
-        'filter' => null,
-        'prompt' => null
+        'prompt_template' => null,
+        'document_template' => null,
+        'metadata_vars' => null
     ];
 
     /**
@@ -81,9 +81,9 @@ class DomainDataRetrievalAugmentRequest implements ModelInterface, ArrayAccess, 
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'augment_command' => false,
-		'filter' => false,
-		'prompt' => false
+        'prompt_template' => false,
+		'document_template' => false,
+		'metadata_vars' => false
     ];
 
     /**
@@ -172,9 +172,9 @@ class DomainDataRetrievalAugmentRequest implements ModelInterface, ArrayAccess, 
      * @var string[]
      */
     protected static $attributeMap = [
-        'augment_command' => 'augmentCommand',
-        'filter' => 'filter',
-        'prompt' => 'prompt'
+        'prompt_template' => 'promptTemplate',
+        'document_template' => 'documentTemplate',
+        'metadata_vars' => 'metadataVars'
     ];
 
     /**
@@ -183,9 +183,9 @@ class DomainDataRetrievalAugmentRequest implements ModelInterface, ArrayAccess, 
      * @var string[]
      */
     protected static $setters = [
-        'augment_command' => 'setAugmentCommand',
-        'filter' => 'setFilter',
-        'prompt' => 'setPrompt'
+        'prompt_template' => 'setPromptTemplate',
+        'document_template' => 'setDocumentTemplate',
+        'metadata_vars' => 'setMetadataVars'
     ];
 
     /**
@@ -194,9 +194,9 @@ class DomainDataRetrievalAugmentRequest implements ModelInterface, ArrayAccess, 
      * @var string[]
      */
     protected static $getters = [
-        'augment_command' => 'getAugmentCommand',
-        'filter' => 'getFilter',
-        'prompt' => 'getPrompt'
+        'prompt_template' => 'getPromptTemplate',
+        'document_template' => 'getDocumentTemplate',
+        'metadata_vars' => 'getMetadataVars'
     ];
 
     /**
@@ -256,9 +256,9 @@ class DomainDataRetrievalAugmentRequest implements ModelInterface, ArrayAccess, 
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('augment_command', $data ?? [], null);
-        $this->setIfExists('filter', $data ?? [], null);
-        $this->setIfExists('prompt', $data ?? [], null);
+        $this->setIfExists('prompt_template', $data ?? [], null);
+        $this->setIfExists('document_template', $data ?? [], null);
+        $this->setIfExists('metadata_vars', $data ?? [], null);
     }
 
     /**
@@ -288,8 +288,14 @@ class DomainDataRetrievalAugmentRequest implements ModelInterface, ArrayAccess, 
     {
         $invalidProperties = [];
 
-        if ($this->container['augment_command'] === null) {
-            $invalidProperties[] = "'augment_command' can't be null";
+        if ($this->container['prompt_template'] === null) {
+            $invalidProperties[] = "'prompt_template' can't be null";
+        }
+        if ($this->container['document_template'] === null) {
+            $invalidProperties[] = "'document_template' can't be null";
+        }
+        if ($this->container['metadata_vars'] === null) {
+            $invalidProperties[] = "'metadata_vars' can't be null";
         }
         return $invalidProperties;
     }
@@ -307,82 +313,82 @@ class DomainDataRetrievalAugmentRequest implements ModelInterface, ArrayAccess, 
 
 
     /**
-     * Gets augment_command
+     * Gets prompt_template
      *
      * @return string
      */
-    public function getAugmentCommand()
+    public function getPromptTemplate()
     {
-        return $this->container['augment_command'];
+        return $this->container['prompt_template'];
     }
 
     /**
-     * Sets augment_command
+     * Sets prompt_template
      *
-     * @param string $augment_command augment_command
+     * @param string $prompt_template prompt_template
      *
      * @return self
      */
-    public function setAugmentCommand($augment_command)
+    public function setPromptTemplate($prompt_template)
     {
-        if (is_null($augment_command)) {
-            throw new \InvalidArgumentException('non-nullable augment_command cannot be null');
+        if (is_null($prompt_template)) {
+            throw new \InvalidArgumentException('non-nullable prompt_template cannot be null');
         }
-        $this->container['augment_command'] = $augment_command;
+        $this->container['prompt_template'] = $prompt_template;
 
         return $this;
     }
 
     /**
-     * Gets filter
+     * Gets document_template
      *
-     * @return \OpenAPI\Client\Model\DomainDataRetrievalContentQuery|null
+     * @return string
      */
-    public function getFilter()
+    public function getDocumentTemplate()
     {
-        return $this->container['filter'];
+        return $this->container['document_template'];
     }
 
     /**
-     * Sets filter
+     * Sets document_template
      *
-     * @param \OpenAPI\Client\Model\DomainDataRetrievalContentQuery|null $filter filter
+     * @param string $document_template document_template
      *
      * @return self
      */
-    public function setFilter($filter)
+    public function setDocumentTemplate($document_template)
     {
-        if (is_null($filter)) {
-            throw new \InvalidArgumentException('non-nullable filter cannot be null');
+        if (is_null($document_template)) {
+            throw new \InvalidArgumentException('non-nullable document_template cannot be null');
         }
-        $this->container['filter'] = $filter;
+        $this->container['document_template'] = $document_template;
 
         return $this;
     }
 
     /**
-     * Gets prompt
+     * Gets metadata_vars
      *
-     * @return \OpenAPI\Client\Model\DomainDataRetrievalAugmentPrompt|null
+     * @return string[]
      */
-    public function getPrompt()
+    public function getMetadataVars()
     {
-        return $this->container['prompt'];
+        return $this->container['metadata_vars'];
     }
 
     /**
-     * Sets prompt
+     * Sets metadata_vars
      *
-     * @param \OpenAPI\Client\Model\DomainDataRetrievalAugmentPrompt|null $prompt prompt
+     * @param string[] $metadata_vars metadata_vars
      *
      * @return self
      */
-    public function setPrompt($prompt)
+    public function setMetadataVars($metadata_vars)
     {
-        if (is_null($prompt)) {
-            throw new \InvalidArgumentException('non-nullable prompt cannot be null');
+        if (is_null($metadata_vars)) {
+            throw new \InvalidArgumentException('non-nullable metadata_vars cannot be null');
         }
-        $this->container['prompt'] = $prompt;
+        $this->container['metadata_vars'] = $metadata_vars;
 
         return $this;
     }
