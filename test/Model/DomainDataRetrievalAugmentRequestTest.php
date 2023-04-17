@@ -107,9 +107,9 @@ class DomainDataRetrievalAugmentRequestTest extends TestCase
     }
 
     /**
-     * Test attribute "model_name"
+     * Test attribute "augmenting_model_name"
      */
-    public function testPropertyModelName()
+    public function testPropertyAugmentingModelName()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
