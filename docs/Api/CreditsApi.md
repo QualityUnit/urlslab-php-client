@@ -12,7 +12,7 @@ All URIs are relative to https://api.urlslab.com, except if the operation define
 ## `getCreditEvents()`
 
 ```php
-getCreditEvents($limit, $last_id, $last_timestamp): \OpenAPI\Client\Model\DomainUserCreditCreditEventResponse
+getCreditEvents($limit, $last_id, $last_timestamp, $body): \OpenAPI\Client\Model\DomainUserCreditCreditEventResponse
 ```
 
 Fetching Latest Events of user credit
@@ -41,9 +41,10 @@ $apiInstance = new OpenAPI\Client\Api\CreditsApi(
 $limit = 56; // int | limit of events
 $last_id = 'last_id_example'; // string | lastId of event
 $last_timestamp = 56; // int | search from timestamp
+$body = 'body_example'; // string
 
 try {
-    $result = $apiInstance->getCreditEvents($limit, $last_id, $last_timestamp);
+    $result = $apiInstance->getCreditEvents($limit, $last_id, $last_timestamp, $body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CreditsApi->getCreditEvents: ', $e->getMessage(), PHP_EOL;
@@ -57,6 +58,7 @@ try {
 | **limit** | **int**| limit of events | [optional] |
 | **last_id** | **string**| lastId of event | [optional] |
 | **last_timestamp** | **int**| search from timestamp | [optional] |
+| **body** | **string**|  | [optional] |
 
 ### Return type
 
@@ -68,7 +70,7 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `text/plain`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -78,7 +80,7 @@ try {
 ## `getCreditEventsAggregation()`
 
 ```php
-getCreditEventsAggregation($agg, $from): \OpenAPI\Client\Model\DomainUserCreditAggregatedCreditEvents
+getCreditEventsAggregation($agg, $from, $body): \OpenAPI\Client\Model\DomainUserCreditAggregatedCreditEvents
 ```
 
 Fetching aggregated credit events
@@ -106,9 +108,10 @@ $apiInstance = new OpenAPI\Client\Api\CreditsApi(
 );
 $agg = 'day'; // string
 $from = 56; // int
+$body = 'body_example'; // string
 
 try {
-    $result = $apiInstance->getCreditEventsAggregation($agg, $from);
+    $result = $apiInstance->getCreditEventsAggregation($agg, $from, $body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CreditsApi->getCreditEventsAggregation: ', $e->getMessage(), PHP_EOL;
@@ -121,6 +124,7 @@ try {
 | ------------- | ------------- | ------------- | ------------- |
 | **agg** | **string**|  | [optional] [default to &#39;day&#39;] |
 | **from** | **int**|  | [optional] |
+| **body** | **string**|  | [optional] |
 
 ### Return type
 
@@ -132,7 +136,7 @@ try {
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `text/plain`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
@@ -142,7 +146,7 @@ try {
 ## `getLastCreditStatus()`
 
 ```php
-getLastCreditStatus(): \OpenAPI\Client\Model\DomainUserCreditCreditStatus
+getLastCreditStatus($body): \OpenAPI\Client\Model\DomainUserCreditCreditStatus
 ```
 
 Fetching Last Status of user credit
@@ -168,9 +172,10 @@ $apiInstance = new OpenAPI\Client\Api\CreditsApi(
     new GuzzleHttp\Client(),
     $config
 );
+$body = 'body_example'; // string
 
 try {
-    $result = $apiInstance->getLastCreditStatus();
+    $result = $apiInstance->getLastCreditStatus($body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CreditsApi->getLastCreditStatus: ', $e->getMessage(), PHP_EOL;
@@ -179,7 +184,9 @@ try {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **body** | **string**|  | [optional] |
 
 ### Return type
 
@@ -191,7 +198,7 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `text/plain`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)

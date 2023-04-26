@@ -72,13 +72,13 @@ class CreditsApi
     /** @var string[] $contentTypes **/
     public const contentTypes = [
         'getCreditEvents' => [
-            'application/json',
+            'text/plain',
         ],
         'getCreditEventsAggregation' => [
-            'application/json',
+            'text/plain',
         ],
         'getLastCreditStatus' => [
-            'application/json',
+            'text/plain',
         ],
     ];
 
@@ -136,15 +136,16 @@ class CreditsApi
      * @param  int $limit limit of events (optional)
      * @param  string $last_id lastId of event (optional)
      * @param  int $last_timestamp search from timestamp (optional)
+     * @param  string $body body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCreditEvents'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\DomainUserCreditCreditEventResponse
      */
-    public function getCreditEvents($limit = null, $last_id = null, $last_timestamp = null, string $contentType = self::contentTypes['getCreditEvents'][0])
+    public function getCreditEvents($limit = null, $last_id = null, $last_timestamp = null, $body = null, string $contentType = self::contentTypes['getCreditEvents'][0])
     {
-        list($response) = $this->getCreditEventsWithHttpInfo($limit, $last_id, $last_timestamp, $contentType);
+        list($response) = $this->getCreditEventsWithHttpInfo($limit, $last_id, $last_timestamp, $body, $contentType);
         return $response;
     }
 
@@ -156,15 +157,16 @@ class CreditsApi
      * @param  int $limit limit of events (optional)
      * @param  string $last_id lastId of event (optional)
      * @param  int $last_timestamp search from timestamp (optional)
+     * @param  string $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCreditEvents'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\DomainUserCreditCreditEventResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCreditEventsWithHttpInfo($limit = null, $last_id = null, $last_timestamp = null, string $contentType = self::contentTypes['getCreditEvents'][0])
+    public function getCreditEventsWithHttpInfo($limit = null, $last_id = null, $last_timestamp = null, $body = null, string $contentType = self::contentTypes['getCreditEvents'][0])
     {
-        $request = $this->getCreditEventsRequest($limit, $last_id, $last_timestamp, $contentType);
+        $request = $this->getCreditEventsRequest($limit, $last_id, $last_timestamp, $body, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -258,14 +260,15 @@ class CreditsApi
      * @param  int $limit limit of events (optional)
      * @param  string $last_id lastId of event (optional)
      * @param  int $last_timestamp search from timestamp (optional)
+     * @param  string $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCreditEvents'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCreditEventsAsync($limit = null, $last_id = null, $last_timestamp = null, string $contentType = self::contentTypes['getCreditEvents'][0])
+    public function getCreditEventsAsync($limit = null, $last_id = null, $last_timestamp = null, $body = null, string $contentType = self::contentTypes['getCreditEvents'][0])
     {
-        return $this->getCreditEventsAsyncWithHttpInfo($limit, $last_id, $last_timestamp, $contentType)
+        return $this->getCreditEventsAsyncWithHttpInfo($limit, $last_id, $last_timestamp, $body, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -281,15 +284,16 @@ class CreditsApi
      * @param  int $limit limit of events (optional)
      * @param  string $last_id lastId of event (optional)
      * @param  int $last_timestamp search from timestamp (optional)
+     * @param  string $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCreditEvents'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCreditEventsAsyncWithHttpInfo($limit = null, $last_id = null, $last_timestamp = null, string $contentType = self::contentTypes['getCreditEvents'][0])
+    public function getCreditEventsAsyncWithHttpInfo($limit = null, $last_id = null, $last_timestamp = null, $body = null, string $contentType = self::contentTypes['getCreditEvents'][0])
     {
         $returnType = '\OpenAPI\Client\Model\DomainUserCreditCreditEventResponse';
-        $request = $this->getCreditEventsRequest($limit, $last_id, $last_timestamp, $contentType);
+        $request = $this->getCreditEventsRequest($limit, $last_id, $last_timestamp, $body, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -333,13 +337,15 @@ class CreditsApi
      * @param  int $limit limit of events (optional)
      * @param  string $last_id lastId of event (optional)
      * @param  int $last_timestamp search from timestamp (optional)
+     * @param  string $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCreditEvents'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getCreditEventsRequest($limit = null, $last_id = null, $last_timestamp = null, string $contentType = self::contentTypes['getCreditEvents'][0])
+    public function getCreditEventsRequest($limit = null, $last_id = null, $last_timestamp = null, $body = null, string $contentType = self::contentTypes['getCreditEvents'][0])
     {
+
 
 
 
@@ -390,7 +396,14 @@ class CreditsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($body)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($body));
+            } else {
+                $httpBody = $body;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -448,15 +461,16 @@ class CreditsApi
      *
      * @param  string $agg agg (optional, default to 'day')
      * @param  int $from from (optional)
+     * @param  string $body body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCreditEventsAggregation'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\DomainUserCreditAggregatedCreditEvents
      */
-    public function getCreditEventsAggregation($agg = 'day', $from = null, string $contentType = self::contentTypes['getCreditEventsAggregation'][0])
+    public function getCreditEventsAggregation($agg = 'day', $from = null, $body = null, string $contentType = self::contentTypes['getCreditEventsAggregation'][0])
     {
-        list($response) = $this->getCreditEventsAggregationWithHttpInfo($agg, $from, $contentType);
+        list($response) = $this->getCreditEventsAggregationWithHttpInfo($agg, $from, $body, $contentType);
         return $response;
     }
 
@@ -467,15 +481,16 @@ class CreditsApi
      *
      * @param  string $agg (optional, default to 'day')
      * @param  int $from (optional)
+     * @param  string $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCreditEventsAggregation'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\DomainUserCreditAggregatedCreditEvents, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getCreditEventsAggregationWithHttpInfo($agg = 'day', $from = null, string $contentType = self::contentTypes['getCreditEventsAggregation'][0])
+    public function getCreditEventsAggregationWithHttpInfo($agg = 'day', $from = null, $body = null, string $contentType = self::contentTypes['getCreditEventsAggregation'][0])
     {
-        $request = $this->getCreditEventsAggregationRequest($agg, $from, $contentType);
+        $request = $this->getCreditEventsAggregationRequest($agg, $from, $body, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -568,14 +583,15 @@ class CreditsApi
      *
      * @param  string $agg (optional, default to 'day')
      * @param  int $from (optional)
+     * @param  string $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCreditEventsAggregation'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCreditEventsAggregationAsync($agg = 'day', $from = null, string $contentType = self::contentTypes['getCreditEventsAggregation'][0])
+    public function getCreditEventsAggregationAsync($agg = 'day', $from = null, $body = null, string $contentType = self::contentTypes['getCreditEventsAggregation'][0])
     {
-        return $this->getCreditEventsAggregationAsyncWithHttpInfo($agg, $from, $contentType)
+        return $this->getCreditEventsAggregationAsyncWithHttpInfo($agg, $from, $body, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -590,15 +606,16 @@ class CreditsApi
      *
      * @param  string $agg (optional, default to 'day')
      * @param  int $from (optional)
+     * @param  string $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCreditEventsAggregation'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getCreditEventsAggregationAsyncWithHttpInfo($agg = 'day', $from = null, string $contentType = self::contentTypes['getCreditEventsAggregation'][0])
+    public function getCreditEventsAggregationAsyncWithHttpInfo($agg = 'day', $from = null, $body = null, string $contentType = self::contentTypes['getCreditEventsAggregation'][0])
     {
         $returnType = '\OpenAPI\Client\Model\DomainUserCreditAggregatedCreditEvents';
-        $request = $this->getCreditEventsAggregationRequest($agg, $from, $contentType);
+        $request = $this->getCreditEventsAggregationRequest($agg, $from, $body, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -641,13 +658,15 @@ class CreditsApi
      *
      * @param  string $agg (optional, default to 'day')
      * @param  int $from (optional)
+     * @param  string $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCreditEventsAggregation'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getCreditEventsAggregationRequest($agg = 'day', $from = null, string $contentType = self::contentTypes['getCreditEventsAggregation'][0])
+    public function getCreditEventsAggregationRequest($agg = 'day', $from = null, $body = null, string $contentType = self::contentTypes['getCreditEventsAggregation'][0])
     {
+
 
 
 
@@ -688,7 +707,14 @@ class CreditsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($body)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($body));
+            } else {
+                $httpBody = $body;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
@@ -744,15 +770,16 @@ class CreditsApi
      *
      * Fetching Last Status of user credit
      *
+     * @param  string $body body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLastCreditStatus'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\DomainUserCreditCreditStatus
      */
-    public function getLastCreditStatus(string $contentType = self::contentTypes['getLastCreditStatus'][0])
+    public function getLastCreditStatus($body = null, string $contentType = self::contentTypes['getLastCreditStatus'][0])
     {
-        list($response) = $this->getLastCreditStatusWithHttpInfo($contentType);
+        list($response) = $this->getLastCreditStatusWithHttpInfo($body, $contentType);
         return $response;
     }
 
@@ -761,15 +788,16 @@ class CreditsApi
      *
      * Fetching Last Status of user credit
      *
+     * @param  string $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLastCreditStatus'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\DomainUserCreditCreditStatus, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getLastCreditStatusWithHttpInfo(string $contentType = self::contentTypes['getLastCreditStatus'][0])
+    public function getLastCreditStatusWithHttpInfo($body = null, string $contentType = self::contentTypes['getLastCreditStatus'][0])
     {
-        $request = $this->getLastCreditStatusRequest($contentType);
+        $request = $this->getLastCreditStatusRequest($body, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -860,14 +888,15 @@ class CreditsApi
      *
      * Fetching Last Status of user credit
      *
+     * @param  string $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLastCreditStatus'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLastCreditStatusAsync(string $contentType = self::contentTypes['getLastCreditStatus'][0])
+    public function getLastCreditStatusAsync($body = null, string $contentType = self::contentTypes['getLastCreditStatus'][0])
     {
-        return $this->getLastCreditStatusAsyncWithHttpInfo($contentType)
+        return $this->getLastCreditStatusAsyncWithHttpInfo($body, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -880,15 +909,16 @@ class CreditsApi
      *
      * Fetching Last Status of user credit
      *
+     * @param  string $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLastCreditStatus'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getLastCreditStatusAsyncWithHttpInfo(string $contentType = self::contentTypes['getLastCreditStatus'][0])
+    public function getLastCreditStatusAsyncWithHttpInfo($body = null, string $contentType = self::contentTypes['getLastCreditStatus'][0])
     {
         $returnType = '\OpenAPI\Client\Model\DomainUserCreditCreditStatus';
-        $request = $this->getLastCreditStatusRequest($contentType);
+        $request = $this->getLastCreditStatusRequest($body, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -929,13 +959,15 @@ class CreditsApi
     /**
      * Create request for operation 'getLastCreditStatus'
      *
+     * @param  string $body (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getLastCreditStatus'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getLastCreditStatusRequest(string $contentType = self::contentTypes['getLastCreditStatus'][0])
+    public function getLastCreditStatusRequest($body = null, string $contentType = self::contentTypes['getLastCreditStatus'][0])
     {
+
 
 
         $resourcePath = '/v1/credits';
@@ -956,7 +988,14 @@ class CreditsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($body)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($body));
+            } else {
+                $httpBody = $body;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {
