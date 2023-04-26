@@ -466,7 +466,7 @@ class CreditsApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\DomainUserCreditAggregatedCreditEvents
+     * @return \OpenAPI\Client\Model\DomainUserCreditAggregatedCreditResponse
      */
     public function getCreditEventsAggregation($agg = 'day', $from = null, $body = null, string $contentType = self::contentTypes['getCreditEventsAggregation'][0])
     {
@@ -486,7 +486,7 @@ class CreditsApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\DomainUserCreditAggregatedCreditEvents, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\DomainUserCreditAggregatedCreditResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getCreditEventsAggregationWithHttpInfo($agg = 'day', $from = null, $body = null, string $contentType = self::contentTypes['getCreditEventsAggregation'][0])
     {
@@ -529,23 +529,23 @@ class CreditsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\DomainUserCreditAggregatedCreditEvents' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\DomainUserCreditAggregatedCreditResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\DomainUserCreditAggregatedCreditEvents' !== 'string') {
+                        if ('\OpenAPI\Client\Model\DomainUserCreditAggregatedCreditResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\DomainUserCreditAggregatedCreditEvents', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\DomainUserCreditAggregatedCreditResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\DomainUserCreditAggregatedCreditEvents';
+            $returnType = '\OpenAPI\Client\Model\DomainUserCreditAggregatedCreditResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -566,7 +566,7 @@ class CreditsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\DomainUserCreditAggregatedCreditEvents',
+                        '\OpenAPI\Client\Model\DomainUserCreditAggregatedCreditResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -614,7 +614,7 @@ class CreditsApi
      */
     public function getCreditEventsAggregationAsyncWithHttpInfo($agg = 'day', $from = null, $body = null, string $contentType = self::contentTypes['getCreditEventsAggregation'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\DomainUserCreditAggregatedCreditEvents';
+        $returnType = '\OpenAPI\Client\Model\DomainUserCreditAggregatedCreditResponse';
         $request = $this->getCreditEventsAggregationRequest($agg, $from, $body, $contentType);
 
         return $this->client

@@ -80,7 +80,7 @@ try {
 ## `getCreditEventsAggregation()`
 
 ```php
-getCreditEventsAggregation($agg, $from, $body): \OpenAPI\Client\Model\DomainUserCreditAggregatedCreditEvents
+getCreditEventsAggregation($agg, $from, $body): \OpenAPI\Client\Model\DomainUserCreditAggregatedCreditResponse
 ```
 
 Fetching aggregated credit events
@@ -128,7 +128,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\DomainUserCreditAggregatedCreditEvents**](../Model/DomainUserCreditAggregatedCreditEvents.md)
+[**\OpenAPI\Client\Model\DomainUserCreditAggregatedCreditResponse**](../Model/DomainUserCreditAggregatedCreditResponse.md)
 
 ### Authorization
 
