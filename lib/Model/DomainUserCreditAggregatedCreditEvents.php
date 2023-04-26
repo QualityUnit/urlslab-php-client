@@ -58,7 +58,8 @@ class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAcc
       */
     protected static $openAPITypes = [
         'group_bucket_title' => 'string',
-        'count' => 'int'
+        'events' => 'int',
+        'credits' => 'int'
     ];
 
     /**
@@ -70,7 +71,8 @@ class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAcc
       */
     protected static $openAPIFormats = [
         'group_bucket_title' => null,
-        'count' => 'int64'
+        'events' => 'int64',
+        'credits' => 'int64'
     ];
 
     /**
@@ -80,7 +82,8 @@ class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAcc
       */
     protected static array $openAPINullables = [
         'group_bucket_title' => false,
-		'count' => false
+		'events' => false,
+		'credits' => false
     ];
 
     /**
@@ -170,7 +173,8 @@ class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAcc
      */
     protected static $attributeMap = [
         'group_bucket_title' => 'groupBucketTitle',
-        'count' => 'count'
+        'events' => 'events',
+        'credits' => 'credits'
     ];
 
     /**
@@ -180,7 +184,8 @@ class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAcc
      */
     protected static $setters = [
         'group_bucket_title' => 'setGroupBucketTitle',
-        'count' => 'setCount'
+        'events' => 'setEvents',
+        'credits' => 'setCredits'
     ];
 
     /**
@@ -190,7 +195,8 @@ class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAcc
      */
     protected static $getters = [
         'group_bucket_title' => 'getGroupBucketTitle',
-        'count' => 'getCount'
+        'events' => 'getEvents',
+        'credits' => 'getCredits'
     ];
 
     /**
@@ -251,7 +257,8 @@ class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAcc
     public function __construct(array $data = null)
     {
         $this->setIfExists('group_bucket_title', $data ?? [], null);
-        $this->setIfExists('count', $data ?? [], null);
+        $this->setIfExists('events', $data ?? [], null);
+        $this->setIfExists('credits', $data ?? [], null);
     }
 
     /**
@@ -284,8 +291,11 @@ class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAcc
         if ($this->container['group_bucket_title'] === null) {
             $invalidProperties[] = "'group_bucket_title' can't be null";
         }
-        if ($this->container['count'] === null) {
-            $invalidProperties[] = "'count' can't be null";
+        if ($this->container['events'] === null) {
+            $invalidProperties[] = "'events' can't be null";
+        }
+        if ($this->container['credits'] === null) {
+            $invalidProperties[] = "'credits' can't be null";
         }
         return $invalidProperties;
     }
@@ -330,28 +340,55 @@ class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAcc
     }
 
     /**
-     * Gets count
+     * Gets events
      *
      * @return int
      */
-    public function getCount()
+    public function getEvents()
     {
-        return $this->container['count'];
+        return $this->container['events'];
     }
 
     /**
-     * Sets count
+     * Sets events
      *
-     * @param int $count count
+     * @param int $events events
      *
      * @return self
      */
-    public function setCount($count)
+    public function setEvents($events)
     {
-        if (is_null($count)) {
-            throw new \InvalidArgumentException('non-nullable count cannot be null');
+        if (is_null($events)) {
+            throw new \InvalidArgumentException('non-nullable events cannot be null');
         }
-        $this->container['count'] = $count;
+        $this->container['events'] = $events;
+
+        return $this;
+    }
+
+    /**
+     * Gets credits
+     *
+     * @return int
+     */
+    public function getCredits()
+    {
+        return $this->container['credits'];
+    }
+
+    /**
+     * Sets credits
+     *
+     * @param int $credits credits
+     *
+     * @return self
+     */
+    public function setCredits($credits)
+    {
+        if (is_null($credits)) {
+            throw new \InvalidArgumentException('non-nullable credits cannot be null');
+        }
+        $this->container['credits'] = $credits;
 
         return $this;
     }

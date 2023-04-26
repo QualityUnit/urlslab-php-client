@@ -89,9 +89,18 @@ class DomainUserCreditAggregatedCreditEventsTest extends TestCase
     }
 
     /**
-     * Test attribute "count"
+     * Test attribute "events"
      */
-    public function testPropertyCount()
+    public function testPropertyEvents()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "credits"
+     */
+    public function testPropertyCredits()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
