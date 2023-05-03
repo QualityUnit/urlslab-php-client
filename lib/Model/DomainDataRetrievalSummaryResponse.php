@@ -252,10 +252,11 @@ class DomainDataRetrievalSummaryResponse implements ModelInterface, ArrayAccess,
         return self::$openAPIModelName;
     }
 
+    public const SUMMARY_STATUS_ERROR = 'ERROR';
     public const SUMMARY_STATUS_PENDING = 'PENDING';
-    public const SUMMARY_STATUS_AVAILABLE = 'AVAILABLE';
-    public const SUMMARY_STATUS_UPDATING = 'UPDATING';
     public const SUMMARY_STATUS_BLOCKED = 'BLOCKED';
+    public const SUMMARY_STATUS_UPDATING = 'UPDATING';
+    public const SUMMARY_STATUS_AVAILABLE = 'AVAILABLE';
 
     /**
      * Gets allowable values of the enum
@@ -265,10 +266,11 @@ class DomainDataRetrievalSummaryResponse implements ModelInterface, ArrayAccess,
     public function getSummaryStatusAllowableValues()
     {
         return [
+            self::SUMMARY_STATUS_ERROR,
             self::SUMMARY_STATUS_PENDING,
-            self::SUMMARY_STATUS_AVAILABLE,
-            self::SUMMARY_STATUS_UPDATING,
             self::SUMMARY_STATUS_BLOCKED,
+            self::SUMMARY_STATUS_UPDATING,
+            self::SUMMARY_STATUS_AVAILABLE,
         ];
     }
 
