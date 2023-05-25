@@ -1,6 +1,6 @@
 <?php
 /**
- * ScreenshotApiTest
+ * SnapshotApiTest
  * PHP version 7.4
  *
  * @category Class
@@ -33,14 +33,14 @@ use \OpenAPI\Client\ObjectSerializer;
 use PHPUnit\Framework\TestCase;
 
 /**
- * ScreenshotApiTest Class Doc Comment
+ * SnapshotApiTest Class Doc Comment
  *
  * @category Class
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class ScreenshotApiTest extends TestCase
+class SnapshotApiTest extends TestCase
 {
 
     /**
@@ -72,12 +72,24 @@ class ScreenshotApiTest extends TestCase
     }
 
     /**
-     * Test case for getScreenshots
+     * Test case for getSnapshots
      *
      * Get screenshot of url.
      *
      */
-    public function testGetScreenshots()
+    public function testGetSnapshots()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for getSnapshotsHistory
+     *
+     * Get history of snapshot of url.
+     *
+     */
+    public function testGetSnapshotsHistory()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
