@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **url** | **string** |  |
-**url_id** | **int** |  |
-**domain_id** | **int** |  |
+**url_id** | **string** |  |
+**domain_id** | **string** |  |
 **snapshot_id** | **int** |  |
 **screenshot_key** | **int** |  |
 **is_changed** | **bool** |  |

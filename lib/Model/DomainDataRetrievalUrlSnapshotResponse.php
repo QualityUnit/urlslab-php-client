@@ -58,8 +58,8 @@ class DomainDataRetrievalUrlSnapshotResponse implements ModelInterface, ArrayAcc
       */
     protected static $openAPITypes = [
         'url' => 'string',
-        'url_id' => 'int',
-        'domain_id' => 'int',
+        'url_id' => 'string',
+        'domain_id' => 'string',
         'snapshot_id' => 'int',
         'screenshot_key' => 'int',
         'is_changed' => 'bool',
@@ -79,8 +79,8 @@ class DomainDataRetrievalUrlSnapshotResponse implements ModelInterface, ArrayAcc
       */
     protected static $openAPIFormats = [
         'url' => null,
-        'url_id' => 'int64',
-        'domain_id' => 'int64',
+        'url_id' => null,
+        'domain_id' => null,
         'snapshot_id' => 'int64',
         'screenshot_key' => 'int64',
         'is_changed' => null,
@@ -422,7 +422,7 @@ class DomainDataRetrievalUrlSnapshotResponse implements ModelInterface, ArrayAcc
     /**
      * Gets url_id
      *
-     * @return int
+     * @return string
      */
     public function getUrlId()
     {
@@ -432,7 +432,7 @@ class DomainDataRetrievalUrlSnapshotResponse implements ModelInterface, ArrayAcc
     /**
      * Sets url_id
      *
-     * @param int $url_id url_id
+     * @param string $url_id url_id
      *
      * @return self
      */
@@ -449,7 +449,7 @@ class DomainDataRetrievalUrlSnapshotResponse implements ModelInterface, ArrayAcc
     /**
      * Gets domain_id
      *
-     * @return int
+     * @return string
      */
     public function getDomainId()
     {
@@ -459,7 +459,7 @@ class DomainDataRetrievalUrlSnapshotResponse implements ModelInterface, ArrayAcc
     /**
      * Sets domain_id
      *
-     * @param int $domain_id domain_id
+     * @param string $domain_id domain_id
      *
      * @return self
      */

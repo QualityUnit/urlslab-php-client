@@ -251,6 +251,7 @@ class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAcc
     public const CREDIT_TYPE_CRAWLING = 'CRAWLING';
     public const CREDIT_TYPE_ADDING_CREDIT = 'ADDING_CREDIT';
     public const CREDIT_TYPE_YOUTUBE_TRANSCRIPTION = 'YOUTUBE_TRANSCRIPTION';
+    public const CREDIT_TYPE_TOPPING_CREDIT = 'TOPPING_CREDIT';
     public const CREDIT_TYPE_YOUTUBE_MICRODATA = 'YOUTUBE_MICRODATA';
     public const CREDIT_TYPE_SUMMARY = 'SUMMARY';
     public const CREDIT_TYPE_RELATED_URLS = 'RELATED_URLS';
@@ -268,6 +269,7 @@ class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAcc
             self::CREDIT_TYPE_CRAWLING,
             self::CREDIT_TYPE_ADDING_CREDIT,
             self::CREDIT_TYPE_YOUTUBE_TRANSCRIPTION,
+            self::CREDIT_TYPE_TOPPING_CREDIT,
             self::CREDIT_TYPE_YOUTUBE_MICRODATA,
             self::CREDIT_TYPE_SUMMARY,
             self::CREDIT_TYPE_RELATED_URLS,
