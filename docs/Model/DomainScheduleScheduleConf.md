@@ -13,5 +13,6 @@ Name | Type | Description | Notes
 **fetch_text** | **bool** |  |
 **scan_speed_per_minute** | **int** |  |
 **scan_frequency** | **string** |  |
+**generate_summary** | **bool** |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

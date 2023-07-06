@@ -65,7 +65,8 @@ class DomainScheduleScheduleConf implements ModelInterface, ArrayAccess, \JsonSe
         'take_screenshot' => 'bool',
         'fetch_text' => 'bool',
         'scan_speed_per_minute' => 'int',
-        'scan_frequency' => 'string'
+        'scan_frequency' => 'string',
+        'generate_summary' => 'bool'
     ];
 
     /**
@@ -84,7 +85,8 @@ class DomainScheduleScheduleConf implements ModelInterface, ArrayAccess, \JsonSe
         'take_screenshot' => null,
         'fetch_text' => null,
         'scan_speed_per_minute' => 'int32',
-        'scan_frequency' => null
+        'scan_frequency' => null,
+        'generate_summary' => null
     ];
 
     /**
@@ -101,7 +103,8 @@ class DomainScheduleScheduleConf implements ModelInterface, ArrayAccess, \JsonSe
 		'take_screenshot' => false,
 		'fetch_text' => false,
 		'scan_speed_per_minute' => false,
-		'scan_frequency' => false
+		'scan_frequency' => false,
+		'generate_summary' => true
     ];
 
     /**
@@ -198,7 +201,8 @@ class DomainScheduleScheduleConf implements ModelInterface, ArrayAccess, \JsonSe
         'take_screenshot' => 'takeScreenshot',
         'fetch_text' => 'fetchText',
         'scan_speed_per_minute' => 'scanSpeedPerMinute',
-        'scan_frequency' => 'scanFrequency'
+        'scan_frequency' => 'scanFrequency',
+        'generate_summary' => 'generateSummary'
     ];
 
     /**
@@ -215,7 +219,8 @@ class DomainScheduleScheduleConf implements ModelInterface, ArrayAccess, \JsonSe
         'take_screenshot' => 'setTakeScreenshot',
         'fetch_text' => 'setFetchText',
         'scan_speed_per_minute' => 'setScanSpeedPerMinute',
-        'scan_frequency' => 'setScanFrequency'
+        'scan_frequency' => 'setScanFrequency',
+        'generate_summary' => 'setGenerateSummary'
     ];
 
     /**
@@ -232,7 +237,8 @@ class DomainScheduleScheduleConf implements ModelInterface, ArrayAccess, \JsonSe
         'take_screenshot' => 'getTakeScreenshot',
         'fetch_text' => 'getFetchText',
         'scan_speed_per_minute' => 'getScanSpeedPerMinute',
-        'scan_frequency' => 'getScanFrequency'
+        'scan_frequency' => 'getScanFrequency',
+        'generate_summary' => 'getGenerateSummary'
     ];
 
     /**
@@ -341,6 +347,7 @@ class DomainScheduleScheduleConf implements ModelInterface, ArrayAccess, \JsonSe
         $this->setIfExists('fetch_text', $data ?? [], null);
         $this->setIfExists('scan_speed_per_minute', $data ?? [], null);
         $this->setIfExists('scan_frequency', $data ?? [], null);
+        $this->setIfExists('generate_summary', $data ?? [], null);
     }
 
     /**
@@ -693,6 +700,40 @@ class DomainScheduleScheduleConf implements ModelInterface, ArrayAccess, \JsonSe
             );
         }
         $this->container['scan_frequency'] = $scan_frequency;
+
+        return $this;
+    }
+
+    /**
+     * Gets generate_summary
+     *
+     * @return bool|null
+     */
+    public function getGenerateSummary()
+    {
+        return $this->container['generate_summary'];
+    }
+
+    /**
+     * Sets generate_summary
+     *
+     * @param bool|null $generate_summary generate_summary
+     *
+     * @return self
+     */
+    public function setGenerateSummary($generate_summary)
+    {
+        if (is_null($generate_summary)) {
+            array_push($this->openAPINullablesSetToNull, 'generate_summary');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('generate_summary', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['generate_summary'] = $generate_summary;
 
         return $this;
     }

@@ -159,4 +159,13 @@ class DomainScheduleScheduleConfTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "generate_summary"
+     */
+    public function testPropertyGenerateSummary()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }
