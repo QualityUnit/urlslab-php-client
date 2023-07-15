@@ -419,7 +419,8 @@ class SnapshotApi
      *
      * @param  string $url Url to get the history of snapshots (required)
      * @param  string $last_id lastId of event (optional)
-     * @param  string $last_timestamp lastTimestamp of event (optional)
+     * @param  string $start_date startDate of snapshot to fetch (optional)
+     * @param  string $end_date endDate of snapshot to fetch (optional)
      * @param  string $only_changed if only changed logs should be returned (optional)
      * @param  int $limit limit of events (optional)
      * @param  string $body body (optional)
@@ -429,9 +430,9 @@ class SnapshotApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\DomainDataRetrievalUrlSnapshotMultiResponse
      */
-    public function getSnapshotsHistory($url, $last_id = null, $last_timestamp = null, $only_changed = null, $limit = null, $body = null, string $contentType = self::contentTypes['getSnapshotsHistory'][0])
+    public function getSnapshotsHistory($url, $last_id = null, $start_date = null, $end_date = null, $only_changed = null, $limit = null, $body = null, string $contentType = self::contentTypes['getSnapshotsHistory'][0])
     {
-        list($response) = $this->getSnapshotsHistoryWithHttpInfo($url, $last_id, $last_timestamp, $only_changed, $limit, $body, $contentType);
+        list($response) = $this->getSnapshotsHistoryWithHttpInfo($url, $last_id, $start_date, $end_date, $only_changed, $limit, $body, $contentType);
         return $response;
     }
 
@@ -442,7 +443,8 @@ class SnapshotApi
      *
      * @param  string $url Url to get the history of snapshots (required)
      * @param  string $last_id lastId of event (optional)
-     * @param  string $last_timestamp lastTimestamp of event (optional)
+     * @param  string $start_date startDate of snapshot to fetch (optional)
+     * @param  string $end_date endDate of snapshot to fetch (optional)
      * @param  string $only_changed if only changed logs should be returned (optional)
      * @param  int $limit limit of events (optional)
      * @param  string $body (optional)
@@ -452,9 +454,9 @@ class SnapshotApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\DomainDataRetrievalUrlSnapshotMultiResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSnapshotsHistoryWithHttpInfo($url, $last_id = null, $last_timestamp = null, $only_changed = null, $limit = null, $body = null, string $contentType = self::contentTypes['getSnapshotsHistory'][0])
+    public function getSnapshotsHistoryWithHttpInfo($url, $last_id = null, $start_date = null, $end_date = null, $only_changed = null, $limit = null, $body = null, string $contentType = self::contentTypes['getSnapshotsHistory'][0])
     {
-        $request = $this->getSnapshotsHistoryRequest($url, $last_id, $last_timestamp, $only_changed, $limit, $body, $contentType);
+        $request = $this->getSnapshotsHistoryRequest($url, $last_id, $start_date, $end_date, $only_changed, $limit, $body, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -547,7 +549,8 @@ class SnapshotApi
      *
      * @param  string $url Url to get the history of snapshots (required)
      * @param  string $last_id lastId of event (optional)
-     * @param  string $last_timestamp lastTimestamp of event (optional)
+     * @param  string $start_date startDate of snapshot to fetch (optional)
+     * @param  string $end_date endDate of snapshot to fetch (optional)
      * @param  string $only_changed if only changed logs should be returned (optional)
      * @param  int $limit limit of events (optional)
      * @param  string $body (optional)
@@ -556,9 +559,9 @@ class SnapshotApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSnapshotsHistoryAsync($url, $last_id = null, $last_timestamp = null, $only_changed = null, $limit = null, $body = null, string $contentType = self::contentTypes['getSnapshotsHistory'][0])
+    public function getSnapshotsHistoryAsync($url, $last_id = null, $start_date = null, $end_date = null, $only_changed = null, $limit = null, $body = null, string $contentType = self::contentTypes['getSnapshotsHistory'][0])
     {
-        return $this->getSnapshotsHistoryAsyncWithHttpInfo($url, $last_id, $last_timestamp, $only_changed, $limit, $body, $contentType)
+        return $this->getSnapshotsHistoryAsyncWithHttpInfo($url, $last_id, $start_date, $end_date, $only_changed, $limit, $body, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -573,7 +576,8 @@ class SnapshotApi
      *
      * @param  string $url Url to get the history of snapshots (required)
      * @param  string $last_id lastId of event (optional)
-     * @param  string $last_timestamp lastTimestamp of event (optional)
+     * @param  string $start_date startDate of snapshot to fetch (optional)
+     * @param  string $end_date endDate of snapshot to fetch (optional)
      * @param  string $only_changed if only changed logs should be returned (optional)
      * @param  int $limit limit of events (optional)
      * @param  string $body (optional)
@@ -582,10 +586,10 @@ class SnapshotApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSnapshotsHistoryAsyncWithHttpInfo($url, $last_id = null, $last_timestamp = null, $only_changed = null, $limit = null, $body = null, string $contentType = self::contentTypes['getSnapshotsHistory'][0])
+    public function getSnapshotsHistoryAsyncWithHttpInfo($url, $last_id = null, $start_date = null, $end_date = null, $only_changed = null, $limit = null, $body = null, string $contentType = self::contentTypes['getSnapshotsHistory'][0])
     {
         $returnType = '\OpenAPI\Client\Model\DomainDataRetrievalUrlSnapshotMultiResponse';
-        $request = $this->getSnapshotsHistoryRequest($url, $last_id, $last_timestamp, $only_changed, $limit, $body, $contentType);
+        $request = $this->getSnapshotsHistoryRequest($url, $last_id, $start_date, $end_date, $only_changed, $limit, $body, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -628,7 +632,8 @@ class SnapshotApi
      *
      * @param  string $url Url to get the history of snapshots (required)
      * @param  string $last_id lastId of event (optional)
-     * @param  string $last_timestamp lastTimestamp of event (optional)
+     * @param  string $start_date startDate of snapshot to fetch (optional)
+     * @param  string $end_date endDate of snapshot to fetch (optional)
      * @param  string $only_changed if only changed logs should be returned (optional)
      * @param  int $limit limit of events (optional)
      * @param  string $body (optional)
@@ -637,7 +642,7 @@ class SnapshotApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSnapshotsHistoryRequest($url, $last_id = null, $last_timestamp = null, $only_changed = null, $limit = null, $body = null, string $contentType = self::contentTypes['getSnapshotsHistory'][0])
+    public function getSnapshotsHistoryRequest($url, $last_id = null, $start_date = null, $end_date = null, $only_changed = null, $limit = null, $body = null, string $contentType = self::contentTypes['getSnapshotsHistory'][0])
     {
 
         // verify the required parameter 'url' is set
@@ -646,6 +651,7 @@ class SnapshotApi
                 'Missing the required parameter $url when calling getSnapshotsHistory'
             );
         }
+
 
 
 
@@ -680,8 +686,17 @@ class SnapshotApi
         ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
-            $last_timestamp,
-            'lastTimestamp', // param base name
+            $start_date,
+            'startDate', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $end_date,
+            'endDate', // param base name
             'string', // openApiType
             'form', // style
             true, // explode

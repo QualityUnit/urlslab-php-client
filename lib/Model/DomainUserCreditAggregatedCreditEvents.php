@@ -247,7 +247,6 @@ class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAcc
     }
 
     public const CREDIT_TYPE_AUGMENTATION = 'AUGMENTATION';
-    public const CREDIT_TYPE_SCREENSHOT = 'SCREENSHOT';
     public const CREDIT_TYPE_CRAWLING = 'CRAWLING';
     public const CREDIT_TYPE_ADDING_CREDIT = 'ADDING_CREDIT';
     public const CREDIT_TYPE_YOUTUBE_TRANSCRIPTION = 'YOUTUBE_TRANSCRIPTION';
@@ -255,6 +254,8 @@ class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAcc
     public const CREDIT_TYPE_YOUTUBE_MICRODATA = 'YOUTUBE_MICRODATA';
     public const CREDIT_TYPE_SUMMARY = 'SUMMARY';
     public const CREDIT_TYPE_RELATED_URLS = 'RELATED_URLS';
+    public const CREDIT_TYPE_TEXT_INDEXING = 'TEXT_INDEXING';
+    public const CREDIT_TYPE_SCREENSHOT = 'SCREENSHOT';
 
     /**
      * Gets allowable values of the enum
@@ -265,7 +266,6 @@ class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAcc
     {
         return [
             self::CREDIT_TYPE_AUGMENTATION,
-            self::CREDIT_TYPE_SCREENSHOT,
             self::CREDIT_TYPE_CRAWLING,
             self::CREDIT_TYPE_ADDING_CREDIT,
             self::CREDIT_TYPE_YOUTUBE_TRANSCRIPTION,
@@ -273,6 +273,8 @@ class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAcc
             self::CREDIT_TYPE_YOUTUBE_MICRODATA,
             self::CREDIT_TYPE_SUMMARY,
             self::CREDIT_TYPE_RELATED_URLS,
+            self::CREDIT_TYPE_TEXT_INDEXING,
+            self::CREDIT_TYPE_SCREENSHOT,
         ];
     }
 
