@@ -1,6 +1,6 @@
 <?php
 /**
- * DomainUserCreditAggregatedCreditEvents
+ * DomainDataRetrievalSerpApiSearchRequest
  *
  * PHP version 7.4
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * DomainUserCreditAggregatedCreditEvents Class Doc Comment
+ * DomainDataRetrievalSerpApiSearchRequest Class Doc Comment
  *
  * @category Class
  * @package  OpenAPI\Client
@@ -40,7 +40,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAccess, \JsonSerializable
+class DomainDataRetrievalSerpApiSearchRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAcc
       *
       * @var string
       */
-    protected static $openAPIModelName = 'domain.userCredit.AggregatedCreditEvents';
+    protected static $openAPIModelName = 'domain.dataRetrieval.SerpApiSearchRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,10 +57,10 @@ class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $openAPITypes = [
-        'group_bucket_title' => 'string',
-        'credit_type' => 'string',
-        'events' => 'int',
-        'credits' => 'float'
+        'query' => 'string',
+        'country' => 'string',
+        'locale' => 'string',
+        'not_older_than' => 'string'
     ];
 
     /**
@@ -71,10 +71,10 @@ class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAcc
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'group_bucket_title' => null,
-        'credit_type' => null,
-        'events' => 'int64',
-        'credits' => 'double'
+        'query' => null,
+        'country' => null,
+        'locale' => null,
+        'not_older_than' => null
     ];
 
     /**
@@ -83,10 +83,10 @@ class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAcc
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'group_bucket_title' => false,
-		'credit_type' => false,
-		'events' => false,
-		'credits' => false
+        'query' => false,
+		'country' => false,
+		'locale' => false,
+		'not_older_than' => true
     ];
 
     /**
@@ -175,10 +175,10 @@ class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $attributeMap = [
-        'group_bucket_title' => 'groupBucketTitle',
-        'credit_type' => 'creditType',
-        'events' => 'events',
-        'credits' => 'credits'
+        'query' => 'query',
+        'country' => 'country',
+        'locale' => 'locale',
+        'not_older_than' => 'notOlderThan'
     ];
 
     /**
@@ -187,10 +187,10 @@ class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $setters = [
-        'group_bucket_title' => 'setGroupBucketTitle',
-        'credit_type' => 'setCreditType',
-        'events' => 'setEvents',
-        'credits' => 'setCredits'
+        'query' => 'setQuery',
+        'country' => 'setCountry',
+        'locale' => 'setLocale',
+        'not_older_than' => 'setNotOlderThan'
     ];
 
     /**
@@ -199,10 +199,10 @@ class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $getters = [
-        'group_bucket_title' => 'getGroupBucketTitle',
-        'credit_type' => 'getCreditType',
-        'events' => 'getEvents',
-        'credits' => 'getCredits'
+        'query' => 'getQuery',
+        'country' => 'getCountry',
+        'locale' => 'getLocale',
+        'not_older_than' => 'getNotOlderThan'
     ];
 
     /**
@@ -246,37 +246,29 @@ class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAcc
         return self::$openAPIModelName;
     }
 
-    public const CREDIT_TYPE_AUGMENTATION = 'AUGMENTATION';
-    public const CREDIT_TYPE_CRAWLING = 'CRAWLING';
-    public const CREDIT_TYPE_ADDING_CREDIT = 'ADDING_CREDIT';
-    public const CREDIT_TYPE_YOUTUBE_TRANSCRIPTION = 'YOUTUBE_TRANSCRIPTION';
-    public const CREDIT_TYPE_TOPPING_CREDIT = 'TOPPING_CREDIT';
-    public const CREDIT_TYPE_YOUTUBE_MICRODATA = 'YOUTUBE_MICRODATA';
-    public const CREDIT_TYPE_SUMMARY = 'SUMMARY';
-    public const CREDIT_TYPE_TEXT_INDEXING = 'TEXT_INDEXING';
-    public const CREDIT_TYPE_SCREENSHOT = 'SCREENSHOT';
-    public const CREDIT_TYPE_SERP_API = 'SERP_API';
-    public const CREDIT_TYPE_RELATED_URLS = 'RELATED_URLS';
+    public const NOT_OLDER_THAN_ONE_TIME = 'ONE_TIME';
+    public const NOT_OLDER_THAN_YEARLY = 'YEARLY';
+    public const NOT_OLDER_THAN_DAILY = 'DAILY';
+    public const NOT_OLDER_THAN_NO_SCHEDULE = 'NO_SCHEDULE';
+    public const NOT_OLDER_THAN_WEEKLY = 'WEEKLY';
+    public const NOT_OLDER_THAN_HOURLY = 'HOURLY';
+    public const NOT_OLDER_THAN_MONTHLY = 'MONTHLY';
 
     /**
      * Gets allowable values of the enum
      *
      * @return string[]
      */
-    public function getCreditTypeAllowableValues()
+    public function getNotOlderThanAllowableValues()
     {
         return [
-            self::CREDIT_TYPE_AUGMENTATION,
-            self::CREDIT_TYPE_CRAWLING,
-            self::CREDIT_TYPE_ADDING_CREDIT,
-            self::CREDIT_TYPE_YOUTUBE_TRANSCRIPTION,
-            self::CREDIT_TYPE_TOPPING_CREDIT,
-            self::CREDIT_TYPE_YOUTUBE_MICRODATA,
-            self::CREDIT_TYPE_SUMMARY,
-            self::CREDIT_TYPE_TEXT_INDEXING,
-            self::CREDIT_TYPE_SCREENSHOT,
-            self::CREDIT_TYPE_SERP_API,
-            self::CREDIT_TYPE_RELATED_URLS,
+            self::NOT_OLDER_THAN_ONE_TIME,
+            self::NOT_OLDER_THAN_YEARLY,
+            self::NOT_OLDER_THAN_DAILY,
+            self::NOT_OLDER_THAN_NO_SCHEDULE,
+            self::NOT_OLDER_THAN_WEEKLY,
+            self::NOT_OLDER_THAN_HOURLY,
+            self::NOT_OLDER_THAN_MONTHLY,
         ];
     }
 
@@ -295,10 +287,10 @@ class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAcc
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('group_bucket_title', $data ?? [], null);
-        $this->setIfExists('credit_type', $data ?? [], null);
-        $this->setIfExists('events', $data ?? [], null);
-        $this->setIfExists('credits', $data ?? [], null);
+        $this->setIfExists('query', $data ?? [], null);
+        $this->setIfExists('country', $data ?? [], null);
+        $this->setIfExists('locale', $data ?? [], null);
+        $this->setIfExists('not_older_than', $data ?? [], null);
     }
 
     /**
@@ -328,27 +320,24 @@ class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAcc
     {
         $invalidProperties = [];
 
-        if ($this->container['group_bucket_title'] === null) {
-            $invalidProperties[] = "'group_bucket_title' can't be null";
+        if ($this->container['query'] === null) {
+            $invalidProperties[] = "'query' can't be null";
         }
-        if ($this->container['credit_type'] === null) {
-            $invalidProperties[] = "'credit_type' can't be null";
+        if ($this->container['country'] === null) {
+            $invalidProperties[] = "'country' can't be null";
         }
-        $allowedValues = $this->getCreditTypeAllowableValues();
-        if (!is_null($this->container['credit_type']) && !in_array($this->container['credit_type'], $allowedValues, true)) {
+        if ($this->container['locale'] === null) {
+            $invalidProperties[] = "'locale' can't be null";
+        }
+        $allowedValues = $this->getNotOlderThanAllowableValues();
+        if (!is_null($this->container['not_older_than']) && !in_array($this->container['not_older_than'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'credit_type', must be one of '%s'",
-                $this->container['credit_type'],
+                "invalid value '%s' for 'not_older_than', must be one of '%s'",
+                $this->container['not_older_than'],
                 implode("', '", $allowedValues)
             );
         }
 
-        if ($this->container['events'] === null) {
-            $invalidProperties[] = "'events' can't be null";
-        }
-        if ($this->container['credits'] === null) {
-            $invalidProperties[] = "'credits' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -365,119 +354,126 @@ class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAcc
 
 
     /**
-     * Gets group_bucket_title
+     * Gets query
      *
      * @return string
      */
-    public function getGroupBucketTitle()
+    public function getQuery()
     {
-        return $this->container['group_bucket_title'];
+        return $this->container['query'];
     }
 
     /**
-     * Sets group_bucket_title
+     * Sets query
      *
-     * @param string $group_bucket_title group_bucket_title
+     * @param string $query query
      *
      * @return self
      */
-    public function setGroupBucketTitle($group_bucket_title)
+    public function setQuery($query)
     {
-        if (is_null($group_bucket_title)) {
-            throw new \InvalidArgumentException('non-nullable group_bucket_title cannot be null');
+        if (is_null($query)) {
+            throw new \InvalidArgumentException('non-nullable query cannot be null');
         }
-        $this->container['group_bucket_title'] = $group_bucket_title;
+        $this->container['query'] = $query;
 
         return $this;
     }
 
     /**
-     * Gets credit_type
+     * Gets country
      *
      * @return string
      */
-    public function getCreditType()
+    public function getCountry()
     {
-        return $this->container['credit_type'];
+        return $this->container['country'];
     }
 
     /**
-     * Sets credit_type
+     * Sets country
      *
-     * @param string $credit_type credit_type
+     * @param string $country country
      *
      * @return self
      */
-    public function setCreditType($credit_type)
+    public function setCountry($country)
     {
-        if (is_null($credit_type)) {
-            throw new \InvalidArgumentException('non-nullable credit_type cannot be null');
+        if (is_null($country)) {
+            throw new \InvalidArgumentException('non-nullable country cannot be null');
         }
-        $allowedValues = $this->getCreditTypeAllowableValues();
-        if (!in_array($credit_type, $allowedValues, true)) {
+        $this->container['country'] = $country;
+
+        return $this;
+    }
+
+    /**
+     * Gets locale
+     *
+     * @return string
+     */
+    public function getLocale()
+    {
+        return $this->container['locale'];
+    }
+
+    /**
+     * Sets locale
+     *
+     * @param string $locale locale
+     *
+     * @return self
+     */
+    public function setLocale($locale)
+    {
+        if (is_null($locale)) {
+            throw new \InvalidArgumentException('non-nullable locale cannot be null');
+        }
+        $this->container['locale'] = $locale;
+
+        return $this;
+    }
+
+    /**
+     * Gets not_older_than
+     *
+     * @return string|null
+     */
+    public function getNotOlderThan()
+    {
+        return $this->container['not_older_than'];
+    }
+
+    /**
+     * Sets not_older_than
+     *
+     * @param string|null $not_older_than not_older_than
+     *
+     * @return self
+     */
+    public function setNotOlderThan($not_older_than)
+    {
+        if (is_null($not_older_than)) {
+            array_push($this->openAPINullablesSetToNull, 'not_older_than');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('not_older_than', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $allowedValues = $this->getNotOlderThanAllowableValues();
+        if (!is_null($not_older_than) && !in_array($not_older_than, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value '%s' for 'credit_type', must be one of '%s'",
-                    $credit_type,
+                    "Invalid value '%s' for 'not_older_than', must be one of '%s'",
+                    $not_older_than,
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['credit_type'] = $credit_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets events
-     *
-     * @return int
-     */
-    public function getEvents()
-    {
-        return $this->container['events'];
-    }
-
-    /**
-     * Sets events
-     *
-     * @param int $events events
-     *
-     * @return self
-     */
-    public function setEvents($events)
-    {
-        if (is_null($events)) {
-            throw new \InvalidArgumentException('non-nullable events cannot be null');
-        }
-        $this->container['events'] = $events;
-
-        return $this;
-    }
-
-    /**
-     * Gets credits
-     *
-     * @return float
-     */
-    public function getCredits()
-    {
-        return $this->container['credits'];
-    }
-
-    /**
-     * Sets credits
-     *
-     * @param float $credits credits
-     *
-     * @return self
-     */
-    public function setCredits($credits)
-    {
-        if (is_null($credits)) {
-            throw new \InvalidArgumentException('non-nullable credits cannot be null');
-        }
-        $this->container['credits'] = $credits;
+        $this->container['not_older_than'] = $not_older_than;
 
         return $this;
     }

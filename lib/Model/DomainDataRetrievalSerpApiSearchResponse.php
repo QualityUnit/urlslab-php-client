@@ -1,6 +1,6 @@
 <?php
 /**
- * DomainUserCreditAggregatedCreditEvents
+ * DomainDataRetrievalSerpApiSearchResponse
  *
  * PHP version 7.4
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * DomainUserCreditAggregatedCreditEvents Class Doc Comment
+ * DomainDataRetrievalSerpApiSearchResponse Class Doc Comment
  *
  * @category Class
  * @package  OpenAPI\Client
@@ -40,7 +40,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAccess, \JsonSerializable
+class DomainDataRetrievalSerpApiSearchResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAcc
       *
       * @var string
       */
-    protected static $openAPIModelName = 'domain.userCredit.AggregatedCreditEvents';
+    protected static $openAPIModelName = 'domain.dataRetrieval.SerpApiSearchResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,10 +57,10 @@ class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $openAPITypes = [
-        'group_bucket_title' => 'string',
-        'credit_type' => 'string',
-        'events' => 'int',
-        'credits' => 'float'
+        'knowledge_graph' => 'object',
+        'organic_results' => 'object',
+        'faqs' => 'object',
+        'related_searches' => 'object'
     ];
 
     /**
@@ -71,10 +71,10 @@ class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAcc
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'group_bucket_title' => null,
-        'credit_type' => null,
-        'events' => 'int64',
-        'credits' => 'double'
+        'knowledge_graph' => null,
+        'organic_results' => null,
+        'faqs' => null,
+        'related_searches' => null
     ];
 
     /**
@@ -83,10 +83,10 @@ class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAcc
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'group_bucket_title' => false,
-		'credit_type' => false,
-		'events' => false,
-		'credits' => false
+        'knowledge_graph' => true,
+		'organic_results' => true,
+		'faqs' => true,
+		'related_searches' => true
     ];
 
     /**
@@ -175,10 +175,10 @@ class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $attributeMap = [
-        'group_bucket_title' => 'groupBucketTitle',
-        'credit_type' => 'creditType',
-        'events' => 'events',
-        'credits' => 'credits'
+        'knowledge_graph' => 'knowledgeGraph',
+        'organic_results' => 'organicResults',
+        'faqs' => 'faqs',
+        'related_searches' => 'relatedSearches'
     ];
 
     /**
@@ -187,10 +187,10 @@ class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $setters = [
-        'group_bucket_title' => 'setGroupBucketTitle',
-        'credit_type' => 'setCreditType',
-        'events' => 'setEvents',
-        'credits' => 'setCredits'
+        'knowledge_graph' => 'setKnowledgeGraph',
+        'organic_results' => 'setOrganicResults',
+        'faqs' => 'setFaqs',
+        'related_searches' => 'setRelatedSearches'
     ];
 
     /**
@@ -199,10 +199,10 @@ class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $getters = [
-        'group_bucket_title' => 'getGroupBucketTitle',
-        'credit_type' => 'getCreditType',
-        'events' => 'getEvents',
-        'credits' => 'getCredits'
+        'knowledge_graph' => 'getKnowledgeGraph',
+        'organic_results' => 'getOrganicResults',
+        'faqs' => 'getFaqs',
+        'related_searches' => 'getRelatedSearches'
     ];
 
     /**
@@ -246,39 +246,6 @@ class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAcc
         return self::$openAPIModelName;
     }
 
-    public const CREDIT_TYPE_AUGMENTATION = 'AUGMENTATION';
-    public const CREDIT_TYPE_CRAWLING = 'CRAWLING';
-    public const CREDIT_TYPE_ADDING_CREDIT = 'ADDING_CREDIT';
-    public const CREDIT_TYPE_YOUTUBE_TRANSCRIPTION = 'YOUTUBE_TRANSCRIPTION';
-    public const CREDIT_TYPE_TOPPING_CREDIT = 'TOPPING_CREDIT';
-    public const CREDIT_TYPE_YOUTUBE_MICRODATA = 'YOUTUBE_MICRODATA';
-    public const CREDIT_TYPE_SUMMARY = 'SUMMARY';
-    public const CREDIT_TYPE_TEXT_INDEXING = 'TEXT_INDEXING';
-    public const CREDIT_TYPE_SCREENSHOT = 'SCREENSHOT';
-    public const CREDIT_TYPE_SERP_API = 'SERP_API';
-    public const CREDIT_TYPE_RELATED_URLS = 'RELATED_URLS';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getCreditTypeAllowableValues()
-    {
-        return [
-            self::CREDIT_TYPE_AUGMENTATION,
-            self::CREDIT_TYPE_CRAWLING,
-            self::CREDIT_TYPE_ADDING_CREDIT,
-            self::CREDIT_TYPE_YOUTUBE_TRANSCRIPTION,
-            self::CREDIT_TYPE_TOPPING_CREDIT,
-            self::CREDIT_TYPE_YOUTUBE_MICRODATA,
-            self::CREDIT_TYPE_SUMMARY,
-            self::CREDIT_TYPE_TEXT_INDEXING,
-            self::CREDIT_TYPE_SCREENSHOT,
-            self::CREDIT_TYPE_SERP_API,
-            self::CREDIT_TYPE_RELATED_URLS,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -295,10 +262,10 @@ class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAcc
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('group_bucket_title', $data ?? [], null);
-        $this->setIfExists('credit_type', $data ?? [], null);
-        $this->setIfExists('events', $data ?? [], null);
-        $this->setIfExists('credits', $data ?? [], null);
+        $this->setIfExists('knowledge_graph', $data ?? [], null);
+        $this->setIfExists('organic_results', $data ?? [], null);
+        $this->setIfExists('faqs', $data ?? [], null);
+        $this->setIfExists('related_searches', $data ?? [], null);
     }
 
     /**
@@ -328,27 +295,6 @@ class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAcc
     {
         $invalidProperties = [];
 
-        if ($this->container['group_bucket_title'] === null) {
-            $invalidProperties[] = "'group_bucket_title' can't be null";
-        }
-        if ($this->container['credit_type'] === null) {
-            $invalidProperties[] = "'credit_type' can't be null";
-        }
-        $allowedValues = $this->getCreditTypeAllowableValues();
-        if (!is_null($this->container['credit_type']) && !in_array($this->container['credit_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'credit_type', must be one of '%s'",
-                $this->container['credit_type'],
-                implode("', '", $allowedValues)
-            );
-        }
-
-        if ($this->container['events'] === null) {
-            $invalidProperties[] = "'events' can't be null";
-        }
-        if ($this->container['credits'] === null) {
-            $invalidProperties[] = "'credits' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -365,119 +311,137 @@ class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAcc
 
 
     /**
-     * Gets group_bucket_title
+     * Gets knowledge_graph
      *
-     * @return string
+     * @return object|null
      */
-    public function getGroupBucketTitle()
+    public function getKnowledgeGraph()
     {
-        return $this->container['group_bucket_title'];
+        return $this->container['knowledge_graph'];
     }
 
     /**
-     * Sets group_bucket_title
+     * Sets knowledge_graph
      *
-     * @param string $group_bucket_title group_bucket_title
+     * @param object|null $knowledge_graph knowledge_graph
      *
      * @return self
      */
-    public function setGroupBucketTitle($group_bucket_title)
+    public function setKnowledgeGraph($knowledge_graph)
     {
-        if (is_null($group_bucket_title)) {
-            throw new \InvalidArgumentException('non-nullable group_bucket_title cannot be null');
+        if (is_null($knowledge_graph)) {
+            array_push($this->openAPINullablesSetToNull, 'knowledge_graph');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('knowledge_graph', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['group_bucket_title'] = $group_bucket_title;
+        $this->container['knowledge_graph'] = $knowledge_graph;
 
         return $this;
     }
 
     /**
-     * Gets credit_type
+     * Gets organic_results
      *
-     * @return string
+     * @return object|null
      */
-    public function getCreditType()
+    public function getOrganicResults()
     {
-        return $this->container['credit_type'];
+        return $this->container['organic_results'];
     }
 
     /**
-     * Sets credit_type
+     * Sets organic_results
      *
-     * @param string $credit_type credit_type
+     * @param object|null $organic_results organic_results
      *
      * @return self
      */
-    public function setCreditType($credit_type)
+    public function setOrganicResults($organic_results)
     {
-        if (is_null($credit_type)) {
-            throw new \InvalidArgumentException('non-nullable credit_type cannot be null');
+        if (is_null($organic_results)) {
+            array_push($this->openAPINullablesSetToNull, 'organic_results');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('organic_results', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $allowedValues = $this->getCreditTypeAllowableValues();
-        if (!in_array($credit_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'credit_type', must be one of '%s'",
-                    $credit_type,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['credit_type'] = $credit_type;
+        $this->container['organic_results'] = $organic_results;
 
         return $this;
     }
 
     /**
-     * Gets events
+     * Gets faqs
      *
-     * @return int
+     * @return object|null
      */
-    public function getEvents()
+    public function getFaqs()
     {
-        return $this->container['events'];
+        return $this->container['faqs'];
     }
 
     /**
-     * Sets events
+     * Sets faqs
      *
-     * @param int $events events
+     * @param object|null $faqs faqs
      *
      * @return self
      */
-    public function setEvents($events)
+    public function setFaqs($faqs)
     {
-        if (is_null($events)) {
-            throw new \InvalidArgumentException('non-nullable events cannot be null');
+        if (is_null($faqs)) {
+            array_push($this->openAPINullablesSetToNull, 'faqs');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('faqs', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['events'] = $events;
+        $this->container['faqs'] = $faqs;
 
         return $this;
     }
 
     /**
-     * Gets credits
+     * Gets related_searches
      *
-     * @return float
+     * @return object|null
      */
-    public function getCredits()
+    public function getRelatedSearches()
     {
-        return $this->container['credits'];
+        return $this->container['related_searches'];
     }
 
     /**
-     * Sets credits
+     * Sets related_searches
      *
-     * @param float $credits credits
+     * @param object|null $related_searches related_searches
      *
      * @return self
      */
-    public function setCredits($credits)
+    public function setRelatedSearches($related_searches)
     {
-        if (is_null($credits)) {
-            throw new \InvalidArgumentException('non-nullable credits cannot be null');
+        if (is_null($related_searches)) {
+            array_push($this->openAPINullablesSetToNull, 'related_searches');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('related_searches', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['credits'] = $credits;
+        $this->container['related_searches'] = $related_searches;
 
         return $this;
     }
