@@ -1019,6 +1019,7 @@ class ScheduleApi
      *
      * get list of all schedules for the user
      *
+     * @param  string $url filter by url (optional)
      * @param  string $body API Key to be validated (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listSchedules'] to see the possible values for this operation
      *
@@ -1026,9 +1027,9 @@ class ScheduleApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\DomainScheduleAPISchedule[]
      */
-    public function listSchedules($body = null, string $contentType = self::contentTypes['listSchedules'][0])
+    public function listSchedules($url = null, $body = null, string $contentType = self::contentTypes['listSchedules'][0])
     {
-        list($response) = $this->listSchedulesWithHttpInfo($body, $contentType);
+        list($response) = $this->listSchedulesWithHttpInfo($url, $body, $contentType);
         return $response;
     }
 
@@ -1037,6 +1038,7 @@ class ScheduleApi
      *
      * get list of all schedules for the user
      *
+     * @param  string $url filter by url (optional)
      * @param  string $body API Key to be validated (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listSchedules'] to see the possible values for this operation
      *
@@ -1044,9 +1046,9 @@ class ScheduleApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\DomainScheduleAPISchedule[], HTTP status code, HTTP response headers (array of strings)
      */
-    public function listSchedulesWithHttpInfo($body = null, string $contentType = self::contentTypes['listSchedules'][0])
+    public function listSchedulesWithHttpInfo($url = null, $body = null, string $contentType = self::contentTypes['listSchedules'][0])
     {
-        $request = $this->listSchedulesRequest($body, $contentType);
+        $request = $this->listSchedulesRequest($url, $body, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1137,15 +1139,16 @@ class ScheduleApi
      *
      * get list of all schedules for the user
      *
+     * @param  string $url filter by url (optional)
      * @param  string $body API Key to be validated (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listSchedules'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listSchedulesAsync($body = null, string $contentType = self::contentTypes['listSchedules'][0])
+    public function listSchedulesAsync($url = null, $body = null, string $contentType = self::contentTypes['listSchedules'][0])
     {
-        return $this->listSchedulesAsyncWithHttpInfo($body, $contentType)
+        return $this->listSchedulesAsyncWithHttpInfo($url, $body, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1158,16 +1161,17 @@ class ScheduleApi
      *
      * get list of all schedules for the user
      *
+     * @param  string $url filter by url (optional)
      * @param  string $body API Key to be validated (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listSchedules'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function listSchedulesAsyncWithHttpInfo($body = null, string $contentType = self::contentTypes['listSchedules'][0])
+    public function listSchedulesAsyncWithHttpInfo($url = null, $body = null, string $contentType = self::contentTypes['listSchedules'][0])
     {
         $returnType = '\OpenAPI\Client\Model\DomainScheduleAPISchedule[]';
-        $request = $this->listSchedulesRequest($body, $contentType);
+        $request = $this->listSchedulesRequest($url, $body, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1208,14 +1212,16 @@ class ScheduleApi
     /**
      * Create request for operation 'listSchedules'
      *
+     * @param  string $url filter by url (optional)
      * @param  string $body API Key to be validated (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['listSchedules'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function listSchedulesRequest($body = null, string $contentType = self::contentTypes['listSchedules'][0])
+    public function listSchedulesRequest($url = null, $body = null, string $contentType = self::contentTypes['listSchedules'][0])
     {
+
 
 
 
@@ -1226,6 +1232,15 @@ class ScheduleApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $url,
+            'url', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
 
 
 

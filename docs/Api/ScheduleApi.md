@@ -203,7 +203,7 @@ try {
 ## `listSchedules()`
 
 ```php
-listSchedules($body): \OpenAPI\Client\Model\DomainScheduleAPISchedule[]
+listSchedules($url, $body): \OpenAPI\Client\Model\DomainScheduleAPISchedule[]
 ```
 
 get list of all schedules for the user
@@ -229,10 +229,11 @@ $apiInstance = new OpenAPI\Client\Api\ScheduleApi(
     new GuzzleHttp\Client(),
     $config
 );
+$url = 'url_example'; // string | filter by url
 $body = 'body_example'; // string | API Key to be validated
 
 try {
-    $result = $apiInstance->listSchedules($body);
+    $result = $apiInstance->listSchedules($url, $body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling ScheduleApi->listSchedules: ', $e->getMessage(), PHP_EOL;
@@ -243,6 +244,7 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **url** | **string**| filter by url | [optional] |
 | **body** | **string**| API Key to be validated | [optional] |
 
 ### Return type
