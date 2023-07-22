@@ -80,9 +80,9 @@ class DomainDataRetrievalSerpApiSearchRequestTest extends TestCase
     }
 
     /**
-     * Test attribute "query"
+     * Test attribute "serp_query"
      */
-    public function testPropertyQuery()
+    public function testPropertySerpQuery()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

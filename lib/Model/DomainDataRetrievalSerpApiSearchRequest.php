@@ -57,7 +57,7 @@ class DomainDataRetrievalSerpApiSearchRequest implements ModelInterface, ArrayAc
       * @var string[]
       */
     protected static $openAPITypes = [
-        'query' => 'string',
+        'serp_query' => 'string',
         'country' => 'string',
         'locale' => 'string',
         'all_results' => 'bool',
@@ -72,7 +72,7 @@ class DomainDataRetrievalSerpApiSearchRequest implements ModelInterface, ArrayAc
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'query' => null,
+        'serp_query' => null,
         'country' => null,
         'locale' => null,
         'all_results' => null,
@@ -85,7 +85,7 @@ class DomainDataRetrievalSerpApiSearchRequest implements ModelInterface, ArrayAc
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'query' => false,
+        'serp_query' => false,
 		'country' => false,
 		'locale' => false,
 		'all_results' => false,
@@ -178,7 +178,7 @@ class DomainDataRetrievalSerpApiSearchRequest implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $attributeMap = [
-        'query' => 'query',
+        'serp_query' => 'serpQuery',
         'country' => 'country',
         'locale' => 'locale',
         'all_results' => 'allResults',
@@ -191,7 +191,7 @@ class DomainDataRetrievalSerpApiSearchRequest implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $setters = [
-        'query' => 'setQuery',
+        'serp_query' => 'setSerpQuery',
         'country' => 'setCountry',
         'locale' => 'setLocale',
         'all_results' => 'setAllResults',
@@ -204,7 +204,7 @@ class DomainDataRetrievalSerpApiSearchRequest implements ModelInterface, ArrayAc
      * @var string[]
      */
     protected static $getters = [
-        'query' => 'getQuery',
+        'serp_query' => 'getSerpQuery',
         'country' => 'getCountry',
         'locale' => 'getLocale',
         'all_results' => 'getAllResults',
@@ -293,7 +293,7 @@ class DomainDataRetrievalSerpApiSearchRequest implements ModelInterface, ArrayAc
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('query', $data ?? [], null);
+        $this->setIfExists('serp_query', $data ?? [], null);
         $this->setIfExists('country', $data ?? [], null);
         $this->setIfExists('locale', $data ?? [], null);
         $this->setIfExists('all_results', $data ?? [], null);
@@ -327,8 +327,8 @@ class DomainDataRetrievalSerpApiSearchRequest implements ModelInterface, ArrayAc
     {
         $invalidProperties = [];
 
-        if ($this->container['query'] === null) {
-            $invalidProperties[] = "'query' can't be null";
+        if ($this->container['serp_query'] === null) {
+            $invalidProperties[] = "'serp_query' can't be null";
         }
         if ($this->container['country'] === null) {
             $invalidProperties[] = "'country' can't be null";
@@ -364,28 +364,28 @@ class DomainDataRetrievalSerpApiSearchRequest implements ModelInterface, ArrayAc
 
 
     /**
-     * Gets query
+     * Gets serp_query
      *
      * @return string
      */
-    public function getQuery()
+    public function getSerpQuery()
     {
-        return $this->container['query'];
+        return $this->container['serp_query'];
     }
 
     /**
-     * Sets query
+     * Sets serp_query
      *
-     * @param string $query query
+     * @param string $serp_query serp_query
      *
      * @return self
      */
-    public function setQuery($query)
+    public function setSerpQuery($serp_query)
     {
-        if (is_null($query)) {
-            throw new \InvalidArgumentException('non-nullable query cannot be null');
+        if (is_null($serp_query)) {
+            throw new \InvalidArgumentException('non-nullable serp_query cannot be null');
         }
-        $this->container['query'] = $query;
+        $this->container['serp_query'] = $serp_query;
 
         return $this;
     }

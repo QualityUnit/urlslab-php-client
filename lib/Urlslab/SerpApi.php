@@ -132,7 +132,7 @@ class SerpApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\DomainDataRetrievalSerpApiSearchResponse[]
+     * @return \OpenAPI\Client\Model\DomainDataRetrievalSerpApiSearchResponse
      */
     public function search($domain_data_retrieval_serp_api_search_request, string $contentType = self::contentTypes['search'][0])
     {
@@ -150,7 +150,7 @@ class SerpApi
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\DomainDataRetrievalSerpApiSearchResponse[], HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\DomainDataRetrievalSerpApiSearchResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function searchWithHttpInfo($domain_data_retrieval_serp_api_search_request, string $contentType = self::contentTypes['search'][0])
     {
@@ -193,23 +193,23 @@ class SerpApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\DomainDataRetrievalSerpApiSearchResponse[]' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\DomainDataRetrievalSerpApiSearchResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\DomainDataRetrievalSerpApiSearchResponse[]' !== 'string') {
+                        if ('\OpenAPI\Client\Model\DomainDataRetrievalSerpApiSearchResponse' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\DomainDataRetrievalSerpApiSearchResponse[]', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\DomainDataRetrievalSerpApiSearchResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\DomainDataRetrievalSerpApiSearchResponse[]';
+            $returnType = '\OpenAPI\Client\Model\DomainDataRetrievalSerpApiSearchResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -230,7 +230,7 @@ class SerpApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\DomainDataRetrievalSerpApiSearchResponse[]',
+                        '\OpenAPI\Client\Model\DomainDataRetrievalSerpApiSearchResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -274,7 +274,7 @@ class SerpApi
      */
     public function searchAsyncWithHttpInfo($domain_data_retrieval_serp_api_search_request, string $contentType = self::contentTypes['search'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\DomainDataRetrievalSerpApiSearchResponse[]';
+        $returnType = '\OpenAPI\Client\Model\DomainDataRetrievalSerpApiSearchResponse';
         $request = $this->searchRequest($domain_data_retrieval_serp_api_search_request, $contentType);
 
         return $this->client

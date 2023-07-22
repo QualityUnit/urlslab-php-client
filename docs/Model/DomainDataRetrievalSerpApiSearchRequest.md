@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**query** | **string** |  |
+**serp_query** | **string** |  |
 **country** | **string** |  |
 **locale** | **string** |  |
 **all_results** | **bool** |  |

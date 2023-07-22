@@ -10,7 +10,7 @@ All URIs are relative to https://api.urlslab.com, except if the operation define
 ## `search()`
 
 ```php
-search($domain_data_retrieval_serp_api_search_request): \OpenAPI\Client\Model\DomainDataRetrievalSerpApiSearchResponse[]
+search($domain_data_retrieval_serp_api_search_request): \OpenAPI\Client\Model\DomainDataRetrievalSerpApiSearchResponse
 ```
 
 Search the Serp to get top urls
@@ -54,7 +54,7 @@ try {
 
 ### Return type
 
-[**\OpenAPI\Client\Model\DomainDataRetrievalSerpApiSearchResponse[]**](../Model/DomainDataRetrievalSerpApiSearchResponse.md)
+[**\OpenAPI\Client\Model\DomainDataRetrievalSerpApiSearchResponse**](../Model/DomainDataRetrievalSerpApiSearchResponse.md)
 
 ### Authorization
 
