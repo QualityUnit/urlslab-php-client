@@ -89,9 +89,9 @@ class DomainUserCreditCreditEventTest extends TestCase
     }
 
     /**
-     * Test attribute "url"
+     * Test attribute "context"
      */
-    public function testPropertyUrl()
+    public function testPropertyContext()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

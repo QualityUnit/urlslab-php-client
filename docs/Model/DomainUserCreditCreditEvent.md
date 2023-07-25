@@ -5,7 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **string** |  |
-**url** | **string** |  | [optional]
+**context** | **string** |  | [optional]
 **operation_date** | **int** |  |
 **credit_operation** | **float** |  |
 **credit_type** | **string** |  |

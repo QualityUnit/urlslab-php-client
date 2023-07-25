@@ -58,7 +58,7 @@ class DomainUserCreditCreditEvent implements ModelInterface, ArrayAccess, \JsonS
       */
     protected static $openAPITypes = [
         'id' => 'string',
-        'url' => 'string',
+        'context' => 'string',
         'operation_date' => 'int',
         'credit_operation' => 'float',
         'credit_type' => 'string'
@@ -73,7 +73,7 @@ class DomainUserCreditCreditEvent implements ModelInterface, ArrayAccess, \JsonS
       */
     protected static $openAPIFormats = [
         'id' => null,
-        'url' => null,
+        'context' => null,
         'operation_date' => 'int64',
         'credit_operation' => 'double',
         'credit_type' => null
@@ -86,7 +86,7 @@ class DomainUserCreditCreditEvent implements ModelInterface, ArrayAccess, \JsonS
       */
     protected static array $openAPINullables = [
         'id' => false,
-		'url' => true,
+		'context' => true,
 		'operation_date' => false,
 		'credit_operation' => false,
 		'credit_type' => false
@@ -179,7 +179,7 @@ class DomainUserCreditCreditEvent implements ModelInterface, ArrayAccess, \JsonS
      */
     protected static $attributeMap = [
         'id' => 'id',
-        'url' => 'url',
+        'context' => 'context',
         'operation_date' => 'operationDate',
         'credit_operation' => 'creditOperation',
         'credit_type' => 'creditType'
@@ -192,7 +192,7 @@ class DomainUserCreditCreditEvent implements ModelInterface, ArrayAccess, \JsonS
      */
     protected static $setters = [
         'id' => 'setId',
-        'url' => 'setUrl',
+        'context' => 'setContext',
         'operation_date' => 'setOperationDate',
         'credit_operation' => 'setCreditOperation',
         'credit_type' => 'setCreditType'
@@ -205,7 +205,7 @@ class DomainUserCreditCreditEvent implements ModelInterface, ArrayAccess, \JsonS
      */
     protected static $getters = [
         'id' => 'getId',
-        'url' => 'getUrl',
+        'context' => 'getContext',
         'operation_date' => 'getOperationDate',
         'credit_operation' => 'getCreditOperation',
         'credit_type' => 'getCreditType'
@@ -269,7 +269,7 @@ class DomainUserCreditCreditEvent implements ModelInterface, ArrayAccess, \JsonS
     public function __construct(array $data = null)
     {
         $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('url', $data ?? [], null);
+        $this->setIfExists('context', $data ?? [], null);
         $this->setIfExists('operation_date', $data ?? [], null);
         $this->setIfExists('credit_operation', $data ?? [], null);
         $this->setIfExists('credit_type', $data ?? [], null);
@@ -357,35 +357,35 @@ class DomainUserCreditCreditEvent implements ModelInterface, ArrayAccess, \JsonS
     }
 
     /**
-     * Gets url
+     * Gets context
      *
      * @return string|null
      */
-    public function getUrl()
+    public function getContext()
     {
-        return $this->container['url'];
+        return $this->container['context'];
     }
 
     /**
-     * Sets url
+     * Sets context
      *
-     * @param string|null $url url
+     * @param string|null $context context
      *
      * @return self
      */
-    public function setUrl($url)
+    public function setContext($context)
     {
-        if (is_null($url)) {
-            array_push($this->openAPINullablesSetToNull, 'url');
+        if (is_null($context)) {
+            array_push($this->openAPINullablesSetToNull, 'context');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('url', $nullablesSetToNull);
+            $index = array_search('context', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['url'] = $url;
+        $this->container['context'] = $context;
 
         return $this;
     }
