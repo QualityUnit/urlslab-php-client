@@ -247,6 +247,7 @@ class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAcc
     }
 
     public const CREDIT_TYPE_AUGMENTATION = 'AUGMENTATION';
+    public const CREDIT_TYPE_SERP_API_CACHED = 'SERP_API_CACHED';
     public const CREDIT_TYPE_CRAWLING = 'CRAWLING';
     public const CREDIT_TYPE_ADDING_CREDIT = 'ADDING_CREDIT';
     public const CREDIT_TYPE_YOUTUBE_TRANSCRIPTION = 'YOUTUBE_TRANSCRIPTION';
@@ -267,6 +268,7 @@ class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAcc
     {
         return [
             self::CREDIT_TYPE_AUGMENTATION,
+            self::CREDIT_TYPE_SERP_API_CACHED,
             self::CREDIT_TYPE_CRAWLING,
             self::CREDIT_TYPE_ADDING_CREDIT,
             self::CREDIT_TYPE_YOUTUBE_TRANSCRIPTION,
