@@ -1,6 +1,6 @@
 <?php
 /**
- * AuthApiTest
+ * AnalyticsApiTest
  * PHP version 7.4
  *
  * @category Class
@@ -33,14 +33,14 @@ use \OpenAPI\Client\ObjectSerializer;
 use PHPUnit\Framework\TestCase;
 
 /**
- * AuthApiTest Class Doc Comment
+ * AnalyticsApiTest Class Doc Comment
  *
  * @category Class
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class AuthApiTest extends TestCase
+class AnalyticsApiTest extends TestCase
 {
 
     /**
@@ -72,48 +72,24 @@ class AuthApiTest extends TestCase
     }
 
     /**
-     * Test case for getAuthIntegrations
+     * Test case for getPageStats
      *
-     * check if the user is already integrated to a specific integration.
+     * Page Stats data from google search console.
      *
      */
-    public function testGetAuthIntegrations()
+    public function testGetPageStats()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test case for getUserInfo
+     * Test case for getTopKeywords
      *
-     * get user info.
-     *
-     */
-    public function testGetUserInfo()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for logout
-     *
-     * logout for users.
+     * Keyword Analytics data from google search console.
      *
      */
-    public function testLogout()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for signin
-     *
-     * login for users.
-     *
-     */
-    public function testSignin()
+    public function testGetTopKeywords()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
