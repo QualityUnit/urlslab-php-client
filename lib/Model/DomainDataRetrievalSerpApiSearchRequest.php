@@ -86,8 +86,8 @@ class DomainDataRetrievalSerpApiSearchRequest implements ModelInterface, ArrayAc
       */
     protected static array $openAPINullables = [
         'serp_query' => false,
-		'country' => false,
-		'locale' => false,
+		'country' => true,
+		'locale' => true,
 		'all_results' => false,
 		'not_older_than' => true
     ];
@@ -330,12 +330,6 @@ class DomainDataRetrievalSerpApiSearchRequest implements ModelInterface, ArrayAc
         if ($this->container['serp_query'] === null) {
             $invalidProperties[] = "'serp_query' can't be null";
         }
-        if ($this->container['country'] === null) {
-            $invalidProperties[] = "'country' can't be null";
-        }
-        if ($this->container['locale'] === null) {
-            $invalidProperties[] = "'locale' can't be null";
-        }
         if ($this->container['all_results'] === null) {
             $invalidProperties[] = "'all_results' can't be null";
         }
@@ -393,7 +387,7 @@ class DomainDataRetrievalSerpApiSearchRequest implements ModelInterface, ArrayAc
     /**
      * Gets country
      *
-     * @return string
+     * @return string|null
      */
     public function getCountry()
     {
@@ -403,14 +397,21 @@ class DomainDataRetrievalSerpApiSearchRequest implements ModelInterface, ArrayAc
     /**
      * Sets country
      *
-     * @param string $country country
+     * @param string|null $country country
      *
      * @return self
      */
     public function setCountry($country)
     {
         if (is_null($country)) {
-            throw new \InvalidArgumentException('non-nullable country cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'country');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('country', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['country'] = $country;
 
@@ -420,7 +421,7 @@ class DomainDataRetrievalSerpApiSearchRequest implements ModelInterface, ArrayAc
     /**
      * Gets locale
      *
-     * @return string
+     * @return string|null
      */
     public function getLocale()
     {
@@ -430,14 +431,21 @@ class DomainDataRetrievalSerpApiSearchRequest implements ModelInterface, ArrayAc
     /**
      * Sets locale
      *
-     * @param string $locale locale
+     * @param string|null $locale locale
      *
      * @return self
      */
     public function setLocale($locale)
     {
         if (is_null($locale)) {
-            throw new \InvalidArgumentException('non-nullable locale cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'locale');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('locale', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['locale'] = $locale;
 

@@ -5,8 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **serp_query** | **string** |  |
-**country** | **string** |  |
-**locale** | **string** |  |
+**country** | **string** |  | [optional]
+**locale** | **string** |  | [optional]
 **all_results** | **bool** |  |
 **not_older_than** | **string** |  | [optional]
 
