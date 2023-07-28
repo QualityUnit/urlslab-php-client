@@ -4,8 +4,8 @@ All URIs are relative to https://api.urlslab.com, except if the operation define
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
-| [**getPageStats()**](AnalyticsApi.md#getPageStats) | **GET** /v1/analytics/page-stats | Page Stats data from google search console |
-| [**getTopKeywords()**](AnalyticsApi.md#getTopKeywords) | **GET** /v1/analytics/keywords | Keyword Analytics data from google search console |
+| [**getPageStats()**](AnalyticsApi.md#getPageStats) | **POST** /v1/analytics/page-stats | Page Stats data from google search console |
+| [**getTopKeywords()**](AnalyticsApi.md#getTopKeywords) | **POST** /v1/analytics/keywords | Keyword Analytics data from google search console |
 
 
 ## `getPageStats()`
