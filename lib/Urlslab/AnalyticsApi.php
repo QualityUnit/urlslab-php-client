@@ -75,7 +75,7 @@ class AnalyticsApi
             'application/json',
         ],
         'getSiteUrls' => [
-            'application/json',
+            'text/plain',
         ],
         'getTopKeywords' => [
             'application/json',
@@ -420,15 +420,16 @@ class AnalyticsApi
      *
      * Site URLs from GSC
      *
+     * @param  string $body API Key to be validated (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSiteUrls'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\DomainDataRetrievalSiteUrlsResponse
      */
-    public function getSiteUrls(string $contentType = self::contentTypes['getSiteUrls'][0])
+    public function getSiteUrls($body = null, string $contentType = self::contentTypes['getSiteUrls'][0])
     {
-        list($response) = $this->getSiteUrlsWithHttpInfo($contentType);
+        list($response) = $this->getSiteUrlsWithHttpInfo($body, $contentType);
         return $response;
     }
 
@@ -437,15 +438,16 @@ class AnalyticsApi
      *
      * Site URLs from GSC
      *
+     * @param  string $body API Key to be validated (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSiteUrls'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\DomainDataRetrievalSiteUrlsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSiteUrlsWithHttpInfo(string $contentType = self::contentTypes['getSiteUrls'][0])
+    public function getSiteUrlsWithHttpInfo($body = null, string $contentType = self::contentTypes['getSiteUrls'][0])
     {
-        $request = $this->getSiteUrlsRequest($contentType);
+        $request = $this->getSiteUrlsRequest($body, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -536,14 +538,15 @@ class AnalyticsApi
      *
      * Site URLs from GSC
      *
+     * @param  string $body API Key to be validated (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSiteUrls'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSiteUrlsAsync(string $contentType = self::contentTypes['getSiteUrls'][0])
+    public function getSiteUrlsAsync($body = null, string $contentType = self::contentTypes['getSiteUrls'][0])
     {
-        return $this->getSiteUrlsAsyncWithHttpInfo($contentType)
+        return $this->getSiteUrlsAsyncWithHttpInfo($body, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -556,15 +559,16 @@ class AnalyticsApi
      *
      * Site URLs from GSC
      *
+     * @param  string $body API Key to be validated (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSiteUrls'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSiteUrlsAsyncWithHttpInfo(string $contentType = self::contentTypes['getSiteUrls'][0])
+    public function getSiteUrlsAsyncWithHttpInfo($body = null, string $contentType = self::contentTypes['getSiteUrls'][0])
     {
         $returnType = '\OpenAPI\Client\Model\DomainDataRetrievalSiteUrlsResponse';
-        $request = $this->getSiteUrlsRequest($contentType);
+        $request = $this->getSiteUrlsRequest($body, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -605,13 +609,15 @@ class AnalyticsApi
     /**
      * Create request for operation 'getSiteUrls'
      *
+     * @param  string $body API Key to be validated (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSiteUrls'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getSiteUrlsRequest(string $contentType = self::contentTypes['getSiteUrls'][0])
+    public function getSiteUrlsRequest($body = null, string $contentType = self::contentTypes['getSiteUrls'][0])
     {
+
 
 
         $resourcePath = '/v1/analytics/site-urls';
@@ -632,7 +638,14 @@ class AnalyticsApi
         );
 
         // for model (json/xml)
-        if (count($formParams) > 0) {
+        if (isset($body)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($body));
+            } else {
+                $httpBody = $body;
+            }
+        } elseif (count($formParams) > 0) {
             if ($multipart) {
                 $multipartContents = [];
                 foreach ($formParams as $formParamName => $formParamValue) {

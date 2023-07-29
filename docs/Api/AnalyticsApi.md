@@ -74,7 +74,7 @@ try {
 ## `getSiteUrls()`
 
 ```php
-getSiteUrls(): \OpenAPI\Client\Model\DomainDataRetrievalSiteUrlsResponse
+getSiteUrls($body): \OpenAPI\Client\Model\DomainDataRetrievalSiteUrlsResponse
 ```
 
 Site URLs from GSC
@@ -100,9 +100,10 @@ $apiInstance = new OpenAPI\Client\Api\AnalyticsApi(
     new GuzzleHttp\Client(),
     $config
 );
+$body = 'body_example'; // string | API Key to be validated
 
 try {
-    $result = $apiInstance->getSiteUrls();
+    $result = $apiInstance->getSiteUrls($body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling AnalyticsApi->getSiteUrls: ', $e->getMessage(), PHP_EOL;
@@ -111,7 +112,9 @@ try {
 
 ### Parameters
 
-This endpoint does not need any parameter.
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **body** | **string**| API Key to be validated | [optional] |
 
 ### Return type
 
@@ -123,7 +126,7 @@ This endpoint does not need any parameter.
 
 ### HTTP request headers
 
-- **Content-Type**: Not defined
+- **Content-Type**: `text/plain`
 - **Accept**: `application/json`
 
 [[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
