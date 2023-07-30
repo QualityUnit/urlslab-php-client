@@ -4,9 +4,137 @@ All URIs are relative to https://api.urlslab.com, except if the operation define
 
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
+| [**complexAugmentWithURLContext()**](ContentApi.md#complexAugmentWithURLContext) | **POST** /v1/content/augment/process/create | Augment based on given urls context |
+| [**getProcessResult()**](ContentApi.md#getProcessResult) | **GET** /v1/content/augment/process/{id} | Get Async Augmentation result |
 | [**getRelatedUrls()**](ContentApi.md#getRelatedUrls) | **POST** /v1/content/related-urls | Related Urls to a specific url |
 | [**memoryLessAugment()**](ContentApi.md#memoryLessAugment) | **POST** /v1/content/augment | Augment based on the query and the given context |
 
+
+## `complexAugmentWithURLContext()`
+
+```php
+complexAugmentWithURLContext($domain_data_retrieval_augment_request_with_url_context): \OpenAPI\Client\Model\DomainDataRetrievalStatefulResponse
+```
+
+Augment based on given urls context
+
+Augment based on given urls context
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: UrlslabApiKeyAuth
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-URLSLAB-KEY', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-URLSLAB-KEY', 'Bearer');
+
+
+$apiInstance = new OpenAPI\Client\Api\ContentApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$domain_data_retrieval_augment_request_with_url_context = new \OpenAPI\Client\Model\DomainDataRetrievalAugmentRequestWithURLContext(); // \OpenAPI\Client\Model\DomainDataRetrievalAugmentRequestWithURLContext | Augment request Based on URL Context
+
+try {
+    $result = $apiInstance->complexAugmentWithURLContext($domain_data_retrieval_augment_request_with_url_context);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ContentApi->complexAugmentWithURLContext: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **domain_data_retrieval_augment_request_with_url_context** | [**\OpenAPI\Client\Model\DomainDataRetrievalAugmentRequestWithURLContext**](../Model/DomainDataRetrievalAugmentRequestWithURLContext.md)| Augment request Based on URL Context | |
+
+### Return type
+
+[**\OpenAPI\Client\Model\DomainDataRetrievalStatefulResponse**](../Model/DomainDataRetrievalStatefulResponse.md)
+
+### Authorization
+
+[UrlslabApiKeyAuth](../../README.md#UrlslabApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `getProcessResult()`
+
+```php
+getProcessResult($id, $body): \OpenAPI\Client\Model\DomainDataRetrievalComplexAugmentResponse
+```
+
+Get Async Augmentation result
+
+Get Async Augmentation result
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: UrlslabApiKeyAuth
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-URLSLAB-KEY', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-URLSLAB-KEY', 'Bearer');
+
+
+$apiInstance = new OpenAPI\Client\Api\ContentApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$id = 'id_example'; // string | Process ID
+$body = 'body_example'; // string | Nothing
+
+try {
+    $result = $apiInstance->getProcessResult($id, $body);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling ContentApi->getProcessResult: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **id** | **string**| Process ID | |
+| **body** | **string**| Nothing | [optional] |
+
+### Return type
+
+[**\OpenAPI\Client\Model\DomainDataRetrievalComplexAugmentResponse**](../Model/DomainDataRetrievalComplexAugmentResponse.md)
+
+### Authorization
+
+[UrlslabApiKeyAuth](../../README.md#UrlslabApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `text/plain`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
 
 ## `getRelatedUrls()`
 

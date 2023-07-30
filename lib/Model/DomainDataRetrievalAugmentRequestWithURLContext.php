@@ -1,6 +1,6 @@
 <?php
 /**
- * DomainDataRetrievalAugmentRequest
+ * DomainDataRetrievalAugmentRequestWithURLContext
  *
  * PHP version 7.4
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * DomainDataRetrievalAugmentRequest Class Doc Comment
+ * DomainDataRetrievalAugmentRequestWithURLContext Class Doc Comment
  *
  * @category Class
  * @package  OpenAPI\Client
@@ -40,7 +40,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class DomainDataRetrievalAugmentRequest implements ModelInterface, ArrayAccess, \JsonSerializable
+class DomainDataRetrievalAugmentRequestWithURLContext implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class DomainDataRetrievalAugmentRequest implements ModelInterface, ArrayAccess, 
       *
       * @var string
       */
-    protected static $openAPIModelName = 'domain.dataRetrieval.AugmentRequest';
+    protected static $openAPIModelName = 'domain.dataRetrieval.AugmentRequestWithURLContext';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,11 +57,11 @@ class DomainDataRetrievalAugmentRequest implements ModelInterface, ArrayAccess, 
       * @var string[]
       */
     protected static $openAPITypes = [
-        'augment_command' => 'string',
-        'filter' => '\OpenAPI\Client\Model\DomainDataRetrievalContentQuery',
-        'prompt' => '\OpenAPI\Client\Model\DomainDataRetrievalAugmentPrompt',
-        'augmenting_model_name' => 'string',
-        'renew_frequency' => 'string'
+        'urls' => 'string[]',
+        'top_k_chunks' => 'int',
+        'prompt' => 'object',
+        'generation_strategy' => 'string',
+        'mode_name' => 'string'
     ];
 
     /**
@@ -72,11 +72,11 @@ class DomainDataRetrievalAugmentRequest implements ModelInterface, ArrayAccess, 
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'augment_command' => null,
-        'filter' => null,
+        'urls' => null,
+        'top_k_chunks' => 'int32',
         'prompt' => null,
-        'augmenting_model_name' => null,
-        'renew_frequency' => null
+        'generation_strategy' => null,
+        'mode_name' => null
     ];
 
     /**
@@ -85,11 +85,11 @@ class DomainDataRetrievalAugmentRequest implements ModelInterface, ArrayAccess, 
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'augment_command' => true,
-		'filter' => false,
+        'urls' => false,
+		'top_k_chunks' => true,
 		'prompt' => false,
-		'augmenting_model_name' => true,
-		'renew_frequency' => false
+		'generation_strategy' => true,
+		'mode_name' => true
     ];
 
     /**
@@ -178,11 +178,11 @@ class DomainDataRetrievalAugmentRequest implements ModelInterface, ArrayAccess, 
      * @var string[]
      */
     protected static $attributeMap = [
-        'augment_command' => 'augmentCommand',
-        'filter' => 'filter',
+        'urls' => 'urls',
+        'top_k_chunks' => 'topKChunks',
         'prompt' => 'prompt',
-        'augmenting_model_name' => 'augmentingModelName',
-        'renew_frequency' => 'renewFrequency'
+        'generation_strategy' => 'generationStrategy',
+        'mode_name' => 'modeName'
     ];
 
     /**
@@ -191,11 +191,11 @@ class DomainDataRetrievalAugmentRequest implements ModelInterface, ArrayAccess, 
      * @var string[]
      */
     protected static $setters = [
-        'augment_command' => 'setAugmentCommand',
-        'filter' => 'setFilter',
+        'urls' => 'setUrls',
+        'top_k_chunks' => 'setTopKChunks',
         'prompt' => 'setPrompt',
-        'augmenting_model_name' => 'setAugmentingModelName',
-        'renew_frequency' => 'setRenewFrequency'
+        'generation_strategy' => 'setGenerationStrategy',
+        'mode_name' => 'setModeName'
     ];
 
     /**
@@ -204,11 +204,11 @@ class DomainDataRetrievalAugmentRequest implements ModelInterface, ArrayAccess, 
      * @var string[]
      */
     protected static $getters = [
-        'augment_command' => 'getAugmentCommand',
-        'filter' => 'getFilter',
+        'urls' => 'getUrls',
+        'top_k_chunks' => 'getTopKChunks',
         'prompt' => 'getPrompt',
-        'augmenting_model_name' => 'getAugmentingModelName',
-        'renew_frequency' => 'getRenewFrequency'
+        'generation_strategy' => 'getGenerationStrategy',
+        'mode_name' => 'getModeName'
     ];
 
     /**
@@ -252,50 +252,25 @@ class DomainDataRetrievalAugmentRequest implements ModelInterface, ArrayAccess, 
         return self::$openAPIModelName;
     }
 
-    public const AUGMENTING_MODEL_NAME_GPT_4_32K = 'gpt-4-32k';
-    public const AUGMENTING_MODEL_NAME_GPT_3_5_TURBO_16K = 'gpt-3.5-turbo-16k';
-    public const AUGMENTING_MODEL_NAME_TEXT_DAVINCI_003 = 'text-davinci-003';
-    public const AUGMENTING_MODEL_NAME_GPT_3_5_TURBO = 'gpt-3.5-turbo';
-    public const AUGMENTING_MODEL_NAME_GPT_4 = 'gpt-4';
-    public const RENEW_FREQUENCY_ONE_TIME = 'ONE_TIME';
-    public const RENEW_FREQUENCY_YEARLY = 'YEARLY';
-    public const RENEW_FREQUENCY_DAILY = 'DAILY';
-    public const RENEW_FREQUENCY_NO_SCHEDULE = 'NO_SCHEDULE';
-    public const RENEW_FREQUENCY_WEEKLY = 'WEEKLY';
-    public const RENEW_FREQUENCY_HOURLY = 'HOURLY';
-    public const RENEW_FREQUENCY_MONTHLY = 'MONTHLY';
+    public const MODE_NAME_GPT_4_32K = 'gpt-4-32k';
+    public const MODE_NAME_GPT_3_5_TURBO_16K = 'gpt-3.5-turbo-16k';
+    public const MODE_NAME_TEXT_DAVINCI_003 = 'text-davinci-003';
+    public const MODE_NAME_GPT_3_5_TURBO = 'gpt-3.5-turbo';
+    public const MODE_NAME_GPT_4 = 'gpt-4';
 
     /**
      * Gets allowable values of the enum
      *
      * @return string[]
      */
-    public function getAugmentingModelNameAllowableValues()
+    public function getModeNameAllowableValues()
     {
         return [
-            self::AUGMENTING_MODEL_NAME_GPT_4_32K,
-            self::AUGMENTING_MODEL_NAME_GPT_3_5_TURBO_16K,
-            self::AUGMENTING_MODEL_NAME_TEXT_DAVINCI_003,
-            self::AUGMENTING_MODEL_NAME_GPT_3_5_TURBO,
-            self::AUGMENTING_MODEL_NAME_GPT_4,
-        ];
-    }
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getRenewFrequencyAllowableValues()
-    {
-        return [
-            self::RENEW_FREQUENCY_ONE_TIME,
-            self::RENEW_FREQUENCY_YEARLY,
-            self::RENEW_FREQUENCY_DAILY,
-            self::RENEW_FREQUENCY_NO_SCHEDULE,
-            self::RENEW_FREQUENCY_WEEKLY,
-            self::RENEW_FREQUENCY_HOURLY,
-            self::RENEW_FREQUENCY_MONTHLY,
+            self::MODE_NAME_GPT_4_32K,
+            self::MODE_NAME_GPT_3_5_TURBO_16K,
+            self::MODE_NAME_TEXT_DAVINCI_003,
+            self::MODE_NAME_GPT_3_5_TURBO,
+            self::MODE_NAME_GPT_4,
         ];
     }
 
@@ -314,11 +289,11 @@ class DomainDataRetrievalAugmentRequest implements ModelInterface, ArrayAccess, 
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('augment_command', $data ?? [], null);
-        $this->setIfExists('filter', $data ?? [], null);
+        $this->setIfExists('urls', $data ?? [], null);
+        $this->setIfExists('top_k_chunks', $data ?? [], null);
         $this->setIfExists('prompt', $data ?? [], null);
-        $this->setIfExists('augmenting_model_name', $data ?? [], null);
-        $this->setIfExists('renew_frequency', $data ?? [], null);
+        $this->setIfExists('generation_strategy', $data ?? [], null);
+        $this->setIfExists('mode_name', $data ?? [], null);
     }
 
     /**
@@ -348,23 +323,17 @@ class DomainDataRetrievalAugmentRequest implements ModelInterface, ArrayAccess, 
     {
         $invalidProperties = [];
 
-        $allowedValues = $this->getAugmentingModelNameAllowableValues();
-        if (!is_null($this->container['augmenting_model_name']) && !in_array($this->container['augmenting_model_name'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'augmenting_model_name', must be one of '%s'",
-                $this->container['augmenting_model_name'],
-                implode("', '", $allowedValues)
-            );
+        if ($this->container['urls'] === null) {
+            $invalidProperties[] = "'urls' can't be null";
         }
-
-        if ($this->container['renew_frequency'] === null) {
-            $invalidProperties[] = "'renew_frequency' can't be null";
+        if ($this->container['prompt'] === null) {
+            $invalidProperties[] = "'prompt' can't be null";
         }
-        $allowedValues = $this->getRenewFrequencyAllowableValues();
-        if (!is_null($this->container['renew_frequency']) && !in_array($this->container['renew_frequency'], $allowedValues, true)) {
+        $allowedValues = $this->getModeNameAllowableValues();
+        if (!is_null($this->container['mode_name']) && !in_array($this->container['mode_name'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'renew_frequency', must be one of '%s'",
-                $this->container['renew_frequency'],
+                "invalid value '%s' for 'mode_name', must be one of '%s'",
+                $this->container['mode_name'],
                 implode("', '", $allowedValues)
             );
         }
@@ -385,62 +354,62 @@ class DomainDataRetrievalAugmentRequest implements ModelInterface, ArrayAccess, 
 
 
     /**
-     * Gets augment_command
+     * Gets urls
      *
-     * @return string|null
+     * @return string[]
      */
-    public function getAugmentCommand()
+    public function getUrls()
     {
-        return $this->container['augment_command'];
+        return $this->container['urls'];
     }
 
     /**
-     * Sets augment_command
+     * Sets urls
      *
-     * @param string|null $augment_command augment_command
+     * @param string[] $urls urls
      *
      * @return self
      */
-    public function setAugmentCommand($augment_command)
+    public function setUrls($urls)
     {
-        if (is_null($augment_command)) {
-            array_push($this->openAPINullablesSetToNull, 'augment_command');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('augment_command', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($urls)) {
+            throw new \InvalidArgumentException('non-nullable urls cannot be null');
         }
-        $this->container['augment_command'] = $augment_command;
+        $this->container['urls'] = $urls;
 
         return $this;
     }
 
     /**
-     * Gets filter
+     * Gets top_k_chunks
      *
-     * @return \OpenAPI\Client\Model\DomainDataRetrievalContentQuery|null
+     * @return int|null
      */
-    public function getFilter()
+    public function getTopKChunks()
     {
-        return $this->container['filter'];
+        return $this->container['top_k_chunks'];
     }
 
     /**
-     * Sets filter
+     * Sets top_k_chunks
      *
-     * @param \OpenAPI\Client\Model\DomainDataRetrievalContentQuery|null $filter filter
+     * @param int|null $top_k_chunks top_k_chunks
      *
      * @return self
      */
-    public function setFilter($filter)
+    public function setTopKChunks($top_k_chunks)
     {
-        if (is_null($filter)) {
-            throw new \InvalidArgumentException('non-nullable filter cannot be null');
+        if (is_null($top_k_chunks)) {
+            array_push($this->openAPINullablesSetToNull, 'top_k_chunks');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('top_k_chunks', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['filter'] = $filter;
+        $this->container['top_k_chunks'] = $top_k_chunks;
 
         return $this;
     }
@@ -448,7 +417,7 @@ class DomainDataRetrievalAugmentRequest implements ModelInterface, ArrayAccess, 
     /**
      * Gets prompt
      *
-     * @return \OpenAPI\Client\Model\DomainDataRetrievalAugmentPrompt|null
+     * @return object
      */
     public function getPrompt()
     {
@@ -458,7 +427,7 @@ class DomainDataRetrievalAugmentRequest implements ModelInterface, ArrayAccess, 
     /**
      * Sets prompt
      *
-     * @param \OpenAPI\Client\Model\DomainDataRetrievalAugmentPrompt|null $prompt prompt
+     * @param object $prompt prompt
      *
      * @return self
      */
@@ -473,82 +442,79 @@ class DomainDataRetrievalAugmentRequest implements ModelInterface, ArrayAccess, 
     }
 
     /**
-     * Gets augmenting_model_name
+     * Gets generation_strategy
      *
      * @return string|null
      */
-    public function getAugmentingModelName()
+    public function getGenerationStrategy()
     {
-        return $this->container['augmenting_model_name'];
+        return $this->container['generation_strategy'];
     }
 
     /**
-     * Sets augmenting_model_name
+     * Sets generation_strategy
      *
-     * @param string|null $augmenting_model_name augmenting_model_name
+     * @param string|null $generation_strategy generation_strategy
      *
      * @return self
      */
-    public function setAugmentingModelName($augmenting_model_name)
+    public function setGenerationStrategy($generation_strategy)
     {
-        if (is_null($augmenting_model_name)) {
-            array_push($this->openAPINullablesSetToNull, 'augmenting_model_name');
+        if (is_null($generation_strategy)) {
+            array_push($this->openAPINullablesSetToNull, 'generation_strategy');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('augmenting_model_name', $nullablesSetToNull);
+            $index = array_search('generation_strategy', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $allowedValues = $this->getAugmentingModelNameAllowableValues();
-        if (!is_null($augmenting_model_name) && !in_array($augmenting_model_name, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'augmenting_model_name', must be one of '%s'",
-                    $augmenting_model_name,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['augmenting_model_name'] = $augmenting_model_name;
+        $this->container['generation_strategy'] = $generation_strategy;
 
         return $this;
     }
 
     /**
-     * Gets renew_frequency
+     * Gets mode_name
      *
-     * @return string
+     * @return string|null
      */
-    public function getRenewFrequency()
+    public function getModeName()
     {
-        return $this->container['renew_frequency'];
+        return $this->container['mode_name'];
     }
 
     /**
-     * Sets renew_frequency
+     * Sets mode_name
      *
-     * @param string $renew_frequency renew_frequency
+     * @param string|null $mode_name mode_name
      *
      * @return self
      */
-    public function setRenewFrequency($renew_frequency)
+    public function setModeName($mode_name)
     {
-        if (is_null($renew_frequency)) {
-            throw new \InvalidArgumentException('non-nullable renew_frequency cannot be null');
+        if (is_null($mode_name)) {
+            array_push($this->openAPINullablesSetToNull, 'mode_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('mode_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $allowedValues = $this->getRenewFrequencyAllowableValues();
-        if (!in_array($renew_frequency, $allowedValues, true)) {
+        $allowedValues = $this->getModeNameAllowableValues();
+        if (!is_null($mode_name) && !in_array($mode_name, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value '%s' for 'renew_frequency', must be one of '%s'",
-                    $renew_frequency,
+                    "Invalid value '%s' for 'mode_name', must be one of '%s'",
+                    $mode_name,
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['renew_frequency'] = $renew_frequency;
+        $this->container['mode_name'] = $mode_name;
 
         return $this;
     }

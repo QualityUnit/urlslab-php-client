@@ -22,7 +22,9 @@ docs/Model/DomainDataRetrievalAnalyticsSearchResponse.md
 docs/Model/DomainDataRetrievalAnalyticsSearchResponseRow.md
 docs/Model/DomainDataRetrievalAugmentPrompt.md
 docs/Model/DomainDataRetrievalAugmentRequest.md
+docs/Model/DomainDataRetrievalAugmentRequestWithURLContext.md
 docs/Model/DomainDataRetrievalAugmentResponse.md
+docs/Model/DomainDataRetrievalComplexAugmentResponse.md
 docs/Model/DomainDataRetrievalContentQuery.md
 docs/Model/DomainDataRetrievalDataRequest.md
 docs/Model/DomainDataRetrievalRelatedUrlsRequest.md
@@ -32,6 +34,7 @@ docs/Model/DomainDataRetrievalSerpApiSearchRequest.md
 docs/Model/DomainDataRetrievalSerpApiSearchResponse.md
 docs/Model/DomainDataRetrievalSiteUrlsResponse.md
 docs/Model/DomainDataRetrievalSourceResponse.md
+docs/Model/DomainDataRetrievalStatefulResponse.md
 docs/Model/DomainDataRetrievalSummaryResponse.md
 docs/Model/DomainDataRetrievalUrlSnapshotMultiResponse.md
 docs/Model/DomainDataRetrievalUrlSnapshotResponse.md
@@ -59,7 +62,9 @@ lib/Model/DomainDataRetrievalAnalyticsSearchResponse.php
 lib/Model/DomainDataRetrievalAnalyticsSearchResponseRow.php
 lib/Model/DomainDataRetrievalAugmentPrompt.php
 lib/Model/DomainDataRetrievalAugmentRequest.php
+lib/Model/DomainDataRetrievalAugmentRequestWithURLContext.php
 lib/Model/DomainDataRetrievalAugmentResponse.php
+lib/Model/DomainDataRetrievalComplexAugmentResponse.php
 lib/Model/DomainDataRetrievalContentQuery.php
 lib/Model/DomainDataRetrievalDataRequest.php
 lib/Model/DomainDataRetrievalRelatedUrlsRequest.php
@@ -69,6 +74,7 @@ lib/Model/DomainDataRetrievalSerpApiSearchRequest.php
 lib/Model/DomainDataRetrievalSerpApiSearchResponse.php
 lib/Model/DomainDataRetrievalSiteUrlsResponse.php
 lib/Model/DomainDataRetrievalSourceResponse.php
+lib/Model/DomainDataRetrievalStatefulResponse.php
 lib/Model/DomainDataRetrievalSummaryResponse.php
 lib/Model/DomainDataRetrievalUrlSnapshotMultiResponse.php
 lib/Model/DomainDataRetrievalUrlSnapshotResponse.php
@@ -119,7 +125,9 @@ test/Model/DomainDataRetrievalAnalyticsSearchResponseRowTest.php
 test/Model/DomainDataRetrievalAnalyticsSearchResponseTest.php
 test/Model/DomainDataRetrievalAugmentPromptTest.php
 test/Model/DomainDataRetrievalAugmentRequestTest.php
+test/Model/DomainDataRetrievalAugmentRequestWithURLContextTest.php
 test/Model/DomainDataRetrievalAugmentResponseTest.php
+test/Model/DomainDataRetrievalComplexAugmentResponseTest.php
 test/Model/DomainDataRetrievalContentQueryTest.php
 test/Model/DomainDataRetrievalDataRequestTest.php
 test/Model/DomainDataRetrievalRelatedUrlsRequestTest.php
@@ -129,6 +137,7 @@ test/Model/DomainDataRetrievalSerpApiSearchRequestTest.php
 test/Model/DomainDataRetrievalSerpApiSearchResponseTest.php
 test/Model/DomainDataRetrievalSiteUrlsResponseTest.php
 test/Model/DomainDataRetrievalSourceResponseTest.php
+test/Model/DomainDataRetrievalStatefulResponseTest.php
 test/Model/DomainDataRetrievalSummaryResponseTest.php
 test/Model/DomainDataRetrievalUrlSnapshotMultiResponseTest.php
 test/Model/DomainDataRetrievalUrlSnapshotResponseTest.php

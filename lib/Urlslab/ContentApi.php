@@ -71,6 +71,12 @@ class ContentApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
+        'complexAugmentWithURLContext' => [
+            'application/json',
+        ],
+        'getProcessResult' => [
+            'text/plain',
+        ],
         'getRelatedUrls' => [
             'application/json',
         ],
@@ -123,6 +129,594 @@ class ContentApi
     public function getConfig()
     {
         return $this->config;
+    }
+
+    /**
+     * Operation complexAugmentWithURLContext
+     *
+     * Augment based on given urls context
+     *
+     * @param  \OpenAPI\Client\Model\DomainDataRetrievalAugmentRequestWithURLContext $domain_data_retrieval_augment_request_with_url_context Augment request Based on URL Context (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['complexAugmentWithURLContext'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\DomainDataRetrievalStatefulResponse
+     */
+    public function complexAugmentWithURLContext($domain_data_retrieval_augment_request_with_url_context, string $contentType = self::contentTypes['complexAugmentWithURLContext'][0])
+    {
+        list($response) = $this->complexAugmentWithURLContextWithHttpInfo($domain_data_retrieval_augment_request_with_url_context, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation complexAugmentWithURLContextWithHttpInfo
+     *
+     * Augment based on given urls context
+     *
+     * @param  \OpenAPI\Client\Model\DomainDataRetrievalAugmentRequestWithURLContext $domain_data_retrieval_augment_request_with_url_context Augment request Based on URL Context (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['complexAugmentWithURLContext'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\DomainDataRetrievalStatefulResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function complexAugmentWithURLContextWithHttpInfo($domain_data_retrieval_augment_request_with_url_context, string $contentType = self::contentTypes['complexAugmentWithURLContext'][0])
+    {
+        $request = $this->complexAugmentWithURLContextRequest($domain_data_retrieval_augment_request_with_url_context, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\OpenAPI\Client\Model\DomainDataRetrievalStatefulResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\DomainDataRetrievalStatefulResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\DomainDataRetrievalStatefulResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\OpenAPI\Client\Model\DomainDataRetrievalStatefulResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\DomainDataRetrievalStatefulResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation complexAugmentWithURLContextAsync
+     *
+     * Augment based on given urls context
+     *
+     * @param  \OpenAPI\Client\Model\DomainDataRetrievalAugmentRequestWithURLContext $domain_data_retrieval_augment_request_with_url_context Augment request Based on URL Context (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['complexAugmentWithURLContext'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function complexAugmentWithURLContextAsync($domain_data_retrieval_augment_request_with_url_context, string $contentType = self::contentTypes['complexAugmentWithURLContext'][0])
+    {
+        return $this->complexAugmentWithURLContextAsyncWithHttpInfo($domain_data_retrieval_augment_request_with_url_context, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation complexAugmentWithURLContextAsyncWithHttpInfo
+     *
+     * Augment based on given urls context
+     *
+     * @param  \OpenAPI\Client\Model\DomainDataRetrievalAugmentRequestWithURLContext $domain_data_retrieval_augment_request_with_url_context Augment request Based on URL Context (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['complexAugmentWithURLContext'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function complexAugmentWithURLContextAsyncWithHttpInfo($domain_data_retrieval_augment_request_with_url_context, string $contentType = self::contentTypes['complexAugmentWithURLContext'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\DomainDataRetrievalStatefulResponse';
+        $request = $this->complexAugmentWithURLContextRequest($domain_data_retrieval_augment_request_with_url_context, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'complexAugmentWithURLContext'
+     *
+     * @param  \OpenAPI\Client\Model\DomainDataRetrievalAugmentRequestWithURLContext $domain_data_retrieval_augment_request_with_url_context Augment request Based on URL Context (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['complexAugmentWithURLContext'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function complexAugmentWithURLContextRequest($domain_data_retrieval_augment_request_with_url_context, string $contentType = self::contentTypes['complexAugmentWithURLContext'][0])
+    {
+
+        // verify the required parameter 'domain_data_retrieval_augment_request_with_url_context' is set
+        if ($domain_data_retrieval_augment_request_with_url_context === null || (is_array($domain_data_retrieval_augment_request_with_url_context) && count($domain_data_retrieval_augment_request_with_url_context) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $domain_data_retrieval_augment_request_with_url_context when calling complexAugmentWithURLContext'
+            );
+        }
+
+
+        $resourcePath = '/v1/content/augment/process/create';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($domain_data_retrieval_augment_request_with_url_context)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($domain_data_retrieval_augment_request_with_url_context));
+            } else {
+                $httpBody = $domain_data_retrieval_augment_request_with_url_context;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('X-URLSLAB-KEY');
+        if ($apiKey !== null) {
+            $headers['X-URLSLAB-KEY'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'POST',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getProcessResult
+     *
+     * Get Async Augmentation result
+     *
+     * @param  string $id Process ID (required)
+     * @param  string $body Nothing (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProcessResult'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\DomainDataRetrievalComplexAugmentResponse
+     */
+    public function getProcessResult($id, $body = null, string $contentType = self::contentTypes['getProcessResult'][0])
+    {
+        list($response) = $this->getProcessResultWithHttpInfo($id, $body, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getProcessResultWithHttpInfo
+     *
+     * Get Async Augmentation result
+     *
+     * @param  string $id Process ID (required)
+     * @param  string $body Nothing (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProcessResult'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\DomainDataRetrievalComplexAugmentResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getProcessResultWithHttpInfo($id, $body = null, string $contentType = self::contentTypes['getProcessResult'][0])
+    {
+        $request = $this->getProcessResultRequest($id, $body, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\OpenAPI\Client\Model\DomainDataRetrievalComplexAugmentResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\DomainDataRetrievalComplexAugmentResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\DomainDataRetrievalComplexAugmentResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\OpenAPI\Client\Model\DomainDataRetrievalComplexAugmentResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\DomainDataRetrievalComplexAugmentResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getProcessResultAsync
+     *
+     * Get Async Augmentation result
+     *
+     * @param  string $id Process ID (required)
+     * @param  string $body Nothing (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProcessResult'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getProcessResultAsync($id, $body = null, string $contentType = self::contentTypes['getProcessResult'][0])
+    {
+        return $this->getProcessResultAsyncWithHttpInfo($id, $body, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getProcessResultAsyncWithHttpInfo
+     *
+     * Get Async Augmentation result
+     *
+     * @param  string $id Process ID (required)
+     * @param  string $body Nothing (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProcessResult'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getProcessResultAsyncWithHttpInfo($id, $body = null, string $contentType = self::contentTypes['getProcessResult'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\DomainDataRetrievalComplexAugmentResponse';
+        $request = $this->getProcessResultRequest($id, $body, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getProcessResult'
+     *
+     * @param  string $id Process ID (required)
+     * @param  string $body Nothing (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getProcessResult'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getProcessResultRequest($id, $body = null, string $contentType = self::contentTypes['getProcessResult'][0])
+    {
+
+        // verify the required parameter 'id' is set
+        if ($id === null || (is_array($id) && count($id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $id when calling getProcessResult'
+            );
+        }
+
+
+
+        $resourcePath = '/v1/content/augment/process/{id}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'id' . '}',
+                ObjectSerializer::toPathValue($id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (isset($body)) {
+            if (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the body
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($body));
+            } else {
+                $httpBody = $body;
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('X-URLSLAB-KEY');
+        if ($apiKey !== null) {
+            $headers['X-URLSLAB-KEY'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
     }
 
     /**
