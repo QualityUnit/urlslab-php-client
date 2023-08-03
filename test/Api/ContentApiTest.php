@@ -72,6 +72,18 @@ class ContentApiTest extends TestCase
     }
 
     /**
+     * Test case for asyncMemoryLessAugment
+     *
+     * Async Augment based on the query and the given context.
+     *
+     */
+    public function testAsyncMemoryLessAugment()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for complexAugmentWithURLContext
      *
      * Augment based on given urls context.
