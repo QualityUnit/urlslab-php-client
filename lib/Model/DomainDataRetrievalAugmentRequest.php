@@ -348,6 +348,9 @@ class DomainDataRetrievalAugmentRequest implements ModelInterface, ArrayAccess, 
     {
         $invalidProperties = [];
 
+        if ($this->container['prompt'] === null) {
+            $invalidProperties[] = "'prompt' can't be null";
+        }
         $allowedValues = $this->getAugmentingModelNameAllowableValues();
         if (!is_null($this->container['augmenting_model_name']) && !in_array($this->container['augmenting_model_name'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -448,7 +451,7 @@ class DomainDataRetrievalAugmentRequest implements ModelInterface, ArrayAccess, 
     /**
      * Gets prompt
      *
-     * @return \OpenAPI\Client\Model\DomainDataRetrievalAugmentPrompt|null
+     * @return \OpenAPI\Client\Model\DomainDataRetrievalAugmentPrompt
      */
     public function getPrompt()
     {
@@ -458,7 +461,7 @@ class DomainDataRetrievalAugmentRequest implements ModelInterface, ArrayAccess, 
     /**
      * Sets prompt
      *
-     * @param \OpenAPI\Client\Model\DomainDataRetrievalAugmentPrompt|null $prompt prompt
+     * @param \OpenAPI\Client\Model\DomainDataRetrievalAugmentPrompt $prompt prompt
      *
      * @return self
      */
