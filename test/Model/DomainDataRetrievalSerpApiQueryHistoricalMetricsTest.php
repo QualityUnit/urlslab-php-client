@@ -1,6 +1,6 @@
 <?php
 /**
- * DomainDataRetrievalSerpApiSearchResponseTest
+ * DomainDataRetrievalSerpApiQueryHistoricalMetricsTest
  *
  * PHP version 7.4
  *
@@ -31,15 +31,15 @@ namespace OpenAPI\Client\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * DomainDataRetrievalSerpApiSearchResponseTest Class Doc Comment
+ * DomainDataRetrievalSerpApiQueryHistoricalMetricsTest Class Doc Comment
  *
  * @category    Class
- * @description DomainDataRetrievalSerpApiSearchResponse
+ * @description DomainDataRetrievalSerpApiQueryHistoricalMetrics
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class DomainDataRetrievalSerpApiSearchResponseTest extends TestCase
+class DomainDataRetrievalSerpApiQueryHistoricalMetricsTest extends TestCase
 {
 
     /**
@@ -71,54 +71,72 @@ class DomainDataRetrievalSerpApiSearchResponseTest extends TestCase
     }
 
     /**
-     * Test "DomainDataRetrievalSerpApiSearchResponse"
+     * Test "DomainDataRetrievalSerpApiQueryHistoricalMetrics"
      */
-    public function testDomainDataRetrievalSerpApiSearchResponse()
+    public function testDomainDataRetrievalSerpApiQueryHistoricalMetrics()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "knowledge_graph"
+     * Test attribute "competition_index"
      */
-    public function testPropertyKnowledgeGraph()
+    public function testPropertyCompetitionIndex()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "organic_results"
+     * Test attribute "competition_level"
      */
-    public function testPropertyOrganicResults()
+    public function testPropertyCompetitionLevel()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "faqs"
+     * Test attribute "avg_monthly_searches"
      */
-    public function testPropertyFaqs()
+    public function testPropertyAvgMonthlySearches()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "related_searches"
+     * Test attribute "low_top_of_page_bid_micros"
      */
-    public function testPropertyRelatedSearches()
+    public function testPropertyLowTopOfPageBidMicros()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "historical_metrics"
+     * Test attribute "high_top_of_page_bid_micros"
      */
-    public function testPropertyHistoricalMetrics()
+    public function testPropertyHighTopOfPageBidMicros()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "avg_cpc_micros"
+     */
+    public function testPropertyAvgCpcMicros()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "monthly_search_volumes"
+     */
+    public function testPropertyMonthlySearchVolumes()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

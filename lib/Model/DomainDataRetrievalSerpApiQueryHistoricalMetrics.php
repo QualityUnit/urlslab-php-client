@@ -1,6 +1,6 @@
 <?php
 /**
- * DomainDataRetrievalSerpApiSearchResponse
+ * DomainDataRetrievalSerpApiQueryHistoricalMetrics
  *
  * PHP version 7.4
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * DomainDataRetrievalSerpApiSearchResponse Class Doc Comment
+ * DomainDataRetrievalSerpApiQueryHistoricalMetrics Class Doc Comment
  *
  * @category Class
  * @package  OpenAPI\Client
@@ -40,7 +40,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class DomainDataRetrievalSerpApiSearchResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class DomainDataRetrievalSerpApiQueryHistoricalMetrics implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class DomainDataRetrievalSerpApiSearchResponse implements ModelInterface, ArrayA
       *
       * @var string
       */
-    protected static $openAPIModelName = 'domain.dataRetrieval.SerpApiSearchResponse';
+    protected static $openAPIModelName = 'domain.dataRetrieval.SerpApiQueryHistoricalMetrics';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,11 +57,13 @@ class DomainDataRetrievalSerpApiSearchResponse implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $openAPITypes = [
-        'knowledge_graph' => 'object',
-        'organic_results' => '\OpenAPI\Client\Model\DomainDataRetrievalSerpApiURL[]',
-        'faqs' => 'object',
-        'related_searches' => 'object',
-        'historical_metrics' => '\OpenAPI\Client\Model\DomainDataRetrievalSerpApiQueryHistoricalMetrics'
+        'competition_index' => 'int',
+        'competition_level' => 'string',
+        'avg_monthly_searches' => 'int',
+        'low_top_of_page_bid_micros' => 'int',
+        'high_top_of_page_bid_micros' => 'int',
+        'avg_cpc_micros' => 'int',
+        'monthly_search_volumes' => 'object[]'
     ];
 
     /**
@@ -72,11 +74,13 @@ class DomainDataRetrievalSerpApiSearchResponse implements ModelInterface, ArrayA
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'knowledge_graph' => null,
-        'organic_results' => null,
-        'faqs' => null,
-        'related_searches' => null,
-        'historical_metrics' => null
+        'competition_index' => 'int64',
+        'competition_level' => null,
+        'avg_monthly_searches' => 'int64',
+        'low_top_of_page_bid_micros' => 'int64',
+        'high_top_of_page_bid_micros' => 'int64',
+        'avg_cpc_micros' => 'int64',
+        'monthly_search_volumes' => null
     ];
 
     /**
@@ -85,11 +89,13 @@ class DomainDataRetrievalSerpApiSearchResponse implements ModelInterface, ArrayA
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'knowledge_graph' => true,
-		'organic_results' => false,
-		'faqs' => true,
-		'related_searches' => true,
-		'historical_metrics' => false
+        'competition_index' => true,
+		'competition_level' => true,
+		'avg_monthly_searches' => true,
+		'low_top_of_page_bid_micros' => true,
+		'high_top_of_page_bid_micros' => true,
+		'avg_cpc_micros' => true,
+		'monthly_search_volumes' => false
     ];
 
     /**
@@ -178,11 +184,13 @@ class DomainDataRetrievalSerpApiSearchResponse implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $attributeMap = [
-        'knowledge_graph' => 'knowledgeGraph',
-        'organic_results' => 'organicResults',
-        'faqs' => 'faqs',
-        'related_searches' => 'relatedSearches',
-        'historical_metrics' => 'historicalMetrics'
+        'competition_index' => 'competitionIndex',
+        'competition_level' => 'competitionLevel',
+        'avg_monthly_searches' => 'avgMonthlySearches',
+        'low_top_of_page_bid_micros' => 'lowTopOfPageBidMicros',
+        'high_top_of_page_bid_micros' => 'highTopOfPageBidMicros',
+        'avg_cpc_micros' => 'avgCpcMicros',
+        'monthly_search_volumes' => 'monthlySearchVolumes'
     ];
 
     /**
@@ -191,11 +199,13 @@ class DomainDataRetrievalSerpApiSearchResponse implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $setters = [
-        'knowledge_graph' => 'setKnowledgeGraph',
-        'organic_results' => 'setOrganicResults',
-        'faqs' => 'setFaqs',
-        'related_searches' => 'setRelatedSearches',
-        'historical_metrics' => 'setHistoricalMetrics'
+        'competition_index' => 'setCompetitionIndex',
+        'competition_level' => 'setCompetitionLevel',
+        'avg_monthly_searches' => 'setAvgMonthlySearches',
+        'low_top_of_page_bid_micros' => 'setLowTopOfPageBidMicros',
+        'high_top_of_page_bid_micros' => 'setHighTopOfPageBidMicros',
+        'avg_cpc_micros' => 'setAvgCpcMicros',
+        'monthly_search_volumes' => 'setMonthlySearchVolumes'
     ];
 
     /**
@@ -204,11 +214,13 @@ class DomainDataRetrievalSerpApiSearchResponse implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $getters = [
-        'knowledge_graph' => 'getKnowledgeGraph',
-        'organic_results' => 'getOrganicResults',
-        'faqs' => 'getFaqs',
-        'related_searches' => 'getRelatedSearches',
-        'historical_metrics' => 'getHistoricalMetrics'
+        'competition_index' => 'getCompetitionIndex',
+        'competition_level' => 'getCompetitionLevel',
+        'avg_monthly_searches' => 'getAvgMonthlySearches',
+        'low_top_of_page_bid_micros' => 'getLowTopOfPageBidMicros',
+        'high_top_of_page_bid_micros' => 'getHighTopOfPageBidMicros',
+        'avg_cpc_micros' => 'getAvgCpcMicros',
+        'monthly_search_volumes' => 'getMonthlySearchVolumes'
     ];
 
     /**
@@ -268,11 +280,13 @@ class DomainDataRetrievalSerpApiSearchResponse implements ModelInterface, ArrayA
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('knowledge_graph', $data ?? [], null);
-        $this->setIfExists('organic_results', $data ?? [], null);
-        $this->setIfExists('faqs', $data ?? [], null);
-        $this->setIfExists('related_searches', $data ?? [], null);
-        $this->setIfExists('historical_metrics', $data ?? [], null);
+        $this->setIfExists('competition_index', $data ?? [], null);
+        $this->setIfExists('competition_level', $data ?? [], null);
+        $this->setIfExists('avg_monthly_searches', $data ?? [], null);
+        $this->setIfExists('low_top_of_page_bid_micros', $data ?? [], null);
+        $this->setIfExists('high_top_of_page_bid_micros', $data ?? [], null);
+        $this->setIfExists('avg_cpc_micros', $data ?? [], null);
+        $this->setIfExists('monthly_search_volumes', $data ?? [], null);
     }
 
     /**
@@ -302,8 +316,8 @@ class DomainDataRetrievalSerpApiSearchResponse implements ModelInterface, ArrayA
     {
         $invalidProperties = [];
 
-        if ($this->container['organic_results'] === null) {
-            $invalidProperties[] = "'organic_results' can't be null";
+        if ($this->container['monthly_search_volumes'] === null) {
+            $invalidProperties[] = "'monthly_search_volumes' can't be null";
         }
         return $invalidProperties;
     }
@@ -321,157 +335,232 @@ class DomainDataRetrievalSerpApiSearchResponse implements ModelInterface, ArrayA
 
 
     /**
-     * Gets knowledge_graph
+     * Gets competition_index
      *
-     * @return object|null
+     * @return int|null
      */
-    public function getKnowledgeGraph()
+    public function getCompetitionIndex()
     {
-        return $this->container['knowledge_graph'];
+        return $this->container['competition_index'];
     }
 
     /**
-     * Sets knowledge_graph
+     * Sets competition_index
      *
-     * @param object|null $knowledge_graph knowledge_graph
+     * @param int|null $competition_index competition_index
      *
      * @return self
      */
-    public function setKnowledgeGraph($knowledge_graph)
+    public function setCompetitionIndex($competition_index)
     {
-        if (is_null($knowledge_graph)) {
-            array_push($this->openAPINullablesSetToNull, 'knowledge_graph');
+        if (is_null($competition_index)) {
+            array_push($this->openAPINullablesSetToNull, 'competition_index');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('knowledge_graph', $nullablesSetToNull);
+            $index = array_search('competition_index', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['knowledge_graph'] = $knowledge_graph;
+        $this->container['competition_index'] = $competition_index;
 
         return $this;
     }
 
     /**
-     * Gets organic_results
+     * Gets competition_level
      *
-     * @return \OpenAPI\Client\Model\DomainDataRetrievalSerpApiURL[]
+     * @return string|null
      */
-    public function getOrganicResults()
+    public function getCompetitionLevel()
     {
-        return $this->container['organic_results'];
+        return $this->container['competition_level'];
     }
 
     /**
-     * Sets organic_results
+     * Sets competition_level
      *
-     * @param \OpenAPI\Client\Model\DomainDataRetrievalSerpApiURL[] $organic_results organic_results
+     * @param string|null $competition_level competition_level
      *
      * @return self
      */
-    public function setOrganicResults($organic_results)
+    public function setCompetitionLevel($competition_level)
     {
-        if (is_null($organic_results)) {
-            throw new \InvalidArgumentException('non-nullable organic_results cannot be null');
-        }
-        $this->container['organic_results'] = $organic_results;
-
-        return $this;
-    }
-
-    /**
-     * Gets faqs
-     *
-     * @return object|null
-     */
-    public function getFaqs()
-    {
-        return $this->container['faqs'];
-    }
-
-    /**
-     * Sets faqs
-     *
-     * @param object|null $faqs faqs
-     *
-     * @return self
-     */
-    public function setFaqs($faqs)
-    {
-        if (is_null($faqs)) {
-            array_push($this->openAPINullablesSetToNull, 'faqs');
+        if (is_null($competition_level)) {
+            array_push($this->openAPINullablesSetToNull, 'competition_level');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('faqs', $nullablesSetToNull);
+            $index = array_search('competition_level', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['faqs'] = $faqs;
+        $this->container['competition_level'] = $competition_level;
 
         return $this;
     }
 
     /**
-     * Gets related_searches
+     * Gets avg_monthly_searches
      *
-     * @return object|null
+     * @return int|null
      */
-    public function getRelatedSearches()
+    public function getAvgMonthlySearches()
     {
-        return $this->container['related_searches'];
+        return $this->container['avg_monthly_searches'];
     }
 
     /**
-     * Sets related_searches
+     * Sets avg_monthly_searches
      *
-     * @param object|null $related_searches related_searches
+     * @param int|null $avg_monthly_searches avg_monthly_searches
      *
      * @return self
      */
-    public function setRelatedSearches($related_searches)
+    public function setAvgMonthlySearches($avg_monthly_searches)
     {
-        if (is_null($related_searches)) {
-            array_push($this->openAPINullablesSetToNull, 'related_searches');
+        if (is_null($avg_monthly_searches)) {
+            array_push($this->openAPINullablesSetToNull, 'avg_monthly_searches');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('related_searches', $nullablesSetToNull);
+            $index = array_search('avg_monthly_searches', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['related_searches'] = $related_searches;
+        $this->container['avg_monthly_searches'] = $avg_monthly_searches;
 
         return $this;
     }
 
     /**
-     * Gets historical_metrics
+     * Gets low_top_of_page_bid_micros
      *
-     * @return \OpenAPI\Client\Model\DomainDataRetrievalSerpApiQueryHistoricalMetrics|null
+     * @return int|null
      */
-    public function getHistoricalMetrics()
+    public function getLowTopOfPageBidMicros()
     {
-        return $this->container['historical_metrics'];
+        return $this->container['low_top_of_page_bid_micros'];
     }
 
     /**
-     * Sets historical_metrics
+     * Sets low_top_of_page_bid_micros
      *
-     * @param \OpenAPI\Client\Model\DomainDataRetrievalSerpApiQueryHistoricalMetrics|null $historical_metrics historical_metrics
+     * @param int|null $low_top_of_page_bid_micros low_top_of_page_bid_micros
      *
      * @return self
      */
-    public function setHistoricalMetrics($historical_metrics)
+    public function setLowTopOfPageBidMicros($low_top_of_page_bid_micros)
     {
-        if (is_null($historical_metrics)) {
-            throw new \InvalidArgumentException('non-nullable historical_metrics cannot be null');
+        if (is_null($low_top_of_page_bid_micros)) {
+            array_push($this->openAPINullablesSetToNull, 'low_top_of_page_bid_micros');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('low_top_of_page_bid_micros', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['historical_metrics'] = $historical_metrics;
+        $this->container['low_top_of_page_bid_micros'] = $low_top_of_page_bid_micros;
+
+        return $this;
+    }
+
+    /**
+     * Gets high_top_of_page_bid_micros
+     *
+     * @return int|null
+     */
+    public function getHighTopOfPageBidMicros()
+    {
+        return $this->container['high_top_of_page_bid_micros'];
+    }
+
+    /**
+     * Sets high_top_of_page_bid_micros
+     *
+     * @param int|null $high_top_of_page_bid_micros high_top_of_page_bid_micros
+     *
+     * @return self
+     */
+    public function setHighTopOfPageBidMicros($high_top_of_page_bid_micros)
+    {
+        if (is_null($high_top_of_page_bid_micros)) {
+            array_push($this->openAPINullablesSetToNull, 'high_top_of_page_bid_micros');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('high_top_of_page_bid_micros', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['high_top_of_page_bid_micros'] = $high_top_of_page_bid_micros;
+
+        return $this;
+    }
+
+    /**
+     * Gets avg_cpc_micros
+     *
+     * @return int|null
+     */
+    public function getAvgCpcMicros()
+    {
+        return $this->container['avg_cpc_micros'];
+    }
+
+    /**
+     * Sets avg_cpc_micros
+     *
+     * @param int|null $avg_cpc_micros avg_cpc_micros
+     *
+     * @return self
+     */
+    public function setAvgCpcMicros($avg_cpc_micros)
+    {
+        if (is_null($avg_cpc_micros)) {
+            array_push($this->openAPINullablesSetToNull, 'avg_cpc_micros');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('avg_cpc_micros', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['avg_cpc_micros'] = $avg_cpc_micros;
+
+        return $this;
+    }
+
+    /**
+     * Gets monthly_search_volumes
+     *
+     * @return object[]
+     */
+    public function getMonthlySearchVolumes()
+    {
+        return $this->container['monthly_search_volumes'];
+    }
+
+    /**
+     * Sets monthly_search_volumes
+     *
+     * @param object[] $monthly_search_volumes monthly_search_volumes
+     *
+     * @return self
+     */
+    public function setMonthlySearchVolumes($monthly_search_volumes)
+    {
+        if (is_null($monthly_search_volumes)) {
+            throw new \InvalidArgumentException('non-nullable monthly_search_volumes cannot be null');
+        }
+        $this->container['monthly_search_volumes'] = $monthly_search_volumes;
 
         return $this;
     }

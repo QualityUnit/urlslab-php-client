@@ -32,8 +32,10 @@ docs/Model/DomainDataRetrievalRelatedUrlsResponse.md
 docs/Model/DomainDataRetrievalScreenshotResponse.md
 docs/Model/DomainDataRetrievalSerpApiBulkSearchRequest.md
 docs/Model/DomainDataRetrievalSerpApiBulkSearchResponse.md
+docs/Model/DomainDataRetrievalSerpApiQueryHistoricalMetrics.md
 docs/Model/DomainDataRetrievalSerpApiSearchRequest.md
 docs/Model/DomainDataRetrievalSerpApiSearchResponse.md
+docs/Model/DomainDataRetrievalSerpApiURL.md
 docs/Model/DomainDataRetrievalSiteUrlsResponse.md
 docs/Model/DomainDataRetrievalSourceResponse.md
 docs/Model/DomainDataRetrievalStatefulResponse.md
@@ -74,8 +76,10 @@ lib/Model/DomainDataRetrievalRelatedUrlsResponse.php
 lib/Model/DomainDataRetrievalScreenshotResponse.php
 lib/Model/DomainDataRetrievalSerpApiBulkSearchRequest.php
 lib/Model/DomainDataRetrievalSerpApiBulkSearchResponse.php
+lib/Model/DomainDataRetrievalSerpApiQueryHistoricalMetrics.php
 lib/Model/DomainDataRetrievalSerpApiSearchRequest.php
 lib/Model/DomainDataRetrievalSerpApiSearchResponse.php
+lib/Model/DomainDataRetrievalSerpApiURL.php
 lib/Model/DomainDataRetrievalSiteUrlsResponse.php
 lib/Model/DomainDataRetrievalSourceResponse.php
 lib/Model/DomainDataRetrievalStatefulResponse.php
@@ -139,8 +143,10 @@ test/Model/DomainDataRetrievalRelatedUrlsResponseTest.php
 test/Model/DomainDataRetrievalScreenshotResponseTest.php
 test/Model/DomainDataRetrievalSerpApiBulkSearchRequestTest.php
 test/Model/DomainDataRetrievalSerpApiBulkSearchResponseTest.php
+test/Model/DomainDataRetrievalSerpApiQueryHistoricalMetricsTest.php
 test/Model/DomainDataRetrievalSerpApiSearchRequestTest.php
 test/Model/DomainDataRetrievalSerpApiSearchResponseTest.php
+test/Model/DomainDataRetrievalSerpApiURLTest.php
 test/Model/DomainDataRetrievalSiteUrlsResponseTest.php
 test/Model/DomainDataRetrievalSourceResponseTest.php
 test/Model/DomainDataRetrievalStatefulResponseTest.php

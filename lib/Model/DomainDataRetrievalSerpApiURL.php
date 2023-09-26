@@ -1,6 +1,6 @@
 <?php
 /**
- * DomainDataRetrievalSerpApiSearchResponse
+ * DomainDataRetrievalSerpApiURL
  *
  * PHP version 7.4
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * DomainDataRetrievalSerpApiSearchResponse Class Doc Comment
+ * DomainDataRetrievalSerpApiURL Class Doc Comment
  *
  * @category Class
  * @package  OpenAPI\Client
@@ -40,7 +40,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class DomainDataRetrievalSerpApiSearchResponse implements ModelInterface, ArrayAccess, \JsonSerializable
+class DomainDataRetrievalSerpApiURL implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class DomainDataRetrievalSerpApiSearchResponse implements ModelInterface, ArrayA
       *
       * @var string
       */
-    protected static $openAPIModelName = 'domain.dataRetrieval.SerpApiSearchResponse';
+    protected static $openAPIModelName = 'domain.dataRetrieval.SerpApiURL';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,11 +57,11 @@ class DomainDataRetrievalSerpApiSearchResponse implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $openAPITypes = [
-        'knowledge_graph' => 'object',
-        'organic_results' => '\OpenAPI\Client\Model\DomainDataRetrievalSerpApiURL[]',
-        'faqs' => 'object',
-        'related_searches' => 'object',
-        'historical_metrics' => '\OpenAPI\Client\Model\DomainDataRetrievalSerpApiQueryHistoricalMetrics'
+        'link' => 'string',
+        'position' => 'int',
+        'title' => 'string',
+        'description' => 'string',
+        'last_updated' => 'int'
     ];
 
     /**
@@ -72,11 +72,11 @@ class DomainDataRetrievalSerpApiSearchResponse implements ModelInterface, ArrayA
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'knowledge_graph' => null,
-        'organic_results' => null,
-        'faqs' => null,
-        'related_searches' => null,
-        'historical_metrics' => null
+        'link' => null,
+        'position' => 'int32',
+        'title' => null,
+        'description' => null,
+        'last_updated' => 'int64'
     ];
 
     /**
@@ -85,11 +85,11 @@ class DomainDataRetrievalSerpApiSearchResponse implements ModelInterface, ArrayA
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'knowledge_graph' => true,
-		'organic_results' => false,
-		'faqs' => true,
-		'related_searches' => true,
-		'historical_metrics' => false
+        'link' => false,
+		'position' => false,
+		'title' => false,
+		'description' => false,
+		'last_updated' => false
     ];
 
     /**
@@ -178,11 +178,11 @@ class DomainDataRetrievalSerpApiSearchResponse implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $attributeMap = [
-        'knowledge_graph' => 'knowledgeGraph',
-        'organic_results' => 'organicResults',
-        'faqs' => 'faqs',
-        'related_searches' => 'relatedSearches',
-        'historical_metrics' => 'historicalMetrics'
+        'link' => 'link',
+        'position' => 'position',
+        'title' => 'title',
+        'description' => 'description',
+        'last_updated' => 'lastUpdated'
     ];
 
     /**
@@ -191,11 +191,11 @@ class DomainDataRetrievalSerpApiSearchResponse implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $setters = [
-        'knowledge_graph' => 'setKnowledgeGraph',
-        'organic_results' => 'setOrganicResults',
-        'faqs' => 'setFaqs',
-        'related_searches' => 'setRelatedSearches',
-        'historical_metrics' => 'setHistoricalMetrics'
+        'link' => 'setLink',
+        'position' => 'setPosition',
+        'title' => 'setTitle',
+        'description' => 'setDescription',
+        'last_updated' => 'setLastUpdated'
     ];
 
     /**
@@ -204,11 +204,11 @@ class DomainDataRetrievalSerpApiSearchResponse implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $getters = [
-        'knowledge_graph' => 'getKnowledgeGraph',
-        'organic_results' => 'getOrganicResults',
-        'faqs' => 'getFaqs',
-        'related_searches' => 'getRelatedSearches',
-        'historical_metrics' => 'getHistoricalMetrics'
+        'link' => 'getLink',
+        'position' => 'getPosition',
+        'title' => 'getTitle',
+        'description' => 'getDescription',
+        'last_updated' => 'getLastUpdated'
     ];
 
     /**
@@ -268,11 +268,11 @@ class DomainDataRetrievalSerpApiSearchResponse implements ModelInterface, ArrayA
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('knowledge_graph', $data ?? [], null);
-        $this->setIfExists('organic_results', $data ?? [], null);
-        $this->setIfExists('faqs', $data ?? [], null);
-        $this->setIfExists('related_searches', $data ?? [], null);
-        $this->setIfExists('historical_metrics', $data ?? [], null);
+        $this->setIfExists('link', $data ?? [], null);
+        $this->setIfExists('position', $data ?? [], null);
+        $this->setIfExists('title', $data ?? [], null);
+        $this->setIfExists('description', $data ?? [], null);
+        $this->setIfExists('last_updated', $data ?? [], null);
     }
 
     /**
@@ -302,8 +302,20 @@ class DomainDataRetrievalSerpApiSearchResponse implements ModelInterface, ArrayA
     {
         $invalidProperties = [];
 
-        if ($this->container['organic_results'] === null) {
-            $invalidProperties[] = "'organic_results' can't be null";
+        if ($this->container['link'] === null) {
+            $invalidProperties[] = "'link' can't be null";
+        }
+        if ($this->container['position'] === null) {
+            $invalidProperties[] = "'position' can't be null";
+        }
+        if ($this->container['title'] === null) {
+            $invalidProperties[] = "'title' can't be null";
+        }
+        if ($this->container['description'] === null) {
+            $invalidProperties[] = "'description' can't be null";
+        }
+        if ($this->container['last_updated'] === null) {
+            $invalidProperties[] = "'last_updated' can't be null";
         }
         return $invalidProperties;
     }
@@ -321,157 +333,136 @@ class DomainDataRetrievalSerpApiSearchResponse implements ModelInterface, ArrayA
 
 
     /**
-     * Gets knowledge_graph
+     * Gets link
      *
-     * @return object|null
+     * @return string
      */
-    public function getKnowledgeGraph()
+    public function getLink()
     {
-        return $this->container['knowledge_graph'];
+        return $this->container['link'];
     }
 
     /**
-     * Sets knowledge_graph
+     * Sets link
      *
-     * @param object|null $knowledge_graph knowledge_graph
+     * @param string $link link
      *
      * @return self
      */
-    public function setKnowledgeGraph($knowledge_graph)
+    public function setLink($link)
     {
-        if (is_null($knowledge_graph)) {
-            array_push($this->openAPINullablesSetToNull, 'knowledge_graph');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('knowledge_graph', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($link)) {
+            throw new \InvalidArgumentException('non-nullable link cannot be null');
         }
-        $this->container['knowledge_graph'] = $knowledge_graph;
+        $this->container['link'] = $link;
 
         return $this;
     }
 
     /**
-     * Gets organic_results
+     * Gets position
      *
-     * @return \OpenAPI\Client\Model\DomainDataRetrievalSerpApiURL[]
+     * @return int
      */
-    public function getOrganicResults()
+    public function getPosition()
     {
-        return $this->container['organic_results'];
+        return $this->container['position'];
     }
 
     /**
-     * Sets organic_results
+     * Sets position
      *
-     * @param \OpenAPI\Client\Model\DomainDataRetrievalSerpApiURL[] $organic_results organic_results
+     * @param int $position position
      *
      * @return self
      */
-    public function setOrganicResults($organic_results)
+    public function setPosition($position)
     {
-        if (is_null($organic_results)) {
-            throw new \InvalidArgumentException('non-nullable organic_results cannot be null');
+        if (is_null($position)) {
+            throw new \InvalidArgumentException('non-nullable position cannot be null');
         }
-        $this->container['organic_results'] = $organic_results;
+        $this->container['position'] = $position;
 
         return $this;
     }
 
     /**
-     * Gets faqs
+     * Gets title
      *
-     * @return object|null
+     * @return string
      */
-    public function getFaqs()
+    public function getTitle()
     {
-        return $this->container['faqs'];
+        return $this->container['title'];
     }
 
     /**
-     * Sets faqs
+     * Sets title
      *
-     * @param object|null $faqs faqs
+     * @param string $title title
      *
      * @return self
      */
-    public function setFaqs($faqs)
+    public function setTitle($title)
     {
-        if (is_null($faqs)) {
-            array_push($this->openAPINullablesSetToNull, 'faqs');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('faqs', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($title)) {
+            throw new \InvalidArgumentException('non-nullable title cannot be null');
         }
-        $this->container['faqs'] = $faqs;
+        $this->container['title'] = $title;
 
         return $this;
     }
 
     /**
-     * Gets related_searches
+     * Gets description
      *
-     * @return object|null
+     * @return string
      */
-    public function getRelatedSearches()
+    public function getDescription()
     {
-        return $this->container['related_searches'];
+        return $this->container['description'];
     }
 
     /**
-     * Sets related_searches
+     * Sets description
      *
-     * @param object|null $related_searches related_searches
+     * @param string $description description
      *
      * @return self
      */
-    public function setRelatedSearches($related_searches)
+    public function setDescription($description)
     {
-        if (is_null($related_searches)) {
-            array_push($this->openAPINullablesSetToNull, 'related_searches');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('related_searches', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($description)) {
+            throw new \InvalidArgumentException('non-nullable description cannot be null');
         }
-        $this->container['related_searches'] = $related_searches;
+        $this->container['description'] = $description;
 
         return $this;
     }
 
     /**
-     * Gets historical_metrics
+     * Gets last_updated
      *
-     * @return \OpenAPI\Client\Model\DomainDataRetrievalSerpApiQueryHistoricalMetrics|null
+     * @return int
      */
-    public function getHistoricalMetrics()
+    public function getLastUpdated()
     {
-        return $this->container['historical_metrics'];
+        return $this->container['last_updated'];
     }
 
     /**
-     * Sets historical_metrics
+     * Sets last_updated
      *
-     * @param \OpenAPI\Client\Model\DomainDataRetrievalSerpApiQueryHistoricalMetrics|null $historical_metrics historical_metrics
+     * @param int $last_updated last_updated
      *
      * @return self
      */
-    public function setHistoricalMetrics($historical_metrics)
+    public function setLastUpdated($last_updated)
     {
-        if (is_null($historical_metrics)) {
-            throw new \InvalidArgumentException('non-nullable historical_metrics cannot be null');
+        if (is_null($last_updated)) {
+            throw new \InvalidArgumentException('non-nullable last_updated cannot be null');
         }
-        $this->container['historical_metrics'] = $historical_metrics;
+        $this->container['last_updated'] = $last_updated;
 
         return $this;
     }

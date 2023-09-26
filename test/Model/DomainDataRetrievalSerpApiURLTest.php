@@ -1,6 +1,6 @@
 <?php
 /**
- * DomainDataRetrievalSerpApiSearchResponseTest
+ * DomainDataRetrievalSerpApiURLTest
  *
  * PHP version 7.4
  *
@@ -31,15 +31,15 @@ namespace OpenAPI\Client\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * DomainDataRetrievalSerpApiSearchResponseTest Class Doc Comment
+ * DomainDataRetrievalSerpApiURLTest Class Doc Comment
  *
  * @category    Class
- * @description DomainDataRetrievalSerpApiSearchResponse
+ * @description DomainDataRetrievalSerpApiURL
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class DomainDataRetrievalSerpApiSearchResponseTest extends TestCase
+class DomainDataRetrievalSerpApiURLTest extends TestCase
 {
 
     /**
@@ -71,54 +71,54 @@ class DomainDataRetrievalSerpApiSearchResponseTest extends TestCase
     }
 
     /**
-     * Test "DomainDataRetrievalSerpApiSearchResponse"
+     * Test "DomainDataRetrievalSerpApiURL"
      */
-    public function testDomainDataRetrievalSerpApiSearchResponse()
+    public function testDomainDataRetrievalSerpApiURL()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "knowledge_graph"
+     * Test attribute "link"
      */
-    public function testPropertyKnowledgeGraph()
+    public function testPropertyLink()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "organic_results"
+     * Test attribute "position"
      */
-    public function testPropertyOrganicResults()
+    public function testPropertyPosition()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "faqs"
+     * Test attribute "title"
      */
-    public function testPropertyFaqs()
+    public function testPropertyTitle()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "related_searches"
+     * Test attribute "description"
      */
-    public function testPropertyRelatedSearches()
+    public function testPropertyDescription()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "historical_metrics"
+     * Test attribute "last_updated"
      */
-    public function testPropertyHistoricalMetrics()
+    public function testPropertyLastUpdated()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
