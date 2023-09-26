@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **site_url** | **string** |  |
+**country** | **string** |  | [optional]
 **page** | **string** |  | [optional]
 **start_date** | **string** |  |
 **end_date** | **string** |  |

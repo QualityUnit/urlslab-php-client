@@ -89,6 +89,15 @@ class DomainDataRetrievalAnalyticsSearchRequestTest extends TestCase
     }
 
     /**
+     * Test attribute "country"
+     */
+    public function testPropertyCountry()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "page"
      */
     public function testPropertyPage()

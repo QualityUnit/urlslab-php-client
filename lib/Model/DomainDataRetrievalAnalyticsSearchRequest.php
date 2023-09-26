@@ -58,6 +58,7 @@ class DomainDataRetrievalAnalyticsSearchRequest implements ModelInterface, Array
       */
     protected static $openAPITypes = [
         'site_url' => 'string',
+        'country' => 'string',
         'page' => 'string',
         'start_date' => 'string',
         'end_date' => 'string',
@@ -74,6 +75,7 @@ class DomainDataRetrievalAnalyticsSearchRequest implements ModelInterface, Array
       */
     protected static $openAPIFormats = [
         'site_url' => null,
+        'country' => null,
         'page' => null,
         'start_date' => null,
         'end_date' => null,
@@ -88,6 +90,7 @@ class DomainDataRetrievalAnalyticsSearchRequest implements ModelInterface, Array
       */
     protected static array $openAPINullables = [
         'site_url' => false,
+		'country' => true,
 		'page' => true,
 		'start_date' => false,
 		'end_date' => false,
@@ -182,6 +185,7 @@ class DomainDataRetrievalAnalyticsSearchRequest implements ModelInterface, Array
      */
     protected static $attributeMap = [
         'site_url' => 'siteUrl',
+        'country' => 'country',
         'page' => 'page',
         'start_date' => 'startDate',
         'end_date' => 'endDate',
@@ -196,6 +200,7 @@ class DomainDataRetrievalAnalyticsSearchRequest implements ModelInterface, Array
      */
     protected static $setters = [
         'site_url' => 'setSiteUrl',
+        'country' => 'setCountry',
         'page' => 'setPage',
         'start_date' => 'setStartDate',
         'end_date' => 'setEndDate',
@@ -210,6 +215,7 @@ class DomainDataRetrievalAnalyticsSearchRequest implements ModelInterface, Array
      */
     protected static $getters = [
         'site_url' => 'getSiteUrl',
+        'country' => 'getCountry',
         'page' => 'getPage',
         'start_date' => 'getStartDate',
         'end_date' => 'getEndDate',
@@ -275,6 +281,7 @@ class DomainDataRetrievalAnalyticsSearchRequest implements ModelInterface, Array
     public function __construct(array $data = null)
     {
         $this->setIfExists('site_url', $data ?? [], null);
+        $this->setIfExists('country', $data ?? [], null);
         $this->setIfExists('page', $data ?? [], null);
         $this->setIfExists('start_date', $data ?? [], null);
         $this->setIfExists('end_date', $data ?? [], null);
@@ -356,6 +363,40 @@ class DomainDataRetrievalAnalyticsSearchRequest implements ModelInterface, Array
             throw new \InvalidArgumentException('non-nullable site_url cannot be null');
         }
         $this->container['site_url'] = $site_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets country
+     *
+     * @return string|null
+     */
+    public function getCountry()
+    {
+        return $this->container['country'];
+    }
+
+    /**
+     * Sets country
+     *
+     * @param string|null $country country
+     *
+     * @return self
+     */
+    public function setCountry($country)
+    {
+        if (is_null($country)) {
+            array_push($this->openAPINullablesSetToNull, 'country');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('country', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['country'] = $country;
 
         return $this;
     }
