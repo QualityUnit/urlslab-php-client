@@ -1,14 +1,12 @@
-# # DomainUserCreditCreditEvent
+# # DomainDomainsUrlScreenshotDTO
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **string** |  |
-**installation_id** | **string** |  |
-**context** | **string** |  | [optional]
-**operation_date** | **int** |  |
-**credit_operation** | **float** |  |
-**credit_type** | **string** |  |
+**thumbnail_full_screenshot** | **string** |  |
+**thumbnail_above_the_fold_screenshot** | **string** |  |
+**above_the_fold_screenshot** | **string** |  |
+**full_screenshot** | **string** |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

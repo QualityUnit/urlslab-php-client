@@ -1,6 +1,6 @@
 <?php
 /**
- * AuthApiTest
+ * DomainsApiTest
  * PHP version 7.4
  *
  * @category Class
@@ -33,14 +33,14 @@ use \OpenAPI\Client\ObjectSerializer;
 use PHPUnit\Framework\TestCase;
 
 /**
- * AuthApiTest Class Doc Comment
+ * DomainsApiTest Class Doc Comment
  *
  * @category Class
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class AuthApiTest extends TestCase
+class DomainsApiTest extends TestCase
 {
 
     /**
@@ -72,60 +72,12 @@ class AuthApiTest extends TestCase
     }
 
     /**
-     * Test case for getAuthIntegrations
+     * Test case for getUserDomains
      *
-     * check if the user is already integrated to a specific integration.
-     *
-     */
-    public function testGetAuthIntegrations()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for getUserInfo
-     *
-     * get user info.
+     * Get Domains of a user.
      *
      */
-    public function testGetUserInfo()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for getUserSubscriptionDetail
-     *
-     * get user subscription Detail.
-     *
-     */
-    public function testGetUserSubscriptionDetail()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for logout
-     *
-     * logout for users.
-     *
-     */
-    public function testLogout()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for signin
-     *
-     * login for users.
-     *
-     */
-    public function testSignin()
+    public function testGetUserDomains()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

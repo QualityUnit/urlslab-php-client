@@ -1,6 +1,6 @@
 <?php
 /**
- * DomainUserCreditCreditEventTest
+ * DomainDomainsUrlResponseDTOTest
  *
  * PHP version 7.4
  *
@@ -31,15 +31,15 @@ namespace OpenAPI\Client\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * DomainUserCreditCreditEventTest Class Doc Comment
+ * DomainDomainsUrlResponseDTOTest Class Doc Comment
  *
  * @category    Class
- * @description DomainUserCreditCreditEvent
+ * @description DomainDomainsUrlResponseDTO
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class DomainUserCreditCreditEventTest extends TestCase
+class DomainDomainsUrlResponseDTOTest extends TestCase
 {
 
     /**
@@ -71,63 +71,99 @@ class DomainUserCreditCreditEventTest extends TestCase
     }
 
     /**
-     * Test "DomainUserCreditCreditEvent"
+     * Test "DomainDomainsUrlResponseDTO"
      */
-    public function testDomainUserCreditCreditEvent()
+    public function testDomainDomainsUrlResponseDTO()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "id"
+     * Test attribute "domain_id"
      */
-    public function testPropertyId()
+    public function testPropertyDomainId()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "installation_id"
+     * Test attribute "url_id"
      */
-    public function testPropertyInstallationId()
+    public function testPropertyUrlId()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "context"
+     * Test attribute "url"
      */
-    public function testPropertyContext()
+    public function testPropertyUrl()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "operation_date"
+     * Test attribute "last_seen"
      */
-    public function testPropertyOperationDate()
+    public function testPropertyLastSeen()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "credit_operation"
+     * Test attribute "last_changed"
      */
-    public function testPropertyCreditOperation()
+    public function testPropertyLastChanged()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "credit_type"
+     * Test attribute "created_time"
      */
-    public function testPropertyCreditType()
+    public function testPropertyCreatedTime()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "page_title"
+     */
+    public function testPropertyPageTitle()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "page_lang"
+     */
+    public function testPropertyPageLang()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "meta_description"
+     */
+    public function testPropertyMetaDescription()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "screenshot"
+     */
+    public function testPropertyScreenshot()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

@@ -10,6 +10,7 @@ docs/Api/AuthApi.md
 docs/Api/ContentApi.md
 docs/Api/CreditsApi.md
 docs/Api/DocsApi.md
+docs/Api/DomainsApi.md
 docs/Api/PublicAssetsApi.md
 docs/Api/ScheduleApi.md
 docs/Api/SerpApi.md
@@ -48,6 +49,10 @@ docs/Model/DomainDocsDocIndexRequest.md
 docs/Model/DomainDocsDocResponse.md
 docs/Model/DomainDocsSearchRequest.md
 docs/Model/DomainDocsUrlslabDocument.md
+docs/Model/DomainDomainsDomainBulkResponseDTO.md
+docs/Model/DomainDomainsDomainResponseDTO.md
+docs/Model/DomainDomainsUrlResponseDTO.md
+docs/Model/DomainDomainsUrlScreenshotDTO.md
 docs/Model/DomainScheduleAPISchedule.md
 docs/Model/DomainScheduleScheduleConf.md
 docs/Model/DomainUrlslabIntegration.md
@@ -92,6 +97,10 @@ lib/Model/DomainDocsDocIndexRequest.php
 lib/Model/DomainDocsDocResponse.php
 lib/Model/DomainDocsSearchRequest.php
 lib/Model/DomainDocsUrlslabDocument.php
+lib/Model/DomainDomainsDomainBulkResponseDTO.php
+lib/Model/DomainDomainsDomainResponseDTO.php
+lib/Model/DomainDomainsUrlResponseDTO.php
+lib/Model/DomainDomainsUrlScreenshotDTO.php
 lib/Model/DomainScheduleAPISchedule.php
 lib/Model/DomainScheduleScheduleConf.php
 lib/Model/DomainUrlslabIntegration.php
@@ -108,6 +117,7 @@ lib/Urlslab/AuthApi.php
 lib/Urlslab/ContentApi.php
 lib/Urlslab/CreditsApi.php
 lib/Urlslab/DocsApi.php
+lib/Urlslab/DomainsApi.php
 lib/Urlslab/PublicAssetsApi.php
 lib/Urlslab/ScheduleApi.php
 lib/Urlslab/SerpApi.php
@@ -121,6 +131,7 @@ test/Api/AuthApiTest.php
 test/Api/ContentApiTest.php
 test/Api/CreditsApiTest.php
 test/Api/DocsApiTest.php
+test/Api/DomainsApiTest.php
 test/Api/PublicAssetsApiTest.php
 test/Api/ScheduleApiTest.php
 test/Api/SerpApiTest.php
@@ -159,6 +170,10 @@ test/Model/DomainDocsDocIndexRequestTest.php
 test/Model/DomainDocsDocResponseTest.php
 test/Model/DomainDocsSearchRequestTest.php
 test/Model/DomainDocsUrlslabDocumentTest.php
+test/Model/DomainDomainsDomainBulkResponseDTOTest.php
+test/Model/DomainDomainsDomainResponseDTOTest.php
+test/Model/DomainDomainsUrlResponseDTOTest.php
+test/Model/DomainDomainsUrlScreenshotDTOTest.php
 test/Model/DomainScheduleAPIScheduleTest.php
 test/Model/DomainScheduleScheduleConfTest.php
 test/Model/DomainUrlslabIntegrationTest.php

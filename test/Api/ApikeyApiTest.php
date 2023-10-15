@@ -72,42 +72,6 @@ class ApikeyApiTest extends TestCase
     }
 
     /**
-     * Test case for createAPIKey
-     *
-     * Creates a new API Key for the user.
-     *
-     */
-    public function testCreateAPIKey()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for deleteAPIKey
-     *
-     * Deletes an API Key for the user.
-     *
-     */
-    public function testDeleteAPIKey()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test case for listAPIKey
-     *
-     * Lists all API Keys for the user.
-     *
-     */
-    public function testListAPIKey()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test case for validate
      *
      * validate a given API Key.

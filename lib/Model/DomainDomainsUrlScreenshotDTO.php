@@ -1,6 +1,6 @@
 <?php
 /**
- * DomainUserCreditAggregatedCreditEvents
+ * DomainDomainsUrlScreenshotDTO
  *
  * PHP version 7.4
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * DomainUserCreditAggregatedCreditEvents Class Doc Comment
+ * DomainDomainsUrlScreenshotDTO Class Doc Comment
  *
  * @category Class
  * @package  OpenAPI\Client
@@ -40,7 +40,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAccess, \JsonSerializable
+class DomainDomainsUrlScreenshotDTO implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAcc
       *
       * @var string
       */
-    protected static $openAPIModelName = 'domain.userCredit.AggregatedCreditEvents';
+    protected static $openAPIModelName = 'domain.domains.UrlScreenshotDTO';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,11 +57,10 @@ class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $openAPITypes = [
-        'group_bucket_title' => 'string',
-        'installation_id' => 'string',
-        'credit_type' => 'string',
-        'events' => 'int',
-        'credits' => 'float'
+        'thumbnail_full_screenshot' => 'string',
+        'thumbnail_above_the_fold_screenshot' => 'string',
+        'above_the_fold_screenshot' => 'string',
+        'full_screenshot' => 'string'
     ];
 
     /**
@@ -72,11 +71,10 @@ class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAcc
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'group_bucket_title' => null,
-        'installation_id' => null,
-        'credit_type' => null,
-        'events' => 'int64',
-        'credits' => 'double'
+        'thumbnail_full_screenshot' => null,
+        'thumbnail_above_the_fold_screenshot' => null,
+        'above_the_fold_screenshot' => null,
+        'full_screenshot' => null
     ];
 
     /**
@@ -85,11 +83,10 @@ class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAcc
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'group_bucket_title' => false,
-		'installation_id' => false,
-		'credit_type' => false,
-		'events' => false,
-		'credits' => false
+        'thumbnail_full_screenshot' => false,
+		'thumbnail_above_the_fold_screenshot' => false,
+		'above_the_fold_screenshot' => false,
+		'full_screenshot' => false
     ];
 
     /**
@@ -178,11 +175,10 @@ class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $attributeMap = [
-        'group_bucket_title' => 'groupBucketTitle',
-        'installation_id' => 'installationId',
-        'credit_type' => 'creditType',
-        'events' => 'events',
-        'credits' => 'credits'
+        'thumbnail_full_screenshot' => 'thumbnailFullScreenshot',
+        'thumbnail_above_the_fold_screenshot' => 'thumbnailAboveTheFoldScreenshot',
+        'above_the_fold_screenshot' => 'aboveTheFoldScreenshot',
+        'full_screenshot' => 'fullScreenshot'
     ];
 
     /**
@@ -191,11 +187,10 @@ class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $setters = [
-        'group_bucket_title' => 'setGroupBucketTitle',
-        'installation_id' => 'setInstallationId',
-        'credit_type' => 'setCreditType',
-        'events' => 'setEvents',
-        'credits' => 'setCredits'
+        'thumbnail_full_screenshot' => 'setThumbnailFullScreenshot',
+        'thumbnail_above_the_fold_screenshot' => 'setThumbnailAboveTheFoldScreenshot',
+        'above_the_fold_screenshot' => 'setAboveTheFoldScreenshot',
+        'full_screenshot' => 'setFullScreenshot'
     ];
 
     /**
@@ -204,11 +199,10 @@ class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $getters = [
-        'group_bucket_title' => 'getGroupBucketTitle',
-        'installation_id' => 'getInstallationId',
-        'credit_type' => 'getCreditType',
-        'events' => 'getEvents',
-        'credits' => 'getCredits'
+        'thumbnail_full_screenshot' => 'getThumbnailFullScreenshot',
+        'thumbnail_above_the_fold_screenshot' => 'getThumbnailAboveTheFoldScreenshot',
+        'above_the_fold_screenshot' => 'getAboveTheFoldScreenshot',
+        'full_screenshot' => 'getFullScreenshot'
     ];
 
     /**
@@ -252,41 +246,6 @@ class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAcc
         return self::$openAPIModelName;
     }
 
-    public const CREDIT_TYPE_AUGMENTATION = 'AUGMENTATION';
-    public const CREDIT_TYPE_SERP_API_CACHED = 'SERP_API_CACHED';
-    public const CREDIT_TYPE_CRAWLING = 'CRAWLING';
-    public const CREDIT_TYPE_ADDING_CREDIT = 'ADDING_CREDIT';
-    public const CREDIT_TYPE_YOUTUBE_TRANSCRIPTION = 'YOUTUBE_TRANSCRIPTION';
-    public const CREDIT_TYPE_TOPPING_CREDIT = 'TOPPING_CREDIT';
-    public const CREDIT_TYPE_YOUTUBE_MICRODATA = 'YOUTUBE_MICRODATA';
-    public const CREDIT_TYPE_SUMMARY = 'SUMMARY';
-    public const CREDIT_TYPE_TEXT_INDEXING = 'TEXT_INDEXING';
-    public const CREDIT_TYPE_SCREENSHOT = 'SCREENSHOT';
-    public const CREDIT_TYPE_SERP_API = 'SERP_API';
-    public const CREDIT_TYPE_RELATED_URLS = 'RELATED_URLS';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getCreditTypeAllowableValues()
-    {
-        return [
-            self::CREDIT_TYPE_AUGMENTATION,
-            self::CREDIT_TYPE_SERP_API_CACHED,
-            self::CREDIT_TYPE_CRAWLING,
-            self::CREDIT_TYPE_ADDING_CREDIT,
-            self::CREDIT_TYPE_YOUTUBE_TRANSCRIPTION,
-            self::CREDIT_TYPE_TOPPING_CREDIT,
-            self::CREDIT_TYPE_YOUTUBE_MICRODATA,
-            self::CREDIT_TYPE_SUMMARY,
-            self::CREDIT_TYPE_TEXT_INDEXING,
-            self::CREDIT_TYPE_SCREENSHOT,
-            self::CREDIT_TYPE_SERP_API,
-            self::CREDIT_TYPE_RELATED_URLS,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -303,11 +262,10 @@ class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAcc
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('group_bucket_title', $data ?? [], null);
-        $this->setIfExists('installation_id', $data ?? [], null);
-        $this->setIfExists('credit_type', $data ?? [], null);
-        $this->setIfExists('events', $data ?? [], null);
-        $this->setIfExists('credits', $data ?? [], null);
+        $this->setIfExists('thumbnail_full_screenshot', $data ?? [], null);
+        $this->setIfExists('thumbnail_above_the_fold_screenshot', $data ?? [], null);
+        $this->setIfExists('above_the_fold_screenshot', $data ?? [], null);
+        $this->setIfExists('full_screenshot', $data ?? [], null);
     }
 
     /**
@@ -337,29 +295,17 @@ class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAcc
     {
         $invalidProperties = [];
 
-        if ($this->container['group_bucket_title'] === null) {
-            $invalidProperties[] = "'group_bucket_title' can't be null";
+        if ($this->container['thumbnail_full_screenshot'] === null) {
+            $invalidProperties[] = "'thumbnail_full_screenshot' can't be null";
         }
-        if ($this->container['installation_id'] === null) {
-            $invalidProperties[] = "'installation_id' can't be null";
+        if ($this->container['thumbnail_above_the_fold_screenshot'] === null) {
+            $invalidProperties[] = "'thumbnail_above_the_fold_screenshot' can't be null";
         }
-        if ($this->container['credit_type'] === null) {
-            $invalidProperties[] = "'credit_type' can't be null";
+        if ($this->container['above_the_fold_screenshot'] === null) {
+            $invalidProperties[] = "'above_the_fold_screenshot' can't be null";
         }
-        $allowedValues = $this->getCreditTypeAllowableValues();
-        if (!is_null($this->container['credit_type']) && !in_array($this->container['credit_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'credit_type', must be one of '%s'",
-                $this->container['credit_type'],
-                implode("', '", $allowedValues)
-            );
-        }
-
-        if ($this->container['events'] === null) {
-            $invalidProperties[] = "'events' can't be null";
-        }
-        if ($this->container['credits'] === null) {
-            $invalidProperties[] = "'credits' can't be null";
+        if ($this->container['full_screenshot'] === null) {
+            $invalidProperties[] = "'full_screenshot' can't be null";
         }
         return $invalidProperties;
     }
@@ -377,146 +323,109 @@ class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAcc
 
 
     /**
-     * Gets group_bucket_title
+     * Gets thumbnail_full_screenshot
      *
      * @return string
      */
-    public function getGroupBucketTitle()
+    public function getThumbnailFullScreenshot()
     {
-        return $this->container['group_bucket_title'];
+        return $this->container['thumbnail_full_screenshot'];
     }
 
     /**
-     * Sets group_bucket_title
+     * Sets thumbnail_full_screenshot
      *
-     * @param string $group_bucket_title group_bucket_title
+     * @param string $thumbnail_full_screenshot thumbnail_full_screenshot
      *
      * @return self
      */
-    public function setGroupBucketTitle($group_bucket_title)
+    public function setThumbnailFullScreenshot($thumbnail_full_screenshot)
     {
-        if (is_null($group_bucket_title)) {
-            throw new \InvalidArgumentException('non-nullable group_bucket_title cannot be null');
+        if (is_null($thumbnail_full_screenshot)) {
+            throw new \InvalidArgumentException('non-nullable thumbnail_full_screenshot cannot be null');
         }
-        $this->container['group_bucket_title'] = $group_bucket_title;
+        $this->container['thumbnail_full_screenshot'] = $thumbnail_full_screenshot;
 
         return $this;
     }
 
     /**
-     * Gets installation_id
+     * Gets thumbnail_above_the_fold_screenshot
      *
      * @return string
      */
-    public function getInstallationId()
+    public function getThumbnailAboveTheFoldScreenshot()
     {
-        return $this->container['installation_id'];
+        return $this->container['thumbnail_above_the_fold_screenshot'];
     }
 
     /**
-     * Sets installation_id
+     * Sets thumbnail_above_the_fold_screenshot
      *
-     * @param string $installation_id installation_id
+     * @param string $thumbnail_above_the_fold_screenshot thumbnail_above_the_fold_screenshot
      *
      * @return self
      */
-    public function setInstallationId($installation_id)
+    public function setThumbnailAboveTheFoldScreenshot($thumbnail_above_the_fold_screenshot)
     {
-        if (is_null($installation_id)) {
-            throw new \InvalidArgumentException('non-nullable installation_id cannot be null');
+        if (is_null($thumbnail_above_the_fold_screenshot)) {
+            throw new \InvalidArgumentException('non-nullable thumbnail_above_the_fold_screenshot cannot be null');
         }
-        $this->container['installation_id'] = $installation_id;
+        $this->container['thumbnail_above_the_fold_screenshot'] = $thumbnail_above_the_fold_screenshot;
 
         return $this;
     }
 
     /**
-     * Gets credit_type
+     * Gets above_the_fold_screenshot
      *
      * @return string
      */
-    public function getCreditType()
+    public function getAboveTheFoldScreenshot()
     {
-        return $this->container['credit_type'];
+        return $this->container['above_the_fold_screenshot'];
     }
 
     /**
-     * Sets credit_type
+     * Sets above_the_fold_screenshot
      *
-     * @param string $credit_type credit_type
+     * @param string $above_the_fold_screenshot above_the_fold_screenshot
      *
      * @return self
      */
-    public function setCreditType($credit_type)
+    public function setAboveTheFoldScreenshot($above_the_fold_screenshot)
     {
-        if (is_null($credit_type)) {
-            throw new \InvalidArgumentException('non-nullable credit_type cannot be null');
+        if (is_null($above_the_fold_screenshot)) {
+            throw new \InvalidArgumentException('non-nullable above_the_fold_screenshot cannot be null');
         }
-        $allowedValues = $this->getCreditTypeAllowableValues();
-        if (!in_array($credit_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'credit_type', must be one of '%s'",
-                    $credit_type,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['credit_type'] = $credit_type;
+        $this->container['above_the_fold_screenshot'] = $above_the_fold_screenshot;
 
         return $this;
     }
 
     /**
-     * Gets events
+     * Gets full_screenshot
      *
-     * @return int
+     * @return string
      */
-    public function getEvents()
+    public function getFullScreenshot()
     {
-        return $this->container['events'];
+        return $this->container['full_screenshot'];
     }
 
     /**
-     * Sets events
+     * Sets full_screenshot
      *
-     * @param int $events events
+     * @param string $full_screenshot full_screenshot
      *
      * @return self
      */
-    public function setEvents($events)
+    public function setFullScreenshot($full_screenshot)
     {
-        if (is_null($events)) {
-            throw new \InvalidArgumentException('non-nullable events cannot be null');
+        if (is_null($full_screenshot)) {
+            throw new \InvalidArgumentException('non-nullable full_screenshot cannot be null');
         }
-        $this->container['events'] = $events;
-
-        return $this;
-    }
-
-    /**
-     * Gets credits
-     *
-     * @return float
-     */
-    public function getCredits()
-    {
-        return $this->container['credits'];
-    }
-
-    /**
-     * Sets credits
-     *
-     * @param float $credits credits
-     *
-     * @return self
-     */
-    public function setCredits($credits)
-    {
-        if (is_null($credits)) {
-            throw new \InvalidArgumentException('non-nullable credits cannot be null');
-        }
-        $this->container['credits'] = $credits;
+        $this->container['full_screenshot'] = $full_screenshot;
 
         return $this;
     }

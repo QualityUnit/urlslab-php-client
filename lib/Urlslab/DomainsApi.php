@@ -1,6 +1,6 @@
 <?php
 /**
- * ApikeyApi
+ * DomainsApi
  * PHP version 7.4
  *
  * @category Class
@@ -40,14 +40,14 @@ use OpenAPI\Client\HeaderSelector;
 use OpenAPI\Client\ObjectSerializer;
 
 /**
- * ApikeyApi Class Doc Comment
+ * DomainsApi Class Doc Comment
  *
  * @category Class
  * @package  OpenAPI\Client
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class ApikeyApi
+class DomainsApi
 {
     /**
      * @var ClientInterface
@@ -71,7 +71,7 @@ class ApikeyApi
 
     /** @var string[] $contentTypes **/
     public const contentTypes = [
-        'validate' => [
+        'getUserDomains' => [
             'text/plain',
         ],
     ];
@@ -123,38 +123,50 @@ class ApikeyApi
     }
 
     /**
-     * Operation validate
+     * Operation getUserDomains
      *
-     * validate a given API Key
+     * Get Domains of a user
      *
-     * @param  string $body API Key to be validated (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validate'] to see the possible values for this operation
+     * @param  string $domain_name the domain name to search for (optional)
+     * @param  Int $primary_order_id Primary Order ID for pagination (optional)
+     * @param  Int $secondary_order_id Secondary Order ID for pagination (optional)
+     * @param  Int $limit limit of each page (optional)
+     * @param  string $sorting_field the field to sort by (optional)
+     * @param  string $sorting_direction the direction to sort by (optional)
+     * @param  string $body body (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUserDomains'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \OpenAPI\Client\Model\DomainAcknowledged
+     * @return \OpenAPI\Client\Model\DomainDomainsDomainBulkResponseDTO
      */
-    public function validate($body = null, string $contentType = self::contentTypes['validate'][0])
+    public function getUserDomains($domain_name = null, $primary_order_id = null, $secondary_order_id = null, $limit = null, $sorting_field = null, $sorting_direction = null, $body = null, string $contentType = self::contentTypes['getUserDomains'][0])
     {
-        list($response) = $this->validateWithHttpInfo($body, $contentType);
+        list($response) = $this->getUserDomainsWithHttpInfo($domain_name, $primary_order_id, $secondary_order_id, $limit, $sorting_field, $sorting_direction, $body, $contentType);
         return $response;
     }
 
     /**
-     * Operation validateWithHttpInfo
+     * Operation getUserDomainsWithHttpInfo
      *
-     * validate a given API Key
+     * Get Domains of a user
      *
-     * @param  string $body API Key to be validated (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validate'] to see the possible values for this operation
+     * @param  string $domain_name the domain name to search for (optional)
+     * @param  Int $primary_order_id Primary Order ID for pagination (optional)
+     * @param  Int $secondary_order_id Secondary Order ID for pagination (optional)
+     * @param  Int $limit limit of each page (optional)
+     * @param  string $sorting_field the field to sort by (optional)
+     * @param  string $sorting_direction the direction to sort by (optional)
+     * @param  string $body (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUserDomains'] to see the possible values for this operation
      *
      * @throws \OpenAPI\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \OpenAPI\Client\Model\DomainAcknowledged, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \OpenAPI\Client\Model\DomainDomainsDomainBulkResponseDTO, HTTP status code, HTTP response headers (array of strings)
      */
-    public function validateWithHttpInfo($body = null, string $contentType = self::contentTypes['validate'][0])
+    public function getUserDomainsWithHttpInfo($domain_name = null, $primary_order_id = null, $secondary_order_id = null, $limit = null, $sorting_field = null, $sorting_direction = null, $body = null, string $contentType = self::contentTypes['getUserDomains'][0])
     {
-        $request = $this->validateRequest($body, $contentType);
+        $request = $this->getUserDomainsRequest($domain_name, $primary_order_id, $secondary_order_id, $limit, $sorting_field, $sorting_direction, $body, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -193,23 +205,23 @@ class ApikeyApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\OpenAPI\Client\Model\DomainAcknowledged' === '\SplFileObject') {
+                    if ('\OpenAPI\Client\Model\DomainDomainsDomainBulkResponseDTO' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\OpenAPI\Client\Model\DomainAcknowledged' !== 'string') {
+                        if ('\OpenAPI\Client\Model\DomainDomainsDomainBulkResponseDTO' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\DomainAcknowledged', []),
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\DomainDomainsDomainBulkResponseDTO', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\OpenAPI\Client\Model\DomainAcknowledged';
+            $returnType = '\OpenAPI\Client\Model\DomainDomainsDomainBulkResponseDTO';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -230,7 +242,7 @@ class ApikeyApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\OpenAPI\Client\Model\DomainAcknowledged',
+                        '\OpenAPI\Client\Model\DomainDomainsDomainBulkResponseDTO',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -241,19 +253,25 @@ class ApikeyApi
     }
 
     /**
-     * Operation validateAsync
+     * Operation getUserDomainsAsync
      *
-     * validate a given API Key
+     * Get Domains of a user
      *
-     * @param  string $body API Key to be validated (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validate'] to see the possible values for this operation
+     * @param  string $domain_name the domain name to search for (optional)
+     * @param  Int $primary_order_id Primary Order ID for pagination (optional)
+     * @param  Int $secondary_order_id Secondary Order ID for pagination (optional)
+     * @param  Int $limit limit of each page (optional)
+     * @param  string $sorting_field the field to sort by (optional)
+     * @param  string $sorting_direction the direction to sort by (optional)
+     * @param  string $body (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUserDomains'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function validateAsync($body = null, string $contentType = self::contentTypes['validate'][0])
+    public function getUserDomainsAsync($domain_name = null, $primary_order_id = null, $secondary_order_id = null, $limit = null, $sorting_field = null, $sorting_direction = null, $body = null, string $contentType = self::contentTypes['getUserDomains'][0])
     {
-        return $this->validateAsyncWithHttpInfo($body, $contentType)
+        return $this->getUserDomainsAsyncWithHttpInfo($domain_name, $primary_order_id, $secondary_order_id, $limit, $sorting_field, $sorting_direction, $body, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -262,20 +280,26 @@ class ApikeyApi
     }
 
     /**
-     * Operation validateAsyncWithHttpInfo
+     * Operation getUserDomainsAsyncWithHttpInfo
      *
-     * validate a given API Key
+     * Get Domains of a user
      *
-     * @param  string $body API Key to be validated (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validate'] to see the possible values for this operation
+     * @param  string $domain_name the domain name to search for (optional)
+     * @param  Int $primary_order_id Primary Order ID for pagination (optional)
+     * @param  Int $secondary_order_id Secondary Order ID for pagination (optional)
+     * @param  Int $limit limit of each page (optional)
+     * @param  string $sorting_field the field to sort by (optional)
+     * @param  string $sorting_direction the direction to sort by (optional)
+     * @param  string $body (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUserDomains'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function validateAsyncWithHttpInfo($body = null, string $contentType = self::contentTypes['validate'][0])
+    public function getUserDomainsAsyncWithHttpInfo($domain_name = null, $primary_order_id = null, $secondary_order_id = null, $limit = null, $sorting_field = null, $sorting_direction = null, $body = null, string $contentType = self::contentTypes['getUserDomains'][0])
     {
-        $returnType = '\OpenAPI\Client\Model\DomainAcknowledged';
-        $request = $this->validateRequest($body, $contentType);
+        $returnType = '\OpenAPI\Client\Model\DomainDomainsDomainBulkResponseDTO';
+        $request = $this->getUserDomainsRequest($domain_name, $primary_order_id, $secondary_order_id, $limit, $sorting_field, $sorting_direction, $body, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -314,26 +338,92 @@ class ApikeyApi
     }
 
     /**
-     * Create request for operation 'validate'
+     * Create request for operation 'getUserDomains'
      *
-     * @param  string $body API Key to be validated (optional)
-     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['validate'] to see the possible values for this operation
+     * @param  string $domain_name the domain name to search for (optional)
+     * @param  Int $primary_order_id Primary Order ID for pagination (optional)
+     * @param  Int $secondary_order_id Secondary Order ID for pagination (optional)
+     * @param  Int $limit limit of each page (optional)
+     * @param  string $sorting_field the field to sort by (optional)
+     * @param  string $sorting_direction the direction to sort by (optional)
+     * @param  string $body (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getUserDomains'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function validateRequest($body = null, string $contentType = self::contentTypes['validate'][0])
+    public function getUserDomainsRequest($domain_name = null, $primary_order_id = null, $secondary_order_id = null, $limit = null, $sorting_field = null, $sorting_direction = null, $body = null, string $contentType = self::contentTypes['getUserDomains'][0])
     {
 
 
 
-        $resourcePath = '/v1/apikey/validate';
+
+
+
+
+
+
+        $resourcePath = '/v1/domains';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $domain_name,
+            'domainName', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $primary_order_id,
+            'primaryOrderId', // param base name
+            'int', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $secondary_order_id,
+            'secondaryOrderId', // param base name
+            'int', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $limit,
+            'limit', // param base name
+            'int', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $sorting_field,
+            'sortingField', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $sorting_direction,
+            'sortingDirection', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
 
 
 

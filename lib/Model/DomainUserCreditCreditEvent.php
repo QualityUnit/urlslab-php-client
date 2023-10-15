@@ -58,6 +58,7 @@ class DomainUserCreditCreditEvent implements ModelInterface, ArrayAccess, \JsonS
       */
     protected static $openAPITypes = [
         'id' => 'string',
+        'installation_id' => 'string',
         'context' => 'string',
         'operation_date' => 'int',
         'credit_operation' => 'float',
@@ -73,6 +74,7 @@ class DomainUserCreditCreditEvent implements ModelInterface, ArrayAccess, \JsonS
       */
     protected static $openAPIFormats = [
         'id' => null,
+        'installation_id' => null,
         'context' => null,
         'operation_date' => 'int64',
         'credit_operation' => 'double',
@@ -86,6 +88,7 @@ class DomainUserCreditCreditEvent implements ModelInterface, ArrayAccess, \JsonS
       */
     protected static array $openAPINullables = [
         'id' => false,
+		'installation_id' => false,
 		'context' => true,
 		'operation_date' => false,
 		'credit_operation' => false,
@@ -179,6 +182,7 @@ class DomainUserCreditCreditEvent implements ModelInterface, ArrayAccess, \JsonS
      */
     protected static $attributeMap = [
         'id' => 'id',
+        'installation_id' => 'installationId',
         'context' => 'context',
         'operation_date' => 'operationDate',
         'credit_operation' => 'creditOperation',
@@ -192,6 +196,7 @@ class DomainUserCreditCreditEvent implements ModelInterface, ArrayAccess, \JsonS
      */
     protected static $setters = [
         'id' => 'setId',
+        'installation_id' => 'setInstallationId',
         'context' => 'setContext',
         'operation_date' => 'setOperationDate',
         'credit_operation' => 'setCreditOperation',
@@ -205,6 +210,7 @@ class DomainUserCreditCreditEvent implements ModelInterface, ArrayAccess, \JsonS
      */
     protected static $getters = [
         'id' => 'getId',
+        'installation_id' => 'getInstallationId',
         'context' => 'getContext',
         'operation_date' => 'getOperationDate',
         'credit_operation' => 'getCreditOperation',
@@ -269,6 +275,7 @@ class DomainUserCreditCreditEvent implements ModelInterface, ArrayAccess, \JsonS
     public function __construct(array $data = null)
     {
         $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('installation_id', $data ?? [], null);
         $this->setIfExists('context', $data ?? [], null);
         $this->setIfExists('operation_date', $data ?? [], null);
         $this->setIfExists('credit_operation', $data ?? [], null);
@@ -304,6 +311,9 @@ class DomainUserCreditCreditEvent implements ModelInterface, ArrayAccess, \JsonS
 
         if ($this->container['id'] === null) {
             $invalidProperties[] = "'id' can't be null";
+        }
+        if ($this->container['installation_id'] === null) {
+            $invalidProperties[] = "'installation_id' can't be null";
         }
         if ($this->container['operation_date'] === null) {
             $invalidProperties[] = "'operation_date' can't be null";
@@ -352,6 +362,33 @@ class DomainUserCreditCreditEvent implements ModelInterface, ArrayAccess, \JsonS
             throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
         $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets installation_id
+     *
+     * @return string
+     */
+    public function getInstallationId()
+    {
+        return $this->container['installation_id'];
+    }
+
+    /**
+     * Sets installation_id
+     *
+     * @param string $installation_id installation_id
+     *
+     * @return self
+     */
+    public function setInstallationId($installation_id)
+    {
+        if (is_null($installation_id)) {
+            throw new \InvalidArgumentException('non-nullable installation_id cannot be null');
+        }
+        $this->container['installation_id'] = $installation_id;
 
         return $this;
     }

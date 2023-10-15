@@ -89,6 +89,15 @@ class DomainUserCreditAggregatedCreditEventsTest extends TestCase
     }
 
     /**
+     * Test attribute "installation_id"
+     */
+    public function testPropertyInstallationId()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "credit_type"
      */
     public function testPropertyCreditType()

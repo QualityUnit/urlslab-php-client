@@ -1,6 +1,6 @@
 <?php
 /**
- * DomainUserCreditCreditEventTest
+ * DomainDomainsDomainBulkResponseDTOTest
  *
  * PHP version 7.4
  *
@@ -31,15 +31,15 @@ namespace OpenAPI\Client\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * DomainUserCreditCreditEventTest Class Doc Comment
+ * DomainDomainsDomainBulkResponseDTOTest Class Doc Comment
  *
  * @category    Class
- * @description DomainUserCreditCreditEvent
+ * @description DomainDomainsDomainBulkResponseDTO
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class DomainUserCreditCreditEventTest extends TestCase
+class DomainDomainsDomainBulkResponseDTOTest extends TestCase
 {
 
     /**
@@ -71,63 +71,18 @@ class DomainUserCreditCreditEventTest extends TestCase
     }
 
     /**
-     * Test "DomainUserCreditCreditEvent"
+     * Test "DomainDomainsDomainBulkResponseDTO"
      */
-    public function testDomainUserCreditCreditEvent()
+    public function testDomainDomainsDomainBulkResponseDTO()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "id"
+     * Test attribute "domains"
      */
-    public function testPropertyId()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "installation_id"
-     */
-    public function testPropertyInstallationId()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "context"
-     */
-    public function testPropertyContext()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "operation_date"
-     */
-    public function testPropertyOperationDate()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "credit_operation"
-     */
-    public function testPropertyCreditOperation()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "credit_type"
-     */
-    public function testPropertyCreditType()
+    public function testPropertyDomains()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
