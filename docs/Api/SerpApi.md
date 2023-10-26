@@ -5,6 +5,7 @@ All URIs are relative to https://api.urlslab.com, except if the operation define
 | Method | HTTP request | Description |
 | ------------- | ------------- | ------------- |
 | [**bulkSearch()**](SerpApi.md#bulkSearch) | **POST** /v1/serp/bulk/search | Search the Serp to get top urls in bulk |
+| [**scheduleKeywordsAnalysis()**](SerpApi.md#scheduleKeywordsAnalysis) | **POST** /v1/serp/bulk/search_volume | Get Google Ads Search Analytics |
 | [**search()**](SerpApi.md#search) | **POST** /v1/serp/search | Search the Serp to get top urls |
 
 
@@ -56,6 +57,68 @@ try {
 ### Return type
 
 [**\OpenAPI\Client\Model\DomainDataRetrievalSerpApiBulkSearchResponse**](../Model/DomainDataRetrievalSerpApiBulkSearchResponse.md)
+
+### Authorization
+
+[UrlslabApiKeyAuth](../../README.md#UrlslabApiKeyAuth)
+
+### HTTP request headers
+
+- **Content-Type**: `application/json`
+- **Accept**: `application/json`
+
+[[Back to top]](#) [[Back to API list]](../../README.md#endpoints)
+[[Back to Model list]](../../README.md#models)
+[[Back to README]](../../README.md)
+
+## `scheduleKeywordsAnalysis()`
+
+```php
+scheduleKeywordsAnalysis($domain_data_retrieval_search_volume_bulk_request): \OpenAPI\Client\Model\DomainDataRetrievalKeywordAnalyticsBulkResponse
+```
+
+Get Google Ads Search Analytics
+
+Get Google Ads Search Analytics
+
+### Example
+
+```php
+<?php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+
+// Configure API key authorization: UrlslabApiKeyAuth
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKey('X-URLSLAB-KEY', 'YOUR_API_KEY');
+// Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+// $config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setApiKeyPrefix('X-URLSLAB-KEY', 'Bearer');
+
+
+$apiInstance = new OpenAPI\Client\Api\SerpApi(
+    // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
+    // This is optional, `GuzzleHttp\Client` will be used as default.
+    new GuzzleHttp\Client(),
+    $config
+);
+$domain_data_retrieval_search_volume_bulk_request = new \OpenAPI\Client\Model\DomainDataRetrievalSearchVolumeBulkRequest(); // \OpenAPI\Client\Model\DomainDataRetrievalSearchVolumeBulkRequest | Searching Params
+
+try {
+    $result = $apiInstance->scheduleKeywordsAnalysis($domain_data_retrieval_search_volume_bulk_request);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling SerpApi->scheduleKeywordsAnalysis: ', $e->getMessage(), PHP_EOL;
+}
+```
+
+### Parameters
+
+| Name | Type | Description  | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **domain_data_retrieval_search_volume_bulk_request** | [**\OpenAPI\Client\Model\DomainDataRetrievalSearchVolumeBulkRequest**](../Model/DomainDataRetrievalSearchVolumeBulkRequest.md)| Searching Params | |
+
+### Return type
+
+[**\OpenAPI\Client\Model\DomainDataRetrievalKeywordAnalyticsBulkResponse**](../Model/DomainDataRetrievalKeywordAnalyticsBulkResponse.md)
 
 ### Authorization
 
