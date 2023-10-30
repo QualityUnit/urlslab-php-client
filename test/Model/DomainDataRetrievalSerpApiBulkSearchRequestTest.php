@@ -87,40 +87,4 @@ class DomainDataRetrievalSerpApiBulkSearchRequestTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
-
-    /**
-     * Test attribute "country"
-     */
-    public function testPropertyCountry()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "locale"
-     */
-    public function testPropertyLocale()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "all_results"
-     */
-    public function testPropertyAllResults()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "not_older_than"
-     */
-    public function testPropertyNotOlderThan()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
 }

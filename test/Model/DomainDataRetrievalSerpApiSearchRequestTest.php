@@ -98,24 +98,6 @@ class DomainDataRetrievalSerpApiSearchRequestTest extends TestCase
     }
 
     /**
-     * Test attribute "locale"
-     */
-    public function testPropertyLocale()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "all_results"
-     */
-    public function testPropertyAllResults()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "not_older_than"
      */
     public function testPropertyNotOlderThan()

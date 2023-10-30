@@ -59,8 +59,6 @@ class DomainDataRetrievalSerpApiSearchRequest implements ModelInterface, ArrayAc
     protected static $openAPITypes = [
         'serp_query' => 'string',
         'country' => 'string',
-        'locale' => 'string',
-        'all_results' => 'bool',
         'not_older_than' => 'string'
     ];
 
@@ -74,8 +72,6 @@ class DomainDataRetrievalSerpApiSearchRequest implements ModelInterface, ArrayAc
     protected static $openAPIFormats = [
         'serp_query' => null,
         'country' => null,
-        'locale' => null,
-        'all_results' => null,
         'not_older_than' => null
     ];
 
@@ -87,8 +83,6 @@ class DomainDataRetrievalSerpApiSearchRequest implements ModelInterface, ArrayAc
     protected static array $openAPINullables = [
         'serp_query' => false,
 		'country' => true,
-		'locale' => true,
-		'all_results' => false,
 		'not_older_than' => true
     ];
 
@@ -180,8 +174,6 @@ class DomainDataRetrievalSerpApiSearchRequest implements ModelInterface, ArrayAc
     protected static $attributeMap = [
         'serp_query' => 'serpQuery',
         'country' => 'country',
-        'locale' => 'locale',
-        'all_results' => 'allResults',
         'not_older_than' => 'notOlderThan'
     ];
 
@@ -193,8 +185,6 @@ class DomainDataRetrievalSerpApiSearchRequest implements ModelInterface, ArrayAc
     protected static $setters = [
         'serp_query' => 'setSerpQuery',
         'country' => 'setCountry',
-        'locale' => 'setLocale',
-        'all_results' => 'setAllResults',
         'not_older_than' => 'setNotOlderThan'
     ];
 
@@ -206,8 +196,6 @@ class DomainDataRetrievalSerpApiSearchRequest implements ModelInterface, ArrayAc
     protected static $getters = [
         'serp_query' => 'getSerpQuery',
         'country' => 'getCountry',
-        'locale' => 'getLocale',
-        'all_results' => 'getAllResults',
         'not_older_than' => 'getNotOlderThan'
     ];
 
@@ -295,8 +283,6 @@ class DomainDataRetrievalSerpApiSearchRequest implements ModelInterface, ArrayAc
     {
         $this->setIfExists('serp_query', $data ?? [], null);
         $this->setIfExists('country', $data ?? [], null);
-        $this->setIfExists('locale', $data ?? [], null);
-        $this->setIfExists('all_results', $data ?? [], null);
         $this->setIfExists('not_older_than', $data ?? [], null);
     }
 
@@ -329,9 +315,6 @@ class DomainDataRetrievalSerpApiSearchRequest implements ModelInterface, ArrayAc
 
         if ($this->container['serp_query'] === null) {
             $invalidProperties[] = "'serp_query' can't be null";
-        }
-        if ($this->container['all_results'] === null) {
-            $invalidProperties[] = "'all_results' can't be null";
         }
         $allowedValues = $this->getNotOlderThanAllowableValues();
         if (!is_null($this->container['not_older_than']) && !in_array($this->container['not_older_than'], $allowedValues, true)) {
@@ -414,67 +397,6 @@ class DomainDataRetrievalSerpApiSearchRequest implements ModelInterface, ArrayAc
             }
         }
         $this->container['country'] = $country;
-
-        return $this;
-    }
-
-    /**
-     * Gets locale
-     *
-     * @return string|null
-     */
-    public function getLocale()
-    {
-        return $this->container['locale'];
-    }
-
-    /**
-     * Sets locale
-     *
-     * @param string|null $locale locale
-     *
-     * @return self
-     */
-    public function setLocale($locale)
-    {
-        if (is_null($locale)) {
-            array_push($this->openAPINullablesSetToNull, 'locale');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('locale', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['locale'] = $locale;
-
-        return $this;
-    }
-
-    /**
-     * Gets all_results
-     *
-     * @return bool
-     */
-    public function getAllResults()
-    {
-        return $this->container['all_results'];
-    }
-
-    /**
-     * Sets all_results
-     *
-     * @param bool $all_results all_results
-     *
-     * @return self
-     */
-    public function setAllResults($all_results)
-    {
-        if (is_null($all_results)) {
-            throw new \InvalidArgumentException('non-nullable all_results cannot be null');
-        }
-        $this->container['all_results'] = $all_results;
 
         return $this;
     }

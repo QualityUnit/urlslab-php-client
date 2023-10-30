@@ -80,6 +80,15 @@ class DomainDataRetrievalSerpApiSearchResponseTest extends TestCase
     }
 
     /**
+     * Test attribute "serp_query"
+     */
+    public function testPropertySerpQuery()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "knowledge_graph"
      */
     public function testPropertyKnowledgeGraph()
@@ -116,9 +125,9 @@ class DomainDataRetrievalSerpApiSearchResponseTest extends TestCase
     }
 
     /**
-     * Test attribute "historical_metrics"
+     * Test attribute "serp_query_status"
      */
-    public function testPropertyHistoricalMetrics()
+    public function testPropertySerpQueryStatus()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

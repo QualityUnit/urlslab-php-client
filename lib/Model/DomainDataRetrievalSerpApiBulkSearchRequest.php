@@ -57,11 +57,7 @@ class DomainDataRetrievalSerpApiBulkSearchRequest implements ModelInterface, Arr
       * @var string[]
       */
     protected static $openAPITypes = [
-        'serp_queries' => 'string[]',
-        'country' => 'string',
-        'locale' => 'string',
-        'all_results' => 'bool',
-        'not_older_than' => 'string'
+        'serp_queries' => '\OpenAPI\Client\Model\DomainDataRetrievalSerpApiSearchRequest[]'
     ];
 
     /**
@@ -72,11 +68,7 @@ class DomainDataRetrievalSerpApiBulkSearchRequest implements ModelInterface, Arr
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'serp_queries' => null,
-        'country' => null,
-        'locale' => null,
-        'all_results' => null,
-        'not_older_than' => null
+        'serp_queries' => null
     ];
 
     /**
@@ -85,11 +77,7 @@ class DomainDataRetrievalSerpApiBulkSearchRequest implements ModelInterface, Arr
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'serp_queries' => false,
-		'country' => true,
-		'locale' => true,
-		'all_results' => false,
-		'not_older_than' => true
+        'serp_queries' => false
     ];
 
     /**
@@ -178,11 +166,7 @@ class DomainDataRetrievalSerpApiBulkSearchRequest implements ModelInterface, Arr
      * @var string[]
      */
     protected static $attributeMap = [
-        'serp_queries' => 'serpQueries',
-        'country' => 'country',
-        'locale' => 'locale',
-        'all_results' => 'allResults',
-        'not_older_than' => 'notOlderThan'
+        'serp_queries' => 'serpQueries'
     ];
 
     /**
@@ -191,11 +175,7 @@ class DomainDataRetrievalSerpApiBulkSearchRequest implements ModelInterface, Arr
      * @var string[]
      */
     protected static $setters = [
-        'serp_queries' => 'setSerpQueries',
-        'country' => 'setCountry',
-        'locale' => 'setLocale',
-        'all_results' => 'setAllResults',
-        'not_older_than' => 'setNotOlderThan'
+        'serp_queries' => 'setSerpQueries'
     ];
 
     /**
@@ -204,11 +184,7 @@ class DomainDataRetrievalSerpApiBulkSearchRequest implements ModelInterface, Arr
      * @var string[]
      */
     protected static $getters = [
-        'serp_queries' => 'getSerpQueries',
-        'country' => 'getCountry',
-        'locale' => 'getLocale',
-        'all_results' => 'getAllResults',
-        'not_older_than' => 'getNotOlderThan'
+        'serp_queries' => 'getSerpQueries'
     ];
 
     /**
@@ -252,31 +228,6 @@ class DomainDataRetrievalSerpApiBulkSearchRequest implements ModelInterface, Arr
         return self::$openAPIModelName;
     }
 
-    public const NOT_OLDER_THAN_ONE_TIME = 'ONE_TIME';
-    public const NOT_OLDER_THAN_YEARLY = 'YEARLY';
-    public const NOT_OLDER_THAN_DAILY = 'DAILY';
-    public const NOT_OLDER_THAN_NO_SCHEDULE = 'NO_SCHEDULE';
-    public const NOT_OLDER_THAN_WEEKLY = 'WEEKLY';
-    public const NOT_OLDER_THAN_HOURLY = 'HOURLY';
-    public const NOT_OLDER_THAN_MONTHLY = 'MONTHLY';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getNotOlderThanAllowableValues()
-    {
-        return [
-            self::NOT_OLDER_THAN_ONE_TIME,
-            self::NOT_OLDER_THAN_YEARLY,
-            self::NOT_OLDER_THAN_DAILY,
-            self::NOT_OLDER_THAN_NO_SCHEDULE,
-            self::NOT_OLDER_THAN_WEEKLY,
-            self::NOT_OLDER_THAN_HOURLY,
-            self::NOT_OLDER_THAN_MONTHLY,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -294,10 +245,6 @@ class DomainDataRetrievalSerpApiBulkSearchRequest implements ModelInterface, Arr
     public function __construct(array $data = null)
     {
         $this->setIfExists('serp_queries', $data ?? [], null);
-        $this->setIfExists('country', $data ?? [], null);
-        $this->setIfExists('locale', $data ?? [], null);
-        $this->setIfExists('all_results', $data ?? [], null);
-        $this->setIfExists('not_older_than', $data ?? [], null);
     }
 
     /**
@@ -330,18 +277,6 @@ class DomainDataRetrievalSerpApiBulkSearchRequest implements ModelInterface, Arr
         if ($this->container['serp_queries'] === null) {
             $invalidProperties[] = "'serp_queries' can't be null";
         }
-        if ($this->container['all_results'] === null) {
-            $invalidProperties[] = "'all_results' can't be null";
-        }
-        $allowedValues = $this->getNotOlderThanAllowableValues();
-        if (!is_null($this->container['not_older_than']) && !in_array($this->container['not_older_than'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'not_older_than', must be one of '%s'",
-                $this->container['not_older_than'],
-                implode("', '", $allowedValues)
-            );
-        }
-
         return $invalidProperties;
     }
 
@@ -360,7 +295,7 @@ class DomainDataRetrievalSerpApiBulkSearchRequest implements ModelInterface, Arr
     /**
      * Gets serp_queries
      *
-     * @return string[]
+     * @return \OpenAPI\Client\Model\DomainDataRetrievalSerpApiSearchRequest[]
      */
     public function getSerpQueries()
     {
@@ -370,7 +305,7 @@ class DomainDataRetrievalSerpApiBulkSearchRequest implements ModelInterface, Arr
     /**
      * Sets serp_queries
      *
-     * @param string[] $serp_queries serp_queries
+     * @param \OpenAPI\Client\Model\DomainDataRetrievalSerpApiSearchRequest[] $serp_queries serp_queries
      *
      * @return self
      */
@@ -380,145 +315,6 @@ class DomainDataRetrievalSerpApiBulkSearchRequest implements ModelInterface, Arr
             throw new \InvalidArgumentException('non-nullable serp_queries cannot be null');
         }
         $this->container['serp_queries'] = $serp_queries;
-
-        return $this;
-    }
-
-    /**
-     * Gets country
-     *
-     * @return string|null
-     */
-    public function getCountry()
-    {
-        return $this->container['country'];
-    }
-
-    /**
-     * Sets country
-     *
-     * @param string|null $country country
-     *
-     * @return self
-     */
-    public function setCountry($country)
-    {
-        if (is_null($country)) {
-            array_push($this->openAPINullablesSetToNull, 'country');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('country', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['country'] = $country;
-
-        return $this;
-    }
-
-    /**
-     * Gets locale
-     *
-     * @return string|null
-     */
-    public function getLocale()
-    {
-        return $this->container['locale'];
-    }
-
-    /**
-     * Sets locale
-     *
-     * @param string|null $locale locale
-     *
-     * @return self
-     */
-    public function setLocale($locale)
-    {
-        if (is_null($locale)) {
-            array_push($this->openAPINullablesSetToNull, 'locale');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('locale', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['locale'] = $locale;
-
-        return $this;
-    }
-
-    /**
-     * Gets all_results
-     *
-     * @return bool
-     */
-    public function getAllResults()
-    {
-        return $this->container['all_results'];
-    }
-
-    /**
-     * Sets all_results
-     *
-     * @param bool $all_results all_results
-     *
-     * @return self
-     */
-    public function setAllResults($all_results)
-    {
-        if (is_null($all_results)) {
-            throw new \InvalidArgumentException('non-nullable all_results cannot be null');
-        }
-        $this->container['all_results'] = $all_results;
-
-        return $this;
-    }
-
-    /**
-     * Gets not_older_than
-     *
-     * @return string|null
-     */
-    public function getNotOlderThan()
-    {
-        return $this->container['not_older_than'];
-    }
-
-    /**
-     * Sets not_older_than
-     *
-     * @param string|null $not_older_than not_older_than
-     *
-     * @return self
-     */
-    public function setNotOlderThan($not_older_than)
-    {
-        if (is_null($not_older_than)) {
-            array_push($this->openAPINullablesSetToNull, 'not_older_than');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('not_older_than', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $allowedValues = $this->getNotOlderThanAllowableValues();
-        if (!is_null($not_older_than) && !in_array($not_older_than, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'not_older_than', must be one of '%s'",
-                    $not_older_than,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['not_older_than'] = $not_older_than;
 
         return $this;
     }

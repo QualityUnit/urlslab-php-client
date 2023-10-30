@@ -57,11 +57,12 @@ class DomainDataRetrievalSerpApiSearchResponse implements ModelInterface, ArrayA
       * @var string[]
       */
     protected static $openAPITypes = [
+        'serp_query' => 'string',
         'knowledge_graph' => 'object',
         'organic_results' => '\OpenAPI\Client\Model\DomainDataRetrievalSerpApiURL[]',
         'faqs' => 'object',
         'related_searches' => 'object',
-        'historical_metrics' => '\OpenAPI\Client\Model\DomainDataRetrievalSerpApiQueryHistoricalMetrics'
+        'serp_query_status' => 'string'
     ];
 
     /**
@@ -72,11 +73,12 @@ class DomainDataRetrievalSerpApiSearchResponse implements ModelInterface, ArrayA
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
+        'serp_query' => null,
         'knowledge_graph' => null,
         'organic_results' => null,
         'faqs' => null,
         'related_searches' => null,
-        'historical_metrics' => null
+        'serp_query_status' => null
     ];
 
     /**
@@ -85,11 +87,12 @@ class DomainDataRetrievalSerpApiSearchResponse implements ModelInterface, ArrayA
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'knowledge_graph' => true,
+        'serp_query' => false,
+		'knowledge_graph' => true,
 		'organic_results' => false,
 		'faqs' => true,
 		'related_searches' => true,
-		'historical_metrics' => false
+		'serp_query_status' => true
     ];
 
     /**
@@ -178,11 +181,12 @@ class DomainDataRetrievalSerpApiSearchResponse implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $attributeMap = [
+        'serp_query' => 'serpQuery',
         'knowledge_graph' => 'knowledgeGraph',
         'organic_results' => 'organicResults',
         'faqs' => 'faqs',
         'related_searches' => 'relatedSearches',
-        'historical_metrics' => 'historicalMetrics'
+        'serp_query_status' => 'serpQueryStatus'
     ];
 
     /**
@@ -191,11 +195,12 @@ class DomainDataRetrievalSerpApiSearchResponse implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $setters = [
+        'serp_query' => 'setSerpQuery',
         'knowledge_graph' => 'setKnowledgeGraph',
         'organic_results' => 'setOrganicResults',
         'faqs' => 'setFaqs',
         'related_searches' => 'setRelatedSearches',
-        'historical_metrics' => 'setHistoricalMetrics'
+        'serp_query_status' => 'setSerpQueryStatus'
     ];
 
     /**
@@ -204,11 +209,12 @@ class DomainDataRetrievalSerpApiSearchResponse implements ModelInterface, ArrayA
      * @var string[]
      */
     protected static $getters = [
+        'serp_query' => 'getSerpQuery',
         'knowledge_graph' => 'getKnowledgeGraph',
         'organic_results' => 'getOrganicResults',
         'faqs' => 'getFaqs',
         'related_searches' => 'getRelatedSearches',
-        'historical_metrics' => 'getHistoricalMetrics'
+        'serp_query_status' => 'getSerpQueryStatus'
     ];
 
     /**
@@ -252,6 +258,29 @@ class DomainDataRetrievalSerpApiSearchResponse implements ModelInterface, ArrayA
         return self::$openAPIModelName;
     }
 
+    public const SERP_QUERY_STATUS_ERROR = 'ERROR';
+    public const SERP_QUERY_STATUS_PENDING = 'PENDING';
+    public const SERP_QUERY_STATUS_REDIRECTED = 'REDIRECTED';
+    public const SERP_QUERY_STATUS_BLOCKED = 'BLOCKED';
+    public const SERP_QUERY_STATUS_UPDATING = 'UPDATING';
+    public const SERP_QUERY_STATUS_AVAILABLE = 'AVAILABLE';
+
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getSerpQueryStatusAllowableValues()
+    {
+        return [
+            self::SERP_QUERY_STATUS_ERROR,
+            self::SERP_QUERY_STATUS_PENDING,
+            self::SERP_QUERY_STATUS_REDIRECTED,
+            self::SERP_QUERY_STATUS_BLOCKED,
+            self::SERP_QUERY_STATUS_UPDATING,
+            self::SERP_QUERY_STATUS_AVAILABLE,
+        ];
+    }
 
     /**
      * Associative array for storing property values
@@ -268,11 +297,12 @@ class DomainDataRetrievalSerpApiSearchResponse implements ModelInterface, ArrayA
      */
     public function __construct(array $data = null)
     {
+        $this->setIfExists('serp_query', $data ?? [], null);
         $this->setIfExists('knowledge_graph', $data ?? [], null);
         $this->setIfExists('organic_results', $data ?? [], null);
         $this->setIfExists('faqs', $data ?? [], null);
         $this->setIfExists('related_searches', $data ?? [], null);
-        $this->setIfExists('historical_metrics', $data ?? [], null);
+        $this->setIfExists('serp_query_status', $data ?? [], null);
     }
 
     /**
@@ -302,9 +332,21 @@ class DomainDataRetrievalSerpApiSearchResponse implements ModelInterface, ArrayA
     {
         $invalidProperties = [];
 
+        if ($this->container['serp_query'] === null) {
+            $invalidProperties[] = "'serp_query' can't be null";
+        }
         if ($this->container['organic_results'] === null) {
             $invalidProperties[] = "'organic_results' can't be null";
         }
+        $allowedValues = $this->getSerpQueryStatusAllowableValues();
+        if (!is_null($this->container['serp_query_status']) && !in_array($this->container['serp_query_status'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value '%s' for 'serp_query_status', must be one of '%s'",
+                $this->container['serp_query_status'],
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -319,6 +361,33 @@ class DomainDataRetrievalSerpApiSearchResponse implements ModelInterface, ArrayA
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets serp_query
+     *
+     * @return string
+     */
+    public function getSerpQuery()
+    {
+        return $this->container['serp_query'];
+    }
+
+    /**
+     * Sets serp_query
+     *
+     * @param string $serp_query serp_query
+     *
+     * @return self
+     */
+    public function setSerpQuery($serp_query)
+    {
+        if (is_null($serp_query)) {
+            throw new \InvalidArgumentException('non-nullable serp_query cannot be null');
+        }
+        $this->container['serp_query'] = $serp_query;
+
+        return $this;
+    }
 
     /**
      * Gets knowledge_graph
@@ -450,28 +519,45 @@ class DomainDataRetrievalSerpApiSearchResponse implements ModelInterface, ArrayA
     }
 
     /**
-     * Gets historical_metrics
+     * Gets serp_query_status
      *
-     * @return \OpenAPI\Client\Model\DomainDataRetrievalSerpApiQueryHistoricalMetrics|null
+     * @return string|null
      */
-    public function getHistoricalMetrics()
+    public function getSerpQueryStatus()
     {
-        return $this->container['historical_metrics'];
+        return $this->container['serp_query_status'];
     }
 
     /**
-     * Sets historical_metrics
+     * Sets serp_query_status
      *
-     * @param \OpenAPI\Client\Model\DomainDataRetrievalSerpApiQueryHistoricalMetrics|null $historical_metrics historical_metrics
+     * @param string|null $serp_query_status serp_query_status
      *
      * @return self
      */
-    public function setHistoricalMetrics($historical_metrics)
+    public function setSerpQueryStatus($serp_query_status)
     {
-        if (is_null($historical_metrics)) {
-            throw new \InvalidArgumentException('non-nullable historical_metrics cannot be null');
+        if (is_null($serp_query_status)) {
+            array_push($this->openAPINullablesSetToNull, 'serp_query_status');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('serp_query_status', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['historical_metrics'] = $historical_metrics;
+        $allowedValues = $this->getSerpQueryStatusAllowableValues();
+        if (!is_null($serp_query_status) && !in_array($serp_query_status, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value '%s' for 'serp_query_status', must be one of '%s'",
+                    $serp_query_status,
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['serp_query_status'] = $serp_query_status;
 
         return $this;
     }
