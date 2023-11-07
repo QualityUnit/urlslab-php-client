@@ -255,7 +255,7 @@ class DomainDataRetrievalAugmentRequestWithURLContext implements ModelInterface,
     public const MODE_NAME__4_1106_PREVIEW = 'gpt-4-1106-preview';
     public const MODE_NAME__4_32K = 'gpt-4-32k';
     public const MODE_NAME__3_5_TURBO_16K = 'gpt-3.5-turbo-16k';
-    public const MODE_NAME__3_5_TURBO = 'gpt-3.5-turbo';
+    public const MODE_NAME__3_5_TURBO_1106 = 'gpt-3.5-turbo-1106';
     public const MODE_NAME__4 = 'gpt-4';
 
     /**
@@ -269,7 +269,7 @@ class DomainDataRetrievalAugmentRequestWithURLContext implements ModelInterface,
             self::MODE_NAME__4_1106_PREVIEW,
             self::MODE_NAME__4_32K,
             self::MODE_NAME__3_5_TURBO_16K,
-            self::MODE_NAME__3_5_TURBO,
+            self::MODE_NAME__3_5_TURBO_1106,
             self::MODE_NAME__4,
         ];
     }
