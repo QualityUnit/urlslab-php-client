@@ -252,11 +252,12 @@ class DomainDataRetrievalAugmentRequestWithURLContext implements ModelInterface,
         return self::$openAPIModelName;
     }
 
-    public const MODE_NAME_GPT_4_32K = 'gpt-4-32k';
-    public const MODE_NAME_GPT_3_5_TURBO_16K = 'gpt-3.5-turbo-16k';
-    public const MODE_NAME_TEXT_DAVINCI_003 = 'text-davinci-003';
-    public const MODE_NAME_GPT_3_5_TURBO = 'gpt-3.5-turbo';
-    public const MODE_NAME_GPT_4 = 'gpt-4';
+    public const MODE_NAME__4_1106_PREVIEW = 'gpt-4-1106-preview';
+    public const MODE_NAME__4_32K = 'gpt-4-32k';
+    public const MODE_NAME__3_5_TURBO_16K = 'gpt-3.5-turbo-16k';
+    public const MODE_NAME__4 = 'gpt-4';
+    public const MODE_NAME__3_5_TURBO = 'gpt-3.5-turbo';
+    public const MODE_NAME__3_TURBO = 'gpt-3-turbo';
 
     /**
      * Gets allowable values of the enum
@@ -266,11 +267,12 @@ class DomainDataRetrievalAugmentRequestWithURLContext implements ModelInterface,
     public function getModeNameAllowableValues()
     {
         return [
-            self::MODE_NAME_GPT_4_32K,
-            self::MODE_NAME_GPT_3_5_TURBO_16K,
-            self::MODE_NAME_TEXT_DAVINCI_003,
-            self::MODE_NAME_GPT_3_5_TURBO,
-            self::MODE_NAME_GPT_4,
+            self::MODE_NAME__4_1106_PREVIEW,
+            self::MODE_NAME__4_32K,
+            self::MODE_NAME__3_5_TURBO_16K,
+            self::MODE_NAME__4,
+            self::MODE_NAME__3_5_TURBO,
+            self::MODE_NAME__3_TURBO,
         ];
     }
 

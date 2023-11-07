@@ -252,11 +252,12 @@ class DomainDataRetrievalAugmentRequest implements ModelInterface, ArrayAccess, 
         return self::$openAPIModelName;
     }
 
-    public const AUGMENTING_MODEL_NAME_GPT_4_32K = 'gpt-4-32k';
-    public const AUGMENTING_MODEL_NAME_GPT_3_5_TURBO_16K = 'gpt-3.5-turbo-16k';
-    public const AUGMENTING_MODEL_NAME_TEXT_DAVINCI_003 = 'text-davinci-003';
-    public const AUGMENTING_MODEL_NAME_GPT_3_5_TURBO = 'gpt-3.5-turbo';
-    public const AUGMENTING_MODEL_NAME_GPT_4 = 'gpt-4';
+    public const AUGMENTING_MODEL_NAME__4_1106_PREVIEW = 'gpt-4-1106-preview';
+    public const AUGMENTING_MODEL_NAME__4_32K = 'gpt-4-32k';
+    public const AUGMENTING_MODEL_NAME__3_5_TURBO_16K = 'gpt-3.5-turbo-16k';
+    public const AUGMENTING_MODEL_NAME__4 = 'gpt-4';
+    public const AUGMENTING_MODEL_NAME__3_5_TURBO = 'gpt-3.5-turbo';
+    public const AUGMENTING_MODEL_NAME__3_TURBO = 'gpt-3-turbo';
     public const RENEW_FREQUENCY_ONE_TIME = 'ONE_TIME';
     public const RENEW_FREQUENCY_YEARLY = 'YEARLY';
     public const RENEW_FREQUENCY_DAILY = 'DAILY';
@@ -273,11 +274,12 @@ class DomainDataRetrievalAugmentRequest implements ModelInterface, ArrayAccess, 
     public function getAugmentingModelNameAllowableValues()
     {
         return [
-            self::AUGMENTING_MODEL_NAME_GPT_4_32K,
-            self::AUGMENTING_MODEL_NAME_GPT_3_5_TURBO_16K,
-            self::AUGMENTING_MODEL_NAME_TEXT_DAVINCI_003,
-            self::AUGMENTING_MODEL_NAME_GPT_3_5_TURBO,
-            self::AUGMENTING_MODEL_NAME_GPT_4,
+            self::AUGMENTING_MODEL_NAME__4_1106_PREVIEW,
+            self::AUGMENTING_MODEL_NAME__4_32K,
+            self::AUGMENTING_MODEL_NAME__3_5_TURBO_16K,
+            self::AUGMENTING_MODEL_NAME__4,
+            self::AUGMENTING_MODEL_NAME__3_5_TURBO,
+            self::AUGMENTING_MODEL_NAME__3_TURBO,
         ];
     }
 
