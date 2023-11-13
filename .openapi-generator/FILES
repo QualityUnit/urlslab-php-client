@@ -25,6 +25,7 @@ docs/Model/DomainDataRetrievalAugmentPrompt.md
 docs/Model/DomainDataRetrievalAugmentRequest.md
 docs/Model/DomainDataRetrievalAugmentRequestWithURLContext.md
 docs/Model/DomainDataRetrievalAugmentResponse.md
+docs/Model/DomainDataRetrievalComplexAugmentRequest.md
 docs/Model/DomainDataRetrievalComplexAugmentResponse.md
 docs/Model/DomainDataRetrievalContentQuery.md
 docs/Model/DomainDataRetrievalDataRequest.md
@@ -76,6 +77,7 @@ lib/Model/DomainDataRetrievalAugmentPrompt.php
 lib/Model/DomainDataRetrievalAugmentRequest.php
 lib/Model/DomainDataRetrievalAugmentRequestWithURLContext.php
 lib/Model/DomainDataRetrievalAugmentResponse.php
+lib/Model/DomainDataRetrievalComplexAugmentRequest.php
 lib/Model/DomainDataRetrievalComplexAugmentResponse.php
 lib/Model/DomainDataRetrievalContentQuery.php
 lib/Model/DomainDataRetrievalDataRequest.php
@@ -152,6 +154,7 @@ test/Model/DomainDataRetrievalAugmentPromptTest.php
 test/Model/DomainDataRetrievalAugmentRequestTest.php
 test/Model/DomainDataRetrievalAugmentRequestWithURLContextTest.php
 test/Model/DomainDataRetrievalAugmentResponseTest.php
+test/Model/DomainDataRetrievalComplexAugmentRequestTest.php
 test/Model/DomainDataRetrievalComplexAugmentResponseTest.php
 test/Model/DomainDataRetrievalContentQueryTest.php
 test/Model/DomainDataRetrievalDataRequestTest.php
