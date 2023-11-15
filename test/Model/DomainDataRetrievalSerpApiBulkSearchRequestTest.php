@@ -87,4 +87,13 @@ class DomainDataRetrievalSerpApiBulkSearchRequestTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "live_update"
+     */
+    public function testPropertyLiveUpdate()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

@@ -57,7 +57,8 @@ class DomainDataRetrievalSerpApiBulkSearchRequest implements ModelInterface, Arr
       * @var string[]
       */
     protected static $openAPITypes = [
-        'serp_queries' => '\OpenAPI\Client\Model\DomainDataRetrievalSerpApiSearchRequest[]'
+        'serp_queries' => '\OpenAPI\Client\Model\DomainDataRetrievalSerpApiSearchRequest[]',
+        'live_update' => 'bool'
     ];
 
     /**
@@ -68,7 +69,8 @@ class DomainDataRetrievalSerpApiBulkSearchRequest implements ModelInterface, Arr
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'serp_queries' => null
+        'serp_queries' => null,
+        'live_update' => null
     ];
 
     /**
@@ -77,7 +79,8 @@ class DomainDataRetrievalSerpApiBulkSearchRequest implements ModelInterface, Arr
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'serp_queries' => false
+        'serp_queries' => false,
+		'live_update' => true
     ];
 
     /**
@@ -166,7 +169,8 @@ class DomainDataRetrievalSerpApiBulkSearchRequest implements ModelInterface, Arr
      * @var string[]
      */
     protected static $attributeMap = [
-        'serp_queries' => 'serpQueries'
+        'serp_queries' => 'serpQueries',
+        'live_update' => 'liveUpdate'
     ];
 
     /**
@@ -175,7 +179,8 @@ class DomainDataRetrievalSerpApiBulkSearchRequest implements ModelInterface, Arr
      * @var string[]
      */
     protected static $setters = [
-        'serp_queries' => 'setSerpQueries'
+        'serp_queries' => 'setSerpQueries',
+        'live_update' => 'setLiveUpdate'
     ];
 
     /**
@@ -184,7 +189,8 @@ class DomainDataRetrievalSerpApiBulkSearchRequest implements ModelInterface, Arr
      * @var string[]
      */
     protected static $getters = [
-        'serp_queries' => 'getSerpQueries'
+        'serp_queries' => 'getSerpQueries',
+        'live_update' => 'getLiveUpdate'
     ];
 
     /**
@@ -245,6 +251,7 @@ class DomainDataRetrievalSerpApiBulkSearchRequest implements ModelInterface, Arr
     public function __construct(array $data = null)
     {
         $this->setIfExists('serp_queries', $data ?? [], null);
+        $this->setIfExists('live_update', $data ?? [], null);
     }
 
     /**
@@ -315,6 +322,40 @@ class DomainDataRetrievalSerpApiBulkSearchRequest implements ModelInterface, Arr
             throw new \InvalidArgumentException('non-nullable serp_queries cannot be null');
         }
         $this->container['serp_queries'] = $serp_queries;
+
+        return $this;
+    }
+
+    /**
+     * Gets live_update
+     *
+     * @return bool|null
+     */
+    public function getLiveUpdate()
+    {
+        return $this->container['live_update'];
+    }
+
+    /**
+     * Sets live_update
+     *
+     * @param bool|null $live_update live_update
+     *
+     * @return self
+     */
+    public function setLiveUpdate($live_update)
+    {
+        if (is_null($live_update)) {
+            array_push($this->openAPINullablesSetToNull, 'live_update');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('live_update', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['live_update'] = $live_update;
 
         return $this;
     }
