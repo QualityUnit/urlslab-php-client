@@ -1,6 +1,6 @@
 <?php
 /**
- * DomainUserCreditAggregatedCreditEvents
+ * SchemasResponsesChatbotChatbotResponse
  *
  * PHP version 7.4
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * DomainUserCreditAggregatedCreditEvents Class Doc Comment
+ * SchemasResponsesChatbotChatbotResponse Class Doc Comment
  *
  * @category Class
  * @package  OpenAPI\Client
@@ -40,7 +40,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAccess, \JsonSerializable
+class SchemasResponsesChatbotChatbotResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAcc
       *
       * @var string
       */
-    protected static $openAPIModelName = 'domain.userCredit.AggregatedCreditEvents';
+    protected static $openAPIModelName = 'schemas.responses.chatbot.ChatbotResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,11 +57,14 @@ class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $openAPITypes = [
-        'group_bucket_title' => 'string',
-        'installation_id' => 'string',
-        'credit_type' => 'string',
-        'events' => 'int',
-        'credits' => 'float'
+        'title' => 'string',
+        'system_prompt' => 'string',
+        'chat_model_class' => 'string',
+        'chat_model_name' => 'string',
+        'id' => 'string',
+        'chatbot_user_id' => 'string',
+        'chatbot_welcome_message' => 'string',
+        'connected_domains' => 'string[]'
     ];
 
     /**
@@ -72,11 +75,14 @@ class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAcc
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'group_bucket_title' => null,
-        'installation_id' => null,
-        'credit_type' => null,
-        'events' => 'int64',
-        'credits' => 'double'
+        'title' => null,
+        'system_prompt' => null,
+        'chat_model_class' => null,
+        'chat_model_name' => null,
+        'id' => null,
+        'chatbot_user_id' => null,
+        'chatbot_welcome_message' => null,
+        'connected_domains' => null
     ];
 
     /**
@@ -85,11 +91,14 @@ class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAcc
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'group_bucket_title' => false,
-		'installation_id' => false,
-		'credit_type' => false,
-		'events' => false,
-		'credits' => false
+        'title' => false,
+		'system_prompt' => false,
+		'chat_model_class' => false,
+		'chat_model_name' => false,
+		'id' => false,
+		'chatbot_user_id' => false,
+		'chatbot_welcome_message' => false,
+		'connected_domains' => false
     ];
 
     /**
@@ -178,11 +187,14 @@ class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $attributeMap = [
-        'group_bucket_title' => 'groupBucketTitle',
-        'installation_id' => 'installationId',
-        'credit_type' => 'creditType',
-        'events' => 'events',
-        'credits' => 'credits'
+        'title' => 'title',
+        'system_prompt' => 'systemPrompt',
+        'chat_model_class' => 'chatModelClass',
+        'chat_model_name' => 'chatModelName',
+        'id' => 'id',
+        'chatbot_user_id' => 'chatbotUserId',
+        'chatbot_welcome_message' => 'chatbotWelcomeMessage',
+        'connected_domains' => 'connectedDomains'
     ];
 
     /**
@@ -191,11 +203,14 @@ class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $setters = [
-        'group_bucket_title' => 'setGroupBucketTitle',
-        'installation_id' => 'setInstallationId',
-        'credit_type' => 'setCreditType',
-        'events' => 'setEvents',
-        'credits' => 'setCredits'
+        'title' => 'setTitle',
+        'system_prompt' => 'setSystemPrompt',
+        'chat_model_class' => 'setChatModelClass',
+        'chat_model_name' => 'setChatModelName',
+        'id' => 'setId',
+        'chatbot_user_id' => 'setChatbotUserId',
+        'chatbot_welcome_message' => 'setChatbotWelcomeMessage',
+        'connected_domains' => 'setConnectedDomains'
     ];
 
     /**
@@ -204,11 +219,14 @@ class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $getters = [
-        'group_bucket_title' => 'getGroupBucketTitle',
-        'installation_id' => 'getInstallationId',
-        'credit_type' => 'getCreditType',
-        'events' => 'getEvents',
-        'credits' => 'getCredits'
+        'title' => 'getTitle',
+        'system_prompt' => 'getSystemPrompt',
+        'chat_model_class' => 'getChatModelClass',
+        'chat_model_name' => 'getChatModelName',
+        'id' => 'getId',
+        'chatbot_user_id' => 'getChatbotUserId',
+        'chatbot_welcome_message' => 'getChatbotWelcomeMessage',
+        'connected_domains' => 'getConnectedDomains'
     ];
 
     /**
@@ -252,45 +270,6 @@ class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAcc
         return self::$openAPIModelName;
     }
 
-    public const CREDIT_TYPE_AUGMENTATION = 'AUGMENTATION';
-    public const CREDIT_TYPE_SERP_API_CACHED = 'SERP_API_CACHED';
-    public const CREDIT_TYPE_CRAWLING = 'CRAWLING';
-    public const CREDIT_TYPE_ADDING_CREDIT = 'ADDING_CREDIT';
-    public const CREDIT_TYPE_TOPPING_CREDIT = 'TOPPING_CREDIT';
-    public const CREDIT_TYPE_KEYWORD_ANALYTICS = 'KEYWORD_ANALYTICS';
-    public const CREDIT_TYPE_YOUTUBE_MICRODATA = 'YOUTUBE_MICRODATA';
-    public const CREDIT_TYPE_SUMMARY = 'SUMMARY';
-    public const CREDIT_TYPE_TEXT_INDEXING = 'TEXT_INDEXING';
-    public const CREDIT_TYPE_SCREENSHOT = 'SCREENSHOT';
-    public const CREDIT_TYPE_YOUTUBE_TRANSCRIPTION = 'YOUTUBE_TRANSCRIPTION';
-    public const CREDIT_TYPE_CHATBOT_MESSAGE = 'CHATBOT_MESSAGE';
-    public const CREDIT_TYPE_SERP_API = 'SERP_API';
-    public const CREDIT_TYPE_RELATED_URLS = 'RELATED_URLS';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getCreditTypeAllowableValues()
-    {
-        return [
-            self::CREDIT_TYPE_AUGMENTATION,
-            self::CREDIT_TYPE_SERP_API_CACHED,
-            self::CREDIT_TYPE_CRAWLING,
-            self::CREDIT_TYPE_ADDING_CREDIT,
-            self::CREDIT_TYPE_TOPPING_CREDIT,
-            self::CREDIT_TYPE_KEYWORD_ANALYTICS,
-            self::CREDIT_TYPE_YOUTUBE_MICRODATA,
-            self::CREDIT_TYPE_SUMMARY,
-            self::CREDIT_TYPE_TEXT_INDEXING,
-            self::CREDIT_TYPE_SCREENSHOT,
-            self::CREDIT_TYPE_YOUTUBE_TRANSCRIPTION,
-            self::CREDIT_TYPE_CHATBOT_MESSAGE,
-            self::CREDIT_TYPE_SERP_API,
-            self::CREDIT_TYPE_RELATED_URLS,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -307,11 +286,14 @@ class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAcc
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('group_bucket_title', $data ?? [], null);
-        $this->setIfExists('installation_id', $data ?? [], null);
-        $this->setIfExists('credit_type', $data ?? [], null);
-        $this->setIfExists('events', $data ?? [], null);
-        $this->setIfExists('credits', $data ?? [], null);
+        $this->setIfExists('title', $data ?? [], null);
+        $this->setIfExists('system_prompt', $data ?? [], null);
+        $this->setIfExists('chat_model_class', $data ?? [], null);
+        $this->setIfExists('chat_model_name', $data ?? [], null);
+        $this->setIfExists('id', $data ?? [], null);
+        $this->setIfExists('chatbot_user_id', $data ?? [], null);
+        $this->setIfExists('chatbot_welcome_message', $data ?? [], null);
+        $this->setIfExists('connected_domains', $data ?? [], null);
     }
 
     /**
@@ -341,29 +323,29 @@ class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAcc
     {
         $invalidProperties = [];
 
-        if ($this->container['group_bucket_title'] === null) {
-            $invalidProperties[] = "'group_bucket_title' can't be null";
+        if ($this->container['title'] === null) {
+            $invalidProperties[] = "'title' can't be null";
         }
-        if ($this->container['installation_id'] === null) {
-            $invalidProperties[] = "'installation_id' can't be null";
+        if ($this->container['system_prompt'] === null) {
+            $invalidProperties[] = "'system_prompt' can't be null";
         }
-        if ($this->container['credit_type'] === null) {
-            $invalidProperties[] = "'credit_type' can't be null";
+        if ($this->container['chat_model_class'] === null) {
+            $invalidProperties[] = "'chat_model_class' can't be null";
         }
-        $allowedValues = $this->getCreditTypeAllowableValues();
-        if (!is_null($this->container['credit_type']) && !in_array($this->container['credit_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'credit_type', must be one of '%s'",
-                $this->container['credit_type'],
-                implode("', '", $allowedValues)
-            );
+        if ($this->container['chat_model_name'] === null) {
+            $invalidProperties[] = "'chat_model_name' can't be null";
         }
-
-        if ($this->container['events'] === null) {
-            $invalidProperties[] = "'events' can't be null";
+        if ($this->container['id'] === null) {
+            $invalidProperties[] = "'id' can't be null";
         }
-        if ($this->container['credits'] === null) {
-            $invalidProperties[] = "'credits' can't be null";
+        if ($this->container['chatbot_user_id'] === null) {
+            $invalidProperties[] = "'chatbot_user_id' can't be null";
+        }
+        if ($this->container['chatbot_welcome_message'] === null) {
+            $invalidProperties[] = "'chatbot_welcome_message' can't be null";
+        }
+        if ($this->container['connected_domains'] === null) {
+            $invalidProperties[] = "'connected_domains' can't be null";
         }
         return $invalidProperties;
     }
@@ -381,146 +363,217 @@ class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAcc
 
 
     /**
-     * Gets group_bucket_title
+     * Gets title
      *
      * @return string
      */
-    public function getGroupBucketTitle()
+    public function getTitle()
     {
-        return $this->container['group_bucket_title'];
+        return $this->container['title'];
     }
 
     /**
-     * Sets group_bucket_title
+     * Sets title
      *
-     * @param string $group_bucket_title group_bucket_title
+     * @param string $title title
      *
      * @return self
      */
-    public function setGroupBucketTitle($group_bucket_title)
+    public function setTitle($title)
     {
-        if (is_null($group_bucket_title)) {
-            throw new \InvalidArgumentException('non-nullable group_bucket_title cannot be null');
+        if (is_null($title)) {
+            throw new \InvalidArgumentException('non-nullable title cannot be null');
         }
-        $this->container['group_bucket_title'] = $group_bucket_title;
+        $this->container['title'] = $title;
 
         return $this;
     }
 
     /**
-     * Gets installation_id
+     * Gets system_prompt
      *
      * @return string
      */
-    public function getInstallationId()
+    public function getSystemPrompt()
     {
-        return $this->container['installation_id'];
+        return $this->container['system_prompt'];
     }
 
     /**
-     * Sets installation_id
+     * Sets system_prompt
      *
-     * @param string $installation_id installation_id
+     * @param string $system_prompt system_prompt
      *
      * @return self
      */
-    public function setInstallationId($installation_id)
+    public function setSystemPrompt($system_prompt)
     {
-        if (is_null($installation_id)) {
-            throw new \InvalidArgumentException('non-nullable installation_id cannot be null');
+        if (is_null($system_prompt)) {
+            throw new \InvalidArgumentException('non-nullable system_prompt cannot be null');
         }
-        $this->container['installation_id'] = $installation_id;
+        $this->container['system_prompt'] = $system_prompt;
 
         return $this;
     }
 
     /**
-     * Gets credit_type
+     * Gets chat_model_class
      *
      * @return string
      */
-    public function getCreditType()
+    public function getChatModelClass()
     {
-        return $this->container['credit_type'];
+        return $this->container['chat_model_class'];
     }
 
     /**
-     * Sets credit_type
+     * Sets chat_model_class
      *
-     * @param string $credit_type credit_type
+     * @param string $chat_model_class chat_model_class
      *
      * @return self
      */
-    public function setCreditType($credit_type)
+    public function setChatModelClass($chat_model_class)
     {
-        if (is_null($credit_type)) {
-            throw new \InvalidArgumentException('non-nullable credit_type cannot be null');
+        if (is_null($chat_model_class)) {
+            throw new \InvalidArgumentException('non-nullable chat_model_class cannot be null');
         }
-        $allowedValues = $this->getCreditTypeAllowableValues();
-        if (!in_array($credit_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'credit_type', must be one of '%s'",
-                    $credit_type,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['credit_type'] = $credit_type;
+        $this->container['chat_model_class'] = $chat_model_class;
 
         return $this;
     }
 
     /**
-     * Gets events
+     * Gets chat_model_name
      *
-     * @return int
+     * @return string
      */
-    public function getEvents()
+    public function getChatModelName()
     {
-        return $this->container['events'];
+        return $this->container['chat_model_name'];
     }
 
     /**
-     * Sets events
+     * Sets chat_model_name
      *
-     * @param int $events events
+     * @param string $chat_model_name chat_model_name
      *
      * @return self
      */
-    public function setEvents($events)
+    public function setChatModelName($chat_model_name)
     {
-        if (is_null($events)) {
-            throw new \InvalidArgumentException('non-nullable events cannot be null');
+        if (is_null($chat_model_name)) {
+            throw new \InvalidArgumentException('non-nullable chat_model_name cannot be null');
         }
-        $this->container['events'] = $events;
+        $this->container['chat_model_name'] = $chat_model_name;
 
         return $this;
     }
 
     /**
-     * Gets credits
+     * Gets id
      *
-     * @return float
+     * @return string
      */
-    public function getCredits()
+    public function getId()
     {
-        return $this->container['credits'];
+        return $this->container['id'];
     }
 
     /**
-     * Sets credits
+     * Sets id
      *
-     * @param float $credits credits
+     * @param string $id id
      *
      * @return self
      */
-    public function setCredits($credits)
+    public function setId($id)
     {
-        if (is_null($credits)) {
-            throw new \InvalidArgumentException('non-nullable credits cannot be null');
+        if (is_null($id)) {
+            throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
-        $this->container['credits'] = $credits;
+        $this->container['id'] = $id;
+
+        return $this;
+    }
+
+    /**
+     * Gets chatbot_user_id
+     *
+     * @return string
+     */
+    public function getChatbotUserId()
+    {
+        return $this->container['chatbot_user_id'];
+    }
+
+    /**
+     * Sets chatbot_user_id
+     *
+     * @param string $chatbot_user_id chatbot_user_id
+     *
+     * @return self
+     */
+    public function setChatbotUserId($chatbot_user_id)
+    {
+        if (is_null($chatbot_user_id)) {
+            throw new \InvalidArgumentException('non-nullable chatbot_user_id cannot be null');
+        }
+        $this->container['chatbot_user_id'] = $chatbot_user_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets chatbot_welcome_message
+     *
+     * @return string
+     */
+    public function getChatbotWelcomeMessage()
+    {
+        return $this->container['chatbot_welcome_message'];
+    }
+
+    /**
+     * Sets chatbot_welcome_message
+     *
+     * @param string $chatbot_welcome_message chatbot_welcome_message
+     *
+     * @return self
+     */
+    public function setChatbotWelcomeMessage($chatbot_welcome_message)
+    {
+        if (is_null($chatbot_welcome_message)) {
+            throw new \InvalidArgumentException('non-nullable chatbot_welcome_message cannot be null');
+        }
+        $this->container['chatbot_welcome_message'] = $chatbot_welcome_message;
+
+        return $this;
+    }
+
+    /**
+     * Gets connected_domains
+     *
+     * @return string[]
+     */
+    public function getConnectedDomains()
+    {
+        return $this->container['connected_domains'];
+    }
+
+    /**
+     * Sets connected_domains
+     *
+     * @param string[] $connected_domains connected_domains
+     *
+     * @return self
+     */
+    public function setConnectedDomains($connected_domains)
+    {
+        if (is_null($connected_domains)) {
+            throw new \InvalidArgumentException('non-nullable connected_domains cannot be null');
+        }
+        $this->container['connected_domains'] = $connected_domains;
 
         return $this;
     }

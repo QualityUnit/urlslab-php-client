@@ -1,6 +1,6 @@
 <?php
 /**
- * DomainUserCreditAggregatedCreditEvents
+ * SchemasResponsesChatbotChatbotSessionResponse
  *
  * PHP version 7.4
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * DomainUserCreditAggregatedCreditEvents Class Doc Comment
+ * SchemasResponsesChatbotChatbotSessionResponse Class Doc Comment
  *
  * @category Class
  * @package  OpenAPI\Client
@@ -40,7 +40,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAccess, \JsonSerializable
+class SchemasResponsesChatbotChatbotSessionResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAcc
       *
       * @var string
       */
-    protected static $openAPIModelName = 'domain.userCredit.AggregatedCreditEvents';
+    protected static $openAPIModelName = 'schemas.responses.chatbot.ChatbotSessionResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,11 +57,8 @@ class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAcc
       * @var string[]
       */
     protected static $openAPITypes = [
-        'group_bucket_title' => 'string',
-        'installation_id' => 'string',
-        'credit_type' => 'string',
-        'events' => 'int',
-        'credits' => 'float'
+        'created_at' => 'string',
+        'session_id' => 'string'
     ];
 
     /**
@@ -72,11 +69,8 @@ class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAcc
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'group_bucket_title' => null,
-        'installation_id' => null,
-        'credit_type' => null,
-        'events' => 'int64',
-        'credits' => 'double'
+        'created_at' => null,
+        'session_id' => null
     ];
 
     /**
@@ -85,11 +79,8 @@ class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAcc
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'group_bucket_title' => false,
-		'installation_id' => false,
-		'credit_type' => false,
-		'events' => false,
-		'credits' => false
+        'created_at' => false,
+		'session_id' => false
     ];
 
     /**
@@ -178,11 +169,8 @@ class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $attributeMap = [
-        'group_bucket_title' => 'groupBucketTitle',
-        'installation_id' => 'installationId',
-        'credit_type' => 'creditType',
-        'events' => 'events',
-        'credits' => 'credits'
+        'created_at' => 'createdAt',
+        'session_id' => 'sessionId'
     ];
 
     /**
@@ -191,11 +179,8 @@ class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $setters = [
-        'group_bucket_title' => 'setGroupBucketTitle',
-        'installation_id' => 'setInstallationId',
-        'credit_type' => 'setCreditType',
-        'events' => 'setEvents',
-        'credits' => 'setCredits'
+        'created_at' => 'setCreatedAt',
+        'session_id' => 'setSessionId'
     ];
 
     /**
@@ -204,11 +189,8 @@ class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAcc
      * @var string[]
      */
     protected static $getters = [
-        'group_bucket_title' => 'getGroupBucketTitle',
-        'installation_id' => 'getInstallationId',
-        'credit_type' => 'getCreditType',
-        'events' => 'getEvents',
-        'credits' => 'getCredits'
+        'created_at' => 'getCreatedAt',
+        'session_id' => 'getSessionId'
     ];
 
     /**
@@ -252,45 +234,6 @@ class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAcc
         return self::$openAPIModelName;
     }
 
-    public const CREDIT_TYPE_AUGMENTATION = 'AUGMENTATION';
-    public const CREDIT_TYPE_SERP_API_CACHED = 'SERP_API_CACHED';
-    public const CREDIT_TYPE_CRAWLING = 'CRAWLING';
-    public const CREDIT_TYPE_ADDING_CREDIT = 'ADDING_CREDIT';
-    public const CREDIT_TYPE_TOPPING_CREDIT = 'TOPPING_CREDIT';
-    public const CREDIT_TYPE_KEYWORD_ANALYTICS = 'KEYWORD_ANALYTICS';
-    public const CREDIT_TYPE_YOUTUBE_MICRODATA = 'YOUTUBE_MICRODATA';
-    public const CREDIT_TYPE_SUMMARY = 'SUMMARY';
-    public const CREDIT_TYPE_TEXT_INDEXING = 'TEXT_INDEXING';
-    public const CREDIT_TYPE_SCREENSHOT = 'SCREENSHOT';
-    public const CREDIT_TYPE_YOUTUBE_TRANSCRIPTION = 'YOUTUBE_TRANSCRIPTION';
-    public const CREDIT_TYPE_CHATBOT_MESSAGE = 'CHATBOT_MESSAGE';
-    public const CREDIT_TYPE_SERP_API = 'SERP_API';
-    public const CREDIT_TYPE_RELATED_URLS = 'RELATED_URLS';
-
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getCreditTypeAllowableValues()
-    {
-        return [
-            self::CREDIT_TYPE_AUGMENTATION,
-            self::CREDIT_TYPE_SERP_API_CACHED,
-            self::CREDIT_TYPE_CRAWLING,
-            self::CREDIT_TYPE_ADDING_CREDIT,
-            self::CREDIT_TYPE_TOPPING_CREDIT,
-            self::CREDIT_TYPE_KEYWORD_ANALYTICS,
-            self::CREDIT_TYPE_YOUTUBE_MICRODATA,
-            self::CREDIT_TYPE_SUMMARY,
-            self::CREDIT_TYPE_TEXT_INDEXING,
-            self::CREDIT_TYPE_SCREENSHOT,
-            self::CREDIT_TYPE_YOUTUBE_TRANSCRIPTION,
-            self::CREDIT_TYPE_CHATBOT_MESSAGE,
-            self::CREDIT_TYPE_SERP_API,
-            self::CREDIT_TYPE_RELATED_URLS,
-        ];
-    }
 
     /**
      * Associative array for storing property values
@@ -307,11 +250,8 @@ class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAcc
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('group_bucket_title', $data ?? [], null);
-        $this->setIfExists('installation_id', $data ?? [], null);
-        $this->setIfExists('credit_type', $data ?? [], null);
-        $this->setIfExists('events', $data ?? [], null);
-        $this->setIfExists('credits', $data ?? [], null);
+        $this->setIfExists('created_at', $data ?? [], null);
+        $this->setIfExists('session_id', $data ?? [], null);
     }
 
     /**
@@ -341,29 +281,11 @@ class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAcc
     {
         $invalidProperties = [];
 
-        if ($this->container['group_bucket_title'] === null) {
-            $invalidProperties[] = "'group_bucket_title' can't be null";
+        if ($this->container['created_at'] === null) {
+            $invalidProperties[] = "'created_at' can't be null";
         }
-        if ($this->container['installation_id'] === null) {
-            $invalidProperties[] = "'installation_id' can't be null";
-        }
-        if ($this->container['credit_type'] === null) {
-            $invalidProperties[] = "'credit_type' can't be null";
-        }
-        $allowedValues = $this->getCreditTypeAllowableValues();
-        if (!is_null($this->container['credit_type']) && !in_array($this->container['credit_type'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value '%s' for 'credit_type', must be one of '%s'",
-                $this->container['credit_type'],
-                implode("', '", $allowedValues)
-            );
-        }
-
-        if ($this->container['events'] === null) {
-            $invalidProperties[] = "'events' can't be null";
-        }
-        if ($this->container['credits'] === null) {
-            $invalidProperties[] = "'credits' can't be null";
+        if ($this->container['session_id'] === null) {
+            $invalidProperties[] = "'session_id' can't be null";
         }
         return $invalidProperties;
     }
@@ -381,146 +303,55 @@ class DomainUserCreditAggregatedCreditEvents implements ModelInterface, ArrayAcc
 
 
     /**
-     * Gets group_bucket_title
+     * Gets created_at
      *
      * @return string
      */
-    public function getGroupBucketTitle()
+    public function getCreatedAt()
     {
-        return $this->container['group_bucket_title'];
+        return $this->container['created_at'];
     }
 
     /**
-     * Sets group_bucket_title
+     * Sets created_at
      *
-     * @param string $group_bucket_title group_bucket_title
+     * @param string $created_at created_at
      *
      * @return self
      */
-    public function setGroupBucketTitle($group_bucket_title)
+    public function setCreatedAt($created_at)
     {
-        if (is_null($group_bucket_title)) {
-            throw new \InvalidArgumentException('non-nullable group_bucket_title cannot be null');
+        if (is_null($created_at)) {
+            throw new \InvalidArgumentException('non-nullable created_at cannot be null');
         }
-        $this->container['group_bucket_title'] = $group_bucket_title;
+        $this->container['created_at'] = $created_at;
 
         return $this;
     }
 
     /**
-     * Gets installation_id
+     * Gets session_id
      *
      * @return string
      */
-    public function getInstallationId()
+    public function getSessionId()
     {
-        return $this->container['installation_id'];
+        return $this->container['session_id'];
     }
 
     /**
-     * Sets installation_id
+     * Sets session_id
      *
-     * @param string $installation_id installation_id
+     * @param string $session_id session_id
      *
      * @return self
      */
-    public function setInstallationId($installation_id)
+    public function setSessionId($session_id)
     {
-        if (is_null($installation_id)) {
-            throw new \InvalidArgumentException('non-nullable installation_id cannot be null');
+        if (is_null($session_id)) {
+            throw new \InvalidArgumentException('non-nullable session_id cannot be null');
         }
-        $this->container['installation_id'] = $installation_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets credit_type
-     *
-     * @return string
-     */
-    public function getCreditType()
-    {
-        return $this->container['credit_type'];
-    }
-
-    /**
-     * Sets credit_type
-     *
-     * @param string $credit_type credit_type
-     *
-     * @return self
-     */
-    public function setCreditType($credit_type)
-    {
-        if (is_null($credit_type)) {
-            throw new \InvalidArgumentException('non-nullable credit_type cannot be null');
-        }
-        $allowedValues = $this->getCreditTypeAllowableValues();
-        if (!in_array($credit_type, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value '%s' for 'credit_type', must be one of '%s'",
-                    $credit_type,
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['credit_type'] = $credit_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets events
-     *
-     * @return int
-     */
-    public function getEvents()
-    {
-        return $this->container['events'];
-    }
-
-    /**
-     * Sets events
-     *
-     * @param int $events events
-     *
-     * @return self
-     */
-    public function setEvents($events)
-    {
-        if (is_null($events)) {
-            throw new \InvalidArgumentException('non-nullable events cannot be null');
-        }
-        $this->container['events'] = $events;
-
-        return $this;
-    }
-
-    /**
-     * Gets credits
-     *
-     * @return float
-     */
-    public function getCredits()
-    {
-        return $this->container['credits'];
-    }
-
-    /**
-     * Sets credits
-     *
-     * @param float $credits credits
-     *
-     * @return self
-     */
-    public function setCredits($credits)
-    {
-        if (is_null($credits)) {
-            throw new \InvalidArgumentException('non-nullable credits cannot be null');
-        }
-        $this->container['credits'] = $credits;
+        $this->container['session_id'] = $session_id;
 
         return $this;
     }

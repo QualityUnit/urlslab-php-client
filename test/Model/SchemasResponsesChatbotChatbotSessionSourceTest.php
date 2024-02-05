@@ -1,6 +1,6 @@
 <?php
 /**
- * DomainDomainsDomainResponseDTOTest
+ * SchemasResponsesChatbotChatbotSessionSourceTest
  *
  * PHP version 7.4
  *
@@ -31,15 +31,15 @@ namespace OpenAPI\Client\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * DomainDomainsDomainResponseDTOTest Class Doc Comment
+ * SchemasResponsesChatbotChatbotSessionSourceTest Class Doc Comment
  *
  * @category    Class
- * @description DomainDomainsDomainResponseDTO
+ * @description SchemasResponsesChatbotChatbotSessionSource
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class DomainDomainsDomainResponseDTOTest extends TestCase
+class SchemasResponsesChatbotChatbotSessionSourceTest extends TestCase
 {
 
     /**
@@ -71,54 +71,18 @@ class DomainDomainsDomainResponseDTOTest extends TestCase
     }
 
     /**
-     * Test "DomainDomainsDomainResponseDTO"
+     * Test "SchemasResponsesChatbotChatbotSessionSource"
      */
-    public function testDomainDomainsDomainResponseDTO()
+    public function testSchemasResponsesChatbotChatbotSessionSource()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "domain_id"
+     * Test attribute "sources"
      */
-    public function testPropertyDomainId()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "process_ids"
-     */
-    public function testPropertyProcessIds()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "domain_name"
-     */
-    public function testPropertyDomainName()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "last_scheduled"
-     */
-    public function testPropertyLastScheduled()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "home_page_url"
-     */
-    public function testPropertyHomePageUrl()
+    public function testPropertySources()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

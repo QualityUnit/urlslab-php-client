@@ -98,9 +98,9 @@ class DomainDomainsUrlResponseDTO implements ModelInterface, ArrayAccess, \JsonS
         'domain_id' => false,
 		'url_id' => false,
 		'url' => false,
-		'last_seen' => true,
-		'last_changed' => true,
-		'created_time' => true,
+		'last_seen' => false,
+		'last_changed' => false,
+		'created_time' => false,
 		'page_title' => true,
 		'page_lang' => true,
 		'meta_description' => true,
@@ -346,6 +346,18 @@ class DomainDomainsUrlResponseDTO implements ModelInterface, ArrayAccess, \JsonS
         if ($this->container['url'] === null) {
             $invalidProperties[] = "'url' can't be null";
         }
+        if ($this->container['last_seen'] === null) {
+            $invalidProperties[] = "'last_seen' can't be null";
+        }
+        if ($this->container['last_changed'] === null) {
+            $invalidProperties[] = "'last_changed' can't be null";
+        }
+        if ($this->container['created_time'] === null) {
+            $invalidProperties[] = "'created_time' can't be null";
+        }
+        if ($this->container['screenshot'] === null) {
+            $invalidProperties[] = "'screenshot' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -445,7 +457,7 @@ class DomainDomainsUrlResponseDTO implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets last_seen
      *
-     * @return int|null
+     * @return int
      */
     public function getLastSeen()
     {
@@ -455,21 +467,14 @@ class DomainDomainsUrlResponseDTO implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets last_seen
      *
-     * @param int|null $last_seen last_seen
+     * @param int $last_seen last_seen
      *
      * @return self
      */
     public function setLastSeen($last_seen)
     {
         if (is_null($last_seen)) {
-            array_push($this->openAPINullablesSetToNull, 'last_seen');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('last_seen', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable last_seen cannot be null');
         }
         $this->container['last_seen'] = $last_seen;
 
@@ -479,7 +484,7 @@ class DomainDomainsUrlResponseDTO implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets last_changed
      *
-     * @return int|null
+     * @return int
      */
     public function getLastChanged()
     {
@@ -489,21 +494,14 @@ class DomainDomainsUrlResponseDTO implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets last_changed
      *
-     * @param int|null $last_changed last_changed
+     * @param int $last_changed last_changed
      *
      * @return self
      */
     public function setLastChanged($last_changed)
     {
         if (is_null($last_changed)) {
-            array_push($this->openAPINullablesSetToNull, 'last_changed');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('last_changed', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable last_changed cannot be null');
         }
         $this->container['last_changed'] = $last_changed;
 
@@ -513,7 +511,7 @@ class DomainDomainsUrlResponseDTO implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets created_time
      *
-     * @return int|null
+     * @return int
      */
     public function getCreatedTime()
     {
@@ -523,21 +521,14 @@ class DomainDomainsUrlResponseDTO implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets created_time
      *
-     * @param int|null $created_time created_time
+     * @param int $created_time created_time
      *
      * @return self
      */
     public function setCreatedTime($created_time)
     {
         if (is_null($created_time)) {
-            array_push($this->openAPINullablesSetToNull, 'created_time');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('created_time', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable created_time cannot be null');
         }
         $this->container['created_time'] = $created_time;
 
@@ -649,7 +640,7 @@ class DomainDomainsUrlResponseDTO implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets screenshot
      *
-     * @return \OpenAPI\Client\Model\DomainDomainsUrlScreenshotDTO|null
+     * @return \OpenAPI\Client\Model\DomainDomainsUrlScreenshotDTO
      */
     public function getScreenshot()
     {
@@ -659,7 +650,7 @@ class DomainDomainsUrlResponseDTO implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets screenshot
      *
-     * @param \OpenAPI\Client\Model\DomainDomainsUrlScreenshotDTO|null $screenshot screenshot
+     * @param \OpenAPI\Client\Model\DomainDomainsUrlScreenshotDTO $screenshot screenshot
      *
      * @return self
      */

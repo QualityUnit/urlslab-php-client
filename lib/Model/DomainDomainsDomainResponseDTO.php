@@ -58,6 +58,7 @@ class DomainDomainsDomainResponseDTO implements ModelInterface, ArrayAccess, \Js
       */
     protected static $openAPITypes = [
         'domain_id' => 'int',
+        'process_ids' => 'string[]',
         'domain_name' => 'string',
         'last_scheduled' => 'int',
         'home_page_url' => '\OpenAPI\Client\Model\DomainDomainsUrlResponseDTO'
@@ -72,6 +73,7 @@ class DomainDomainsDomainResponseDTO implements ModelInterface, ArrayAccess, \Js
       */
     protected static $openAPIFormats = [
         'domain_id' => 'int64',
+        'process_ids' => null,
         'domain_name' => null,
         'last_scheduled' => 'int64',
         'home_page_url' => null
@@ -84,6 +86,7 @@ class DomainDomainsDomainResponseDTO implements ModelInterface, ArrayAccess, \Js
       */
     protected static array $openAPINullables = [
         'domain_id' => false,
+		'process_ids' => false,
 		'domain_name' => false,
 		'last_scheduled' => false,
 		'home_page_url' => false
@@ -176,6 +179,7 @@ class DomainDomainsDomainResponseDTO implements ModelInterface, ArrayAccess, \Js
      */
     protected static $attributeMap = [
         'domain_id' => 'domainId',
+        'process_ids' => 'processIds',
         'domain_name' => 'domainName',
         'last_scheduled' => 'lastScheduled',
         'home_page_url' => 'homePageUrl'
@@ -188,6 +192,7 @@ class DomainDomainsDomainResponseDTO implements ModelInterface, ArrayAccess, \Js
      */
     protected static $setters = [
         'domain_id' => 'setDomainId',
+        'process_ids' => 'setProcessIds',
         'domain_name' => 'setDomainName',
         'last_scheduled' => 'setLastScheduled',
         'home_page_url' => 'setHomePageUrl'
@@ -200,6 +205,7 @@ class DomainDomainsDomainResponseDTO implements ModelInterface, ArrayAccess, \Js
      */
     protected static $getters = [
         'domain_id' => 'getDomainId',
+        'process_ids' => 'getProcessIds',
         'domain_name' => 'getDomainName',
         'last_scheduled' => 'getLastScheduled',
         'home_page_url' => 'getHomePageUrl'
@@ -263,6 +269,7 @@ class DomainDomainsDomainResponseDTO implements ModelInterface, ArrayAccess, \Js
     public function __construct(array $data = null)
     {
         $this->setIfExists('domain_id', $data ?? [], null);
+        $this->setIfExists('process_ids', $data ?? [], null);
         $this->setIfExists('domain_name', $data ?? [], null);
         $this->setIfExists('last_scheduled', $data ?? [], null);
         $this->setIfExists('home_page_url', $data ?? [], null);
@@ -297,6 +304,9 @@ class DomainDomainsDomainResponseDTO implements ModelInterface, ArrayAccess, \Js
 
         if ($this->container['domain_id'] === null) {
             $invalidProperties[] = "'domain_id' can't be null";
+        }
+        if ($this->container['process_ids'] === null) {
+            $invalidProperties[] = "'process_ids' can't be null";
         }
         if ($this->container['domain_name'] === null) {
             $invalidProperties[] = "'domain_name' can't be null";
@@ -342,6 +352,33 @@ class DomainDomainsDomainResponseDTO implements ModelInterface, ArrayAccess, \Js
             throw new \InvalidArgumentException('non-nullable domain_id cannot be null');
         }
         $this->container['domain_id'] = $domain_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets process_ids
+     *
+     * @return string[]
+     */
+    public function getProcessIds()
+    {
+        return $this->container['process_ids'];
+    }
+
+    /**
+     * Sets process_ids
+     *
+     * @param string[] $process_ids process_ids
+     *
+     * @return self
+     */
+    public function setProcessIds($process_ids)
+    {
+        if (is_null($process_ids)) {
+            throw new \InvalidArgumentException('non-nullable process_ids cannot be null');
+        }
+        $this->container['process_ids'] = $process_ids;
 
         return $this;
     }

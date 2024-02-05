@@ -7,6 +7,7 @@ composer.json
 docs/Api/AnalyticsApi.md
 docs/Api/ApikeyApi.md
 docs/Api/AuthApi.md
+docs/Api/ChatbotApi.md
 docs/Api/ContentApi.md
 docs/Api/CreditsApi.md
 docs/Api/DocsApi.md
@@ -65,6 +66,12 @@ docs/Model/DomainUserCreditAggregatedCreditResponse.md
 docs/Model/DomainUserCreditCreditEvent.md
 docs/Model/DomainUserCreditCreditEventResponse.md
 docs/Model/DomainUserCreditCreditStatus.md
+docs/Model/SchemasExtrasCompleted.md
+docs/Model/SchemasRequestsChatbotChatCompletionRequest.md
+docs/Model/SchemasRequestsChatbotChatbotCreate.md
+docs/Model/SchemasResponsesChatbotChatbotResponse.md
+docs/Model/SchemasResponsesChatbotChatbotSessionResponse.md
+docs/Model/SchemasResponsesChatbotChatbotSessionSource.md
 git_push.sh
 lib/ApiException.php
 lib/Configuration.php
@@ -118,10 +125,17 @@ lib/Model/DomainUserCreditCreditEvent.php
 lib/Model/DomainUserCreditCreditEventResponse.php
 lib/Model/DomainUserCreditCreditStatus.php
 lib/Model/ModelInterface.php
+lib/Model/SchemasExtrasCompleted.php
+lib/Model/SchemasRequestsChatbotChatCompletionRequest.php
+lib/Model/SchemasRequestsChatbotChatbotCreate.php
+lib/Model/SchemasResponsesChatbotChatbotResponse.php
+lib/Model/SchemasResponsesChatbotChatbotSessionResponse.php
+lib/Model/SchemasResponsesChatbotChatbotSessionSource.php
 lib/ObjectSerializer.php
 lib/Urlslab/AnalyticsApi.php
 lib/Urlslab/ApikeyApi.php
 lib/Urlslab/AuthApi.php
+lib/Urlslab/ChatbotApi.php
 lib/Urlslab/ContentApi.php
 lib/Urlslab/CreditsApi.php
 lib/Urlslab/DocsApi.php
@@ -136,6 +150,7 @@ phpunit.xml.dist
 test/Api/AnalyticsApiTest.php
 test/Api/ApikeyApiTest.php
 test/Api/AuthApiTest.php
+test/Api/ChatbotApiTest.php
 test/Api/ContentApiTest.php
 test/Api/CreditsApiTest.php
 test/Api/DocsApiTest.php
@@ -194,3 +209,9 @@ test/Model/DomainUserCreditAggregatedCreditResponseTest.php
 test/Model/DomainUserCreditCreditEventResponseTest.php
 test/Model/DomainUserCreditCreditEventTest.php
 test/Model/DomainUserCreditCreditStatusTest.php
+test/Model/SchemasExtrasCompletedTest.php
+test/Model/SchemasRequestsChatbotChatCompletionRequestTest.php
+test/Model/SchemasRequestsChatbotChatbotCreateTest.php
+test/Model/SchemasResponsesChatbotChatbotResponseTest.php
+test/Model/SchemasResponsesChatbotChatbotSessionResponseTest.php
+test/Model/SchemasResponsesChatbotChatbotSessionSourceTest.php

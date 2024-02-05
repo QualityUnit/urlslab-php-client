@@ -1,6 +1,6 @@
 <?php
 /**
- * DomainDomainsDomainResponseDTOTest
+ * SchemasRequestsChatbotChatbotCreateTest
  *
  * PHP version 7.4
  *
@@ -31,15 +31,15 @@ namespace OpenAPI\Client\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * DomainDomainsDomainResponseDTOTest Class Doc Comment
+ * SchemasRequestsChatbotChatbotCreateTest Class Doc Comment
  *
  * @category    Class
- * @description DomainDomainsDomainResponseDTO
+ * @description SchemasRequestsChatbotChatbotCreate
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class DomainDomainsDomainResponseDTOTest extends TestCase
+class SchemasRequestsChatbotChatbotCreateTest extends TestCase
 {
 
     /**
@@ -71,54 +71,63 @@ class DomainDomainsDomainResponseDTOTest extends TestCase
     }
 
     /**
-     * Test "DomainDomainsDomainResponseDTO"
+     * Test "SchemasRequestsChatbotChatbotCreate"
      */
-    public function testDomainDomainsDomainResponseDTO()
+    public function testSchemasRequestsChatbotChatbotCreate()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "domain_id"
+     * Test attribute "title"
      */
-    public function testPropertyDomainId()
+    public function testPropertyTitle()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "process_ids"
+     * Test attribute "system_prompt"
      */
-    public function testPropertyProcessIds()
+    public function testPropertySystemPrompt()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "domain_name"
+     * Test attribute "chat_model_class"
      */
-    public function testPropertyDomainName()
+    public function testPropertyChatModelClass()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "last_scheduled"
+     * Test attribute "chat_model_name"
      */
-    public function testPropertyLastScheduled()
+    public function testPropertyChatModelName()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "home_page_url"
+     * Test attribute "chatbot_welcome_message"
      */
-    public function testPropertyHomePageUrl()
+    public function testPropertyChatbotWelcomeMessage()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "connected_domains"
+     */
+    public function testPropertyConnectedDomains()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
