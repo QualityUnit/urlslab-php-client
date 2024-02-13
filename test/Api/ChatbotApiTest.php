@@ -132,12 +132,48 @@ class ChatbotApiTest extends TestCase
     }
 
     /**
+     * Test case for getChatbotSessionConversation
+     *
+     * Get chatbot conversation.
+     *
+     */
+    public function testGetChatbotSessionConversation()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test case for getChatbotSessionSources
      *
      * Get chatbot session sources.
      *
      */
     public function testGetChatbotSessionSources()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for getChatbotSessions
+     *
+     * Get chatbot sessions.
+     *
+     */
+    public function testGetChatbotSessions()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test case for getChatbotSessionsChart
+     *
+     * Get chatbot sessions chart.
+     *
+     */
+    public function testGetChatbotSessionsChart()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

@@ -1,6 +1,6 @@
 <?php
 /**
- * SchemasRequestsChatbotChatCompletionRequestTest
+ * SchemasExtrasChartsChartDatasetTest
  *
  * PHP version 7.4
  *
@@ -31,15 +31,15 @@ namespace OpenAPI\Client\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * SchemasRequestsChatbotChatCompletionRequestTest Class Doc Comment
+ * SchemasExtrasChartsChartDatasetTest Class Doc Comment
  *
  * @category    Class
- * @description SchemasRequestsChatbotChatCompletionRequest
+ * @description SchemasExtrasChartsChartDataset
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class SchemasRequestsChatbotChatCompletionRequestTest extends TestCase
+class SchemasExtrasChartsChartDatasetTest extends TestCase
 {
 
     /**
@@ -71,36 +71,36 @@ class SchemasRequestsChatbotChatCompletionRequestTest extends TestCase
     }
 
     /**
-     * Test "SchemasRequestsChatbotChatCompletionRequest"
+     * Test "SchemasExtrasChartsChartDataset"
      */
-    public function testSchemasRequestsChatbotChatCompletionRequest()
+    public function testSchemasExtrasChartsChartDataset()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "human_input"
+     * Test attribute "label"
      */
-    public function testPropertyHumanInput()
+    public function testPropertyLabel()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "chatbot_user_id"
+     * Test attribute "data"
      */
-    public function testPropertyChatbotUserId()
+    public function testPropertyData()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "message_url"
+     * Test attribute "metadata"
      */
-    public function testPropertyMessageUrl()
+    public function testPropertyMetadata()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

@@ -1,6 +1,6 @@
 <?php
 /**
- * SchemasRequestsChatbotChatCompletionRequestTest
+ * DomainPaginationPaginationTest
  *
  * PHP version 7.4
  *
@@ -31,15 +31,15 @@ namespace OpenAPI\Client\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * SchemasRequestsChatbotChatCompletionRequestTest Class Doc Comment
+ * DomainPaginationPaginationTest Class Doc Comment
  *
  * @category    Class
- * @description SchemasRequestsChatbotChatCompletionRequest
+ * @description DomainPaginationPagination
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class SchemasRequestsChatbotChatCompletionRequestTest extends TestCase
+class DomainPaginationPaginationTest extends TestCase
 {
 
     /**
@@ -71,36 +71,36 @@ class SchemasRequestsChatbotChatCompletionRequestTest extends TestCase
     }
 
     /**
-     * Test "SchemasRequestsChatbotChatCompletionRequest"
+     * Test "DomainPaginationPagination"
      */
-    public function testSchemasRequestsChatbotChatCompletionRequest()
+    public function testDomainPaginationPagination()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "human_input"
+     * Test attribute "primary_order_id"
      */
-    public function testPropertyHumanInput()
+    public function testPropertyPrimaryOrderId()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "chatbot_user_id"
+     * Test attribute "sorting"
      */
-    public function testPropertyChatbotUserId()
+    public function testPropertySorting()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "message_url"
+     * Test attribute "secondary_order_id"
      */
-    public function testPropertyMessageUrl()
+    public function testPropertySecondaryOrderId()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

@@ -1,6 +1,6 @@
 <?php
 /**
- * DomainDataRetrievalContentQuery
+ * SchemasResponsesChatbotChatbotConversationMessageResponse
  *
  * PHP version 7.4
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * DomainDataRetrievalContentQuery Class Doc Comment
+ * SchemasResponsesChatbotChatbotConversationMessageResponse Class Doc Comment
  *
  * @category Class
  * @package  OpenAPI\Client
@@ -40,7 +40,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class DomainDataRetrievalContentQuery implements ModelInterface, ArrayAccess, \JsonSerializable
+class SchemasResponsesChatbotChatbotConversationMessageResponse implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class DomainDataRetrievalContentQuery implements ModelInterface, ArrayAccess, \J
       *
       * @var string
       */
-    protected static $openAPIModelName = 'domain.dataRetrieval.ContentQuery';
+    protected static $openAPIModelName = 'schemas.responses.chatbot.ChatbotConversationMessageResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,12 +57,12 @@ class DomainDataRetrievalContentQuery implements ModelInterface, ArrayAccess, \J
       * @var string[]
       */
     protected static $openAPITypes = [
-        'additional_query' => 'object',
-        'domains' => 'string[]',
-        'urls' => 'string[]',
-        'valid_from' => 'int',
-        'sort' => 'object[]',
-        'limit' => 'int'
+        'message_url' => 'string',
+        'human_text' => 'string',
+        'bot_text' => 'string',
+        'sources' => 'string[]',
+        'price' => 'int',
+        'created' => 'string'
     ];
 
     /**
@@ -73,12 +73,12 @@ class DomainDataRetrievalContentQuery implements ModelInterface, ArrayAccess, \J
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'additional_query' => null,
-        'domains' => null,
-        'urls' => null,
-        'valid_from' => 'int64',
-        'sort' => null,
-        'limit' => 'int32'
+        'message_url' => null,
+        'human_text' => null,
+        'bot_text' => null,
+        'sources' => null,
+        'price' => 'int64',
+        'created' => null
     ];
 
     /**
@@ -87,12 +87,12 @@ class DomainDataRetrievalContentQuery implements ModelInterface, ArrayAccess, \J
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'additional_query' => true,
-		'domains' => false,
-		'urls' => false,
-		'valid_from' => true,
-		'sort' => true,
-		'limit' => true
+        'message_url' => false,
+		'human_text' => false,
+		'bot_text' => false,
+		'sources' => false,
+		'price' => false,
+		'created' => false
     ];
 
     /**
@@ -181,12 +181,12 @@ class DomainDataRetrievalContentQuery implements ModelInterface, ArrayAccess, \J
      * @var string[]
      */
     protected static $attributeMap = [
-        'additional_query' => 'additionalQuery',
-        'domains' => 'domains',
-        'urls' => 'urls',
-        'valid_from' => 'validFrom',
-        'sort' => 'sort',
-        'limit' => 'limit'
+        'message_url' => 'messageUrl',
+        'human_text' => 'humanText',
+        'bot_text' => 'botText',
+        'sources' => 'sources',
+        'price' => 'price',
+        'created' => 'created'
     ];
 
     /**
@@ -195,12 +195,12 @@ class DomainDataRetrievalContentQuery implements ModelInterface, ArrayAccess, \J
      * @var string[]
      */
     protected static $setters = [
-        'additional_query' => 'setAdditionalQuery',
-        'domains' => 'setDomains',
-        'urls' => 'setUrls',
-        'valid_from' => 'setValidFrom',
-        'sort' => 'setSort',
-        'limit' => 'setLimit'
+        'message_url' => 'setMessageUrl',
+        'human_text' => 'setHumanText',
+        'bot_text' => 'setBotText',
+        'sources' => 'setSources',
+        'price' => 'setPrice',
+        'created' => 'setCreated'
     ];
 
     /**
@@ -209,12 +209,12 @@ class DomainDataRetrievalContentQuery implements ModelInterface, ArrayAccess, \J
      * @var string[]
      */
     protected static $getters = [
-        'additional_query' => 'getAdditionalQuery',
-        'domains' => 'getDomains',
-        'urls' => 'getUrls',
-        'valid_from' => 'getValidFrom',
-        'sort' => 'getSort',
-        'limit' => 'getLimit'
+        'message_url' => 'getMessageUrl',
+        'human_text' => 'getHumanText',
+        'bot_text' => 'getBotText',
+        'sources' => 'getSources',
+        'price' => 'getPrice',
+        'created' => 'getCreated'
     ];
 
     /**
@@ -274,12 +274,12 @@ class DomainDataRetrievalContentQuery implements ModelInterface, ArrayAccess, \J
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('additional_query', $data ?? [], null);
-        $this->setIfExists('domains', $data ?? [], null);
-        $this->setIfExists('urls', $data ?? [], null);
-        $this->setIfExists('valid_from', $data ?? [], null);
-        $this->setIfExists('sort', $data ?? [], null);
-        $this->setIfExists('limit', $data ?? [], null);
+        $this->setIfExists('message_url', $data ?? [], null);
+        $this->setIfExists('human_text', $data ?? [], null);
+        $this->setIfExists('bot_text', $data ?? [], null);
+        $this->setIfExists('sources', $data ?? [], null);
+        $this->setIfExists('price', $data ?? [], null);
+        $this->setIfExists('created', $data ?? [], null);
     }
 
     /**
@@ -309,11 +309,23 @@ class DomainDataRetrievalContentQuery implements ModelInterface, ArrayAccess, \J
     {
         $invalidProperties = [];
 
-        if ($this->container['domains'] === null) {
-            $invalidProperties[] = "'domains' can't be null";
+        if ($this->container['message_url'] === null) {
+            $invalidProperties[] = "'message_url' can't be null";
         }
-        if ($this->container['urls'] === null) {
-            $invalidProperties[] = "'urls' can't be null";
+        if ($this->container['human_text'] === null) {
+            $invalidProperties[] = "'human_text' can't be null";
+        }
+        if ($this->container['bot_text'] === null) {
+            $invalidProperties[] = "'bot_text' can't be null";
+        }
+        if ($this->container['sources'] === null) {
+            $invalidProperties[] = "'sources' can't be null";
+        }
+        if ($this->container['price'] === null) {
+            $invalidProperties[] = "'price' can't be null";
+        }
+        if ($this->container['created'] === null) {
+            $invalidProperties[] = "'created' can't be null";
         }
         return $invalidProperties;
     }
@@ -331,191 +343,163 @@ class DomainDataRetrievalContentQuery implements ModelInterface, ArrayAccess, \J
 
 
     /**
-     * Gets additional_query
+     * Gets message_url
      *
-     * @return object|null
+     * @return string
      */
-    public function getAdditionalQuery()
+    public function getMessageUrl()
     {
-        return $this->container['additional_query'];
+        return $this->container['message_url'];
     }
 
     /**
-     * Sets additional_query
+     * Sets message_url
      *
-     * @param object|null $additional_query additional_query
+     * @param string $message_url message_url
      *
      * @return self
      */
-    public function setAdditionalQuery($additional_query)
+    public function setMessageUrl($message_url)
     {
-        if (is_null($additional_query)) {
-            array_push($this->openAPINullablesSetToNull, 'additional_query');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('additional_query', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($message_url)) {
+            throw new \InvalidArgumentException('non-nullable message_url cannot be null');
         }
-        $this->container['additional_query'] = $additional_query;
+        $this->container['message_url'] = $message_url;
 
         return $this;
     }
 
     /**
-     * Gets domains
+     * Gets human_text
+     *
+     * @return string
+     */
+    public function getHumanText()
+    {
+        return $this->container['human_text'];
+    }
+
+    /**
+     * Sets human_text
+     *
+     * @param string $human_text human_text
+     *
+     * @return self
+     */
+    public function setHumanText($human_text)
+    {
+        if (is_null($human_text)) {
+            throw new \InvalidArgumentException('non-nullable human_text cannot be null');
+        }
+        $this->container['human_text'] = $human_text;
+
+        return $this;
+    }
+
+    /**
+     * Gets bot_text
+     *
+     * @return string
+     */
+    public function getBotText()
+    {
+        return $this->container['bot_text'];
+    }
+
+    /**
+     * Sets bot_text
+     *
+     * @param string $bot_text bot_text
+     *
+     * @return self
+     */
+    public function setBotText($bot_text)
+    {
+        if (is_null($bot_text)) {
+            throw new \InvalidArgumentException('non-nullable bot_text cannot be null');
+        }
+        $this->container['bot_text'] = $bot_text;
+
+        return $this;
+    }
+
+    /**
+     * Gets sources
      *
      * @return string[]
      */
-    public function getDomains()
+    public function getSources()
     {
-        return $this->container['domains'];
+        return $this->container['sources'];
     }
 
     /**
-     * Sets domains
+     * Sets sources
      *
-     * @param string[] $domains domains
+     * @param string[] $sources sources
      *
      * @return self
      */
-    public function setDomains($domains)
+    public function setSources($sources)
     {
-        if (is_null($domains)) {
-            throw new \InvalidArgumentException('non-nullable domains cannot be null');
+        if (is_null($sources)) {
+            throw new \InvalidArgumentException('non-nullable sources cannot be null');
         }
-        $this->container['domains'] = $domains;
+        $this->container['sources'] = $sources;
 
         return $this;
     }
 
     /**
-     * Gets urls
+     * Gets price
      *
-     * @return string[]
+     * @return int
      */
-    public function getUrls()
+    public function getPrice()
     {
-        return $this->container['urls'];
+        return $this->container['price'];
     }
 
     /**
-     * Sets urls
+     * Sets price
      *
-     * @param string[] $urls urls
+     * @param int $price price
      *
      * @return self
      */
-    public function setUrls($urls)
+    public function setPrice($price)
     {
-        if (is_null($urls)) {
-            throw new \InvalidArgumentException('non-nullable urls cannot be null');
+        if (is_null($price)) {
+            throw new \InvalidArgumentException('non-nullable price cannot be null');
         }
-        $this->container['urls'] = $urls;
+        $this->container['price'] = $price;
 
         return $this;
     }
 
     /**
-     * Gets valid_from
+     * Gets created
      *
-     * @return int|null
+     * @return string
      */
-    public function getValidFrom()
+    public function getCreated()
     {
-        return $this->container['valid_from'];
+        return $this->container['created'];
     }
 
     /**
-     * Sets valid_from
+     * Sets created
      *
-     * @param int|null $valid_from valid_from
+     * @param string $created created
      *
      * @return self
      */
-    public function setValidFrom($valid_from)
+    public function setCreated($created)
     {
-        if (is_null($valid_from)) {
-            array_push($this->openAPINullablesSetToNull, 'valid_from');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('valid_from', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($created)) {
+            throw new \InvalidArgumentException('non-nullable created cannot be null');
         }
-        $this->container['valid_from'] = $valid_from;
-
-        return $this;
-    }
-
-    /**
-     * Gets sort
-     *
-     * @return object[]|null
-     */
-    public function getSort()
-    {
-        return $this->container['sort'];
-    }
-
-    /**
-     * Sets sort
-     *
-     * @param object[]|null $sort sort
-     *
-     * @return self
-     */
-    public function setSort($sort)
-    {
-        if (is_null($sort)) {
-            array_push($this->openAPINullablesSetToNull, 'sort');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('sort', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['sort'] = $sort;
-
-        return $this;
-    }
-
-    /**
-     * Gets limit
-     *
-     * @return int|null
-     */
-    public function getLimit()
-    {
-        return $this->container['limit'];
-    }
-
-    /**
-     * Sets limit
-     *
-     * @param int|null $limit limit
-     *
-     * @return self
-     */
-    public function setLimit($limit)
-    {
-        if (is_null($limit)) {
-            array_push($this->openAPINullablesSetToNull, 'limit');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('limit', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['limit'] = $limit;
+        $this->container['created'] = $created;
 
         return $this;
     }

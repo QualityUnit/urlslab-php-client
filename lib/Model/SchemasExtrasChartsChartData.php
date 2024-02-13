@@ -1,6 +1,6 @@
 <?php
 /**
- * DomainDataRetrievalContentQuery
+ * SchemasExtrasChartsChartData
  *
  * PHP version 7.4
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * DomainDataRetrievalContentQuery Class Doc Comment
+ * SchemasExtrasChartsChartData Class Doc Comment
  *
  * @category Class
  * @package  OpenAPI\Client
@@ -40,7 +40,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class DomainDataRetrievalContentQuery implements ModelInterface, ArrayAccess, \JsonSerializable
+class SchemasExtrasChartsChartData implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class DomainDataRetrievalContentQuery implements ModelInterface, ArrayAccess, \J
       *
       * @var string
       */
-    protected static $openAPIModelName = 'domain.dataRetrieval.ContentQuery';
+    protected static $openAPIModelName = 'schemas.extras.charts.ChartData';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,12 +57,8 @@ class DomainDataRetrievalContentQuery implements ModelInterface, ArrayAccess, \J
       * @var string[]
       */
     protected static $openAPITypes = [
-        'additional_query' => 'object',
-        'domains' => 'string[]',
-        'urls' => 'string[]',
-        'valid_from' => 'int',
-        'sort' => 'object[]',
-        'limit' => 'int'
+        'labels' => 'string[]',
+        'datasets' => '\OpenAPI\Client\Model\SchemasExtrasChartsChartDataset[]'
     ];
 
     /**
@@ -73,12 +69,8 @@ class DomainDataRetrievalContentQuery implements ModelInterface, ArrayAccess, \J
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'additional_query' => null,
-        'domains' => null,
-        'urls' => null,
-        'valid_from' => 'int64',
-        'sort' => null,
-        'limit' => 'int32'
+        'labels' => null,
+        'datasets' => null
     ];
 
     /**
@@ -87,12 +79,8 @@ class DomainDataRetrievalContentQuery implements ModelInterface, ArrayAccess, \J
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'additional_query' => true,
-		'domains' => false,
-		'urls' => false,
-		'valid_from' => true,
-		'sort' => true,
-		'limit' => true
+        'labels' => false,
+		'datasets' => false
     ];
 
     /**
@@ -181,12 +169,8 @@ class DomainDataRetrievalContentQuery implements ModelInterface, ArrayAccess, \J
      * @var string[]
      */
     protected static $attributeMap = [
-        'additional_query' => 'additionalQuery',
-        'domains' => 'domains',
-        'urls' => 'urls',
-        'valid_from' => 'validFrom',
-        'sort' => 'sort',
-        'limit' => 'limit'
+        'labels' => 'labels',
+        'datasets' => 'datasets'
     ];
 
     /**
@@ -195,12 +179,8 @@ class DomainDataRetrievalContentQuery implements ModelInterface, ArrayAccess, \J
      * @var string[]
      */
     protected static $setters = [
-        'additional_query' => 'setAdditionalQuery',
-        'domains' => 'setDomains',
-        'urls' => 'setUrls',
-        'valid_from' => 'setValidFrom',
-        'sort' => 'setSort',
-        'limit' => 'setLimit'
+        'labels' => 'setLabels',
+        'datasets' => 'setDatasets'
     ];
 
     /**
@@ -209,12 +189,8 @@ class DomainDataRetrievalContentQuery implements ModelInterface, ArrayAccess, \J
      * @var string[]
      */
     protected static $getters = [
-        'additional_query' => 'getAdditionalQuery',
-        'domains' => 'getDomains',
-        'urls' => 'getUrls',
-        'valid_from' => 'getValidFrom',
-        'sort' => 'getSort',
-        'limit' => 'getLimit'
+        'labels' => 'getLabels',
+        'datasets' => 'getDatasets'
     ];
 
     /**
@@ -274,12 +250,8 @@ class DomainDataRetrievalContentQuery implements ModelInterface, ArrayAccess, \J
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('additional_query', $data ?? [], null);
-        $this->setIfExists('domains', $data ?? [], null);
-        $this->setIfExists('urls', $data ?? [], null);
-        $this->setIfExists('valid_from', $data ?? [], null);
-        $this->setIfExists('sort', $data ?? [], null);
-        $this->setIfExists('limit', $data ?? [], null);
+        $this->setIfExists('labels', $data ?? [], null);
+        $this->setIfExists('datasets', $data ?? [], null);
     }
 
     /**
@@ -309,11 +281,11 @@ class DomainDataRetrievalContentQuery implements ModelInterface, ArrayAccess, \J
     {
         $invalidProperties = [];
 
-        if ($this->container['domains'] === null) {
-            $invalidProperties[] = "'domains' can't be null";
+        if ($this->container['labels'] === null) {
+            $invalidProperties[] = "'labels' can't be null";
         }
-        if ($this->container['urls'] === null) {
-            $invalidProperties[] = "'urls' can't be null";
+        if ($this->container['datasets'] === null) {
+            $invalidProperties[] = "'datasets' can't be null";
         }
         return $invalidProperties;
     }
@@ -331,191 +303,55 @@ class DomainDataRetrievalContentQuery implements ModelInterface, ArrayAccess, \J
 
 
     /**
-     * Gets additional_query
-     *
-     * @return object|null
-     */
-    public function getAdditionalQuery()
-    {
-        return $this->container['additional_query'];
-    }
-
-    /**
-     * Sets additional_query
-     *
-     * @param object|null $additional_query additional_query
-     *
-     * @return self
-     */
-    public function setAdditionalQuery($additional_query)
-    {
-        if (is_null($additional_query)) {
-            array_push($this->openAPINullablesSetToNull, 'additional_query');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('additional_query', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['additional_query'] = $additional_query;
-
-        return $this;
-    }
-
-    /**
-     * Gets domains
+     * Gets labels
      *
      * @return string[]
      */
-    public function getDomains()
+    public function getLabels()
     {
-        return $this->container['domains'];
+        return $this->container['labels'];
     }
 
     /**
-     * Sets domains
+     * Sets labels
      *
-     * @param string[] $domains domains
+     * @param string[] $labels labels
      *
      * @return self
      */
-    public function setDomains($domains)
+    public function setLabels($labels)
     {
-        if (is_null($domains)) {
-            throw new \InvalidArgumentException('non-nullable domains cannot be null');
+        if (is_null($labels)) {
+            throw new \InvalidArgumentException('non-nullable labels cannot be null');
         }
-        $this->container['domains'] = $domains;
+        $this->container['labels'] = $labels;
 
         return $this;
     }
 
     /**
-     * Gets urls
+     * Gets datasets
      *
-     * @return string[]
+     * @return \OpenAPI\Client\Model\SchemasExtrasChartsChartDataset[]
      */
-    public function getUrls()
+    public function getDatasets()
     {
-        return $this->container['urls'];
+        return $this->container['datasets'];
     }
 
     /**
-     * Sets urls
+     * Sets datasets
      *
-     * @param string[] $urls urls
+     * @param \OpenAPI\Client\Model\SchemasExtrasChartsChartDataset[] $datasets datasets
      *
      * @return self
      */
-    public function setUrls($urls)
+    public function setDatasets($datasets)
     {
-        if (is_null($urls)) {
-            throw new \InvalidArgumentException('non-nullable urls cannot be null');
+        if (is_null($datasets)) {
+            throw new \InvalidArgumentException('non-nullable datasets cannot be null');
         }
-        $this->container['urls'] = $urls;
-
-        return $this;
-    }
-
-    /**
-     * Gets valid_from
-     *
-     * @return int|null
-     */
-    public function getValidFrom()
-    {
-        return $this->container['valid_from'];
-    }
-
-    /**
-     * Sets valid_from
-     *
-     * @param int|null $valid_from valid_from
-     *
-     * @return self
-     */
-    public function setValidFrom($valid_from)
-    {
-        if (is_null($valid_from)) {
-            array_push($this->openAPINullablesSetToNull, 'valid_from');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('valid_from', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['valid_from'] = $valid_from;
-
-        return $this;
-    }
-
-    /**
-     * Gets sort
-     *
-     * @return object[]|null
-     */
-    public function getSort()
-    {
-        return $this->container['sort'];
-    }
-
-    /**
-     * Sets sort
-     *
-     * @param object[]|null $sort sort
-     *
-     * @return self
-     */
-    public function setSort($sort)
-    {
-        if (is_null($sort)) {
-            array_push($this->openAPINullablesSetToNull, 'sort');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('sort', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['sort'] = $sort;
-
-        return $this;
-    }
-
-    /**
-     * Gets limit
-     *
-     * @return int|null
-     */
-    public function getLimit()
-    {
-        return $this->container['limit'];
-    }
-
-    /**
-     * Sets limit
-     *
-     * @param int|null $limit limit
-     *
-     * @return self
-     */
-    public function setLimit($limit)
-    {
-        if (is_null($limit)) {
-            array_push($this->openAPINullablesSetToNull, 'limit');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('limit', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['limit'] = $limit;
+        $this->container['datasets'] = $datasets;
 
         return $this;
     }

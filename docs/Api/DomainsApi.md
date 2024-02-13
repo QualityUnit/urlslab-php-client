@@ -10,7 +10,7 @@ All URIs are relative to https://api.urlslab.com, except if the operation define
 ## `getUserDomains()`
 
 ```php
-getUserDomains($domain_name, $primary_order_id, $secondary_order_id, $limit, $sorting_field, $sorting_direction, $body): \OpenAPI\Client\Model\DomainDomainsDomainBulkResponseDTO
+getUserDomains($domain_request_dto, $pagination, $domain_name, $primary_order_id, $secondary_order_id, $limit, $sorting_field, $sorting_direction, $body): \OpenAPI\Client\Model\DomainDomainsDomainBulkResponseDTO
 ```
 
 Get Domains of a user
@@ -36,6 +36,8 @@ $apiInstance = new OpenAPI\Client\Api\DomainsApi(
     new GuzzleHttp\Client(),
     $config
 );
+$domain_request_dto = new \OpenAPI\Client\Model\DomainDomainsDomainRequestDTO(); // DomainDomainsDomainRequestDTO
+$pagination = new \OpenAPI\Client\Model\DomainPaginationPagination(); // DomainPaginationPagination
 $domain_name = 'domain_name_example'; // string | the domain name to search for
 $primary_order_id = new \OpenAPI\Client\Model\Int(); // Int | Primary Order ID for pagination
 $secondary_order_id = new \OpenAPI\Client\Model\Int(); // Int | Secondary Order ID for pagination
@@ -45,7 +47,7 @@ $sorting_direction = 'sorting_direction_example'; // string | the direction to s
 $body = 'body_example'; // string
 
 try {
-    $result = $apiInstance->getUserDomains($domain_name, $primary_order_id, $secondary_order_id, $limit, $sorting_field, $sorting_direction, $body);
+    $result = $apiInstance->getUserDomains($domain_request_dto, $pagination, $domain_name, $primary_order_id, $secondary_order_id, $limit, $sorting_field, $sorting_direction, $body);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling DomainsApi->getUserDomains: ', $e->getMessage(), PHP_EOL;
@@ -56,6 +58,8 @@ try {
 
 | Name | Type | Description  | Notes |
 | ------------- | ------------- | ------------- | ------------- |
+| **domain_request_dto** | [**DomainDomainsDomainRequestDTO**](../Model/.md)|  | |
+| **pagination** | [**DomainPaginationPagination**](../Model/.md)|  | |
 | **domain_name** | **string**| the domain name to search for | [optional] |
 | **primary_order_id** | [**Int**](../Model/.md)| Primary Order ID for pagination | [optional] |
 | **secondary_order_id** | [**Int**](../Model/.md)| Secondary Order ID for pagination | [optional] |

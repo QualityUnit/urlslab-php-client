@@ -1,6 +1,6 @@
 <?php
 /**
- * DomainDataRetrievalContentQuery
+ * DomainPaginationDateRange
  *
  * PHP version 7.4
  *
@@ -32,7 +32,7 @@ use \ArrayAccess;
 use \OpenAPI\Client\ObjectSerializer;
 
 /**
- * DomainDataRetrievalContentQuery Class Doc Comment
+ * DomainPaginationDateRange Class Doc Comment
  *
  * @category Class
  * @package  OpenAPI\Client
@@ -40,7 +40,7 @@ use \OpenAPI\Client\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class DomainDataRetrievalContentQuery implements ModelInterface, ArrayAccess, \JsonSerializable
+class DomainPaginationDateRange implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -49,7 +49,7 @@ class DomainDataRetrievalContentQuery implements ModelInterface, ArrayAccess, \J
       *
       * @var string
       */
-    protected static $openAPIModelName = 'domain.dataRetrieval.ContentQuery';
+    protected static $openAPIModelName = 'domain.pagination.DateRange';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -57,12 +57,8 @@ class DomainDataRetrievalContentQuery implements ModelInterface, ArrayAccess, \J
       * @var string[]
       */
     protected static $openAPITypes = [
-        'additional_query' => 'object',
-        'domains' => 'string[]',
-        'urls' => 'string[]',
-        'valid_from' => 'int',
-        'sort' => 'object[]',
-        'limit' => 'int'
+        'date_from' => '\DateTime',
+        'date_to' => '\DateTime'
     ];
 
     /**
@@ -73,12 +69,8 @@ class DomainDataRetrievalContentQuery implements ModelInterface, ArrayAccess, \J
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'additional_query' => null,
-        'domains' => null,
-        'urls' => null,
-        'valid_from' => 'int64',
-        'sort' => null,
-        'limit' => 'int32'
+        'date_from' => 'date-time',
+        'date_to' => 'date-time'
     ];
 
     /**
@@ -87,12 +79,8 @@ class DomainDataRetrievalContentQuery implements ModelInterface, ArrayAccess, \J
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'additional_query' => true,
-		'domains' => false,
-		'urls' => false,
-		'valid_from' => true,
-		'sort' => true,
-		'limit' => true
+        'date_from' => false,
+		'date_to' => false
     ];
 
     /**
@@ -181,12 +169,8 @@ class DomainDataRetrievalContentQuery implements ModelInterface, ArrayAccess, \J
      * @var string[]
      */
     protected static $attributeMap = [
-        'additional_query' => 'additionalQuery',
-        'domains' => 'domains',
-        'urls' => 'urls',
-        'valid_from' => 'validFrom',
-        'sort' => 'sort',
-        'limit' => 'limit'
+        'date_from' => 'dateFrom',
+        'date_to' => 'dateTo'
     ];
 
     /**
@@ -195,12 +179,8 @@ class DomainDataRetrievalContentQuery implements ModelInterface, ArrayAccess, \J
      * @var string[]
      */
     protected static $setters = [
-        'additional_query' => 'setAdditionalQuery',
-        'domains' => 'setDomains',
-        'urls' => 'setUrls',
-        'valid_from' => 'setValidFrom',
-        'sort' => 'setSort',
-        'limit' => 'setLimit'
+        'date_from' => 'setDateFrom',
+        'date_to' => 'setDateTo'
     ];
 
     /**
@@ -209,12 +189,8 @@ class DomainDataRetrievalContentQuery implements ModelInterface, ArrayAccess, \J
      * @var string[]
      */
     protected static $getters = [
-        'additional_query' => 'getAdditionalQuery',
-        'domains' => 'getDomains',
-        'urls' => 'getUrls',
-        'valid_from' => 'getValidFrom',
-        'sort' => 'getSort',
-        'limit' => 'getLimit'
+        'date_from' => 'getDateFrom',
+        'date_to' => 'getDateTo'
     ];
 
     /**
@@ -274,12 +250,8 @@ class DomainDataRetrievalContentQuery implements ModelInterface, ArrayAccess, \J
      */
     public function __construct(array $data = null)
     {
-        $this->setIfExists('additional_query', $data ?? [], null);
-        $this->setIfExists('domains', $data ?? [], null);
-        $this->setIfExists('urls', $data ?? [], null);
-        $this->setIfExists('valid_from', $data ?? [], null);
-        $this->setIfExists('sort', $data ?? [], null);
-        $this->setIfExists('limit', $data ?? [], null);
+        $this->setIfExists('date_from', $data ?? [], null);
+        $this->setIfExists('date_to', $data ?? [], null);
     }
 
     /**
@@ -309,11 +281,11 @@ class DomainDataRetrievalContentQuery implements ModelInterface, ArrayAccess, \J
     {
         $invalidProperties = [];
 
-        if ($this->container['domains'] === null) {
-            $invalidProperties[] = "'domains' can't be null";
+        if ($this->container['date_from'] === null) {
+            $invalidProperties[] = "'date_from' can't be null";
         }
-        if ($this->container['urls'] === null) {
-            $invalidProperties[] = "'urls' can't be null";
+        if ($this->container['date_to'] === null) {
+            $invalidProperties[] = "'date_to' can't be null";
         }
         return $invalidProperties;
     }
@@ -331,191 +303,55 @@ class DomainDataRetrievalContentQuery implements ModelInterface, ArrayAccess, \J
 
 
     /**
-     * Gets additional_query
+     * Gets date_from
      *
-     * @return object|null
+     * @return \DateTime
      */
-    public function getAdditionalQuery()
+    public function getDateFrom()
     {
-        return $this->container['additional_query'];
+        return $this->container['date_from'];
     }
 
     /**
-     * Sets additional_query
+     * Sets date_from
      *
-     * @param object|null $additional_query additional_query
+     * @param \DateTime $date_from date_from
      *
      * @return self
      */
-    public function setAdditionalQuery($additional_query)
+    public function setDateFrom($date_from)
     {
-        if (is_null($additional_query)) {
-            array_push($this->openAPINullablesSetToNull, 'additional_query');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('additional_query', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($date_from)) {
+            throw new \InvalidArgumentException('non-nullable date_from cannot be null');
         }
-        $this->container['additional_query'] = $additional_query;
+        $this->container['date_from'] = $date_from;
 
         return $this;
     }
 
     /**
-     * Gets domains
+     * Gets date_to
      *
-     * @return string[]
+     * @return \DateTime
      */
-    public function getDomains()
+    public function getDateTo()
     {
-        return $this->container['domains'];
+        return $this->container['date_to'];
     }
 
     /**
-     * Sets domains
+     * Sets date_to
      *
-     * @param string[] $domains domains
+     * @param \DateTime $date_to date_to
      *
      * @return self
      */
-    public function setDomains($domains)
+    public function setDateTo($date_to)
     {
-        if (is_null($domains)) {
-            throw new \InvalidArgumentException('non-nullable domains cannot be null');
+        if (is_null($date_to)) {
+            throw new \InvalidArgumentException('non-nullable date_to cannot be null');
         }
-        $this->container['domains'] = $domains;
-
-        return $this;
-    }
-
-    /**
-     * Gets urls
-     *
-     * @return string[]
-     */
-    public function getUrls()
-    {
-        return $this->container['urls'];
-    }
-
-    /**
-     * Sets urls
-     *
-     * @param string[] $urls urls
-     *
-     * @return self
-     */
-    public function setUrls($urls)
-    {
-        if (is_null($urls)) {
-            throw new \InvalidArgumentException('non-nullable urls cannot be null');
-        }
-        $this->container['urls'] = $urls;
-
-        return $this;
-    }
-
-    /**
-     * Gets valid_from
-     *
-     * @return int|null
-     */
-    public function getValidFrom()
-    {
-        return $this->container['valid_from'];
-    }
-
-    /**
-     * Sets valid_from
-     *
-     * @param int|null $valid_from valid_from
-     *
-     * @return self
-     */
-    public function setValidFrom($valid_from)
-    {
-        if (is_null($valid_from)) {
-            array_push($this->openAPINullablesSetToNull, 'valid_from');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('valid_from', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['valid_from'] = $valid_from;
-
-        return $this;
-    }
-
-    /**
-     * Gets sort
-     *
-     * @return object[]|null
-     */
-    public function getSort()
-    {
-        return $this->container['sort'];
-    }
-
-    /**
-     * Sets sort
-     *
-     * @param object[]|null $sort sort
-     *
-     * @return self
-     */
-    public function setSort($sort)
-    {
-        if (is_null($sort)) {
-            array_push($this->openAPINullablesSetToNull, 'sort');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('sort', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['sort'] = $sort;
-
-        return $this;
-    }
-
-    /**
-     * Gets limit
-     *
-     * @return int|null
-     */
-    public function getLimit()
-    {
-        return $this->container['limit'];
-    }
-
-    /**
-     * Sets limit
-     *
-     * @param int|null $limit limit
-     *
-     * @return self
-     */
-    public function setLimit($limit)
-    {
-        if (is_null($limit)) {
-            array_push($this->openAPINullablesSetToNull, 'limit');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('limit', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['limit'] = $limit;
+        $this->container['date_to'] = $date_to;
 
         return $this;
     }

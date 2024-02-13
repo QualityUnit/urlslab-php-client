@@ -62,7 +62,11 @@ class SchemasRequestsChatbotChatbotCreate implements ModelInterface, ArrayAccess
         'chat_model_class' => 'string',
         'chat_model_name' => 'string',
         'chatbot_welcome_message' => 'string',
-        'connected_domains' => 'string[]'
+        'connected_domains' => 'string[]',
+        'suggested_user_messages' => 'string[]',
+        'url_suffix' => 'string',
+        'has_search' => 'bool',
+        'theme' => 'string'
     ];
 
     /**
@@ -78,7 +82,11 @@ class SchemasRequestsChatbotChatbotCreate implements ModelInterface, ArrayAccess
         'chat_model_class' => null,
         'chat_model_name' => null,
         'chatbot_welcome_message' => null,
-        'connected_domains' => null
+        'connected_domains' => null,
+        'suggested_user_messages' => null,
+        'url_suffix' => null,
+        'has_search' => null,
+        'theme' => null
     ];
 
     /**
@@ -92,7 +100,11 @@ class SchemasRequestsChatbotChatbotCreate implements ModelInterface, ArrayAccess
 		'chat_model_class' => false,
 		'chat_model_name' => false,
 		'chatbot_welcome_message' => false,
-		'connected_domains' => false
+		'connected_domains' => false,
+		'suggested_user_messages' => false,
+		'url_suffix' => true,
+		'has_search' => false,
+		'theme' => false
     ];
 
     /**
@@ -186,7 +198,11 @@ class SchemasRequestsChatbotChatbotCreate implements ModelInterface, ArrayAccess
         'chat_model_class' => 'chatModelClass',
         'chat_model_name' => 'chatModelName',
         'chatbot_welcome_message' => 'chatbotWelcomeMessage',
-        'connected_domains' => 'connectedDomains'
+        'connected_domains' => 'connectedDomains',
+        'suggested_user_messages' => 'suggestedUserMessages',
+        'url_suffix' => 'urlSuffix',
+        'has_search' => 'hasSearch',
+        'theme' => 'theme'
     ];
 
     /**
@@ -200,7 +216,11 @@ class SchemasRequestsChatbotChatbotCreate implements ModelInterface, ArrayAccess
         'chat_model_class' => 'setChatModelClass',
         'chat_model_name' => 'setChatModelName',
         'chatbot_welcome_message' => 'setChatbotWelcomeMessage',
-        'connected_domains' => 'setConnectedDomains'
+        'connected_domains' => 'setConnectedDomains',
+        'suggested_user_messages' => 'setSuggestedUserMessages',
+        'url_suffix' => 'setUrlSuffix',
+        'has_search' => 'setHasSearch',
+        'theme' => 'setTheme'
     ];
 
     /**
@@ -214,7 +234,11 @@ class SchemasRequestsChatbotChatbotCreate implements ModelInterface, ArrayAccess
         'chat_model_class' => 'getChatModelClass',
         'chat_model_name' => 'getChatModelName',
         'chatbot_welcome_message' => 'getChatbotWelcomeMessage',
-        'connected_domains' => 'getConnectedDomains'
+        'connected_domains' => 'getConnectedDomains',
+        'suggested_user_messages' => 'getSuggestedUserMessages',
+        'url_suffix' => 'getUrlSuffix',
+        'has_search' => 'getHasSearch',
+        'theme' => 'getTheme'
     ];
 
     /**
@@ -280,6 +304,10 @@ class SchemasRequestsChatbotChatbotCreate implements ModelInterface, ArrayAccess
         $this->setIfExists('chat_model_name', $data ?? [], null);
         $this->setIfExists('chatbot_welcome_message', $data ?? [], null);
         $this->setIfExists('connected_domains', $data ?? [], null);
+        $this->setIfExists('suggested_user_messages', $data ?? [], null);
+        $this->setIfExists('url_suffix', $data ?? [], null);
+        $this->setIfExists('has_search', $data ?? [], null);
+        $this->setIfExists('theme', $data ?? [], null);
     }
 
     /**
@@ -326,6 +354,15 @@ class SchemasRequestsChatbotChatbotCreate implements ModelInterface, ArrayAccess
         }
         if ($this->container['connected_domains'] === null) {
             $invalidProperties[] = "'connected_domains' can't be null";
+        }
+        if ($this->container['suggested_user_messages'] === null) {
+            $invalidProperties[] = "'suggested_user_messages' can't be null";
+        }
+        if ($this->container['has_search'] === null) {
+            $invalidProperties[] = "'has_search' can't be null";
+        }
+        if ($this->container['theme'] === null) {
+            $invalidProperties[] = "'theme' can't be null";
         }
         return $invalidProperties;
     }
@@ -500,6 +537,121 @@ class SchemasRequestsChatbotChatbotCreate implements ModelInterface, ArrayAccess
             throw new \InvalidArgumentException('non-nullable connected_domains cannot be null');
         }
         $this->container['connected_domains'] = $connected_domains;
+
+        return $this;
+    }
+
+    /**
+     * Gets suggested_user_messages
+     *
+     * @return string[]
+     */
+    public function getSuggestedUserMessages()
+    {
+        return $this->container['suggested_user_messages'];
+    }
+
+    /**
+     * Sets suggested_user_messages
+     *
+     * @param string[] $suggested_user_messages suggested_user_messages
+     *
+     * @return self
+     */
+    public function setSuggestedUserMessages($suggested_user_messages)
+    {
+        if (is_null($suggested_user_messages)) {
+            throw new \InvalidArgumentException('non-nullable suggested_user_messages cannot be null');
+        }
+        $this->container['suggested_user_messages'] = $suggested_user_messages;
+
+        return $this;
+    }
+
+    /**
+     * Gets url_suffix
+     *
+     * @return string|null
+     */
+    public function getUrlSuffix()
+    {
+        return $this->container['url_suffix'];
+    }
+
+    /**
+     * Sets url_suffix
+     *
+     * @param string|null $url_suffix url_suffix
+     *
+     * @return self
+     */
+    public function setUrlSuffix($url_suffix)
+    {
+        if (is_null($url_suffix)) {
+            array_push($this->openAPINullablesSetToNull, 'url_suffix');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('url_suffix', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['url_suffix'] = $url_suffix;
+
+        return $this;
+    }
+
+    /**
+     * Gets has_search
+     *
+     * @return bool
+     */
+    public function getHasSearch()
+    {
+        return $this->container['has_search'];
+    }
+
+    /**
+     * Sets has_search
+     *
+     * @param bool $has_search has_search
+     *
+     * @return self
+     */
+    public function setHasSearch($has_search)
+    {
+        if (is_null($has_search)) {
+            throw new \InvalidArgumentException('non-nullable has_search cannot be null');
+        }
+        $this->container['has_search'] = $has_search;
+
+        return $this;
+    }
+
+    /**
+     * Gets theme
+     *
+     * @return string
+     */
+    public function getTheme()
+    {
+        return $this->container['theme'];
+    }
+
+    /**
+     * Sets theme
+     *
+     * @param string $theme theme
+     *
+     * @return self
+     */
+    public function setTheme($theme)
+    {
+        if (is_null($theme)) {
+            throw new \InvalidArgumentException('non-nullable theme cannot be null');
+        }
+        $this->container['theme'] = $theme;
 
         return $this;
     }

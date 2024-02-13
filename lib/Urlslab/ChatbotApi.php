@@ -86,7 +86,16 @@ class ChatbotApi
         'getChatbot' => [
             'application/json',
         ],
+        'getChatbotSessionConversation' => [
+            'application/json',
+        ],
         'getChatbotSessionSources' => [
+            'application/json',
+        ],
+        'getChatbotSessions' => [
+            'application/json',
+        ],
+        'getChatbotSessionsChart' => [
             'application/json',
         ],
         'getChatbots' => [
@@ -1606,6 +1615,314 @@ class ChatbotApi
     }
 
     /**
+     * Operation getChatbotSessionConversation
+     *
+     * Get chatbot conversation
+     *
+     * @param  string $chatbot_id chatbot_id (required)
+     * @param  string $session_id session_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getChatbotSessionConversation'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\SchemasResponsesChatbotChatbotConversationMessageResponse
+     */
+    public function getChatbotSessionConversation($chatbot_id, $session_id, string $contentType = self::contentTypes['getChatbotSessionConversation'][0])
+    {
+        list($response) = $this->getChatbotSessionConversationWithHttpInfo($chatbot_id, $session_id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getChatbotSessionConversationWithHttpInfo
+     *
+     * Get chatbot conversation
+     *
+     * @param  string $chatbot_id (required)
+     * @param  string $session_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getChatbotSessionConversation'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\SchemasResponsesChatbotChatbotConversationMessageResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getChatbotSessionConversationWithHttpInfo($chatbot_id, $session_id, string $contentType = self::contentTypes['getChatbotSessionConversation'][0])
+    {
+        $request = $this->getChatbotSessionConversationRequest($chatbot_id, $session_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\OpenAPI\Client\Model\SchemasResponsesChatbotChatbotConversationMessageResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\SchemasResponsesChatbotChatbotConversationMessageResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\SchemasResponsesChatbotChatbotConversationMessageResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\OpenAPI\Client\Model\SchemasResponsesChatbotChatbotConversationMessageResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\SchemasResponsesChatbotChatbotConversationMessageResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getChatbotSessionConversationAsync
+     *
+     * Get chatbot conversation
+     *
+     * @param  string $chatbot_id (required)
+     * @param  string $session_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getChatbotSessionConversation'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getChatbotSessionConversationAsync($chatbot_id, $session_id, string $contentType = self::contentTypes['getChatbotSessionConversation'][0])
+    {
+        return $this->getChatbotSessionConversationAsyncWithHttpInfo($chatbot_id, $session_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getChatbotSessionConversationAsyncWithHttpInfo
+     *
+     * Get chatbot conversation
+     *
+     * @param  string $chatbot_id (required)
+     * @param  string $session_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getChatbotSessionConversation'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getChatbotSessionConversationAsyncWithHttpInfo($chatbot_id, $session_id, string $contentType = self::contentTypes['getChatbotSessionConversation'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\SchemasResponsesChatbotChatbotConversationMessageResponse';
+        $request = $this->getChatbotSessionConversationRequest($chatbot_id, $session_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getChatbotSessionConversation'
+     *
+     * @param  string $chatbot_id (required)
+     * @param  string $session_id (required)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getChatbotSessionConversation'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getChatbotSessionConversationRequest($chatbot_id, $session_id, string $contentType = self::contentTypes['getChatbotSessionConversation'][0])
+    {
+
+        // verify the required parameter 'chatbot_id' is set
+        if ($chatbot_id === null || (is_array($chatbot_id) && count($chatbot_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $chatbot_id when calling getChatbotSessionConversation'
+            );
+        }
+
+        // verify the required parameter 'session_id' is set
+        if ($session_id === null || (is_array($session_id) && count($session_id) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $session_id when calling getChatbotSessionConversation'
+            );
+        }
+
+
+        $resourcePath = '/v1/chatbots/conversations/sessions/{chatbotId}/{sessionId}';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+
+
+        // path params
+        if ($chatbot_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'chatbotId' . '}',
+                ObjectSerializer::toPathValue($chatbot_id),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($session_id !== null) {
+            $resourcePath = str_replace(
+                '{' . 'sessionId' . '}',
+                ObjectSerializer::toPathValue($session_id),
+                $resourcePath
+            );
+        }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('X-URLSLAB-KEY');
+        if ($apiKey !== null) {
+            $headers['X-URLSLAB-KEY'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
      * Operation getChatbotSessionSources
      *
      * Get chatbot session sources
@@ -1853,6 +2170,614 @@ class ChatbotApi
                 $resourcePath
             );
         }
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('X-URLSLAB-KEY');
+        if ($apiKey !== null) {
+            $headers['X-URLSLAB-KEY'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getChatbotSessions
+     *
+     * Get chatbot sessions
+     *
+     * @param  DomainPaginationPagination $pagination pagination (required)
+     * @param  string $chatbot_id chatbot_id (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getChatbotSessions'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\SchemasResponsesChatbotChatbotSessionOverviewResponse
+     */
+    public function getChatbotSessions($pagination, $chatbot_id = null, string $contentType = self::contentTypes['getChatbotSessions'][0])
+    {
+        list($response) = $this->getChatbotSessionsWithHttpInfo($pagination, $chatbot_id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getChatbotSessionsWithHttpInfo
+     *
+     * Get chatbot sessions
+     *
+     * @param  DomainPaginationPagination $pagination (required)
+     * @param  string $chatbot_id (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getChatbotSessions'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\SchemasResponsesChatbotChatbotSessionOverviewResponse, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getChatbotSessionsWithHttpInfo($pagination, $chatbot_id = null, string $contentType = self::contentTypes['getChatbotSessions'][0])
+    {
+        $request = $this->getChatbotSessionsRequest($pagination, $chatbot_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\OpenAPI\Client\Model\SchemasResponsesChatbotChatbotSessionOverviewResponse' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\SchemasResponsesChatbotChatbotSessionOverviewResponse' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\SchemasResponsesChatbotChatbotSessionOverviewResponse', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\OpenAPI\Client\Model\SchemasResponsesChatbotChatbotSessionOverviewResponse';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\SchemasResponsesChatbotChatbotSessionOverviewResponse',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getChatbotSessionsAsync
+     *
+     * Get chatbot sessions
+     *
+     * @param  DomainPaginationPagination $pagination (required)
+     * @param  string $chatbot_id (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getChatbotSessions'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getChatbotSessionsAsync($pagination, $chatbot_id = null, string $contentType = self::contentTypes['getChatbotSessions'][0])
+    {
+        return $this->getChatbotSessionsAsyncWithHttpInfo($pagination, $chatbot_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getChatbotSessionsAsyncWithHttpInfo
+     *
+     * Get chatbot sessions
+     *
+     * @param  DomainPaginationPagination $pagination (required)
+     * @param  string $chatbot_id (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getChatbotSessions'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getChatbotSessionsAsyncWithHttpInfo($pagination, $chatbot_id = null, string $contentType = self::contentTypes['getChatbotSessions'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\SchemasResponsesChatbotChatbotSessionOverviewResponse';
+        $request = $this->getChatbotSessionsRequest($pagination, $chatbot_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getChatbotSessions'
+     *
+     * @param  DomainPaginationPagination $pagination (required)
+     * @param  string $chatbot_id (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getChatbotSessions'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getChatbotSessionsRequest($pagination, $chatbot_id = null, string $contentType = self::contentTypes['getChatbotSessions'][0])
+    {
+
+        // verify the required parameter 'pagination' is set
+        if ($pagination === null || (is_array($pagination) && count($pagination) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $pagination when calling getChatbotSessions'
+            );
+        }
+
+
+
+        $resourcePath = '/v1/chatbots/conversations/';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $chatbot_id,
+            'chatbotId', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $pagination,
+            'pagination', // param base name
+            'object', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
+
+
+
+
+        $headers = $this->headerSelector->selectHeaders(
+            ['application/json', ],
+            $contentType,
+            $multipart
+        );
+
+        // for model (json/xml)
+        if (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $formParamValueItems = is_array($formParamValue) ? $formParamValue : [$formParamValue];
+                    foreach ($formParamValueItems as $formParamValueItem) {
+                        $multipartContents[] = [
+                            'name' => $formParamName,
+                            'contents' => $formParamValueItem
+                        ];
+                    }
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif (stripos($headers['Content-Type'], 'application/json') !== false) {
+                # if Content-Type contains "application/json", json_encode the form parameters
+                $httpBody = \GuzzleHttp\Utils::jsonEncode($formParams);
+            } else {
+                // for HTTP post (form)
+                $httpBody = ObjectSerializer::buildQuery($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('X-URLSLAB-KEY');
+        if ($apiKey !== null) {
+            $headers['X-URLSLAB-KEY'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $operationHost = $this->config->getHost();
+        $query = ObjectSerializer::buildQuery($queryParams);
+        return new Request(
+            'GET',
+            $operationHost . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation getChatbotSessionsChart
+     *
+     * Get chatbot sessions chart
+     *
+     * @param  DomainPaginationDateRange $date_range date_range (required)
+     * @param  string $chatbot_id chatbot_id (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getChatbotSessionsChart'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \OpenAPI\Client\Model\SchemasExtrasChartsChartData
+     */
+    public function getChatbotSessionsChart($date_range, $chatbot_id = null, string $contentType = self::contentTypes['getChatbotSessionsChart'][0])
+    {
+        list($response) = $this->getChatbotSessionsChartWithHttpInfo($date_range, $chatbot_id, $contentType);
+        return $response;
+    }
+
+    /**
+     * Operation getChatbotSessionsChartWithHttpInfo
+     *
+     * Get chatbot sessions chart
+     *
+     * @param  DomainPaginationDateRange $date_range (required)
+     * @param  string $chatbot_id (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getChatbotSessionsChart'] to see the possible values for this operation
+     *
+     * @throws \OpenAPI\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \OpenAPI\Client\Model\SchemasExtrasChartsChartData, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function getChatbotSessionsChartWithHttpInfo($date_range, $chatbot_id = null, string $contentType = self::contentTypes['getChatbotSessionsChart'][0])
+    {
+        $request = $this->getChatbotSessionsChartRequest($date_range, $chatbot_id, $contentType);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? (string) $e->getResponse()->getBody() : null
+                );
+            } catch (ConnectException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    (int) $e->getCode(),
+                    null,
+                    null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        (string) $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    (string) $response->getBody()
+                );
+            }
+
+            switch($statusCode) {
+                case 200:
+                    if ('\OpenAPI\Client\Model\SchemasExtrasChartsChartData' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\OpenAPI\Client\Model\SchemasExtrasChartsChartData' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\OpenAPI\Client\Model\SchemasExtrasChartsChartData', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+            }
+
+            $returnType = '\OpenAPI\Client\Model\SchemasExtrasChartsChartData';
+            if ($returnType === '\SplFileObject') {
+                $content = $response->getBody(); //stream goes to serializer
+            } else {
+                $content = (string) $response->getBody();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\OpenAPI\Client\Model\SchemasExtrasChartsChartData',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation getChatbotSessionsChartAsync
+     *
+     * Get chatbot sessions chart
+     *
+     * @param  DomainPaginationDateRange $date_range (required)
+     * @param  string $chatbot_id (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getChatbotSessionsChart'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getChatbotSessionsChartAsync($date_range, $chatbot_id = null, string $contentType = self::contentTypes['getChatbotSessionsChart'][0])
+    {
+        return $this->getChatbotSessionsChartAsyncWithHttpInfo($date_range, $chatbot_id, $contentType)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation getChatbotSessionsChartAsyncWithHttpInfo
+     *
+     * Get chatbot sessions chart
+     *
+     * @param  DomainPaginationDateRange $date_range (required)
+     * @param  string $chatbot_id (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getChatbotSessionsChart'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function getChatbotSessionsChartAsyncWithHttpInfo($date_range, $chatbot_id = null, string $contentType = self::contentTypes['getChatbotSessionsChart'][0])
+    {
+        $returnType = '\OpenAPI\Client\Model\SchemasExtrasChartsChartData';
+        $request = $this->getChatbotSessionsChartRequest($date_range, $chatbot_id, $contentType);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    if ($returnType === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        (string) $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'getChatbotSessionsChart'
+     *
+     * @param  DomainPaginationDateRange $date_range (required)
+     * @param  string $chatbot_id (optional)
+     * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getChatbotSessionsChart'] to see the possible values for this operation
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    public function getChatbotSessionsChartRequest($date_range, $chatbot_id = null, string $contentType = self::contentTypes['getChatbotSessionsChart'][0])
+    {
+
+        // verify the required parameter 'date_range' is set
+        if ($date_range === null || (is_array($date_range) && count($date_range) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $date_range when calling getChatbotSessionsChart'
+            );
+        }
+
+
+
+        $resourcePath = '/v1/chatbots/conversations/chart';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $chatbot_id,
+            'chatbotId', // param base name
+            'string', // openApiType
+            'form', // style
+            true, // explode
+            false // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $date_range,
+            'dateRange', // param base name
+            'object', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
+
+
 
 
         $headers = $this->headerSelector->selectHeaders(

@@ -127,6 +127,8 @@ class DomainsApi
      *
      * Get Domains of a user
      *
+     * @param  DomainDomainsDomainRequestDTO $domain_request_dto domain_request_dto (required)
+     * @param  DomainPaginationPagination $pagination pagination (required)
      * @param  string $domain_name the domain name to search for (optional)
      * @param  Int $primary_order_id Primary Order ID for pagination (optional)
      * @param  Int $secondary_order_id Secondary Order ID for pagination (optional)
@@ -140,9 +142,9 @@ class DomainsApi
      * @throws \InvalidArgumentException
      * @return \OpenAPI\Client\Model\DomainDomainsDomainBulkResponseDTO
      */
-    public function getUserDomains($domain_name = null, $primary_order_id = null, $secondary_order_id = null, $limit = null, $sorting_field = null, $sorting_direction = null, $body = null, string $contentType = self::contentTypes['getUserDomains'][0])
+    public function getUserDomains($domain_request_dto, $pagination, $domain_name = null, $primary_order_id = null, $secondary_order_id = null, $limit = null, $sorting_field = null, $sorting_direction = null, $body = null, string $contentType = self::contentTypes['getUserDomains'][0])
     {
-        list($response) = $this->getUserDomainsWithHttpInfo($domain_name, $primary_order_id, $secondary_order_id, $limit, $sorting_field, $sorting_direction, $body, $contentType);
+        list($response) = $this->getUserDomainsWithHttpInfo($domain_request_dto, $pagination, $domain_name, $primary_order_id, $secondary_order_id, $limit, $sorting_field, $sorting_direction, $body, $contentType);
         return $response;
     }
 
@@ -151,6 +153,8 @@ class DomainsApi
      *
      * Get Domains of a user
      *
+     * @param  DomainDomainsDomainRequestDTO $domain_request_dto (required)
+     * @param  DomainPaginationPagination $pagination (required)
      * @param  string $domain_name the domain name to search for (optional)
      * @param  Int $primary_order_id Primary Order ID for pagination (optional)
      * @param  Int $secondary_order_id Secondary Order ID for pagination (optional)
@@ -164,9 +168,9 @@ class DomainsApi
      * @throws \InvalidArgumentException
      * @return array of \OpenAPI\Client\Model\DomainDomainsDomainBulkResponseDTO, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getUserDomainsWithHttpInfo($domain_name = null, $primary_order_id = null, $secondary_order_id = null, $limit = null, $sorting_field = null, $sorting_direction = null, $body = null, string $contentType = self::contentTypes['getUserDomains'][0])
+    public function getUserDomainsWithHttpInfo($domain_request_dto, $pagination, $domain_name = null, $primary_order_id = null, $secondary_order_id = null, $limit = null, $sorting_field = null, $sorting_direction = null, $body = null, string $contentType = self::contentTypes['getUserDomains'][0])
     {
-        $request = $this->getUserDomainsRequest($domain_name, $primary_order_id, $secondary_order_id, $limit, $sorting_field, $sorting_direction, $body, $contentType);
+        $request = $this->getUserDomainsRequest($domain_request_dto, $pagination, $domain_name, $primary_order_id, $secondary_order_id, $limit, $sorting_field, $sorting_direction, $body, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -257,6 +261,8 @@ class DomainsApi
      *
      * Get Domains of a user
      *
+     * @param  DomainDomainsDomainRequestDTO $domain_request_dto (required)
+     * @param  DomainPaginationPagination $pagination (required)
      * @param  string $domain_name the domain name to search for (optional)
      * @param  Int $primary_order_id Primary Order ID for pagination (optional)
      * @param  Int $secondary_order_id Secondary Order ID for pagination (optional)
@@ -269,9 +275,9 @@ class DomainsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getUserDomainsAsync($domain_name = null, $primary_order_id = null, $secondary_order_id = null, $limit = null, $sorting_field = null, $sorting_direction = null, $body = null, string $contentType = self::contentTypes['getUserDomains'][0])
+    public function getUserDomainsAsync($domain_request_dto, $pagination, $domain_name = null, $primary_order_id = null, $secondary_order_id = null, $limit = null, $sorting_field = null, $sorting_direction = null, $body = null, string $contentType = self::contentTypes['getUserDomains'][0])
     {
-        return $this->getUserDomainsAsyncWithHttpInfo($domain_name, $primary_order_id, $secondary_order_id, $limit, $sorting_field, $sorting_direction, $body, $contentType)
+        return $this->getUserDomainsAsyncWithHttpInfo($domain_request_dto, $pagination, $domain_name, $primary_order_id, $secondary_order_id, $limit, $sorting_field, $sorting_direction, $body, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -284,6 +290,8 @@ class DomainsApi
      *
      * Get Domains of a user
      *
+     * @param  DomainDomainsDomainRequestDTO $domain_request_dto (required)
+     * @param  DomainPaginationPagination $pagination (required)
      * @param  string $domain_name the domain name to search for (optional)
      * @param  Int $primary_order_id Primary Order ID for pagination (optional)
      * @param  Int $secondary_order_id Secondary Order ID for pagination (optional)
@@ -296,10 +304,10 @@ class DomainsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getUserDomainsAsyncWithHttpInfo($domain_name = null, $primary_order_id = null, $secondary_order_id = null, $limit = null, $sorting_field = null, $sorting_direction = null, $body = null, string $contentType = self::contentTypes['getUserDomains'][0])
+    public function getUserDomainsAsyncWithHttpInfo($domain_request_dto, $pagination, $domain_name = null, $primary_order_id = null, $secondary_order_id = null, $limit = null, $sorting_field = null, $sorting_direction = null, $body = null, string $contentType = self::contentTypes['getUserDomains'][0])
     {
         $returnType = '\OpenAPI\Client\Model\DomainDomainsDomainBulkResponseDTO';
-        $request = $this->getUserDomainsRequest($domain_name, $primary_order_id, $secondary_order_id, $limit, $sorting_field, $sorting_direction, $body, $contentType);
+        $request = $this->getUserDomainsRequest($domain_request_dto, $pagination, $domain_name, $primary_order_id, $secondary_order_id, $limit, $sorting_field, $sorting_direction, $body, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -340,6 +348,8 @@ class DomainsApi
     /**
      * Create request for operation 'getUserDomains'
      *
+     * @param  DomainDomainsDomainRequestDTO $domain_request_dto (required)
+     * @param  DomainPaginationPagination $pagination (required)
      * @param  string $domain_name the domain name to search for (optional)
      * @param  Int $primary_order_id Primary Order ID for pagination (optional)
      * @param  Int $secondary_order_id Secondary Order ID for pagination (optional)
@@ -352,8 +362,22 @@ class DomainsApi
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getUserDomainsRequest($domain_name = null, $primary_order_id = null, $secondary_order_id = null, $limit = null, $sorting_field = null, $sorting_direction = null, $body = null, string $contentType = self::contentTypes['getUserDomains'][0])
+    public function getUserDomainsRequest($domain_request_dto, $pagination, $domain_name = null, $primary_order_id = null, $secondary_order_id = null, $limit = null, $sorting_field = null, $sorting_direction = null, $body = null, string $contentType = self::contentTypes['getUserDomains'][0])
     {
+
+        // verify the required parameter 'domain_request_dto' is set
+        if ($domain_request_dto === null || (is_array($domain_request_dto) && count($domain_request_dto) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $domain_request_dto when calling getUserDomains'
+            );
+        }
+
+        // verify the required parameter 'pagination' is set
+        if ($pagination === null || (is_array($pagination) && count($pagination) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $pagination when calling getUserDomains'
+            );
+        }
 
 
 
@@ -370,6 +394,24 @@ class DomainsApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $domain_request_dto,
+            'domainRequestDTO', // param base name
+            'object', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
+        // query params
+        $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
+            $pagination,
+            'pagination', // param base name
+            'object', // openApiType
+            'form', // style
+            true, // explode
+            true // required
+        ) ?? []);
         // query params
         $queryParams = array_merge($queryParams, ObjectSerializer::toQueryValue(
             $domain_name,

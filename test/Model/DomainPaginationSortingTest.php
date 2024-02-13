@@ -1,6 +1,6 @@
 <?php
 /**
- * SchemasRequestsChatbotChatCompletionRequestTest
+ * DomainPaginationSortingTest
  *
  * PHP version 7.4
  *
@@ -31,15 +31,15 @@ namespace OpenAPI\Client\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * SchemasRequestsChatbotChatCompletionRequestTest Class Doc Comment
+ * DomainPaginationSortingTest Class Doc Comment
  *
  * @category    Class
- * @description SchemasRequestsChatbotChatCompletionRequest
+ * @description DomainPaginationSorting
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class SchemasRequestsChatbotChatCompletionRequestTest extends TestCase
+class DomainPaginationSortingTest extends TestCase
 {
 
     /**
@@ -71,36 +71,27 @@ class SchemasRequestsChatbotChatCompletionRequestTest extends TestCase
     }
 
     /**
-     * Test "SchemasRequestsChatbotChatCompletionRequest"
+     * Test "DomainPaginationSorting"
      */
-    public function testSchemasRequestsChatbotChatCompletionRequest()
+    public function testDomainPaginationSorting()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "human_input"
+     * Test attribute "sorting_field"
      */
-    public function testPropertyHumanInput()
+    public function testPropertySortingField()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "chatbot_user_id"
+     * Test attribute "sorting_direction"
      */
-    public function testPropertyChatbotUserId()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "message_url"
-     */
-    public function testPropertyMessageUrl()
+    public function testPropertySortingDirection()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

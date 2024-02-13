@@ -1,11 +1,11 @@
-# # SchemasRequestsChatbotChatCompletionRequest
+# # SchemasExtrasChartsChartDataset
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**human_input** | **string** |  |
-**chatbot_user_id** | **string** |  |
-**message_url** | **string** |  |
+**label** | **string** |  |
+**data** | **int[]** |  |
+**metadata** | [**CollectionImmutableMapStringString**](CollectionImmutableMapStringString.md) |  | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

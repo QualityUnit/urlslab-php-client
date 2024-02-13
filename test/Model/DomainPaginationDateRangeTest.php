@@ -1,6 +1,6 @@
 <?php
 /**
- * SchemasRequestsChatbotChatCompletionRequestTest
+ * DomainPaginationDateRangeTest
  *
  * PHP version 7.4
  *
@@ -31,15 +31,15 @@ namespace OpenAPI\Client\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * SchemasRequestsChatbotChatCompletionRequestTest Class Doc Comment
+ * DomainPaginationDateRangeTest Class Doc Comment
  *
  * @category    Class
- * @description SchemasRequestsChatbotChatCompletionRequest
+ * @description DomainPaginationDateRange
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class SchemasRequestsChatbotChatCompletionRequestTest extends TestCase
+class DomainPaginationDateRangeTest extends TestCase
 {
 
     /**
@@ -71,36 +71,27 @@ class SchemasRequestsChatbotChatCompletionRequestTest extends TestCase
     }
 
     /**
-     * Test "SchemasRequestsChatbotChatCompletionRequest"
+     * Test "DomainPaginationDateRange"
      */
-    public function testSchemasRequestsChatbotChatCompletionRequest()
+    public function testDomainPaginationDateRange()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "human_input"
+     * Test attribute "date_from"
      */
-    public function testPropertyHumanInput()
+    public function testPropertyDateFrom()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "chatbot_user_id"
+     * Test attribute "date_to"
      */
-    public function testPropertyChatbotUserId()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "message_url"
-     */
-    public function testPropertyMessageUrl()
+    public function testPropertyDateTo()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

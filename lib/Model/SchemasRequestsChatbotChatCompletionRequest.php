@@ -58,7 +58,8 @@ class SchemasRequestsChatbotChatCompletionRequest implements ModelInterface, Arr
       */
     protected static $openAPITypes = [
         'human_input' => 'string',
-        'chatbot_user_id' => 'string'
+        'chatbot_user_id' => 'string',
+        'message_url' => 'string'
     ];
 
     /**
@@ -70,7 +71,8 @@ class SchemasRequestsChatbotChatCompletionRequest implements ModelInterface, Arr
       */
     protected static $openAPIFormats = [
         'human_input' => null,
-        'chatbot_user_id' => null
+        'chatbot_user_id' => null,
+        'message_url' => null
     ];
 
     /**
@@ -80,7 +82,8 @@ class SchemasRequestsChatbotChatCompletionRequest implements ModelInterface, Arr
       */
     protected static array $openAPINullables = [
         'human_input' => false,
-		'chatbot_user_id' => false
+		'chatbot_user_id' => false,
+		'message_url' => false
     ];
 
     /**
@@ -170,7 +173,8 @@ class SchemasRequestsChatbotChatCompletionRequest implements ModelInterface, Arr
      */
     protected static $attributeMap = [
         'human_input' => 'humanInput',
-        'chatbot_user_id' => 'chatbotUserId'
+        'chatbot_user_id' => 'chatbotUserId',
+        'message_url' => 'messageUrl'
     ];
 
     /**
@@ -180,7 +184,8 @@ class SchemasRequestsChatbotChatCompletionRequest implements ModelInterface, Arr
      */
     protected static $setters = [
         'human_input' => 'setHumanInput',
-        'chatbot_user_id' => 'setChatbotUserId'
+        'chatbot_user_id' => 'setChatbotUserId',
+        'message_url' => 'setMessageUrl'
     ];
 
     /**
@@ -190,7 +195,8 @@ class SchemasRequestsChatbotChatCompletionRequest implements ModelInterface, Arr
      */
     protected static $getters = [
         'human_input' => 'getHumanInput',
-        'chatbot_user_id' => 'getChatbotUserId'
+        'chatbot_user_id' => 'getChatbotUserId',
+        'message_url' => 'getMessageUrl'
     ];
 
     /**
@@ -252,6 +258,7 @@ class SchemasRequestsChatbotChatCompletionRequest implements ModelInterface, Arr
     {
         $this->setIfExists('human_input', $data ?? [], null);
         $this->setIfExists('chatbot_user_id', $data ?? [], null);
+        $this->setIfExists('message_url', $data ?? [], null);
     }
 
     /**
@@ -286,6 +293,9 @@ class SchemasRequestsChatbotChatCompletionRequest implements ModelInterface, Arr
         }
         if ($this->container['chatbot_user_id'] === null) {
             $invalidProperties[] = "'chatbot_user_id' can't be null";
+        }
+        if ($this->container['message_url'] === null) {
+            $invalidProperties[] = "'message_url' can't be null";
         }
         return $invalidProperties;
     }
@@ -352,6 +362,33 @@ class SchemasRequestsChatbotChatCompletionRequest implements ModelInterface, Arr
             throw new \InvalidArgumentException('non-nullable chatbot_user_id cannot be null');
         }
         $this->container['chatbot_user_id'] = $chatbot_user_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets message_url
+     *
+     * @return string
+     */
+    public function getMessageUrl()
+    {
+        return $this->container['message_url'];
+    }
+
+    /**
+     * Sets message_url
+     *
+     * @param string $message_url message_url
+     *
+     * @return self
+     */
+    public function setMessageUrl($message_url)
+    {
+        if (is_null($message_url)) {
+            throw new \InvalidArgumentException('non-nullable message_url cannot be null');
+        }
+        $this->container['message_url'] = $message_url;
 
         return $this;
     }

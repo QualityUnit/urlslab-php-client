@@ -12,5 +12,9 @@ Name | Type | Description | Notes
 **chatbot_user_id** | **string** |  |
 **chatbot_welcome_message** | **string** |  |
 **connected_domains** | **string[]** |  |
+**suggested_user_messages** | **string[]** |  |
+**url_suffix** | **string** |  | [optional]
+**has_search** | **bool** |  |
+**theme** | **string** |  |
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

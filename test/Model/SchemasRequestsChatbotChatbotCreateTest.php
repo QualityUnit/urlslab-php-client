@@ -132,4 +132,40 @@ class SchemasRequestsChatbotChatbotCreateTest extends TestCase
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "suggested_user_messages"
+     */
+    public function testPropertySuggestedUserMessages()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "url_suffix"
+     */
+    public function testPropertyUrlSuffix()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "has_search"
+     */
+    public function testPropertyHasSearch()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "theme"
+     */
+    public function testPropertyTheme()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
 }

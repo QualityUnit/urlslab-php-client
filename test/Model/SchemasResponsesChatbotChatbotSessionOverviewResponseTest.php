@@ -1,6 +1,6 @@
 <?php
 /**
- * SchemasRequestsChatbotChatCompletionRequestTest
+ * SchemasResponsesChatbotChatbotSessionOverviewResponseTest
  *
  * PHP version 7.4
  *
@@ -31,15 +31,15 @@ namespace OpenAPI\Client\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * SchemasRequestsChatbotChatCompletionRequestTest Class Doc Comment
+ * SchemasResponsesChatbotChatbotSessionOverviewResponseTest Class Doc Comment
  *
  * @category    Class
- * @description SchemasRequestsChatbotChatCompletionRequest
+ * @description SchemasResponsesChatbotChatbotSessionOverviewResponse
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class SchemasRequestsChatbotChatCompletionRequestTest extends TestCase
+class SchemasResponsesChatbotChatbotSessionOverviewResponseTest extends TestCase
 {
 
     /**
@@ -71,36 +71,63 @@ class SchemasRequestsChatbotChatCompletionRequestTest extends TestCase
     }
 
     /**
-     * Test "SchemasRequestsChatbotChatCompletionRequest"
+     * Test "SchemasResponsesChatbotChatbotSessionOverviewResponse"
      */
-    public function testSchemasRequestsChatbotChatCompletionRequest()
+    public function testSchemasResponsesChatbotChatbotSessionOverviewResponse()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "human_input"
+     * Test attribute "chatbot_id"
      */
-    public function testPropertyHumanInput()
+    public function testPropertyChatbotId()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "chatbot_user_id"
+     * Test attribute "session_id"
      */
-    public function testPropertyChatbotUserId()
+    public function testPropertySessionId()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "message_url"
+     * Test attribute "message_cnt"
      */
-    public function testPropertyMessageUrl()
+    public function testPropertyMessageCnt()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "total_price"
+     */
+    public function testPropertyTotalPrice()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "session_start"
+     */
+    public function testPropertySessionStart()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "session_end"
+     */
+    public function testPropertySessionEnd()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

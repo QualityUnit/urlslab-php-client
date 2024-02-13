@@ -1,6 +1,6 @@
 <?php
 /**
- * SchemasRequestsChatbotChatCompletionRequestTest
+ * SchemasExtrasChartsChartDataTest
  *
  * PHP version 7.4
  *
@@ -31,15 +31,15 @@ namespace OpenAPI\Client\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * SchemasRequestsChatbotChatCompletionRequestTest Class Doc Comment
+ * SchemasExtrasChartsChartDataTest Class Doc Comment
  *
  * @category    Class
- * @description SchemasRequestsChatbotChatCompletionRequest
+ * @description SchemasExtrasChartsChartData
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class SchemasRequestsChatbotChatCompletionRequestTest extends TestCase
+class SchemasExtrasChartsChartDataTest extends TestCase
 {
 
     /**
@@ -71,36 +71,27 @@ class SchemasRequestsChatbotChatCompletionRequestTest extends TestCase
     }
 
     /**
-     * Test "SchemasRequestsChatbotChatCompletionRequest"
+     * Test "SchemasExtrasChartsChartData"
      */
-    public function testSchemasRequestsChatbotChatCompletionRequest()
+    public function testSchemasExtrasChartsChartData()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "human_input"
+     * Test attribute "labels"
      */
-    public function testPropertyHumanInput()
+    public function testPropertyLabels()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "chatbot_user_id"
+     * Test attribute "datasets"
      */
-    public function testPropertyChatbotUserId()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "message_url"
-     */
-    public function testPropertyMessageUrl()
+    public function testPropertyDatasets()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');

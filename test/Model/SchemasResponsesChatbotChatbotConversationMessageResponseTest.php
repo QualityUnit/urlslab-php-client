@@ -1,6 +1,6 @@
 <?php
 /**
- * SchemasRequestsChatbotChatCompletionRequestTest
+ * SchemasResponsesChatbotChatbotConversationMessageResponseTest
  *
  * PHP version 7.4
  *
@@ -31,15 +31,15 @@ namespace OpenAPI\Client\Test\Model;
 use PHPUnit\Framework\TestCase;
 
 /**
- * SchemasRequestsChatbotChatCompletionRequestTest Class Doc Comment
+ * SchemasResponsesChatbotChatbotConversationMessageResponseTest Class Doc Comment
  *
  * @category    Class
- * @description SchemasRequestsChatbotChatCompletionRequest
+ * @description SchemasResponsesChatbotChatbotConversationMessageResponse
  * @package     OpenAPI\Client
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
  */
-class SchemasRequestsChatbotChatCompletionRequestTest extends TestCase
+class SchemasResponsesChatbotChatbotConversationMessageResponseTest extends TestCase
 {
 
     /**
@@ -71,27 +71,9 @@ class SchemasRequestsChatbotChatCompletionRequestTest extends TestCase
     }
 
     /**
-     * Test "SchemasRequestsChatbotChatCompletionRequest"
+     * Test "SchemasResponsesChatbotChatbotConversationMessageResponse"
      */
-    public function testSchemasRequestsChatbotChatCompletionRequest()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "human_input"
-     */
-    public function testPropertyHumanInput()
-    {
-        // TODO: implement
-        $this->markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "chatbot_user_id"
-     */
-    public function testPropertyChatbotUserId()
+    public function testSchemasResponsesChatbotChatbotConversationMessageResponse()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
@@ -101,6 +83,51 @@ class SchemasRequestsChatbotChatCompletionRequestTest extends TestCase
      * Test attribute "message_url"
      */
     public function testPropertyMessageUrl()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "human_text"
+     */
+    public function testPropertyHumanText()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "bot_text"
+     */
+    public function testPropertyBotText()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "sources"
+     */
+    public function testPropertySources()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "price"
+     */
+    public function testPropertyPrice()
+    {
+        // TODO: implement
+        $this->markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "created"
+     */
+    public function testPropertyCreated()
     {
         // TODO: implement
         $this->markTestIncomplete('Not implemented');
